@@ -1,0 +1,56 @@
+
+ - Check one session per user!
+ - filter services list for each client
+ - _submitAll: mark failed as "failed to save" cell
+ - _submitAll: popup previous value
+ - repaint view after update metadata
+ - filter model run in background
+ - pause filters before fetch_all
+ - model: store list of connected filters
+ - filter based on id, not DisplayValue
+ - _submitAll in separate thread!
+ - shadow model for each model? (in case of select update)
+ - priority of model select, in names?
+ - F3 - new row with total of current tableview
+ - maybe use list instead combobox for contracts of ufio
+ - DepQComboBox on_showEvent show first filtered value
+ - on set_where - create new model in async, store 10 last models, mark widgets update_in_progress
+ - on data change select one day, then switch to month
+ - use emitCurrentIndexChanged_do
+ - on select dirty model ask save/discard
+ - Contracts in client tab should be list, not combobox
+ - use named list or list_record
+ - services: dont use new every year, add meta service table
+ - debug - add clean lru_cache
+ - tableYear - show filled in different color if some of the services filled another department
+ - tableYear - show filled in different color if some of the services filled another year
+ - highlight headers of tableView on selection  (maybe mark dirty rows)
+ - maybe load big model, and use small proxy models to connect to table?
+ - local cache DB?
+ - mark report outdated if added new entry in journal
+ - message = debug.message + if windowed QMessage, else in console set flag
+ - reselect from DB - treat as special [cellEdits] object  - add it to journal with new id
+ - connect journal_change to cache_clear() of special journal_readers() in models
+ - model: call journal less?
+ - journal in separate thread
+ -[] update row - try whole row, then each column separatly
+ -[] insert row - try whole row, on error ...
+ -[] postEvent to apply filters
+ -[] _serv_activ is too slow
+ -[] SQL short_fio delete and predvmin
+ -[] list of printed invoices
+
+ -[x]  - SD.unsaved_view and etc should be arrays
+ -[x]  - _submitAll - support insert
+ -[x] ? - myQComboBox don't change index if data not changed on model update/select
+ -[x]  - use cached journal readers in models
+
+BUGS
+-[x] table - not updated by default
+-[] update backgraund of view after insert
+
+DONE - DataMapper not always switched - after model changed (sometimes stay empty  )
+DONE - QComboBox sometimes no new row (вкладка на месяц после смены отделения)
+
+
+Qt Designer: highlight slots/signals

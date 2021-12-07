@@ -1,0 +1,17 @@
+QtPy
+PySide2
+watchdog
+python-docx
+qtawesome
+concurrent-log-handler
+
+SQLAlchemy
+
+mysql-connector-python
+
+PyMySQL
+pandas
+Pillow
+qrcode
+# for python pre 3.8 only
+dataclasses

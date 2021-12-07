@@ -1,0 +1,11 @@
+
+/venv/
+*.log*
+/build/
+/dist/
+/templates/results
+AIS-3USON.spec
+*__pycache__*
+**/*.~lock.*
+*.pstat*
+*копия*
