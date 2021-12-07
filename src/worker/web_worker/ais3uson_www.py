@@ -150,30 +150,43 @@ class MyServer(BaseHTTPRequestHandler):
         if self.path == "/add":
             pass
         elif self.path == "/fio":
-            self.get_auth()
-            message = self.get_sql_data(sql_query="""
-                select * from _apikey_has_contracts where api_key = '%s'
-            """ % self.api_key)
-            # send the message back
-            self.json_header()
-            self.write(json.dumps(message, default=str))
-        elif self.path == "/plan":
-            self.get_auth()
-            message = self.get_sql_data(sql_query="""
-                    select contract_id,serv_id,planned,filled from _api_key_planned where api_key = '%s'
+            _, api_key = self.get_auth()
+            if api_key:
+                message = self.get_sql_data(sql_query="""
+                    select * from _apikey_has_contracts where api_key = '%s'
                 """ % self.api_key)
-            # send the message back
-            self.json_header()
-            self.write(json.dumps(message, default=str))
+                # send the message back
+                self.json_header()
+                # message=message+message # test
+                self.write(json.dumps(message, default=str))
+        elif self.path == "/planned":
+            _, api_key = self.get_auth()
+            if api_key:
+                message = self.get_sql_data(sql_query="""
+                        select contract_id,serv_id,planned,filled from _api_key_planned where api_key = '%s'
+                    """ % self.api_key)
+                # send the message back
+                self.json_header()
+                self.write(json.dumps(message, default=str))
+        elif self.path == "/services":
+            _, api_key = self.get_auth()
+            if api_key:
+                message = self.get_sql_data(sql_query="""
+                        select id, tnum, serv_text, total, image, serv_id_list, sub_serv, short_text from _api_key_services 
+                    """)
+                # send the message back
+                self.json_header()
+                self.write(json.dumps(message, default=str))
         elif self.path == "/test":
             # read the message and convert it into a python dictionary
-            message = self.get_auth()
-            # add a property to the object
-            self.api_key = "123"
-            message['received'] = self.get_sql_data()
-            # send the message back
-            self.json_header()
-            self.write(json.dumps(message, default=str))
+            message, api_key = self.get_auth()
+            if api_key:
+                # add a property to the object
+                self.api_key = "123"
+                message['received'] = self.get_sql_data()
+                # send the message back
+                self.json_header()
+                self.write(json.dumps(message, default=str))
 
     def get_auth(self):
         content_len = int(self.headers.get('Content-Length'))
@@ -188,21 +201,21 @@ class MyServer(BaseHTTPRequestHandler):
             for c in ["'", '"']:
                 if c in self.api_key:
                     self.api_key = None
-        return message
+        return message, self.api_key
 
     def get(self):
         pass
 
     def stat(self):
         self.send_response(200)
-        self.send_header("Content-type", "text/html")
+        self.send_header("Content-type", "text/html; charset=utf-8")
         self.end_headers()
-        self.write("<html><head><title>https://pythonbasics.org</title></head>")
+        self.write("<html><head><title>Статистика WEB-сервера АИС ТриУСОН</title></head>")
+        self.write("<body>")
+        self.write("<p>Статистика WEB-сервера АИС ТриУСОН</p>")
         self.write("<p>Request: %s</p>" % self.path)
         self.write("<p>Thread: %s</p>" % threading.currentThread().getName())
         self.write("<p>Thread Count: %s</p>" % threading.active_count())
-        self.write("<body>")
-        self.write("<p>This is an example web server.</p>")
         self.write("</body></html>")
 
     def get_sql_data(self, host='localhost', port="3366", user='web_info', password=PASSWORD,
