@@ -179,8 +179,10 @@ BEGIN
     # grant perm. to web_info
     # ---------------------------
    	GRANT Select ON kcson.`_apikey_has_contracts` TO 'web_info'@'%';
+   	# todo: make procedure for insert
    	GRANT insert ON kcson.`api_key_insert_main` TO 'web_info'@'%';
    	GRANT Select ON kcson.`_api_key_planned` TO 'web_info'@'%';
+   	GRANT Select ON kcson.`_api_key_services` TO 'web_info'@'%';
 
 
 
