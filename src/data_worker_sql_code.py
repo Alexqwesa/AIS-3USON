@@ -1,3 +1,5 @@
+from typing import Dict
+
 from qtpy.QtCore import QDate
 
 from global_contsants import SQL_DATE_FORMAT
@@ -9,7 +11,7 @@ class _data_worker_SQL_CODE:
         # sql queries dict
         # ---------------------------
         self.sql_query = {}
-        self.sql_query_stub_data = {}
+        self.sql_query_stub_data: dict[str, tuple] = {}
         sql_query_stub_data = self.sql_query_stub_data
         sql_query = self.sql_query
         #############################

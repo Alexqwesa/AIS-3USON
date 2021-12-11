@@ -13,8 +13,10 @@
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
 
+from datetime import datetime as dt
 from collections import OrderedDict, defaultdict
 # from itertools import count
+from contextlib import suppress
 from threading import RLock
 
 from qtpy.QtCore import QDateTime, QAbstractTableModel, Signal, Slot
