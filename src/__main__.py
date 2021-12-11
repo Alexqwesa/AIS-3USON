@@ -41,10 +41,7 @@ if not os.environ['QT_API']:
 #############################
 # start app
 # ---------------------------
-if start == "console_frontend":
-    from console_frontend import *
-    main()
-elif start == "main_pyqt_frontend":
+if start == "main_pyqt_frontend":
     from main_pyqt_frontend import *
     main()
 elif start == "fill_templates":
