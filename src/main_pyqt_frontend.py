@@ -5,7 +5,7 @@
 # Purpose:
 #
 # Author:      Savin Alexander Viktorovich aka alexqwesa
-# Created:     2019
+# Created:     2019-2021
 # Copyright:   Savin Alexander Viktorovich aka alexqwesa
 # Licence:     LGPL 3
 # This software is licensed under the "LGPLv3" License as described in the "LICENSE" file,
@@ -14,24 +14,20 @@
 # -------------------------------------------------------------------------------
 
 
+import typing
+from typing import NoReturn
+
+import platform
+import subprocess
+from qtpy.QtWidgets import QStyleFactory, QMainWindow
+import qtawesome as qta
+
 #############################
 # setup logger
 # ---------------------------
-# import pypyodbc as pypyodbc
-# import asyncio
-# from threading import Thread
-
-import typing
-from contextlib import suppress
-
-from qtpy.QtWidgets import QInputDialog, QStyleFactory, QMainWindow
-import qtawesome as qta
-
 # logging.getLogger("3uson").setLevel(logging.DEBUG)
 # logging.getLogger("3uson").setLevel(logging.INFO)
 
-
-from typing import NoReturn
 
 #############################
 # QT Libraries
@@ -48,8 +44,6 @@ from fill_templates import PrepareDocument
 # CONSTANTS
 # ---------------------------
 # VERSION = 2
-import platform
-import subprocess
 #############################
 # For money
 # ---------------------------
@@ -132,40 +126,27 @@ class allEventFilter(QObject):
 
 class MyAppConnect(QMainWindow):
     def __init__(self, parent=None):
-        # QtWidgets.QMainWindow.__init__(self)
-        # self.loop = asyncio.get_event_loop()
         super().__init__(parent)
-        #############################
-        # decorate_events_with_try
-        # ---------------------------
-        # self.all_events = decorate_events_with_try(self)
-        # QCoreApplication.instance().installEventFilter(self.all_events)
         #############################
         # init vars
         # ---------------------------
         self._dirty = False
         self.data = TsonData(self)
         self.data.setObjectName("main_data")
-        # self.config = self.data.config
         self.login_done = False
-        # self.tablesRTModel = {}
-        # self.tableList = {}
-        # self.cbxRTModel = {}
-        # self.cbxList = {}
         #############################
         # load QSettins
         # ---------------------------
         self.font_size = self.font().pointSize()
         self.readQSetting()
         #############################
+        # ui setups
+        # ---------------------------
+        UI.main_window = self
+        #############################
         # loading UI files
         # ---------------------------
-        # self.ui_init_task = asyncio.create_task(self.ui_init())
-        # self.ui_init_task = self.loop.create_task(self.ui_init())
-        # self.ui_init_task =self.loop.call_soon(self.ui_init)
-        # self.ui_init_task = Thread(None, self.ui_init, "thd-1")  # , args=(thed[i],)
         self.ui_init()
-        # self.ui_init_task.start()
         #############################
         # login_dialog init
         # ---------------------------
@@ -190,8 +171,6 @@ class MyAppConnect(QMainWindow):
         #############################
         # ui setups
         # ---------------------------
-        # self.FontG = QtWidgets.QActionGroup(self)
-        # fg = self.FontG
         UI.main_window = self
         #############################
         # connect signals and slots
@@ -365,9 +344,9 @@ class MyAppConnect(QMainWindow):
 
     def notifiesToUsers(self):
         debug("notifiesToUsers")
-        for nf in self.data.getNotifies():
+        for notify in self.data.getNotifies():
             QMessageBox.information(self.parent(),
-                                    self.tr("Сообщение от Администратора"), nf)
+                                    self.tr("Сообщение от Администратора"), notify)
 
     def set_department(self, dep):
         #############################
@@ -389,10 +368,7 @@ class MyAppConnect(QMainWindow):
         #############################
         # notifiesToUsers
         # ---------------------------
-        # self.findTablesAndCreateModels()
-        # self.findQcboxAndCreateModels()
         self.notifiesToUsers()
-        # self.createUnAssignedModels()
 
     def readQSetting(self):
         #############################
@@ -424,7 +400,7 @@ class MyAppMenu(MyAppConnect):
             
 Автоматизированная Информационная Система Учета Услуг Учреждений Социального Обслуживания Населения
             
-        Система разработана в 2019-2020г.
+        Система разработана в 2019-2021г.
         Разработчик - Савин Александр Викторович
         Лицензия - LGPL 3
                                 """))
@@ -460,7 +436,6 @@ class MyAppMenu(MyAppConnect):
 
     @Slot()
     def on_qa_menu_pd_triggered(self):
-        # PrepareDocument.print_ps_agreement()
         PrepareDocument.print_doc(SD.last_ufio, QDate.currentDate().month(), SD.last_year, SD.last_dep,
                                   str(SD.last_contr),
                                   "соглашениеПД", QDate.currentDate())
@@ -525,12 +500,6 @@ class MyAppMenu(MyAppConnect):
         tab = ui.tabMain.set_active_tab_by_name("tab_client")
         tab.findChild(myQTabWidget).set_active_tab_by_name("tab_people_main")
         cbox: myQComboBox = ui.cbx_1__dep_has_ufio
-        # new_row = cbox.super_model().special_row
-        # new_ind = cbox.super_model().index(new_row, 0)
-        # flt: tsQsfpModel
-        # for flt in reversed(cbox.filters):
-        #     new_ind = flt.mapFromSource(new_ind)
-        # cbox.setCurrentIndex(new_ind.row())
         cbox.setCurrentIndex(0)
 
     @Slot()
@@ -607,12 +576,10 @@ class MyAppMenu(MyAppConnect):
     @Slot()
     def on_qaFontSmaller_triggered(self):
         self.set_current_font(-1)
-        # self.ui.qaFontSmaller.setChecked(False)
 
     @Slot()
     def on_qaFontBigger_triggered(self):
         self.set_current_font(+1)
-        # self.ui.qaFontBigger.setChecked(False)
 
     @Slot()
     def on_qa_add_ufio_triggered(self):
@@ -661,11 +628,6 @@ class MyAppMenu(MyAppConnect):
     @Slot(bool)
     def on_qaDBReconnect_triggered(self, val):
         SD.reconnect()
-        # if self.main_dbconnect():
-        #     return True
-        # else:
-        #     self.on_qaDBconnect_triggered()
-        # SD.connect()
 
 
 class MyApp(MyAppMenu):  # , Ui_MainWindow
@@ -708,18 +670,6 @@ class MyApp(MyAppMenu):  # , Ui_MainWindow
         """
         debug("on_discard_save_triggered")
         SD.journal.discard()
-        # for mdl in SD.unsaved_model:
-        #     mdl.revertAll()
-        # if self.isDirty():
-        #     for key, obj in self.tableList.items():
-        #         try:
-        #             if obj.isDirty():
-        #                 name = key[6:]
-        #                 WD.models(name).select()
-        #                 WD.models(name).setDirty.emit(False)
-        #                 debug("discard %s ", key)
-        #         except:
-        #             pass
 
     @Slot()
     def on_action_save_triggered(self):
@@ -727,8 +677,6 @@ class MyApp(MyAppMenu):  # , Ui_MainWindow
         """
         debug("on_action_save_triggered")
         SD.journal.save()
-        # for mdl in SD.unsaved_model[:]:
-        #     mdl.submitAll()
 
     @Slot()
     def on_qa_dock_people_info_triggered(self):
@@ -760,9 +708,7 @@ class MyApp(MyAppMenu):  # , Ui_MainWindow
             error("Не назначен отдел!")
             ui.statusBar().showMessage(self.tr("Ошибка - Нельзя сменить отделение "))
         elif rc == 1:
-            # qry.first()
             ui.statusBar().showMessage(self.tr("Нельзя сменить отделение - Вам доступно лишь одно отделение"))
-            # self.setDep(qry.value(index))
         else:
             items = {}
             dep_id = SD.last_dep
@@ -805,88 +751,10 @@ class MyApp(MyAppMenu):  # , Ui_MainWindow
         # TODO: reset filters
         # resetModel(mdl)
 
-    # def findQcboxAndCreateModels(self):
-    #     """init QComboBoxes"""
-    #     #############################
-    #     # init tables ui
-    #     # ---------------------------
-    #     debug("====init QComboBoxes====")
-    #     ui = self.ui
-    #     d = self.data
-    #     cList = self.cbxList
-    #     coldict = {}
-    #     for cbx in self.findChildren(QtWidgets.QComboBox):  # why QTableView didn't work
-    #         name = cbx.objectName()
-    #         if "cbx_" == name[:4]:
-    #             if name[5] == "_":
-    #                 coldict[cbx.objectName()] = int(name[4])
-    #                 cList[cbx.objectName()] = cbx
-    #     if self.cbxRTModel is None:
-    #         self.cbxRTModel = []
-    #     cbxRTModel = self.cbxRTModel
-    #     debug(cList)
-    #     # logging.getLogger(__name__).setLevel(logging.INFO)
-    #     info("ui QComboBox widgets: %s", cList.keys())
-    #     thd = []
-    #     models = []
-    #     for i, (wname, cbx) in enumerate(cList.items()):
-    #         tname = wname[6:]
-    #         cbxRTModel[wname] = cbx
-    #         if tname not in WD.models:
-    #             models.append(tsSqlTableModel(tname, self.data, self.data.db))
-    #         else:
-    #             models.append(WD.models(tname))
-    #         cbx.setModel(models[i])
-    #         thd.append(threading.Thread(target=self.run_add_module, args=(tname, cbx, models[i])))
-    #         thd[i].start()
-    #     for i, (wname, cbx) in enumerate(cList.items()):
-    #         thd[i].join()
-    #         cbx.setModelColumn(coldict[wname])
-    #     # logging.getLogger(__name__).setLevel(logging.DEBUG)
-    #     debug(cbxRTModel.items())
-    #
-    # def findTablesAndCreateModels(self):
-    #     """init tables"""
-    #     #############################
-    #     # init tables ui
-    #     # ---------------------------
-    #     ui = self.ui
-    #     tList = self.tableList
-    #     for tbl in self.findChildren(QtWidgets.QTableView):  # why QTableView didn't work
-    #         name = tbl.objectName()
-    #         if "table_" == name[:6]:
-    #             tList[tbl.objectName()] = tbl
-    #     tables_rt_model = self.tablesRTModel
-    #     # logging.getLogger(__name__).setLevel(logging.INFO)
-    #     info("ui table widgets: %s", tList.keys())
-    #     debug(QtWidgets.QTableView)
-    #     thd = []
-    #     models = []
-    #     for i, (wname, tbl) in enumerate(tList.items()):
-    #         tname = wname[6:]
-    #         tables_rt_model[wname] = tbl
-    #         models.append(tsSqlTableModel(tname, self.data, self.data.db))
-    #         tbl.setModel(models[i])
-    #         thd.append(threading.Thread(target=self.run_add_module, args=(tname, tbl, models[i])))
-    #         thd[i].start()
-    #     for i in range(len(tList)):
-    #         thd[i].join()
-    #     # logging.getLogger(__name__).setLevel(logging.DEBUG)
-    #     debug(tables_rt_model)
-
     def run_add_module(self, tname, tbl, mdl):
         model = self.data.addModel(tname, None, None, None, mdl)
         if model:
             tbl.setModel(model)
-
-    def create_thread_for_tm(self, table, model):
-        class thd_control(QObject):
-            """class to control threads"""
-
-            def __init__(self, parent):
-                """Constructor for thd_control"""
-                super().__init__(parent)
-                # thd = QThread()
 
     def closeEvent(self, event):
         if SD.unsaved:
@@ -934,10 +802,6 @@ class TsonData(QObject):
         debug("TsonData init")
         self.setParent(parent)
         #############################
-        # load local config file
-        # ---------------------------
-        # self.config = SD.read_config(False)
-        #############################
         # init members
         # ---------------------------
         self.db: Union[QSqlDatabase, None] = None
@@ -979,7 +843,6 @@ def main():
     # start app
     # ---------------------------
     app = QtWidgets.QApplication(sys.argv)
-    # SD.read_config(and_import=True)
     while True:
         WD.inited_models = {}
         SD.db_connections = {}
@@ -991,8 +854,6 @@ def main():
             break
         main_window.ui.menu_settings.removeEventFilter(main_window.ef)
         main_window.hide()
-        # del WD
-        # WD=_data
     sys.exit(current_exit_code)
 
 
