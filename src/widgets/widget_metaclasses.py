@@ -17,7 +17,7 @@ import itertools
 from qtpy.QtGui import QKeyEvent, QFocusEvent
 from qtpy.QtCore import QTime, QEvent
 
-from models.ts_models_plus import *
+from models.universal_delegate import *
 
 
 # from helper_func import super_model

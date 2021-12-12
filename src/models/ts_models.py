@@ -28,7 +28,7 @@ from qtpy.QtSql import QSqlRelationalTableModel, QSqlRelation
 #############################
 # CONSTANTS
 # ---------------------------
-from models.ts_get_contract_data import perc_for
+from logic.ts_get_contract_data import perc_for
 from safe_shared_data import *
 
 TABLE_FOR_DEBUG = "table__dep_has_main__where_vdate__by_vdate"

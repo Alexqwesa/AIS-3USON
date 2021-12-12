@@ -27,6 +27,7 @@ from logic.data_worker import *
 # from ts_models import SQL_DATE_FORMAT, tsItemDelegate, tsSqlTableModel, tsQDataWidgetMapper, tsQsfpModel
 # from ts_models_plus import tsQDataWidgetMapper, tsQsfpModel
 from models.ts_models_serv_year import tsTableServYearModel
+from models.universal_delegate import tsItemDelegate
 
 
 class QOBase(QObject):

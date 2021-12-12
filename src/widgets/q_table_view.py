@@ -13,11 +13,11 @@
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
 from qtpy.QtGui import QPaintEvent
-from qtpy.QtGui import QPainter
 from qtpy.QtCore import QItemSelectionModel, QMimeData, QItemSelection
 from qtpy.QtWidgets import QAbstractItemView
 from qtpy.QtGui import QMouseEvent, QFontMetrics
 
+from models.universal_delegate import tsItemDelegate
 from widgets.q_calendar_view import *
 
 

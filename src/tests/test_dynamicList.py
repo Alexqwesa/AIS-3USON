@@ -4,7 +4,7 @@ from unittest import TestCase
 
 from helper_func import DynamicList
 
-import multiprocessing, logging
+import multiprocessing
 logger = multiprocessing.log_to_stderr()
 logger.setLevel(multiprocessing.SUBDEBUG)
 
