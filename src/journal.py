@@ -5,7 +5,7 @@
 # Purpose:
 #
 # Author:      Savin Alexander Viktorovich aka alexqwesa
-# Created:     2019-2020
+# Created:     2019-2021
 # Copyright:   Savin Alexander Viktorovich aka alexqwesa
 # Licence:     LGPL 3
 # This software is licensed under the "LGPLv3" License as described in the "LICENSE" file,
@@ -15,7 +15,6 @@
 
 from datetime import datetime as dt
 from collections import OrderedDict, defaultdict
-# from itertools import count
 from contextlib import suppress
 from threading import RLock
 
@@ -24,9 +23,6 @@ from qtpy.QtSql import QSqlQuery
 
 from helper_func import *
 from qtpy.QtWidgets import QMessageBox
-
-
-# from cachetools import LRUCache, cached
 
 
 class cellEdit():
