@@ -13,9 +13,8 @@
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
 import itertools
-from collections import OrderedDict
 
-from qtpy.QtGui import QKeyEvent, QPainter, QPaintEvent, QFocusEvent
+from qtpy.QtGui import QKeyEvent, QFocusEvent
 from qtpy.QtCore import QTime, QEvent
 
 from models.ts_models_plus import *
@@ -106,7 +105,7 @@ class tsFltModelSetWhere(tsDirtyWidget):
         """
         if not isinstance(model, tsSqlTableModel):
             error("not model!!")
-            from data_worker import WD
+            from logic.data_worker import WD
             mdl = WD.models("stub_model")
             mdl.setObjectName("tablestub_model" + QTime.currentTime().toString("HH:mm:ss"))
         self.__model = model
@@ -190,7 +189,7 @@ class tsFltModelSetWhere(tsDirtyWidget):
                 #############################
                 # init model
                 # ---------------------------
-                from data_worker import WD
+                from logic.data_worker import WD
                 if self.__class_prefix not in tname or tname == self.__class_prefix:
                     error("Wrong table name - %s", tname)
                     mdl = WD.models("stub_model")
@@ -404,7 +403,7 @@ class tsFltModelMainMethods(tsFltModelSetWhere):
             if mcol_name == "id" or mcol_name[-3:] == "_id":  # TODO:  or mcol_name[-3:] == "_id"
                 if value:
                     if self.use_relations:
-                        from data_worker import WD
+                        from logic.data_worker import WD
                         val = WD.get_data_from_model_name(get_val_from_model_name, mcol_name, value, None, role)
                     # else:
                     #     val = value
@@ -415,7 +414,7 @@ class tsFltModelMainMethods(tsFltModelSetWhere):
             # process list of id
             # ---------------------------
             if mcol_name_full[-8:] == "_id_list":
-                from data_worker import WD
+                from logic.data_worker import WD
                 val = WD.get_data_from_model_name(get_val_from_model_name, mcol_name, value)
                 mcol_name = mcol_name_full[:-8]
                 if isinstance(val, int):
@@ -648,7 +647,7 @@ class tsFltModel(tsFltModelMainMethods):
                 # get id from model_name
                 # ---------------------------
                 if model_name != dst_model_name:
-                    from data_worker import WD
+                    from logic.data_worker import WD
                     val2 = WD.get_data_from_model_name(model_name, dst_model_name + "_id", val)
                     return self.set_filter_data(filter_id, val2, True, dst_model_name)
                 return self.set_filter_data(filter_id, val, True, model_name)

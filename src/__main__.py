@@ -45,7 +45,7 @@ if start == "main_pyqt_frontend":
     from main_pyqt_frontend import *
     main()
 elif start == "fill_templates":
-    from fill_templates import *
+    from logic.fill_templates import *
     main()
 elif start == "helper_func":
     from helper_func import *

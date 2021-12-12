@@ -13,9 +13,8 @@
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
 import decimal
-from collections import OrderedDict
 from datetime import date
-from threading import Thread, RLock
+from threading import Thread
 
 from qtpy.QtGui import QFontMetrics
 
@@ -119,7 +118,7 @@ class BareStaticTableModel(BareTableModel):
             #############################
             # init static models
             # ---------------------------
-            from data_worker import WD
+            from logic.data_worker import WD
             self.serv = WD.models("_serv_activ")
             self.dep_has_worker = WD.models("dep_has_worker")
             #############################
@@ -267,7 +266,7 @@ class CHSTableModel(BareStaticTableModel):
             #############################
             # init models
             # ---------------------------
-            from data_worker import WD
+            from logic.data_worker import WD
             # self.contr_has_serv = WD.models("_contracts_has_serv_raw__where_contracts_id_table_year",
             #                                 "_contracts_has_serv",
             #                                 "contracts_id={}".format(self._contract_id), False)
@@ -398,7 +397,7 @@ class AllDynamicTableModel(CHSTableModel):
             #############################
             # init services list
             # ---------------------------
-            from data_worker import WD
+            from logic.data_worker import WD
             # self.main = WD.models("main_raw__where_contracts_id_table_year", "main",
             #                       "contracts_id = {}".format(self._contract_id), False)
             self.gmdata = GroupedMainData("_main_months", self)

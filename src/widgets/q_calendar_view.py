@@ -12,10 +12,10 @@
 # which should be included with this package. The terms are also available at
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
-
+from qtpy.QtGui import QPainter
 from qtpy.QtCore import QRect, QSemaphore, QThread, QPoint
 from qtpy.QtGui import QKeySequence, QPen, QShowEvent
-from qtpy.QtWidgets import QCalendarWidget, QAction
+from qtpy.QtWidgets import QAction,QCalendarWidget
 
 from widgets.widget_metaclasses import *
 
@@ -128,7 +128,7 @@ class QCalendarView(_myQCalendar):
                     # main model init and connect
                     # ---------------------------
                     self.inited = True
-                    from data_worker import WD
+                    from logic.data_worker import WD
                     self.__class_prefix = "clndr_"
                     model_name = self.objectName().replace(self.__class_prefix, "private")
                     mdl = QSqlRelTableModelExtWithMetaData(
@@ -164,7 +164,7 @@ class QCalendarView(_myQCalendar):
     def set_flt_serv_model(self, val, get_val_from_model_name):
         with QMutexLocker(self.lock):
             # if self.set_third_filter_model(val, get_val_from_model_name):
-            from data_worker import WD
+            from logic.data_worker import WD
             self.cur_serv_id = WD.get_data_from_model_name(get_val_from_model_name, "serv_id_list", val)
             self.cur_serv_id_list = set()  # WD.get_data_from_model_name(get_val_from_model_name, "serv_id_list", val)
             if isinstance(val, str):
@@ -181,7 +181,7 @@ class QCalendarView(_myQCalendar):
     def set_flt_worker_model(self, val, get_val_from_model_name):
         with QMutexLocker(self.lock):
             # if self.set_second_filter_model(val, get_val_from_model_name):
-            from data_worker import WD
+            from logic.data_worker import WD
             self.cur_dep_has_worker_id = WD.get_data_from_model_name(get_val_from_model_name, "id", val)
             model_raw, _, _ = get_val_from_model_name.partition("__")
             model_raw = (model_raw + "_raw").replace("_raw_raw", "_raw")
@@ -913,7 +913,7 @@ class myQCalendar(QCalendarView):  # QCalendarParalled
         #     self.last_ufio_id= self.cur_serv_id
         #     self.last_serv_id= self.cur_serv_id
         #     self._first_date = first_date
-        from data_worker import WD
+        from logic.data_worker import WD
         self._first_status = WD.get_status_for(self.cur_ufio_id, self.cur_serv_id, first_date)
         self._last_status = WD.get_status_for(self.cur_ufio_id, self.cur_serv_id, last_date)
         sleft_1, ret_status = self._first_status
@@ -986,7 +986,7 @@ class myQCalendar(QCalendarView):  # QCalendarParalled
     #     return super().updateCells()
 
     def add_new_date(self, date, serv, note):
-        from data_worker import WD
+        from logic.data_worker import WD
         vdate = date
         dep = SD.last_dep
         qry_data = [

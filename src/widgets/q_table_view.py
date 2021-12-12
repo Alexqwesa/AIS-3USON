@@ -12,11 +12,11 @@
 # which should be included with this package. The terms are also available at
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
-from datetime import date
-
-from qtpy.QtCore import QItemSelectionModel, QMimeData, QItemSelection, QPoint, QThread
-from qtpy.QtWidgets import QAbstractItemView, QAction, QHeaderView, QShortcut
-from qtpy.QtGui import QMouseEvent, QShowEvent, QKeySequence, QFontMetrics
+from qtpy.QtGui import QPaintEvent
+from qtpy.QtGui import QPainter
+from qtpy.QtCore import QItemSelectionModel, QMimeData, QItemSelection
+from qtpy.QtWidgets import QAbstractItemView
+from qtpy.QtGui import QMouseEvent, QFontMetrics
 
 from widgets.q_calendar_view import *
 
@@ -501,7 +501,7 @@ class add_info_QTableView(myQTableView):
     def set_curFIO(self, id0, model_name):
         if self.model():
             if id0:
-                from data_worker import WD
+                from logic.data_worker import WD
                 val = WD.get_data_from_model_name("ufio", "ufio", id0)
                 dic = {"curFIO": val}
                 qry_str = """

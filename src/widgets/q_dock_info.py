@@ -14,8 +14,8 @@
 # -------------------------------------------------------------------------------
 
 from queue import LifoQueue
-from qtpy.QtWidgets import QDockWidget
 from widgets.q_combo_box_with_data_mapper import *
+from qtpy.QtWidgets import QDockWidget
 
 
 class Worker(QObject):
@@ -196,7 +196,7 @@ class infoQDockWidget(QDockWidget):
 
     @Slot()
     def update_view(self):
-        from data_worker import WD
+        from logic.data_worker import WD
         data_array = self.get_money_in_month_data()
         try:
             # ui = self.ui

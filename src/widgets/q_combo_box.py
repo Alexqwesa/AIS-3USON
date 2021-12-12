@@ -13,7 +13,7 @@
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
 from qtpy.QtGui import QWheelEvent
-from qtpy.QtWidgets import QCompleter, QAction
+from qtpy.QtWidgets import QCompleter
 from widgets.ui_widgets import *
 
 
@@ -185,7 +185,7 @@ class myQComboBox(_myQComboBox):
         #############################
         # get new model name
         # ---------------------------
-        from data_worker import WD
+        from logic.data_worker import WD
         mdl = WD.models(model_name)
         new_model_name = mdl.data_by_id(id0, mdl.index_of_col("sql_table"))
         debug("new model - %s for - %s", new_model_name, self.objectName())

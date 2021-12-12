@@ -19,7 +19,7 @@ import sys
 
 def main():
     pass
-    binpath = os.path.join(os.getcwd(), "..", "thirdparty", "vcredist_x86.exe").replace("src\\..\\", "")
+    binpath = os.path.join(os.getcwd(), "../..", "thirdparty", "vcredist_x86.exe").replace("src\\..\\", "")
     subprocess.run(binpath + " /q:a /c:\"msiexec /i vcredist.msi /qn\"", shell=True, stdin=None, stdout=None,
                    stderr=None, close_fds=True)
     exit(0)

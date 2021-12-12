@@ -13,9 +13,8 @@
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
 import configparser
-import threading
 import time
-from contextlib import contextmanager, suppress
+from contextlib import contextmanager
 
 import sqlalchemy
 from sqlalchemy import create_engine
@@ -71,7 +70,7 @@ if False:
 
 def _SD_fill_dict():
     debug("_SD_fill_dict start")
-    from data_worker import WD
+    from logic.data_worker import WD
     # while not SD.key_lock.acquire(False):
     #     time.sleep(0.3)
     # QApplication.instance().processEvents()
@@ -210,7 +209,7 @@ class _safe_share_data(QObject):
     def preinit_models(self):
         if not self.preinited_models:
             self.preinited_models = True
-            from data_worker import WD
+            from logic.data_worker import WD
             for mname in ["dep", "ufio", "contracts", "worker", "_serv_activ"]:
                 _ = WD.models(mname)
             # return _SD_fill_dict()

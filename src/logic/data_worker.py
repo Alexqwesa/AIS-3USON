@@ -25,7 +25,7 @@ import string
 
 from qtpy.QtCore import QRegExp
 
-from data_worker_sql_code import _data_worker_SQL_CODE
+from logic.data_worker_sql_code import _data_worker_SQL_CODE
 from widgets.custumQWidgets import *
 
 

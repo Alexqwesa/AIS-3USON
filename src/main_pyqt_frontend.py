@@ -12,7 +12,7 @@
 # which should be included with this package. The terms are also available at
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
-
+import os
 
 import typing
 from typing import NoReturn
@@ -38,7 +38,7 @@ from qtpy import QtGui
 # import this project files
 # ---------------------------
 from tab_classes import *
-from fill_templates import PrepareDocument
+from logic.fill_templates import PrepareDocument
 
 #############################
 # CONSTANTS

@@ -19,7 +19,7 @@
 from qtpy.QtWidgets import QLabel, QInputDialog
 from qtpy.QtGui import QRegExpValidator as QRegularExpressionValidator  # ???
 
-from data_worker import *
+from logic.data_worker import *
 
 #############################
 # TODO

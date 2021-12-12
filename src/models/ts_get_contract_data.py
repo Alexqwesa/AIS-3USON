@@ -43,7 +43,7 @@ def calc_perc_for_contract(contract_id, pddate):
     try:
         WD = calc_perc_for_contract.WD
     except AttributeError:
-        from data_worker import WD
+        from logic.data_worker import WD
         calc_perc_for_contract.WD = WD
         WD = calc_perc_for_contract.WD
     #############################
@@ -101,7 +101,7 @@ def perc_for(index: QModelIndex):
     try:
         WD = perc_for.WD
     except AttributeError:
-        from data_worker import WD
+        from logic.data_worker import WD
         perc_for.WD = WD
         WD = perc_for.WD
     #############################
@@ -224,7 +224,7 @@ def add_info_before(pddate: QDate, contract_id):
                 model_found = True
                 add_info_before.add_info = model
     except AttributeError:
-        from data_worker import WD
+        from logic.data_worker import WD
         add_info_before.WD = WD
         WD = add_info_before.WD
     #############################
@@ -246,7 +246,7 @@ def add_info_before(pddate: QDate, contract_id):
         if not model_found:
             add_info.setFilter(ai_filter)
     except AttributeError:
-        from data_worker import WD
+        from logic.data_worker import WD
         add_info = WD.models("add_info_raw__where_contracts_id_for_before",
                              "add_info",
                              ai_filter, False)
@@ -300,7 +300,7 @@ def lm_before(pddate: QDate, ptype="live_min_p"):
     try:
         lm = lm_before.live_min_model
     except AttributeError:
-        from data_worker import WD
+        from logic.data_worker import WD
         live_min_model = WD.models("live_min")
         lm_before.live_min_model = live_min_model
         live_min_model.saved.connect(lm_before_cache_clear)

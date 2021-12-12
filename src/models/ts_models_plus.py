@@ -16,8 +16,8 @@ from threading import Lock
 
 from qtpy.QtCore import QByteArray, QRegularExpression
 from qtpy.QtSql import QSqlRelationalDelegate
-from qtpy.QtWidgets import QLineEdit, QCheckBox, QSpinBox, QDoubleSpinBox, QDateTimeEdit, QDateEdit, \
-    QComboBox, QPlainTextEdit, QStyledItemDelegate, QDataWidgetMapper
+from qtpy.QtWidgets import QLineEdit, QSpinBox, QDoubleSpinBox, QDateTimeEdit, QDateEdit, \
+    QPlainTextEdit, QStyledItemDelegate, QDataWidgetMapper
 from qtpy.QtWidgets import QStyleOptionViewItem
 
 from models.ts_models import *
@@ -102,7 +102,7 @@ class tsPureItemDelegate(QSqlRelationalDelegate):
                         ename = "rel_" + ename
                         editor.model().setObjectName(ename)
                     try:
-                        from data_worker import WD
+                        from logic.data_worker import WD
                         if WD.model_last_update(ename[4:]) > emdl.last_update:
                             editor.model().select()
                             emdl.last_update = QDateTime.currentDateTime()
@@ -336,7 +336,7 @@ class tsItemDelegate(tsPureItemDelegate):
                         # only show workers from department
                         # ---------------------------
                         if self.cname == "worker_id":
-                            from data_worker import WD
+                            from logic.data_worker import WD
                             editor.setModel(WD.models("_dep_has_workers"))
                     if self.cmodel.info.cut_name == "add_info":
                         if self.cname == "contracts_id":
@@ -489,7 +489,7 @@ class tsQsfpModel_no_new(QSortFilterProxyModel):
         self._filter_id = set()
         # self.far_cc = 0
         if model_name:
-            from data_worker import WD
+            from logic.data_worker import WD
             mdl = WD.models(model_name, tname, where, rel)
             self.setSourceModel(mdl)
             if mdl.rowCount0() < 1:

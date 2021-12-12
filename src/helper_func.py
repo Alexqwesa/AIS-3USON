@@ -20,7 +20,7 @@ from qtpy.QtCore import QSortFilterProxyModel, QModelIndex, QObject, QTimer, QMu
 from qtpy.QtSql import QSqlTableModel
 from qtpy.QtWidgets import QTabWidget, QStackedWidget, QComboBox
 from global_contsants import *
-from auto_reloader import *
+from dev.auto_reloader import *
 
 
 

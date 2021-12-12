@@ -25,7 +25,7 @@ import tempfile
 #
 import typing
 
-from data_worker import *
+from logic.data_worker import *
 # from safe_shared_data import SD
 # from ts_models import SQL_DATE_FORMAT, tsQsfpModel
 # try:

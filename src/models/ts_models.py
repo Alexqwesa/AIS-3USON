@@ -1059,7 +1059,7 @@ class QSqlRelTableModelExtWithMetaData(QSqlTableModelExtWithMetaData):
         # ---------------------------
         if sql_table not in SD.QSqlAllTables:
             critical("SQL table not found - %s ", sql_table)
-            from data_worker import WD
+            from logic.data_worker import WD
             QMessageBox.critical(UI.main_window,
                                  self.tr("Не удалось найти таблицу"),
                                  str(sql_table),
@@ -1669,7 +1669,7 @@ class tsSqlTableModelWithNewRow(tsSqltRelTableModelEdit):
             return ret
         elif role == Qt.DisplayRole:
             if col in self.relColumns:  # TODO: or col in self.relrocolumns:
-                from data_worker import WD
+                from logic.data_worker import WD
                 model_name = self.tsFieldNames[col].replace("_id", "")
                 ret = WD.get_data_from_model_name(model_name, self.tsFieldNames[col], ret)
             return ret
@@ -1811,7 +1811,7 @@ class tsSqlTableModelWithNewRow(tsSqltRelTableModelEdit):
             new_items = {**new_items, "dep_id": SD.last_dep}
         if "ufio_id" in self.tsFieldNames and "ufio_id" not in new_items and \
                 "contracts_id" in new_items and new_items["contracts_id"] and new_items["contracts_id"] > 0:
-            from data_worker import WD
+            from logic.data_worker import WD
             new_items = {**new_items,
                          "ufio_id": WD.get_data_from_model_name("contracts", "ufio_id", new_items["contracts_id"])
                          }
@@ -2154,7 +2154,7 @@ class bugfix_for_add_info(tsSqlTableModel):
     @lru_cache(maxsize=5000000)
     def contracts_dict(self, id0):
         try:
-            from data_worker import WD
+            from logic.data_worker import WD
             # contracts = WD.models("contracts")
             # ret = contracts.match_with_fetch(
             #     contracts.index(0, 0), id0
@@ -2169,7 +2169,7 @@ class bugfix_for_add_info(tsSqlTableModel):
             if index.isValid() and role == Qt.EditRole:
                 self.perc_for.cache_clear()
                 if value and index.column() == self.tsFieldNames.index("contracts_id"):
-                    from data_worker import WD
+                    from logic.data_worker import WD
                     mdl = WD.models("contracts")
                     try:
                         return super().setData(index,

@@ -1,9 +1,6 @@
-import inspect
-import os
-import sys
 import types
 
-from logger_setup import *
+from dev.logger_setup import *
 from functools import wraps
 
 from qtpy.QtWidgets import QWidget, QVBoxLayout
@@ -298,7 +295,7 @@ try:
 
 
     def widget_replacer(widget_name):
-        from data_worker import UI
+        from logic.data_worker import UI
         widget: QWidget = UI.main_window.findChild(QWidget, widget_name)
         #############################
         # import module

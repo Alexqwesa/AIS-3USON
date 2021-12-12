@@ -13,7 +13,7 @@
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
 import calendar
-from datetime import datetime, date
+from datetime import date
 from typing import Union
 
 import pandas as pd
@@ -22,7 +22,7 @@ from qtpy.QtWidgets import QFileDialog
 from sqlalchemy import and_, select, between
 from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 
-from logger_setup import debug, error, critical
+from dev.logger_setup import debug, error, critical
 from safe_shared_data import UI, SD
 from models.orm import Updatable_contracts as Contracts, Updatable_ufio as Ufio, Updatable_add_info as Add_info, \
     Ripso, Ufio_has_category, Serv, main, updatable_main, Worker
