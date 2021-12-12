@@ -19,7 +19,7 @@ from typing import Union
 from qtpy.QtCore import QSortFilterProxyModel, QModelIndex, QObject, QTimer, QMutexLocker, QMutex, QDate
 from qtpy.QtSql import QSqlTableModel
 from qtpy.QtWidgets import QTabWidget, QStackedWidget, QComboBox
-from global_contsants import *
+from global_constants import *
 from dev.auto_reloader import *
 
 

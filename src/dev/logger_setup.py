@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Tuple, Callable
 
 # from concurrent_log_handler import ConcurrentRotatingFileHandler
-from global_contsants import *
+from global_constants import *
 
 #############################
 # setup app dir

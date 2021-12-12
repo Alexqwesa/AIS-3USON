@@ -2,7 +2,7 @@ from typing import Dict
 
 from qtpy.QtCore import QDate
 
-from global_contsants import SQL_DATE_FORMAT
+from global_constants import SQL_DATE_FORMAT
 
 
 class _data_worker_SQL_CODE:
