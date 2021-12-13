@@ -141,7 +141,6 @@ class tsFltModelSetWhere(tsDirtyWidget):
         #############################
         # column synonyms
         # ---------------------------
-        # TODO: correct this
         # col_dict = {"you": "worker_id"}
         # if col_name in col_dict.keys():
         #     col_name = col_dict[col_name]
@@ -284,7 +283,6 @@ class tsFltModelMainMethods(tsFltModelSetWhere):
             debug("set filter %s  value - %s for table - %s ", key, id0, self.objectName())
             _, _, col_name = key.partition("_where_")
             col_name, _, _ = col_name.partition("__")
-            # mcol = model.index_of_col_try(col_name)
             #############################
             # get super model table name
             # ---------------------------
@@ -311,10 +309,6 @@ class tsFltModelMainMethods(tsFltModelSetWhere):
                 if self._delayed_first_filter is not None:  # TODO: par.isTabVisibleFor(self)
                     self._set_first_filter_exact(self._delayed_first_filter)
                 return
-            # for i in range(id0 - 5, id0 + 5):
-            #     val = smt_name + "." + col_name + " = " + str(i)
-            #     if " = " + str(i) not in new_filter:
-            #         new_filter= val + " or " + self.super_model().filter()
             #############################
             # set filter
             # ---------------------------
@@ -327,10 +321,6 @@ class tsFltModelMainMethods(tsFltModelSetWhere):
                     if par.isTabVisibleFor(self):  # is needed ?
                         self.super_model().update_data()
                         # QTimer.singleShot(0, self.super_model().update_data)
-                    else:
-                        pass
-                        # Do nothing
-                        # return
                 else:
                     QTimer.singleShot(2000, self.super_model().update_data)
             else:  # TODO: don't call at all
@@ -338,16 +328,6 @@ class tsFltModelMainMethods(tsFltModelSetWhere):
             if self._delayed_first_filter is not None:  # TODO: par.isTabVisibleFor(self)
                 self._set_first_filter_exact(self._delayed_first_filter)
             return
-            # if is_parent_tab_visible(self):
-            #     QTimer.singleShot(0, self.super_model().update_data)
-            # return
-            # #while par
-            # parVis = self.parent().parent().isVisible()
-            # # self.isVisible() always return False - maybe qt bug?
-            # # TODO: rework it
-            # if self.isVisible() or parVis:
-            #     QTimer.singleShot(0, self.super_model().update_data)
-            # # self.super_model().setFilter(new_filter)
 
     @Slot(QObject)
     def replace_model(self, new_model: QObject):
@@ -648,22 +628,6 @@ class tsFltModel(tsFltModelMainMethods):
         else:
             return self.set_filter_data(filter_id, val, True)
 
-    # def set_filter_data(self, flt_num, value, exact=False, get_val_from_model_name=None):
-    #     Qtimer_runner(self._set_filter_data, 0, "_set_filter_data" + self.objectName())
-
-    # @Slot(str, str)
-    # def filter_changed(self, flt: str, val: str):
-    #     """
-    #     Change filter @flt (tsQsfpModel name) to @val
-    #     """
-    #     self.init_model()
-    #     flt_obj: tsQsfpModel = self.get_filter_by(flt)
-    #     if not flt_obj:
-    #         return False
-    #     if "you" in flt:
-    #         return  # TODO: write it
-    #     return self.set_filter_data(flt_obj, val, exact=True)
-
     @Slot(bool)
     def disable_events(self, state):
         if state:
@@ -830,19 +794,12 @@ class tsFilteredModel(tsFltModel):  # tsFilteredModelWithDelay
         else:
             self.set_filter_data = self.set_filter_data_original
 
-    # def setObjectName(self, name):
-    #     super().setObjectName(name)
-    #     self.info = WNameParser(name)
-
     # def replacefilterAt(self, filter_index):
     #     """
     #     :param filter_index:
     #     :return: key, filter
     #     """
     #     return next(itertools.islice(self.filters.items(), filter_index, filter_index + 1))
-
-    # @abstractmethod
-    # def init_model(self):
 
 
 class events_disabler(QObject):

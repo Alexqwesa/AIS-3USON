@@ -292,25 +292,6 @@ class myQComboBox(_myQComboBox):
                 return True
         return False
 
-    # @Slot()
-    # def on_model_selected(self):
-    #     self.setCurrentIndex(0)
-    #     # TODO: check if last index available by data
-    #
-    # def setModel(self, model):
-    #     ret = super().setModel(model)
-    #     model.selected.connect(self.on_model_selected)
-    #     return ret
-    #
-    # def event(self, e: QEvent):
-    #     if e.type() == QEvent.KeyPress:
-    #     ret = super().event(e)
-    #     #############################
-    #     # set index -1 for empty string
-    #     # ---------------------------
-    #     # if e.type() == QEvent.KeyPress or e.type()==QEvent.QInputMethodQueryEvent:
-    #     return ret
-
     def keyPressEvent(self, e: QKeyEvent):
         #############################
         # clear field

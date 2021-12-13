@@ -2,7 +2,8 @@
 # -------------------------------------------------------------------------------
 # -*- coding: utf-8 -*-
 # Name:        AIS 3USON Custum QT Widgets
-# Purpose:     or just widget with different default properties
+# Purpose:     only slightly changed widgets
+#              or just widget with different default properties
 #
 # Author:      Savin Alexander Viktorovich aka alexqwesa
 # Created:     2019-2021
