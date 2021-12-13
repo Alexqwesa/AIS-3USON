@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # -------------------------------------------------------------------------------
 # -*- coding: utf-8 -*-
-# Name:        AIS 3USON meta code for custum Qt widgets
-# Purpose:
+# Name:        AIS 3USON meta code for custom Qt widgets
+# Purpose:     This is the glue that hold together widgets and models
 #
 # Author:      Savin Alexander Viktorovich aka alexqwesa
 # Created:     2019
@@ -19,12 +19,6 @@ from qtpy.QtCore import QTime, QEvent
 
 from models.universal_delegate import *
 
-
-# from helper_func import super_model
-# from logger_setup import error, debug
-# from ts_models import tsSqlTableModel, tsQsfpModel, SQL_DATE_FORMAT
-
-# @auto_reload_class_code(reloader)
 
 class tsDirtyWidget:
     def __init__(self, parent):

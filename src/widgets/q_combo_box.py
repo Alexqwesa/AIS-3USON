@@ -145,8 +145,6 @@ class myQComboBox(_myQComboBox):
         if hasattr(model, "sourceModel"):
             ret = super().setModel(model)
         else:
-            # new_mdl = tsQsfpModel()
-            # new_mdl.setSourceModel(model)
             ret = super().setModel(model.simply_sorted)
         #############################
         # get modelColumn + post connect setup
@@ -171,11 +169,6 @@ class myQComboBox(_myQComboBox):
         return ret
 
     def setCompleter(self, c: QCompleter):
-        # list = []
-        # col = self.modelColumn()
-        # if self.inited:
-        #     for r in range(self.model().rowCount()):
-        #         list.append(self.model().data_rc(r, col))
         self._completer.setCompletionColumn(self.modelColumn())
         self._completer.setModel(self.model())
         return super().setCompleter(self._completer)

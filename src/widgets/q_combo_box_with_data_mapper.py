@@ -45,7 +45,7 @@ class QComboBoxWithDataMapper(myQComboBox):
             col_name = model.tsFieldNames[self.modelColumn()]
             if col_name != "id" and col_name[-3:] != "_id":
                 col_name += "_id"
-            id = self.current_id()
+            id_ = self.current_id()
             # kwarg = {col_name: self.current_id()}
             # model.set_new_rec_autofill(**kwarg)
             # model.set_new_rec_autofill(**{col_name: self.current_id()})
@@ -53,9 +53,9 @@ class QComboBoxWithDataMapper(myQComboBox):
             # set SQL settings
             # ---------------------------
             if col_name == "ufio_id":
-                SD.set_last_ufio(id)
+                SD.set_last_ufio(id_)
             elif col_name == "contracts_id":
-                SD.set_last_contr(id)
+                SD.set_last_contr(id_)
 
     # @Slot(int, str)
     # def change_model(self, id0: int, model_name: str):

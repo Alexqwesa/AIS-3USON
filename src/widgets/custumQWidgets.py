@@ -2,10 +2,10 @@
 # -------------------------------------------------------------------------------
 # -*- coding: utf-8 -*-
 # Name:        AIS 3USON Custum QT Widgets
-# Purpose:
+# Purpose:     or just widget with different default properties
 #
 # Author:      Savin Alexander Viktorovich aka alexqwesa
-# Created:     2019
+# Created:     2019-2021
 # Copyright:   Savin Alexander Viktorovich aka alexqwesa
 # Licence:     LGPL 3
 # This software is licensed under the "LGPLv3" License as described in the "LICENSE" file,
@@ -36,20 +36,6 @@ class myQTabBar(QTabBar):
                                     background-color: rgb(235, 245, 255);
                                     
                             }""")
-        # color:  # 000000;
-        # font - weight: 600; font: bold;
-        # border: 50 px;
-        # background - color: rgb(240, 240, 255);
-
-    # def tabRect(self, index: int) -> QRect:
-    #     rect: QRect = super().tabRect(index)
-    #     rect.setX(rect.x() + 100)
-    #     return rect
-    #
-    # def geometry(self) -> QRect:
-    #     rect: QRect = super().geometry()
-    #     rect.setX(rect.x() + 100)
-    #     return rect
 
 
 class myQTabWidget(QtWidgets.QTabWidget):
@@ -186,10 +172,6 @@ class myQStackedWidget(QStackedWidget):
         if next_tab >= self.count():
             next_tab = 0
         self.setCurrentIndex(next_tab)
-
-
-# # TODO: lru_cache
-# # @staticmethod
 
 
 if __name__ == "__main__":

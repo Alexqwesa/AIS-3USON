@@ -21,10 +21,6 @@ from models.universal_delegate import tsItemDelegate
 from widgets.q_calendar_view import *
 
 
-# from thirdparty.hanging_threads import start_monitoring
-# monitoring_thread = start_monitoring()
-
-
 class tsQTableViewDockInfo(QTableView):
     def mousePressEvent(self, ev: QMouseEvent):
         ret = super().mousePressEvent(ev)
@@ -74,14 +70,6 @@ class tsQTableView(tsQTableViewDockInfo):
         #############################
         # add QActions with binding
         # ---------------------------
-        # why didn't work?
-        # self.copy_edit_keys = QKeySequence(self.tr("Ctrl+B"))
-        # self.qs_copy_shift = QShortcut(self.copy_edit_keys, self)
-        #
-        # self.qs_copy_shift.activated.connect(self.copy_edit)
-        # # self.qa_copy_shift.setShortcut(self.copy_edit_keys)  # didn't work?
-        # # self.qa_copy_shift.triggered.connect(self.copy_edit)
-        # # self.addAction(self.qa_copy_shift)
         self.qa_save.setShortcut(QKeySequence(self.tr("Ctrl+S", "Save")))
         self.qa_save.triggered.connect(self.save)
         self.addAction(self.qa_save)
@@ -115,13 +103,6 @@ class tsQTableView(tsQTableViewDockInfo):
         # ---------------------------
         self.setFocus()
         self.update()
-
-        #     self.call_update.connect(self.update)
-        #
-        # @slot()
-        # def update(self):
-        #     ret = super().update()
-        #     return ret
 
     def init_model(self, val=True):
         self.inited = val
@@ -418,12 +399,6 @@ class tsQTableViewYear(tsQTableView):
         if self.model().contract_id != id0:
             self.init_model()
             self.model().contract_id = id0
-        # self.setSelectionModel(QItemSelectionModel(self.model(), self))
-        # self.setSelectionModel(QItemSelectionModel(self.model()))
-        # debug("%s", self.selectionModel())
-        # self.selectionModel().select(QItemSelection(self.model().index(0, 0),
-        #                                             self.model().index(10, 10)),
-        #                              QItemSelectionModel.Select)
 
 
 class _myQTableView(tsQTableView, tsFilteredModel):
@@ -434,15 +409,8 @@ class myQTableView(_myQTableView):  # _myQTableView , tsFilteredModel
     # TODO: add indicator for used filters
     # __metaclass__ = QTableView
     def __init__(self, *a, **kw):
-        # # tsFilteredModel.__init__(self, *a, **kw)
-        # for name, obj in tsFilteredModel.__dict__.items():
-        #     if name[:2] != "__":
-        #         self.__setattr__(name, obj)
-        # self.ts__init__()
         super().__init__(*a, **kw)
         self.ts__init__()
-        # super(tsFilteredModel, self).__init__()
-        # super().__init__(*a, **kw)
         #############################
         # Setup
         # ---------------------------
@@ -541,12 +509,6 @@ class wsQTableView(myQTableView):
     def on_sel_activated(self, inds: QItemSelection, inds_old: QItemSelection):
         self.selectionChanged0.emit(self.objectName(), 0)
         self.selectionChanged1.emit(self.objectName(), 1)
-        # if len(inds) and len(inds_old):
-        #     nrows = [i.row() for i in inds.indexes()]
-        #     orows = [i.row() for i in inds_old.indexes()]
-        #     if set(nrows) != set(orows):
-        #         self.selectionChanged0.emit(self.objectName(), 0)
-        #         self.selectionChanged1.emit(self.objectName(), 1)
 
 
 @try_wrapper
