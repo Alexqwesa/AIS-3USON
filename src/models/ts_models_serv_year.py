@@ -296,6 +296,39 @@ class GroupedMainData(tsSqlTableModelWithColors):  # QSqlRelTableModelExtWithMet
         self.info.read_only = True
         return ret
 
+    #############################
+    # TODO: use this 2 functions
+    # ---------------------------
+    def _CE_add_main(self, sid, wid, value):
+        model = self.WD.models("main")
+        # self.pending_edit = (index, value)
+        # old_dat = index.data(Qt.EditRole)
+        rec = {"serv_id": sid, "dep_has_worker_id": wid, "year1": SD.last_year,
+               "dep_id": SD.last_dep, "contracts_id": self._contract_id}
+        # SD.commit_edit(self.gmdata, old_dat, value, rec)
+        model.set_new_rec_autofill_raw(**rec)
+        return model.setData(self.model.index(model.special_row, model.index_of_col("uslnum")),
+                             value,
+                             Qt.EditRole)
+
+    def _CE_change_main(self, sid, contract_id, wid, vdate, value, old_value):
+        tymodel: tsSqlTableModel = self.WD.models("main_for_table_year", main,
+                                                  f"""
+                                                serv_id = {sid} and dep_id = {SD.last_dep} 
+                                                and dep_has_woker_id = {wid} and vdate = {vdate} 
+                                                and value = {old_value} and contracts_id = {contract_id}
+                                                  """,
+                                                  False)
+        if tymodel.special_row > 0:
+            id0 = tymodel.data_rc(0, 0)
+            model: tsSqlTableModel = self.WD.models("main")
+            idx: QModelIndex = model.get_index_by_id(id0)
+            if idx:
+                self._CE_add_main
+            else:
+                index_uslnum = idx.siblingAtColumn(tymodel.index_of_col("uslnum"))
+                tymodel.setData(index_uslnum, value, Qt.EditRole)
+
     def data_month(self, month, serv_id, dep_has_worker_id="all"):
         """ Count services in month filtered by dep_has_worker_id """
         # note: currently dep_id set in query where
