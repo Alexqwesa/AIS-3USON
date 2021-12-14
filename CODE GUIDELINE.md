@@ -55,4 +55,4 @@ updatable_ tables only have columns from one table.
 _table1_has_table2  - all record of table2 for record in table1(0 or one or two columns from table1)
 first column from table1
 
-Security settings stored in file sql/security.
+Security settings stored in file sql/security.sql

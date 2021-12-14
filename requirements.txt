@@ -19,5 +19,10 @@ pandas
 # for python pre 3.8 only
 dataclasses
 
-# for hot reload (autoreload - useful but not stable)
+# for hot reload (autoreload - it is useful but not stable)
 #watchdog
+
+# for Install and Development
+PyInstaller
+pytest
+
