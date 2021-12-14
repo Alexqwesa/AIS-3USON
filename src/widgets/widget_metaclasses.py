@@ -467,7 +467,7 @@ class tsFltModelMainMethods(tsFltModelSetWhere):
                 flt.setFilterRegularExpression(val)
                 return True  # ,  flt.get_filter_set()
             # if isinstance(mcol_name, int): # TODO:  or mcol_name[-3:] == "_id"
-            #     from data_worker import WD
+            #     from logic.data_worker import WD
             #     val = WD.get_data_from_model_name(get_val_from_model_name, mcol_name, val)
             #############################
             # IF NOT A SET: setup pattern TODO: ?

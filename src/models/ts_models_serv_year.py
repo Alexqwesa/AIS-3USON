@@ -18,6 +18,7 @@ from threading import Thread
 
 from qtpy.QtGui import QFontMetrics
 
+from logic.data_worker import _data_worker
 from models.orm import *
 from models.ts_models import *
 
@@ -288,6 +289,7 @@ class GroupedMainData(tsSqlTableModelWithColors):  # QSqlRelTableModelExtWithMet
     def __init__(self, name="", parent=None):
         super().__init__(name, parent, None, False)
         self.worker_columns = {}
+        self.WD: _data_worker = None
 
     def setObjectName(self, name: str):
         ret = super().setObjectName(name)

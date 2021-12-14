@@ -49,7 +49,7 @@ else:
 #############################
 # set project dir
 # ---------------------------
-PROJECT_DIR = os.path.join(bundle_dir, "../")
+PROJECT_DIR = os.path.join(bundle_dir, "..")
 
 
 # print(PROJECT_DIR)
