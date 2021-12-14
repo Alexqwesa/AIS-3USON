@@ -27,47 +27,6 @@ from qtpy.QtCore import QObject, Signal, Slot, QMutex, QSettings, QCoreApplicati
 from qtpy.QtWidgets import QApplication, QMessageBox, QTableView, QCheckBox
 from qtpy.QtSql import QSqlDatabase, QSql, QSqlQuery
 
-#############################
-# sugar to smooth warning
-# ---------------------------
-# class Slot(Slot):
-#     def __call__(self, *args, **kwargs):
-#         return super().__call__(*args, **kwargs)
-# from models.orm import init_sqlalchemy
-
-#############################
-# to silent syntax highlighter
-# ---------------------------
-if False:
-    class Signal(Signal):
-        def emit(self, *arg, **kwargs):
-            return super().emit(*arg, **kwargs)
-
-
-    class QObject(QObject):
-        def tr(self, *arg, **kwargs):
-            return super().tr(*arg, **kwargs)
-
-
-    class QCalendarWidget(QCalendarWidget):
-        def tr(self, *arg, **kwargs):
-            return super().tr(*arg, **kwargs)
-
-
-    class QDockWidget(QDockWidget):
-        def tr(self, *arg, **kwargs):
-            return super().tr(*arg, **kwargs)
-
-
-    class QMainWindow(QMainWindow):
-        def tr(self, *arg, **kwargs):
-            return super().tr(*arg, **kwargs)
-
-
-    class Slot(Slot):
-        def __call__(self, *args, **kwargs):
-            return super().__call__(*args, **kwargs)
-
 
 def _SD_fill_dict():
     debug("_SD_fill_dict start")

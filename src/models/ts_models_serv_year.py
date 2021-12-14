@@ -365,6 +365,8 @@ class GroupedMainData(tsSqlTableModelWithColors):  # QSqlRelTableModelExtWithMet
         return ret
 
     def select(self):
+        from logic.data_worker import WD
+        self.WD = WD
         return super().select()
 
     def submitAll(self):
@@ -549,6 +551,7 @@ class AllDynamicTableModel(CHSTableModel):
             return super().data_by_row(row, role)
         else:
             return "WRONG ROLE INDEX"
+        return "Missed Data Entry"
 
     @lru_cache(50000)
     def gmdata_total_money_in_month(self, row, role):
@@ -1204,6 +1207,7 @@ class _tsYearTableAddTotalRows(YearRowLayoutModel):
 
     @lru_cache(12)
     def data_in_month(self, month):
+        # return [0, 0, 0, 0, 0]
         debug("start data_in_month %s for contract_id - %s ", month, self.contract_id)
         if not self.contract_locked:
             with self.contract_lock:
@@ -1241,11 +1245,16 @@ class tsTableServYearWithSave(_tsYearTableAddTotalRows):
 
     def setData(self, index, value, role=Qt.EditRole):
         #############################
-        # only int
+        # check value
         # ---------------------------
         try:
             value = int(value)
         except ValueError:
+            return
+        if value < 0:
+            return
+        old_value = index.data(Qt.EditRole)
+        if value == old_value:
             return
         #############################
         # checks worker_id, serv_id, total
