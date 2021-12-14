@@ -19,9 +19,13 @@ from typing import NoReturn
 
 import platform
 import subprocess
-from qtpy.QtWidgets import QStyleFactory, QMainWindow
+#############################
+# QT Libraries
+# ---------------------------
+from qtpy import QtGui
+from PySide2.QtWidgets import QMainWindow
 import qtawesome as qta
-
+from qtpy.QtWidgets import QStyleFactory
 #############################
 # setup logger
 # ---------------------------
@@ -29,10 +33,6 @@ import qtawesome as qta
 # logging.getLogger("3uson").setLevel(logging.INFO)
 
 
-#############################
-# QT Libraries
-# ---------------------------
-from qtpy import QtGui
 
 #############################
 # import this project files
@@ -246,9 +246,12 @@ class MyAppConnect(QMainWindow):
         # hide unfinished tabs
         # ---------------------------
         # ui.tabMain.removeTab(ui.tabMain.indexOf(ui.tab_journal))
+        # ui.tabMain.removeTab(ui.tabMain.indexOf(ui.tab_admin))
+        ui.tabs_add_serv.removeTab(ui.tabs_add_serv.indexOf(ui.tab_add_group_services))
+        ui.tabs_add_serv.removeTab(ui.tabs_add_serv.indexOf(ui.tab_show_group_services))
+        ui.tabs_add_serv.removeTab(ui.tabs_add_serv.indexOf(ui.tab_add_club_services))
         ui.tabMain.removeTab(ui.tabMain.indexOf(ui.tab_pyc))
         ui.tabMain.removeTab(ui.tabMain.indexOf(ui.tab_export))
-        # ui.tabMain.removeTab(ui.tabMain.indexOf(ui.tab_admin))
 
         #############################
         # connect signals and slots

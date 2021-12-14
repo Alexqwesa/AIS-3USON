@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1307</width>
+    <width>1308</width>
     <height>760</height>
    </rect>
   </property>
@@ -53,8 +53,11 @@
          <layout class="QVBoxLayout" name="verticalLayout_18">
           <item>
            <widget class="myQTabWidget" name="tabs_add_serv">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="currentIndex">
-             <number>5</number>
+             <number>0</number>
             </property>
             <widget class="myQWidget" name="tab_add_serv_by_day">
              <attribute name="title">
@@ -531,7 +534,7 @@
                       </property>
                       <layout class="QHBoxLayout" name="horizontalLayout_22">
                        <item>
-                        <widget class="QFrame" name="frame">
+                        <widget class="QFrame" name="frame1111111">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                            <horstretch>0</horstretch>
@@ -1059,7 +1062,7 @@ p, li { white-space: pre-wrap; }
               </item>
              </layout>
             </widget>
-            <widget class="myQWidget" name="tab_30">
+            <widget class="myQWidget" name="tab_add_group_services">
              <attribute name="title">
               <string>Ввод групповых услуг</string>
              </attribute>
@@ -1391,16 +1394,37 @@ p, li { white-space: pre-wrap; }
               </item>
              </layout>
             </widget>
-            <widget class="myQWidget" name="tab_31">
+            <widget class="myQWidget" name="tab_show_group_services">
              <attribute name="title">
               <string>Просмотр введенных груповых услуг</string>
              </attribute>
+             <widget class="QPushButton" name="pushButton_3">
+              <property name="geometry">
+               <rect>
+                <x>240</x>
+                <y>140</y>
+                <width>75</width>
+                <height>23</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>PushButton</string>
+              </property>
+             </widget>
             </widget>
-            <widget class="myQWidget" name="tab_32">
+            <widget class="myQWidget" name="tab_add_club_services">
              <attribute name="title">
               <string>Ввод кружков/клубов</string>
              </attribute>
-             <layout class="QGridLayout" name="gridLayout_57"/>
+             <layout class="QGridLayout" name="gridLayout_57">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pushButton_37">
+                <property name="text">
+                 <string>PushButton</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
             <widget class="myQWidget" name="tab_table_serv">
              <attribute name="title">
@@ -1491,22 +1515,12 @@ p, li { white-space: pre-wrap; }
                 </property>
                </widget>
               </item>
-              <item row="1" column="10">
-               <widget class="QPushButton" name="btn_add_worker">
-                <property name="text">
-                 <string>Добавить работника</string>
-                </property>
-               </widget>
-              </item>
               <item row="1" column="3">
                <widget class="QLabel" name="label_88">
                 <property name="text">
                  <string>План проверен:</string>
                 </property>
                </widget>
-              </item>
-              <item row="2" column="1" colspan="12">
-               <widget class="tsQTableViewYear" name="tableViewYear"/>
               </item>
               <item row="1" column="5">
                <widget class="QDateTimeEdit" name="de_contracts">
@@ -1563,100 +1577,8 @@ p, li { white-space: pre-wrap; }
                 </property>
                </widget>
               </item>
-              <item row="2" column="13">
-               <layout class="QGridLayout" name="gridLayout_112">
-                <item row="3" column="0">
-                 <widget class="QCheckBox" name="chk_thursday">
-                  <property name="text">
-                   <string>чт</string>
-                  </property>
-                  <property name="checked">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QCheckBox" name="chk_monday">
-                  <property name="text">
-                   <string>пн</string>
-                  </property>
-                  <property name="checked">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QCheckBox" name="chk_tuesday">
-                  <property name="text">
-                   <string>вт</string>
-                  </property>
-                  <property name="checked">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="0">
-                 <widget class="QCheckBox" name="chk_friday">
-                  <property name="text">
-                   <string>пт</string>
-                  </property>
-                  <property name="checked">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="0">
-                 <widget class="QCheckBox" name="chk_saturday">
-                  <property name="text">
-                   <string>сб</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="0">
-                 <widget class="QCheckBox" name="chk_sunday">
-                  <property name="text">
-                   <string>вс</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QCheckBox" name="chk_wednesday">
-                  <property name="text">
-                   <string>ср</string>
-                  </property>
-                  <property name="checked">
-                   <bool>false</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="7" column="0">
-                 <spacer name="verticalSpacer_8">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
-              <item row="1" column="13">
-               <widget class="QLabel" name="label_75">
-                <property name="text">
-                 <string>по дням</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="13">
-               <widget class="QLabel" name="label_90">
-                <property name="text">
-                 <string>разнести</string>
-                </property>
-               </widget>
+              <item row="2" column="1" colspan="13">
+               <widget class="tsQTableViewYear" name="tableViewYear"/>
               </item>
              </layout>
             </widget>
@@ -2835,7 +2757,7 @@ p, li { white-space: pre-wrap; }
           <item>
            <widget class="myQTabWidget" name="tabs_total">
             <property name="currentIndex">
-             <number>3</number>
+             <number>0</number>
             </property>
             <widget class="myQWidget" name="tab_tot_serv">
              <attribute name="title">
@@ -2845,7 +2767,7 @@ p, li { white-space: pre-wrap; }
               <item row="0" column="0">
                <widget class="myQTabWidget" name="tabs_tot_serv">
                 <property name="currentIndex">
-                 <number>4</number>
+                 <number>0</number>
                 </property>
                 <widget class="myQWidget" name="tab_12">
                  <attribute name="title">
@@ -2886,7 +2808,7 @@ p, li { white-space: pre-wrap; }
                       <widget class="QTableView" name="t_main_for_dep"/>
                      </item>
                      <item row="0" column="0" rowspan="2">
-                      <widget class="QFrame" name="frame">
+                      <widget class="QFrame" name="frame222222222">
                        <property name="frameShape">
                         <enum>QFrame::StyledPanel</enum>
                        </property>
@@ -7034,7 +6956,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1307</width>
+     <width>1308</width>
      <height>21</height>
     </rect>
    </property>
