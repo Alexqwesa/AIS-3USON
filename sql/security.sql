@@ -299,6 +299,12 @@ BEGIN
     grant select,update,insert,delete on kcson.complex_dep_has_dep to part_admin;
     grant select,update,insert,delete on kcson.holiday to part_admin;
     grant select,update,insert,delete on kcson.ui_select_fiolist to part_admin;
+
+    #############################
+    # grant perm. to admin role
+    # ---------------------------
+    grant part_admin to admin;
+
 END $$
 delimiter ;
 

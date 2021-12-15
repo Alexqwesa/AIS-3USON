@@ -25,6 +25,7 @@ An AIS-3USON project contain both Backend(SQL) and desktop Frontend(python+Qt), 
 - Импортировать в БД из папки sql следующие файлы:
     - schema.sql
     - data.sql
+    - test_data.sql
     - security.sql
 - Создать пользователя-администратора(SQL роль part_admin), который займется администрированием базы из настольного приложения(подробнее см. раздел Использование)
 
