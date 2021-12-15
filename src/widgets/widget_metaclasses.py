@@ -69,7 +69,7 @@ class tsDirtyWidget:
 class tsFltModelSetWhere(tsDirtyWidget):
     def ts__init__(self, class_prefix="table_", default_filter=""):
         self._locks = {}
-        self.__lock = QMutex(QMutex.Recursive)
+        self.__lock = QRecursiveMutex()
         self._inited = False
         self.filters: OrderedDict = OrderedDict()  # TODO: use list
         self.__model: Union[tsSqlTableModel, None] = None
@@ -84,7 +84,7 @@ class tsFltModelSetWhere(tsDirtyWidget):
             #     self._locks = {}
             # name = "full"
             if name not in self._locks:
-                self._locks[name] = QMutex(QMutex.Recursive)
+                self._locks[name] = QRecursiveMutex()
         return self._locks[name]
 
     def model(self) -> tsSqlTableModel:

@@ -313,7 +313,7 @@ class QSqlRelTableModelSelectStatus(QSqlRelTableModel_extended, QSqlRelationalTa
         self.setParent(parent)
         self._selection_in_progress = True
         self._locks = {}
-        self.__lock = QMutex(QMutex.Recursive)
+        self.__lock = QRecursiveMutex()
         self.where_used = False
         self.__update_later = False
         self.__new_where = None
@@ -429,7 +429,7 @@ class QSqlRelTableModelSelectStatus(QSqlRelTableModel_extended, QSqlRelationalTa
             # if not hasattr(self, "_locks"):
             #     self._locks = {}
             if name not in self._locks:
-                self._locks[name] = QMutex(QMutex.Recursive)
+                self._locks[name] = QRecursiveMutex()
             return self._locks[name]
 
     def init(self):

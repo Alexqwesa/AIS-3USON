@@ -18,6 +18,7 @@ import time
 from contextlib import contextmanager
 
 import sqlalchemy
+from qtpy.QtCore import QRecursiveMutex
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -54,8 +55,8 @@ def _SD_fill_dict():
 class _safe_share_data(QObject):
     """Share data across thread"""
     # lock = threading.RLock() # replace to mutex in case of parallel processes (not threads)
-    lock = QMutex(QMutex.Recursive)
-    lock__db_connections = QMutex(QMutex.Recursive)
+    lock = QRecursiveMutex()
+    lock__db_connections = QRecursiveMutex()
     # TODO: use several locks
     last_ufio_changed: Signal = Signal(int)
     last_contr_changed: Signal = Signal(int)
@@ -92,7 +93,7 @@ class _safe_share_data(QObject):
         #############################
         # QSettings config
         # ---------------------------
-        self.__driver_type = "QMYSQL"  # QODBC3
+        self.__driver_type = "QODBC"  # QODBC3  # before pyside6 QSqlDatabase QODBC3
         self.__driver = "{MySQL ODBC 8.0 Unicode Driver}"
         self.__user = ""
         self.__password = ""
@@ -730,7 +731,7 @@ class _safe_share_data(QObject):
         # set db parameters
         # ---------------------------
         db = QSqlDatabase.addDatabase(self.driver_type, db_name)
-        if self.driver_type == "QODBC3":
+        if self.driver_type in ["QODBC", "QODBC3"]:
             db.setDatabaseName("Driver=%s;" \
                                "SERVER=%s;DATABASE=%s;UID=%s;PORT=%s;" % \
                                (SD.driver, SD.server, SD.db_name, SD.user, SD.port))
@@ -925,7 +926,7 @@ class _QMessageBox:
 class _ui_data(QObject):
     """Share data across thread"""
     # lock = threading.RLock() # replace to mutex in case of parallel processes (not threads)
-    lock = QMutex(QMutex.Recursive)
+    lock = QRecursiveMutex()
     __instance = None
 
     def __new__(cls):

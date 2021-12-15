@@ -700,7 +700,7 @@ class PersistentStorage(_EditStorage):
         # TODO: don't show errors twice
 
 
-@auto_reload_class_code(try_wrapper)
+# @auto_reload_class_code(try_wrapper)
 class editStorage(PersistentStorage):
     """Class for storing edit history
         Implemented outer interface

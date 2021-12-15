@@ -1,9 +1,11 @@
 # Main dependencies
 QtPy
-PySide2
+PySide6
 python-docx
 qtawesome
 concurrent-log-handler
+# PySide2 5.14 supported too
+# PyQt5
 
 # for Qr code generator
 Pillow

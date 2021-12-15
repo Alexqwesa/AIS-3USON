@@ -23,7 +23,7 @@
 import random
 import string
 
-from qtpy.QtCore import QRegExp
+from qtpy.QtCore import QRegularExpression as QRegExp
 
 from logic.data_worker_sql_code import _data_worker_SQL_CODE
 from widgets.custumQWidgets import *
@@ -51,7 +51,7 @@ class _data_worker(QObject):
         self._models = {}
         debug(" init _data_worker")
         self.init = False
-        self.__lock = QMutex(QMutex.Recursive)
+        self.__lock = QRecursiveMutex()
         self._locks = {}
         self._old_models: {str: QSqlTableModel} = {}
         #############################
@@ -79,7 +79,7 @@ class _data_worker(QObject):
             # if not hasattr(self, "_locks"):
             #     self._locks = {}
             if name not in self._locks:
-                self._locks[name] = QMutex(QMutex.Recursive)
+                self._locks[name] = QRecursiveMutex()
             return self._locks[name]
 
     def reinit_models(self):

@@ -35,7 +35,7 @@ except KeyError:
 # default QT binding
 # ---------------------------
 if not os.environ['QT_API']:
-    os.environ['QT_API'] = "pyside2"
+    os.environ['QT_API'] = "pyside6"
 # os.environ['QT_API'] = "pyqt5"
 
 #############################

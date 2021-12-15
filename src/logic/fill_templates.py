@@ -175,8 +175,8 @@ class base_pd(QObject):
             return value
 
 
-@auto_reload_class_code(try_wrapper)
-@auto_reload_class_code(reloader)
+# @auto_reload_class_code(try_wrapper)
+# @auto_reload_class_code(reloader)
 class PrepareDocument(base_pd):
     """prepare documents from templates"""
     # TODO: add global lock

@@ -26,7 +26,7 @@ class Worker(QObject):
         super().__init__(parent)
         self.run_func = run_func
         self.resutls = {}
-        self.results_lock = QMutex(QMutex.Recursive)
+        self.results_lock = QRecursiveMutex()
         self.resutls[""] = []
         self.queue = LifoQueue()
 

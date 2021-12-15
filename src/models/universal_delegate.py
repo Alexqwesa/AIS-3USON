@@ -1,6 +1,6 @@
 from threading import Lock
 
-
+from qtpy.QtCore import QTime
 from qtpy.QtSql import QSqlRelationalDelegate
 from qtpy.QtWidgets import QLineEdit, QSpinBox, QDoubleSpinBox, \
     QDateTimeEdit, QDateEdit, QPlainTextEdit, QStyledItemDelegate
@@ -159,7 +159,7 @@ class tsPureItemDelegate(QSqlRelationalDelegate):
             if dat:
                 editor.setDateTime(dat)
             else:
-                editor.setDateTime(QDateTime(QDate(1900, 1, 1)))
+                editor.setDateTime(QDateTime(QDate(1900, 1, 1), QTime(0, 0, 0)))
         elif isinstance(editor, QCheckBox):  # not called in tableView - only QDataMapper
             if dat:
                 editor.setCheckState(Qt.Checked)

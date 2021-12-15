@@ -47,8 +47,8 @@ class QCalendarView(_myQCalendar):
         self.cache_inited = False
         self.cache = {}
         self.cache_start = False
-        self.lock: QMutex = QMutex(QMutex.Recursive)
-        self.cache_lock: QMutex = QMutex(QMutex.Recursive)
+        self.lock: QMutex = QRecursiveMutex()
+        self.cache_lock: QMutex = QRecursiveMutex()
         self.uslnum_col = 0
         #############################
         # inner state setup
@@ -489,7 +489,7 @@ class QCalendarParalled(QCalendarView):
             # init pool
             # ---------------------------
             self.todo_pool = {}
-            self.todo_pool_lock: QMutex = QMutex(QMutex.Recursive)
+            self.todo_pool_lock: QMutex = QRecursiveMutex()
             self.todo_pool_sem = QSemaphore(os.cpu_count())
             #############################
             # init thread
@@ -507,7 +507,7 @@ class QCalendarParalled(QCalendarView):
             self.runners_id = []
             self.dispatch_called = 0
             self.qtimer_dispatch = False
-            self.dispatch_lock: QMutex = QMutex(QMutex.Recursive)
+            self.dispatch_lock: QMutex = QRecursiveMutex()
             #############################
             # connect
             # ---------------------------
