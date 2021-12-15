@@ -30,7 +30,10 @@ An AIS-3USON project contain both Backend(SQL) and desktop Frontend(python+Qt), 
 
 ## Сборка клиентского приложения
 
-Windows версия pySide2 на момент разработки поддерживала только 32 битную архитектуру, поэтому сборки для Windows должны использовать 32 битные утилиты(Python 32bit, MSVC Redistributable 32bit, SQL Connector)
+Windows версия **pySide2** на момент разработки поддерживала только 32 битную архитектуру, поэтому сборки для Windows должны использовать 32 битные утилиты(Python 32bit, MSVC Redistributable 32bit, SQL Connector)
+
+Windows версия **pySide6** на момент разработки поддерживала только 64 битную архитектуру, поэтому сборки для 
+Windows должны использовать 64 битные утилиты(Python 64bit, MSVC Redistributable 64bit, SQL Connector)
 
 - проверьте, что все необходимые пакеты установлены;
 - отредактируйте в файле make.bat(.sh) путь к вашему профилю Python;
