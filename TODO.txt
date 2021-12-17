@@ -1,4 +1,8 @@
 
+- BUG: make dep_has_worker work correctly with duplicate workers !!!!!
+- BUG: make uniq user field in worker table
+
+
  - Check one session per user!
  - filter services list for each client
  - _submitAll: mark failed as "failed to save" cell
