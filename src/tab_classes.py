@@ -17,15 +17,10 @@
 # import this project files
 # ---------------------------
 from qtpy.QtWidgets import QLabel, QInputDialog
-from qtpy.QtGui import  QRegularExpressionValidator  # ???
+from qtpy.QtGui import QRegularExpressionValidator
 
 from logic.data_worker import *
 
-#############################
-# TODO
-# ---------------------------
-# from ts_models import SQL_DATE_FORMAT, tsItemDelegate, tsSqlTableModel, tsQDataWidgetMapper, tsQsfpModel
-# from ts_models_plus import tsQDataWidgetMapper, tsQsfpModel
 from models.ts_models_serv_year import tsTableServYearModel
 from models.universal_delegate import tsItemDelegate
 
@@ -212,10 +207,8 @@ class clstab_fio_dep(QOBase):
         tr = self.tr
         if text:
             ui.label_fio_filter.setText(tr("Используется фильтр:"))
-            # fmdl.setFilterFixedString(text)
         else:
             ui.label_fio_filter.setText(tr("Быстрый фильтр:"))
-            # fmdl.setFilterFixedString("")
 
     @Slot()
     def on_btn_goto_ufio_from_list_clicked(self):
@@ -254,13 +247,6 @@ class clstab_client_contr(QOBase):
         # self.dbconnect = False
         self.__init = False
 
-    # @Slot(bool)
-    # def on_main_data_dbconnect(self):
-    #     #############################
-    #     # custom init
-    #     # ---------------------------
-    #     self.dbconnect = True
-
     #############################
     # Add services tab
     # ---------------------------
@@ -292,7 +278,6 @@ class clstab_client_contr(QOBase):
                 self.__init = False
                 return
             dm: tsQDataWidgetMapper = cbx_contracts.dm
-            # self.dm = dm
             self.dm_set.add(dm)
             #############################
             # set tsQDataWidgetMapper
@@ -311,17 +296,6 @@ class clstab_client_contr(QOBase):
             dm.addMapping(ui.chk_to_recheck, mdl.record().indexOf("to_recheck"))
             dm.addMapping(ui.dte_check_date, mdl.record().indexOf("check_date"))
             dm.addMapping(ui.qle_contracts2, mdl.record().indexOf("contracts2"))
-            # now = QDate().currentDate()
-            # contr_table: myQTableView = ui.table_add_info__where_contracts_id__by_contracts_id
-            # contr_table.init_model()
-            # contr_table.super_model().set_new_rec_autofill(**{"pddate": QDate(now.year(), now.month(), 1),
-            #                                                   "sdd_date": QDate(now.year(), now.month(), 1)
-            #                                                   })
-            #############################
-            # setup tables and current record
-            # ---------------------------
-            # dm.setCurrentIndex(0)
-            # dm.addMapping(ui.qlable_id, mdl.record().indexOf("id"))
 
     # @Slot(int)
     # def on_cbx_1__dep_has_ufio_currentIndexChanged(self, ind):
@@ -349,10 +323,8 @@ class clstab_ufio(QOBase):
         tr = self.tr
         if text:
             ui.label_ufio.setText(tr("Используется фильтр:"))
-            # fmdl.setFilterFixedString(text)
         else:
             ui.label_ufio.setText(tr("Быстрый фильтр:"))
-            # fmdl.setFilterFixedString("")
 
 
 #############################
@@ -384,8 +356,6 @@ class clstab_client(QOBase):
             if not meta_init:
                 self.__init = False
                 return
-                # fdm.setModel(mdl)
-            # fdm.setItemDelegate(tsItemDelegate(self))
             fdm.addMapping(ui.qle_FIO, mdl.record().indexOf("ufio"))
             fdm.addMapping(ui.sp_ESRN, mdl.record().indexOf("ESRN"))
             fdm.addMapping(ui.qle_SNILS, mdl.record().indexOf("snils"))
@@ -396,11 +366,6 @@ class clstab_client(QOBase):
             table_view_main_by_dep: myQTableView = ui.table_main__where_ufio_id__by_dep_id
             table_view_main_by_dep.init_model(True)
             table_view_main_by_dep.set_first_filter_exact(SD.last_dep)  # TODO: need complex department support here
-            # fdm.addMapping(ui.qlable_id, mdl.record().indexOf("id"))
-            # fdm.setSubmitPolicy(tsQDataWidgetMapper.ManualSubmit)
-            # fdm.setCurrentIndex(0)
-            # cbox: QComboBox = ui.cbx_1_ui_select_fiolist
-            # cbox.setCurrentIndex(0)
 
     @Slot()
     def on_btn_goto_serv_add_clicked(self):
@@ -468,12 +433,12 @@ class clstab_services(QOBase):
 
     @Slot(int)
     def on_cbx_1__serv_activ__dis_total_currentIndexChanged(self, ind):
-        # comboS
+        # comboServ
         self.set_qle_serv_left()
 
     @Slot(int)
     def on_cbx_1__dep_has_ufio__2_currentIndexChanged(self, ind):
-        # comboF
+        # comboFio
         self.set_qle_serv_left()
         # self.upd_info_docker_for_tab(ind)
 
@@ -482,13 +447,6 @@ class clstab_services(QOBase):
         tr = self.tr
         ui.qle_serv_left.setText(tr("выполняется запрос данных"))
         Qtimer_runner(self._set_qle_serv_left, 250, "set_qle_serv_left")
-        # try:
-        #     tmr = self.set_qle_serv_left_tmr
-        #     if tmr.isActive():
-        #         return
-        #     tmr.singleShot(0, )
-        # except AttributeError:
-        #     self.set_qle_serv_left_tmr = QTimer()
 
     @Slot()
     def _set_qle_serv_left(self):
@@ -793,7 +751,3 @@ class clstab_serv_you(QOBase):
     Total tab of your services not grouped
     """
     pass
-    # def __init__(self, parent=None):
-    #     super().__init__(parent)
-    #     self.ui = self.parent().ui
-    #     ui = self.ui
