@@ -20,6 +20,7 @@ from contextlib import contextmanager
 import sqlalchemy
 from qtpy.QtCore import QRecursiveMutex
 from sqlalchemy import create_engine
+from sqlalchemy.exc import OperationalError, ProgrammingError
 from sqlalchemy.orm import sessionmaker
 
 from journal import *
@@ -603,7 +604,7 @@ class _safe_share_data(QObject):
         if not self._sess:
             try:
                 self._sess = self.new_session
-            except sqlalchemy.exc.OperationalError:
+            except (OperationalError, ProgrammingError):
                 error("can't init sqlalchemy ")
         return self._sess
 
@@ -650,7 +651,7 @@ class _safe_share_data(QObject):
 
             session.commit = commit
             # with self._engine
-        except sqlalchemy.exc.OperationalError:
+        except (OperationalError, ProgrammingError):
             error("can't init sqlalchemy ")
         finally:
             return session
@@ -689,7 +690,7 @@ class _safe_share_data(QObject):
                 # connect_str = "mysql+mysqldb://{0}:{1}@{2}:{3}/{4}".format(SD.user, SD.password, SD.server, SD.port,
                 #                                                            SD.db_name)
                 self._engine = create_engine(connect_str, echo=True, pool_recycle=3600)  # , multi=True
-            except sqlalchemy.exc.OperationalError:
+            except (OperationalError, ProgrammingError):
                 error("can't init sqlalchemy ")
         return self._engine
 

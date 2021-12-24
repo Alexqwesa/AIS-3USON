@@ -17,6 +17,7 @@ from datetime import date
 from threading import Thread
 
 from qtpy.QtGui import QFontMetrics
+from sqlalchemy.exc import ProgrammingError, OperationalError
 
 from logic.data_worker import _data_worker
 from models.orm import *
@@ -1129,7 +1130,7 @@ class _tsYearTableAddTotalRows(YearRowLayoutModel):
             debug("start set_contract_id %s ", contract_id)
             try:
                 self.contract = SD.session.query(Contracts).filter_by(id=contract_id)[0]
-            except sqlalchemy.exc.OperationalError:
+            except (OperationalError, ProgrammingError):
                 debug("rollback set_contract_id %s ", contract_id)
                 SD.session.rollback()
                 SD.session.execute("CALL GET_PRIVILEGES")
@@ -1148,7 +1149,7 @@ class _tsYearTableAddTotalRows(YearRowLayoutModel):
                 self.get_paid_total.cache_clear()
                 self.total_row_data.cache_clear()
                 self.change_selection_in_progress.emit(True)
-            except sqlalchemy.exc.OperationalError:
+            except (OperationalError, ProgrammingError):
                 self.helper_set_contract_id(contract_id)
 
     @lru_cache(100000000)

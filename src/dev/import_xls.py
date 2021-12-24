@@ -20,6 +20,7 @@ import pandas as pd
 import sqlalchemy
 from qtpy.QtWidgets import QFileDialog
 from sqlalchemy import and_, select, between
+from sqlalchemy.exc import OperationalError, ProgrammingError
 from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 
 from dev.logger_setup import debug, error, critical
@@ -289,7 +290,7 @@ class ContractCheck(Check):
             try:
                 rec = SD.session.query(Contracts).filter_by(startdate=drow.at["startdate"],
                                                             ufio_id=int(drow.at["ufio_id"])).one()
-            except sqlalchemy.exc.OperationalError:
+            except (OperationalError, ProgrammingError):
                 debug("rollback query %s ", drow.at["ufio"])
                 SD.session.rollback()
                 # SD.session.execute("CALL GET_PRIVILEGES")
