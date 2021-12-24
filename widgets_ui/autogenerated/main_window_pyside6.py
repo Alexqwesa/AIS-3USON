@@ -4499,10 +4499,15 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.label_14, 0, 0, 1, 1)
 
+        self.btn_show_qrcode = QPushButton(self.widget_11)
+        self.btn_show_qrcode.setObjectName(u"btn_show_qrcode")
+
+        self.gridLayout_4.addWidget(self.btn_show_qrcode, 0, 1, 1, 1)
+
         self.table_dep_has_worker__by_worker_id = myQTableView(self.widget_11)
         self.table_dep_has_worker__by_worker_id.setObjectName(u"table_dep_has_worker__by_worker_id")
 
-        self.gridLayout_4.addWidget(self.table_dep_has_worker__by_worker_id, 1, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.table_dep_has_worker__by_worker_id, 1, 0, 1, 2)
 
         self.splitter_3.addWidget(self.widget_11)
 
@@ -4530,19 +4535,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_20.addWidget(self.table_dep_has_worker__by_worker_id__3)
 
 
-        self.gridLayout_35.addWidget(self.widget_3, 5, 1, 1, 1)
+        self.gridLayout_35.addWidget(self.widget_3, 6, 1, 1, 1)
 
         self.cbx_1_worker__pass = myQComboBox(self.tab_password)
         self.cbx_1_worker__pass.setObjectName(u"cbx_1_worker__pass")
         sizePolicy6.setHeightForWidth(self.cbx_1_worker__pass.sizePolicy().hasHeightForWidth())
         self.cbx_1_worker__pass.setSizePolicy(sizePolicy6)
 
-        self.gridLayout_35.addWidget(self.cbx_1_worker__pass, 0, 1, 1, 1)
-
-        self.label_5 = QLabel(self.tab_password)
-        self.label_5.setObjectName(u"label_5")
-
-        self.gridLayout_35.addWidget(self.label_5, 1, 0, 1, 1)
+        self.gridLayout_35.addWidget(self.cbx_1_worker__pass, 1, 1, 1, 1)
 
         self.widget = QWidget(self.tab_password)
         self.widget.setObjectName(u"widget")
@@ -4564,30 +4564,22 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.addWidget(self.btnClean)
 
 
-        self.gridLayout_35.addWidget(self.widget, 4, 1, 1, 1)
-
-        self.label_31 = QLabel(self.tab_password)
-        self.label_31.setObjectName(u"label_31")
-
-        self.gridLayout_35.addWidget(self.label_31, 5, 0, 1, 1)
+        self.gridLayout_35.addWidget(self.widget, 5, 1, 1, 1)
 
         self.label_6 = QLabel(self.tab_password)
         self.label_6.setObjectName(u"label_6")
 
-        self.gridLayout_35.addWidget(self.label_6, 2, 0, 1, 1)
+        self.gridLayout_35.addWidget(self.label_6, 3, 0, 1, 1)
 
-        self.lineEdit_login = myQLineEdit(self.tab_password)
-        self.lineEdit_login.setObjectName(u"lineEdit_login")
-        self.lineEdit_login.setInputMethodHints(Qt.ImhLatinOnly|Qt.ImhLowercaseOnly)
-        self.lineEdit_login.setMaxLength(32)
-        self.lineEdit_login.setCursorPosition(0)
+        self.label_5 = QLabel(self.tab_password)
+        self.label_5.setObjectName(u"label_5")
 
-        self.gridLayout_35.addWidget(self.lineEdit_login, 1, 1, 1, 1)
+        self.gridLayout_35.addWidget(self.label_5, 2, 0, 1, 1)
 
-        self.label_4 = QLabel(self.tab_password)
-        self.label_4.setObjectName(u"label_4")
+        self.label_31 = QLabel(self.tab_password)
+        self.label_31.setObjectName(u"label_31")
 
-        self.gridLayout_35.addWidget(self.label_4, 0, 0, 1, 1)
+        self.gridLayout_35.addWidget(self.label_31, 6, 0, 1, 1)
 
         self.horizontalLayout_23 = QHBoxLayout()
         self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
@@ -4607,7 +4599,29 @@ class Ui_MainWindow(object):
         self.horizontalLayout_23.addWidget(self.qle_fio_log_pass)
 
 
-        self.gridLayout_35.addLayout(self.horizontalLayout_23, 2, 1, 1, 1)
+        self.gridLayout_35.addLayout(self.horizontalLayout_23, 3, 1, 1, 1)
+
+        self.label_4 = QLabel(self.tab_password)
+        self.label_4.setObjectName(u"label_4")
+
+        self.gridLayout_35.addWidget(self.label_4, 1, 0, 1, 1)
+
+        self.lineEdit_login = myQLineEdit(self.tab_password)
+        self.lineEdit_login.setObjectName(u"lineEdit_login")
+        self.lineEdit_login.setInputMethodHints(Qt.ImhLatinOnly|Qt.ImhLowercaseOnly)
+        self.lineEdit_login.setMaxLength(32)
+        self.lineEdit_login.setCursorPosition(0)
+
+        self.gridLayout_35.addWidget(self.lineEdit_login, 2, 1, 1, 1)
+
+        self.label_75 = QLabel(self.tab_password)
+        self.label_75.setObjectName(u"label_75")
+        font3 = QFont()
+        font3.setPointSize(12)
+        self.label_75.setFont(font3)
+        self.label_75.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_35.addWidget(self.label_75, 0, 1, 1, 1)
 
 
         self.horizontalLayout_3.addLayout(self.gridLayout_35)
@@ -5070,8 +5084,6 @@ class Ui_MainWindow(object):
         MainWindow.addToolBar(Qt.TopToolBarArea, self.toolBar)
         self.toolBar_2 = QToolBar(MainWindow)
         self.toolBar_2.setObjectName(u"toolBar_2")
-        font3 = QFont()
-        font3.setPointSize(12)
         self.toolBar_2.setFont(font3)
         self.toolBar_2.setContextMenuPolicy(Qt.NoContextMenu)
         self.toolBar_2.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
@@ -5238,7 +5250,8 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.table__ufio_has_add_info__where_ufio_id__by_ufio_id, self.table_ripso_has_serv__by_ripso_id)
         QWidget.setTabOrder(self.table_ripso_has_serv__by_ripso_id, self.table_ripso)
         QWidget.setTabOrder(self.table_ripso, self.table_dep_has_worker__by_worker_id)
-        QWidget.setTabOrder(self.table_dep_has_worker__by_worker_id, self.table_worker)
+        QWidget.setTabOrder(self.table_dep_has_worker__by_worker_id, self.btn_show_qrcode)
+        QWidget.setTabOrder(self.btn_show_qrcode, self.table_worker)
         QWidget.setTabOrder(self.table_worker, self.cbx_1_worker__pass)
         QWidget.setTabOrder(self.cbx_1_worker__pass, self.lineEdit_login)
         QWidget.setTabOrder(self.lineEdit_login, self.btn_pw_gen)
@@ -5510,6 +5523,59 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.qle_topay, self.chk_to_recheck)
         QWidget.setTabOrder(self.chk_to_recheck, self.dte_check_date)
         QWidget.setTabOrder(self.dte_check_date, self.qle_contracts2)
+        QWidget.setTabOrder(self.qle_contracts2, self.tabMain)
+        QWidget.setTabOrder(self.tabMain, self.tabs_add_serv)
+        QWidget.setTabOrder(self.tabs_add_serv, self.chk_autosave)
+        QWidget.setTabOrder(self.chk_autosave, self.pushButton_3)
+        QWidget.setTabOrder(self.pushButton_3, self.pushButton_37)
+        QWidget.setTabOrder(self.pushButton_37, self.cbx_1_contracts__by_ufio_id__2)
+        QWidget.setTabOrder(self.cbx_1_contracts__by_ufio_id__2, self.chk_all_serv_ripso)
+        QWidget.setTabOrder(self.chk_all_serv_ripso, self.btn_goto_ufio_2)
+        QWidget.setTabOrder(self.btn_goto_ufio_2, self.de_contracts)
+        QWidget.setTabOrder(self.de_contracts, self.cbx_1_ui_select_fiolist__4)
+        QWidget.setTabOrder(self.cbx_1_ui_select_fiolist__4, self.cbx_1__dep_has_ufio__4)
+        QWidget.setTabOrder(self.cbx_1__dep_has_ufio__4, self.pushButton_4)
+        QWidget.setTabOrder(self.pushButton_4, self.tableViewYear)
+        QWidget.setTabOrder(self.tableViewYear, self.pushButton_7)
+        QWidget.setTabOrder(self.pushButton_7, self.qle_contracts)
+        QWidget.setTabOrder(self.qle_contracts, self.table_main__where_ufio_id)
+        QWidget.setTabOrder(self.table_main__where_ufio_id, self.table__dep_has_main_10)
+        QWidget.setTabOrder(self.table__dep_has_main_10, self.pushButton_36)
+        QWidget.setTabOrder(self.pushButton_36, self.btn_serv_you_22)
+        QWidget.setTabOrder(self.btn_serv_you_22, self.DO_NOT_USE_274)
+        QWidget.setTabOrder(self.DO_NOT_USE_274, self.DO_NOT_USE_277)
+        QWidget.setTabOrder(self.DO_NOT_USE_277, self.DO_NOT_USE_280)
+        QWidget.setTabOrder(self.DO_NOT_USE_280, self.DO_NOT_USE_284)
+        QWidget.setTabOrder(self.DO_NOT_USE_284, self.DO_NOT_USE_286)
+        QWidget.setTabOrder(self.DO_NOT_USE_286, self.cbx_1_category)
+        QWidget.setTabOrder(self.cbx_1_category, self.table__dep_has_main_8)
+        QWidget.setTabOrder(self.table__dep_has_main_8, self.pushButton_34)
+        QWidget.setTabOrder(self.pushButton_34, self.btn_serv_you_20)
+        QWidget.setTabOrder(self.btn_serv_you_20, self.DO_NOT_USE_248)
+        QWidget.setTabOrder(self.DO_NOT_USE_248, self.DO_NOT_USE_251)
+        QWidget.setTabOrder(self.DO_NOT_USE_251, self.DO_NOT_USE_254)
+        QWidget.setTabOrder(self.DO_NOT_USE_254, self.DO_NOT_USE_258)
+        QWidget.setTabOrder(self.DO_NOT_USE_258, self.DO_NOT_USE_260)
+        QWidget.setTabOrder(self.DO_NOT_USE_260, self.cbx_1_dep_has_worker__2)
+        QWidget.setTabOrder(self.cbx_1_dep_has_worker__2, self.table__dep_has_main_9)
+        QWidget.setTabOrder(self.table__dep_has_main_9, self.pushButton_35)
+        QWidget.setTabOrder(self.pushButton_35, self.btn_serv_you_21)
+        QWidget.setTabOrder(self.btn_serv_you_21, self.DO_NOT_USE_261)
+        QWidget.setTabOrder(self.DO_NOT_USE_261, self.DO_NOT_USE_264)
+        QWidget.setTabOrder(self.DO_NOT_USE_264, self.DO_NOT_USE_267)
+        QWidget.setTabOrder(self.DO_NOT_USE_267, self.DO_NOT_USE_271)
+        QWidget.setTabOrder(self.DO_NOT_USE_271, self.DO_NOT_USE_273)
+        QWidget.setTabOrder(self.DO_NOT_USE_273, self.cbx_1_dep_has_worker__3)
+        QWidget.setTabOrder(self.cbx_1_dep_has_worker__3, self.tabs_admin)
+        QWidget.setTabOrder(self.tabs_admin, self.pushButton_24)
+        QWidget.setTabOrder(self.pushButton_24, self.pushButton_32)
+        QWidget.setTabOrder(self.pushButton_32, self.pushButton_16)
+        QWidget.setTabOrder(self.pushButton_16, self.journal_table)
+        QWidget.setTabOrder(self.journal_table, self.pushButton_13)
+        QWidget.setTabOrder(self.pushButton_13, self.qle_month)
+        QWidget.setTabOrder(self.qle_month, self.pushButton_14)
+        QWidget.setTabOrder(self.pushButton_14, self.qle_sdd)
+        QWidget.setTabOrder(self.qle_sdd, self.qle_dock_state)
 
         self.menubar.addAction(self.menu.menuAction())
         self.menubar.addAction(self.menu_2.menuAction())
@@ -5708,7 +5774,7 @@ class Ui_MainWindow(object):
         self.table_dep.selectionChanged1.connect(self.table_dep_has_ripso__by_dep_id.filter_by_selection_of)
         self.table_dep.selectionChanged1.connect(self.table_dep_has_worker__by_dep_id.filter_by_selection_of)
 
-        self.tabMain.setCurrentIndex(0)
+        self.tabMain.setCurrentIndex(5)
         self.tabs_add_serv.setCurrentIndex(0)
         self.tab__main_for_dep_by.setCurrentIndex(1)
         self.pb_start_serv_add.setDefault(False)
@@ -6239,19 +6305,21 @@ class Ui_MainWindow(object):
         self.tabs_admin.setTabText(self.tabs_admin.indexOf(self.tab_ripso), QCoreApplication.translate("MainWindow", u"\u041f\u0435\u0440\u0435\u0447\u0435\u043d\u044c \u0420\u0418\u041f\u0421\u041e", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043f\u0438\u0441\u043e\u043a \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u043e\u0432:", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u043b\u0436\u043d\u043e\u0441\u0442\u0438 \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u0430 \u043d\u0430 \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u0438:", None))
+        self.btn_show_qrcode.setText(QCoreApplication.translate("MainWindow", u"QR \u043a\u043e\u0434 \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u0430 \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u044f", None))
         self.tabs_admin.setTabText(self.tabs_admin.indexOf(self.tab_workers), QCoreApplication.translate("MainWindow", u"\u0420\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u0438", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u041b\u043e\u0433\u0438\u043d:", None))
         self.btn_pw_gen.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0433\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u043f\u0430\u0440\u043e\u043b\u044c", None))
         self.btn_update_login_pass.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0431\u043d\u043e\u0432\u0438\u0442\u044c \u043b\u043e\u0433\u0438\u043d \u0438 \u043f\u0430\u0440\u043e\u043b\u044c \u0441\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a\u0430", None))
         self.btnClean.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u044c", None))
-        self.label_31.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0440\u0430\u0432\u0430 \u0434\u043e\u0441\u0442\u0443\u043f\u0430:", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0430\u0440\u043e\u043b\u044c:", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u041b\u043e\u0433\u0438\u043d:", None))
+        self.label_31.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0440\u0430\u0432\u0430 \u0434\u043e\u0441\u0442\u0443\u043f\u0430:", None))
+        self.lineEdit_pass.setText("")
+        self.lineEdit_pass.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0421\u043e\u0437\u0434\u0430\u0439\u0442\u0435 \u043d\u043e\u0432\u044b\u0439 \u043f\u0430\u0440\u043e\u043b\u044c \u043d\u0430\u0436\u0430\u0432 \u043d\u0430 \u043a\u043d\u043e\u043f\u043a\u0443 \u0421\u0433\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u043f\u0430\u0440\u043e\u043b\u044c", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0430\u0431\u043e\u0442\u043d\u0438\u043a:", None))
         self.lineEdit_login.setInputMask("")
         self.lineEdit_login.setText("")
         self.lineEdit_login.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043b\u043e\u0433\u0438\u043d - \u0442\u043e\u043b\u044c\u043a\u043e \u043b\u0430\u0442\u0438\u043d\u0441\u043a\u0438\u0435 \u0431\u0443\u043a\u0432\u044b", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0430\u0431\u043e\u0442\u043d\u0438\u043a:", None))
-        self.lineEdit_pass.setText("")
-        self.lineEdit_pass.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0421\u043e\u0437\u0434\u0430\u0439\u0442\u0435 \u043d\u043e\u0432\u044b\u0439 \u043f\u0430\u0440\u043e\u043b\u044c \u043d\u0430\u0436\u0430\u0432 \u043d\u0430 \u043a\u043d\u043e\u043f\u043a\u0443 \u0421\u0433\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u043f\u0430\u0440\u043e\u043b\u044c", None))
+        self.label_75.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0434\u0430\u0447\u0430 \u043f\u0430\u0440\u043e\u043b\u044f \u0434\u043b\u044f \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435\u0439 \u043f\u043e\u043b\u043d\u043e\u0439(\u043d\u0435 \u043c\u043e\u0431\u0438\u043b\u044c\u043d\u043e\u0439) \u0432\u0435\u0440\u0441\u0438\u0438 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b:", None))
         self.tabs_admin.setTabText(self.tabs_admin.indexOf(self.tab_password), QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0434\u0430\u0447\u0430 \u043f\u0430\u0440\u043e\u043b\u044f", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043f\u0438\u0441\u043e\u043a \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u0439:", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0438\u043f\u0441\u043e \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u044f:", None))

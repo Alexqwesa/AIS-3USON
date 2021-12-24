@@ -44,7 +44,7 @@
          </sizepolicy>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>5</number>
         </property>
         <widget class="myQWidget" name="tab_add_serv">
          <attribute name="title">
@@ -6265,7 +6265,14 @@ p, li { white-space: pre-wrap; }
                        </property>
                       </widget>
                      </item>
-                     <item row="1" column="0">
+                     <item row="0" column="1">
+                      <widget class="QPushButton" name="btn_show_qrcode">
+                       <property name="text">
+                        <string>QR код работника отделения</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0" colspan="2">
                       <widget class="myQTableView" name="table_dep_has_worker__by_worker_id"/>
                      </item>
                     </layout>
@@ -6284,7 +6291,7 @@ p, li { white-space: pre-wrap; }
              <layout class="QHBoxLayout" name="horizontalLayout_3">
               <item>
                <layout class="QGridLayout" name="gridLayout_35">
-                <item row="5" column="1">
+                <item row="6" column="1">
                  <widget class="QWidget" name="widget_3" native="true">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -6299,7 +6306,7 @@ p, li { white-space: pre-wrap; }
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
+                <item row="1" column="1">
                  <widget class="myQComboBox" name="cbx_1_worker__pass">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -6309,14 +6316,7 @@ p, li { white-space: pre-wrap; }
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_5">
-                  <property name="text">
-                   <string>Логин:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="1">
+                <item row="5" column="1">
                  <widget class="QWidget" name="widget" native="true">
                   <layout class="QHBoxLayout" name="horizontalLayout_4">
                    <item>
@@ -6343,50 +6343,28 @@ p, li { white-space: pre-wrap; }
                   </layout>
                  </widget>
                 </item>
-                <item row="5" column="0">
-                 <widget class="QLabel" name="label_31">
-                  <property name="text">
-                   <string>Права доступа:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
+                <item row="3" column="0">
                  <widget class="QLabel" name="label_6">
                   <property name="text">
                    <string>Пароль:</string>
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="1">
-                 <widget class="myQLineEdit" name="lineEdit_login">
-                  <property name="inputMethodHints">
-                   <set>Qt::ImhLatinOnly|Qt::ImhLowercaseOnly</set>
-                  </property>
-                  <property name="inputMask">
-                   <string/>
-                  </property>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_5">
                   <property name="text">
-                   <string/>
-                  </property>
-                  <property name="maxLength">
-                   <number>32</number>
-                  </property>
-                  <property name="cursorPosition">
-                   <number>0</number>
-                  </property>
-                  <property name="placeholderText">
-                   <string>Введите логин - только латинские буквы</string>
+                   <string>Логин:</string>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_4">
+                <item row="6" column="0">
+                 <widget class="QLabel" name="label_31">
                   <property name="text">
-                   <string>Работник:</string>
+                   <string>Права доступа:</string>
                   </property>
                  </widget>
                 </item>
-                <item row="2" column="1">
+                <item row="3" column="1">
                  <layout class="QHBoxLayout" name="horizontalLayout_23">
                   <item>
                    <widget class="myQLineEdit" name="lineEdit_pass">
@@ -6420,6 +6398,50 @@ p, li { white-space: pre-wrap; }
                    <widget class="QLineEdit" name="qle_fio_log_pass"/>
                   </item>
                  </layout>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_4">
+                  <property name="text">
+                   <string>Работник:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="myQLineEdit" name="lineEdit_login">
+                  <property name="inputMethodHints">
+                   <set>Qt::ImhLatinOnly|Qt::ImhLowercaseOnly</set>
+                  </property>
+                  <property name="inputMask">
+                   <string/>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="maxLength">
+                   <number>32</number>
+                  </property>
+                  <property name="cursorPosition">
+                   <number>0</number>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Введите логин - только латинские буквы</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLabel" name="label_75">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Выдача пароля для пользователей полной(не мобильной) версии программы:</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -7919,6 +7941,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>table_ripso_has_serv__by_ripso_id</tabstop>
   <tabstop>table_ripso</tabstop>
   <tabstop>table_dep_has_worker__by_worker_id</tabstop>
+  <tabstop>btn_show_qrcode</tabstop>
   <tabstop>table_worker</tabstop>
   <tabstop>cbx_1_worker__pass</tabstop>
   <tabstop>lineEdit_login</tabstop>
@@ -8191,6 +8214,59 @@ p, li { white-space: pre-wrap; }
   <tabstop>chk_to_recheck</tabstop>
   <tabstop>dte_check_date</tabstop>
   <tabstop>qle_contracts2</tabstop>
+  <tabstop>tabMain</tabstop>
+  <tabstop>tabs_add_serv</tabstop>
+  <tabstop>chk_autosave</tabstop>
+  <tabstop>pushButton_3</tabstop>
+  <tabstop>pushButton_37</tabstop>
+  <tabstop>cbx_1_contracts__by_ufio_id__2</tabstop>
+  <tabstop>chk_all_serv_ripso</tabstop>
+  <tabstop>btn_goto_ufio_2</tabstop>
+  <tabstop>de_contracts</tabstop>
+  <tabstop>cbx_1_ui_select_fiolist__4</tabstop>
+  <tabstop>cbx_1__dep_has_ufio__4</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>tableViewYear</tabstop>
+  <tabstop>pushButton_7</tabstop>
+  <tabstop>qle_contracts</tabstop>
+  <tabstop>table_main__where_ufio_id</tabstop>
+  <tabstop>table__dep_has_main_10</tabstop>
+  <tabstop>pushButton_36</tabstop>
+  <tabstop>btn_serv_you_22</tabstop>
+  <tabstop>DO_NOT_USE_274</tabstop>
+  <tabstop>DO_NOT_USE_277</tabstop>
+  <tabstop>DO_NOT_USE_280</tabstop>
+  <tabstop>DO_NOT_USE_284</tabstop>
+  <tabstop>DO_NOT_USE_286</tabstop>
+  <tabstop>cbx_1_category</tabstop>
+  <tabstop>table__dep_has_main_8</tabstop>
+  <tabstop>pushButton_34</tabstop>
+  <tabstop>btn_serv_you_20</tabstop>
+  <tabstop>DO_NOT_USE_248</tabstop>
+  <tabstop>DO_NOT_USE_251</tabstop>
+  <tabstop>DO_NOT_USE_254</tabstop>
+  <tabstop>DO_NOT_USE_258</tabstop>
+  <tabstop>DO_NOT_USE_260</tabstop>
+  <tabstop>cbx_1_dep_has_worker__2</tabstop>
+  <tabstop>table__dep_has_main_9</tabstop>
+  <tabstop>pushButton_35</tabstop>
+  <tabstop>btn_serv_you_21</tabstop>
+  <tabstop>DO_NOT_USE_261</tabstop>
+  <tabstop>DO_NOT_USE_264</tabstop>
+  <tabstop>DO_NOT_USE_267</tabstop>
+  <tabstop>DO_NOT_USE_271</tabstop>
+  <tabstop>DO_NOT_USE_273</tabstop>
+  <tabstop>cbx_1_dep_has_worker__3</tabstop>
+  <tabstop>tabs_admin</tabstop>
+  <tabstop>pushButton_24</tabstop>
+  <tabstop>pushButton_32</tabstop>
+  <tabstop>pushButton_16</tabstop>
+  <tabstop>journal_table</tabstop>
+  <tabstop>pushButton_13</tabstop>
+  <tabstop>qle_month</tabstop>
+  <tabstop>pushButton_14</tabstop>
+  <tabstop>qle_sdd</tabstop>
+  <tabstop>qle_dock_state</tabstop>
  </tabstops>
  <resources/>
  <connections>
@@ -8201,12 +8277,12 @@ p, li { white-space: pre-wrap; }
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>728</x>
-     <y>212</y>
+     <x>1020</x>
+     <y>259</y>
     </hint>
     <hint type="destinationlabel">
      <x>419</x>
-     <y>176</y>
+     <y>220</y>
     </hint>
    </hints>
   </connection>
@@ -8217,12 +8293,12 @@ p, li { white-space: pre-wrap; }
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>728</x>
-     <y>212</y>
+     <x>1020</x>
+     <y>259</y>
     </hint>
     <hint type="destinationlabel">
-     <x>155</x>
-     <y>149</y>
+     <x>256</x>
+     <y>193</y>
     </hint>
    </hints>
   </connection>
@@ -8233,12 +8309,12 @@ p, li { white-space: pre-wrap; }
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>728</x>
-     <y>212</y>
+     <x>1020</x>
+     <y>259</y>
     </hint>
     <hint type="destinationlabel">
-     <x>155</x>
-     <y>123</y>
+     <x>256</x>
+     <y>167</y>
     </hint>
    </hints>
   </connection>
@@ -8265,12 +8341,12 @@ p, li { white-space: pre-wrap; }
    <slot>stepDown()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>503</x>
-     <y>180</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
-     <x>621</x>
-     <y>178</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
    </hints>
   </connection>
@@ -8281,12 +8357,12 @@ p, li { white-space: pre-wrap; }
    <slot>stepUp()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1010</x>
-     <y>180</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
-     <x>621</x>
-     <y>178</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
    </hints>
   </connection>
@@ -8297,12 +8373,12 @@ p, li { white-space: pre-wrap; }
    <slot>filter_by_selection_of(QString,int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>69</x>
-     <y>133</y>
+     <x>83</x>
+     <y>247</y>
     </hint>
     <hint type="destinationlabel">
-     <x>113</x>
-     <y>133</y>
+     <x>586</x>
+     <y>247</y>
     </hint>
    </hints>
   </connection>
@@ -8313,12 +8389,12 @@ p, li { white-space: pre-wrap; }
    <slot>filter_by_selection_of(QString,int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>69</x>
-     <y>133</y>
+     <x>84</x>
+     <y>276</y>
     </hint>
     <hint type="destinationlabel">
-     <x>112</x>
-     <y>133</y>
+     <x>629</x>
+     <y>276</y>
     </hint>
    </hints>
   </connection>
@@ -8329,12 +8405,12 @@ p, li { white-space: pre-wrap; }
    <slot>filter_by_selection_of(QString,int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>99</x>
-     <y>171</y>
+     <x>113</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
-     <x>633</x>
-     <y>190</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
    </hints>
   </connection>
@@ -8349,8 +8425,8 @@ p, li { white-space: pre-wrap; }
      <y>163</y>
     </hint>
     <hint type="destinationlabel">
-     <x>579</x>
-     <y>159</y>
+     <x>1012</x>
+     <y>310</y>
     </hint>
    </hints>
   </connection>
@@ -8489,12 +8565,12 @@ p, li { white-space: pre-wrap; }
    <slot>set_first_filter_exact(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>187</x>
-     <y>196</y>
+     <x>100</x>
+     <y>180</y>
     </hint>
     <hint type="destinationlabel">
-     <x>187</x>
-     <y>323</y>
+     <x>122</x>
+     <y>181</y>
     </hint>
    </hints>
   </connection>
@@ -8505,12 +8581,12 @@ p, li { white-space: pre-wrap; }
    <slot>set_first_filter_exact(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>155</x>
-     <y>123</y>
+     <x>256</x>
+     <y>167</y>
     </hint>
     <hint type="destinationlabel">
-     <x>146</x>
-     <y>259</y>
+     <x>256</x>
+     <y>525</y>
     </hint>
    </hints>
   </connection>
@@ -8522,11 +8598,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>419</x>
-     <y>176</y>
+     <y>220</y>
     </hint>
     <hint type="destinationlabel">
      <x>419</x>
-     <y>176</y>
+     <y>220</y>
     </hint>
    </hints>
   </connection>
@@ -8617,12 +8693,12 @@ p, li { white-space: pre-wrap; }
    <slot>set_where(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>262</x>
-     <y>196</y>
+     <x>100</x>
+     <y>180</y>
     </hint>
     <hint type="destinationlabel">
-     <x>125</x>
-     <y>314</y>
+     <x>122</x>
+     <y>181</y>
     </hint>
    </hints>
   </connection>
@@ -8637,8 +8713,8 @@ p, li { white-space: pre-wrap; }
      <y>120</y>
     </hint>
     <hint type="destinationlabel">
-     <x>92</x>
-     <y>195</y>
+     <x>127</x>
+     <y>528</y>
     </hint>
    </hints>
   </connection>
@@ -8653,8 +8729,8 @@ p, li { white-space: pre-wrap; }
      <y>120</y>
     </hint>
     <hint type="destinationlabel">
-     <x>92</x>
-     <y>195</y>
+     <x>127</x>
+     <y>528</y>
     </hint>
    </hints>
   </connection>
@@ -8765,8 +8841,8 @@ p, li { white-space: pre-wrap; }
      <y>190</y>
     </hint>
     <hint type="destinationlabel">
-     <x>262</x>
-     <y>196</y>
+     <x>100</x>
+     <y>180</y>
     </hint>
    </hints>
   </connection>
@@ -8777,12 +8853,12 @@ p, li { white-space: pre-wrap; }
    <slot>toNext()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>387</x>
-     <y>197</y>
+     <x>131</x>
+     <y>190</y>
     </hint>
     <hint type="destinationlabel">
-     <x>262</x>
-     <y>196</y>
+     <x>100</x>
+     <y>180</y>
     </hint>
    </hints>
   </connection>
@@ -8797,8 +8873,8 @@ p, li { white-space: pre-wrap; }
      <y>339</y>
     </hint>
     <hint type="destinationlabel">
-     <x>244</x>
-     <y>195</y>
+     <x>100</x>
+     <y>141</y>
     </hint>
    </hints>
   </connection>
@@ -8813,8 +8889,8 @@ p, li { white-space: pre-wrap; }
      <y>339</y>
     </hint>
     <hint type="destinationlabel">
-     <x>244</x>
-     <y>174</y>
+     <x>100</x>
+     <y>141</y>
     </hint>
    </hints>
   </connection>
@@ -8829,8 +8905,8 @@ p, li { white-space: pre-wrap; }
      <y>339</y>
     </hint>
     <hint type="destinationlabel">
-     <x>244</x>
-     <y>152</y>
+     <x>100</x>
+     <y>141</y>
     </hint>
    </hints>
   </connection>
@@ -8841,8 +8917,8 @@ p, li { white-space: pre-wrap; }
    <slot>set_note(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>994</x>
-     <y>174</y>
+     <x>281</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
      <x>479</x>
@@ -8857,8 +8933,8 @@ p, li { white-space: pre-wrap; }
    <slot>set_flt_serv_model(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>244</x>
-     <y>195</y>
+     <x>100</x>
+     <y>141</y>
     </hint>
     <hint type="destinationlabel">
      <x>372</x>
@@ -8873,8 +8949,8 @@ p, li { white-space: pre-wrap; }
    <slot>set_flt_worker_model(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>244</x>
-     <y>174</y>
+     <x>100</x>
+     <y>141</y>
     </hint>
     <hint type="destinationlabel">
      <x>402</x>
@@ -8889,8 +8965,8 @@ p, li { white-space: pre-wrap; }
    <slot>set_flt_ufio(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>244</x>
-     <y>152</y>
+     <x>100</x>
+     <y>141</y>
     </hint>
     <hint type="destinationlabel">
      <x>429</x>
@@ -8905,8 +8981,8 @@ p, li { white-space: pre-wrap; }
    <slot>set_input_state(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>237</x>
-     <y>236</y>
+     <x>211</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
      <x>300</x>
@@ -8921,8 +8997,8 @@ p, li { white-space: pre-wrap; }
    <slot>set_continue_input(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>169</x>
-     <y>317</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
      <x>357</x>
@@ -8937,8 +9013,8 @@ p, li { white-space: pre-wrap; }
    <slot>set_increase(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>212</x>
-     <y>374</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
      <x>319</x>
@@ -8957,8 +9033,8 @@ p, li { white-space: pre-wrap; }
      <y>339</y>
     </hint>
     <hint type="destinationlabel">
-     <x>237</x>
-     <y>407</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
    </hints>
   </connection>
@@ -8969,8 +9045,8 @@ p, li { white-space: pre-wrap; }
    <slot>save_changes()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>169</x>
-     <y>483</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
      <x>479</x>
@@ -8985,8 +9061,8 @@ p, li { white-space: pre-wrap; }
    <slot>discard_changes()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>169</x>
-     <y>483</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
      <x>304</x>
@@ -9001,12 +9077,12 @@ p, li { white-space: pre-wrap; }
    <slot>set_first_filter_exact(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>262</x>
-     <y>196</y>
+     <x>100</x>
+     <y>180</y>
     </hint>
     <hint type="destinationlabel">
-     <x>125</x>
-     <y>314</y>
+     <x>122</x>
+     <y>181</y>
     </hint>
    </hints>
   </connection>
@@ -9017,8 +9093,8 @@ p, li { white-space: pre-wrap; }
    <slot>set_click_input(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>169</x>
-     <y>263</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
      <x>298</x>
@@ -9033,8 +9109,8 @@ p, li { white-space: pre-wrap; }
    <slot>set_continue_input(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>169</x>
-     <y>290</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
      <x>302</x>
@@ -9065,12 +9141,12 @@ p, li { white-space: pre-wrap; }
    <slot>change_model(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1018</x>
-     <y>152</y>
+     <x>281</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
-     <x>244</x>
-     <y>152</y>
+     <x>100</x>
+     <y>141</y>
     </hint>
    </hints>
   </connection>
@@ -9101,8 +9177,8 @@ p, li { white-space: pre-wrap; }
      <y>339</y>
     </hint>
     <hint type="destinationlabel">
-     <x>133</x>
-     <y>584</y>
+     <x>122</x>
+     <y>142</y>
     </hint>
    </hints>
   </connection>
@@ -9113,8 +9189,8 @@ p, li { white-space: pre-wrap; }
    <slot>set_continue_input(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>169</x>
-     <y>344</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
     <hint type="destinationlabel">
      <x>301</x>
@@ -9133,8 +9209,8 @@ p, li { white-space: pre-wrap; }
      <y>233</y>
     </hint>
     <hint type="destinationlabel">
-     <x>237</x>
-     <y>236</y>
+     <x>211</x>
+     <y>151</y>
     </hint>
    </hints>
   </connection>
@@ -9149,8 +9225,8 @@ p, li { white-space: pre-wrap; }
      <y>339</y>
     </hint>
     <hint type="destinationlabel">
-     <x>133</x>
-     <y>584</y>
+     <x>122</x>
+     <y>142</y>
     </hint>
    </hints>
   </connection>
@@ -9161,12 +9237,12 @@ p, li { white-space: pre-wrap; }
    <slot>set_second_filter(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>244</x>
-     <y>152</y>
+     <x>100</x>
+     <y>141</y>
     </hint>
     <hint type="destinationlabel">
-     <x>133</x>
-     <y>584</y>
+     <x>122</x>
+     <y>142</y>
     </hint>
    </hints>
   </connection>
@@ -9181,8 +9257,8 @@ p, li { white-space: pre-wrap; }
      <y>339</y>
     </hint>
     <hint type="destinationlabel">
-     <x>133</x>
-     <y>584</y>
+     <x>122</x>
+     <y>142</y>
     </hint>
    </hints>
   </connection>
@@ -9193,12 +9269,12 @@ p, li { white-space: pre-wrap; }
    <slot>set_second_filter(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>244</x>
-     <y>195</y>
+     <x>100</x>
+     <y>141</y>
     </hint>
     <hint type="destinationlabel">
-     <x>133</x>
-     <y>584</y>
+     <x>122</x>
+     <y>142</y>
     </hint>
    </hints>
   </connection>
@@ -9213,8 +9289,8 @@ p, li { white-space: pre-wrap; }
      <y>339</y>
     </hint>
     <hint type="destinationlabel">
-     <x>147</x>
-     <y>681</y>
+     <x>122</x>
+     <y>142</y>
     </hint>
    </hints>
   </connection>
@@ -9225,12 +9301,12 @@ p, li { white-space: pre-wrap; }
    <slot>set_second_filter(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>244</x>
-     <y>174</y>
+     <x>100</x>
+     <y>141</y>
     </hint>
     <hint type="destinationlabel">
-     <x>147</x>
-     <y>681</y>
+     <x>122</x>
+     <y>142</y>
     </hint>
    </hints>
   </connection>
@@ -9245,8 +9321,8 @@ p, li { white-space: pre-wrap; }
      <y>339</y>
     </hint>
     <hint type="destinationlabel">
-     <x>133</x>
-     <y>584</y>
+     <x>122</x>
+     <y>142</y>
     </hint>
    </hints>
   </connection>
@@ -9257,12 +9333,12 @@ p, li { white-space: pre-wrap; }
    <slot>set_second_filter(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>244</x>
-     <y>152</y>
+     <x>100</x>
+     <y>141</y>
     </hint>
     <hint type="destinationlabel">
-     <x>133</x>
-     <y>584</y>
+     <x>122</x>
+     <y>142</y>
     </hint>
    </hints>
   </connection>
@@ -9273,12 +9349,12 @@ p, li { white-space: pre-wrap; }
    <slot>set_third_filter_model(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>244</x>
-     <y>195</y>
+     <x>100</x>
+     <y>141</y>
     </hint>
     <hint type="destinationlabel">
-     <x>133</x>
-     <y>584</y>
+     <x>122</x>
+     <y>142</y>
     </hint>
    </hints>
   </connection>
@@ -9341,8 +9417,8 @@ p, li { white-space: pre-wrap; }
      <y>120</y>
     </hint>
     <hint type="destinationlabel">
-     <x>262</x>
-     <y>196</y>
+     <x>100</x>
+     <y>180</y>
     </hint>
    </hints>
   </connection>
@@ -9357,8 +9433,8 @@ p, li { white-space: pre-wrap; }
      <y>339</y>
     </hint>
     <hint type="destinationlabel">
-     <x>237</x>
-     <y>440</y>
+     <x>131</x>
+     <y>151</y>
     </hint>
    </hints>
   </connection>
@@ -9385,12 +9461,12 @@ p, li { white-space: pre-wrap; }
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>155</x>
-     <y>123</y>
+     <x>256</x>
+     <y>167</y>
     </hint>
     <hint type="destinationlabel">
-     <x>439</x>
-     <y>176</y>
+     <x>847</x>
+     <y>220</y>
     </hint>
    </hints>
   </connection>
@@ -9401,12 +9477,12 @@ p, li { white-space: pre-wrap; }
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>155</x>
-     <y>149</y>
+     <x>256</x>
+     <y>193</y>
     </hint>
     <hint type="destinationlabel">
-     <x>439</x>
-     <y>176</y>
+     <x>847</x>
+     <y>220</y>
     </hint>
    </hints>
   </connection>
@@ -9418,11 +9494,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>419</x>
-     <y>176</y>
+     <y>220</y>
     </hint>
     <hint type="destinationlabel">
-     <x>439</x>
-     <y>176</y>
+     <x>847</x>
+     <y>220</y>
     </hint>
    </hints>
   </connection>
@@ -9433,12 +9509,12 @@ p, li { white-space: pre-wrap; }
    <slot>set_first_filter_exact(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>262</x>
-     <y>196</y>
+     <x>100</x>
+     <y>180</y>
     </hint>
     <hint type="destinationlabel">
-     <x>125</x>
-     <y>314</y>
+     <x>122</x>
+     <y>181</y>
     </hint>
    </hints>
   </connection>
@@ -9469,8 +9545,8 @@ p, li { white-space: pre-wrap; }
      <y>120</y>
     </hint>
     <hint type="destinationlabel">
-     <x>262</x>
-     <y>196</y>
+     <x>100</x>
+     <y>180</y>
     </hint>
    </hints>
   </connection>
@@ -9485,8 +9561,8 @@ p, li { white-space: pre-wrap; }
      <y>120</y>
     </hint>
     <hint type="destinationlabel">
-     <x>125</x>
-     <y>314</y>
+     <x>122</x>
+     <y>181</y>
     </hint>
    </hints>
   </connection>
@@ -9497,12 +9573,12 @@ p, li { white-space: pre-wrap; }
    <slot>change_model(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1029</x>
-     <y>141</y>
+     <x>256</x>
+     <y>121</y>
     </hint>
     <hint type="destinationlabel">
-     <x>167</x>
-     <y>141</y>
+     <x>94</x>
+     <y>121</y>
     </hint>
    </hints>
   </connection>
@@ -9513,12 +9589,12 @@ p, li { white-space: pre-wrap; }
    <slot>set_first_filter_exact(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>167</x>
-     <y>141</y>
+     <x>94</x>
+     <y>121</y>
     </hint>
     <hint type="destinationlabel">
-     <x>115</x>
-     <y>168</y>
+     <x>45</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -9529,12 +9605,12 @@ p, li { white-space: pre-wrap; }
    <slot>set_contract_id(QString,int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>115</x>
-     <y>168</y>
+     <x>45</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel">
-     <x>135</x>
-     <y>281</y>
+     <x>113</x>
+     <y>133</y>
     </hint>
    </hints>
   </connection>
@@ -9545,12 +9621,12 @@ p, li { white-space: pre-wrap; }
    <slot>visibleDataChangedEmit()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>115</x>
-     <y>168</y>
+     <x>45</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel">
-     <x>135</x>
-     <y>281</y>
+     <x>113</x>
+     <y>133</y>
     </hint>
    </hints>
   </connection>
@@ -9577,8 +9653,8 @@ p, li { white-space: pre-wrap; }
    <slot>set_second_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>121</x>
-     <y>133</y>
+     <x>109</x>
+     <y>150</y>
     </hint>
     <hint type="destinationlabel">
      <x>121</x>
@@ -9593,8 +9669,8 @@ p, li { white-space: pre-wrap; }
    <slot>set_second_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>121</x>
-     <y>133</y>
+     <x>109</x>
+     <y>150</y>
     </hint>
     <hint type="destinationlabel">
      <x>121</x>
@@ -9609,12 +9685,12 @@ p, li { white-space: pre-wrap; }
    <slot>set_second_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>122</x>
-     <y>133</y>
+     <x>124</x>
+     <y>155</y>
     </hint>
     <hint type="destinationlabel">
-     <x>122</x>
-     <y>142</y>
+     <x>124</x>
+     <y>164</y>
     </hint>
    </hints>
   </connection>
@@ -9657,8 +9733,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_ufio_id(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>244</x>
-     <y>152</y>
+     <x>100</x>
+     <y>141</y>
     </hint>
     <hint type="destinationlabel">
      <x>1306</x>
@@ -9741,8 +9817,8 @@ p, li { white-space: pre-wrap; }
      <y>339</y>
     </hint>
     <hint type="destinationlabel">
-     <x>133</x>
-     <y>584</y>
+     <x>122</x>
+     <y>142</y>
     </hint>
    </hints>
   </connection>
@@ -9753,8 +9829,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_ufio_id(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>167</x>
-     <y>141</y>
+     <x>94</x>
+     <y>121</y>
     </hint>
     <hint type="destinationlabel">
      <x>1306</x>

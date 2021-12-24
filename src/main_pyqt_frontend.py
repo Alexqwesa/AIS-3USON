@@ -33,7 +33,6 @@ from qtpy.QtWidgets import QStyleFactory
 # logging.getLogger("3uson").setLevel(logging.INFO)
 
 
-
 #############################
 # import this project files
 # ---------------------------
@@ -214,6 +213,7 @@ class MyAppConnect(QMainWindow):
         self.tab_journal = clstab_journal(self)
         self.tab_table_serv1 = clstab_table_serv(self)
         self.tab_dock_people_info = clstab_dock_people_info(self)
+        self.tab_workers = clstab_workers(self)
 
         self.ui.action_year.setText(self.tr("Год: ") + str(SD.last_year))
         #############################

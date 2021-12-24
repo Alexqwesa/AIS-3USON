@@ -16,6 +16,11 @@
 #############################
 # import this project files
 # ---------------------------
+from qtpy.QtCore import QSize
+from qtpy.QtGui import QPixmap
+from qtpy.QtWidgets import QDialog
+from qtpy.QtWidgets import QLineEdit
+from qtpy.QtGui import QImage
 from qtpy.QtWidgets import QLabel, QInputDialog
 from qtpy.QtGui import QRegularExpressionValidator
 
@@ -23,6 +28,7 @@ from logic.data_worker import *
 
 from models.ts_models_serv_year import tsTableServYearModel
 from models.universal_delegate import tsItemDelegate
+from worker.login_key_auth import api_key
 
 
 class QOBase(QObject):
@@ -116,6 +122,48 @@ class clstab_dock_people_info(QOBase):
         ui = self.ui
         self.me = ui.dock_people_info
         # ui.cbx_1_servform =
+
+
+class clstab_workers(QOBase):
+    def __init__(self, parent):
+        super().__init__(parent)
+        ui = self.ui
+        self.me: myQWidget = ui.tab_workers
+        # self.__init = False
+        self.dep_has_worker: myQTableView = ui.table_dep_has_worker__by_worker_id
+
+    @Slot()
+    def on_btn_show_qrcode_clicked(self):
+        try:
+            index: QModelIndex = self.dep_has_worker.selectedIndexes()[0]
+            name = index.siblingAtColumn(index.model().index_of_col("dep_has_worker")).data(Qt.EditRole)
+            password, key, qr_image = api_key(
+                name=index.siblingAtColumn(index.model().index_of_col("dep_has_worker")).data(Qt.EditRole),
+                dep=index.siblingAtColumn(index.model().index_of_col("dep_id")).data(Qt.DisplayRole),
+                worker_dep_id=index.siblingAtColumn(index.model().index_of_col("id")).data(Qt.EditRole),
+                password=index.siblingAtColumn(index.model().index_of_col("api_key")).data(Qt.EditRole)
+            )
+            try:
+                window = QDialog()
+                window.resize(600, 600)
+                window.setWindowTitle("QR код работника отделения")
+                verticalLayout = QVBoxLayout(window)
+                qlable = QLabel(parent=window)
+                verticalLayout.addWidget(qlable)
+                qlable.setText("QR код работника отделения" + name)
+                qtext = QLineEdit(parent=window)
+                qtext.setText(str(key))
+                verticalLayout.addWidget(qtext)
+                q_img_label = QLabel(parent=window)
+                q_img = QImage(qr_image)
+                q_img_label.setPixmap(QPixmap.fromImage(q_img))
+                verticalLayout.addWidget(q_img_label)
+                window.show()
+                window.exec()
+            except:
+                pass
+        except IndexError:
+            UI.QMessageBox.information(UI, "Не выбран работник", UI.tr("Пожалуйста выберите работника отделения"))
 
 
 class clstab_admin(QOBase):
