@@ -91,7 +91,7 @@ BEGIN
     grant select on kcson._worker_has_dep to info;
     grant select on kcson._worker_has_main to info;
     grant select on kcson._worker_settings to info;
-    grant select on kcson.audit to info;
+--    grant select on kcson.audit to info;
     grant select on kcson.category to info;
     grant select on kcson.complex_dep to info;
     grant select on kcson.complex_dep_has_dep to info;
@@ -121,7 +121,7 @@ BEGIN
     grant select on kcson.jobgroup to info;
     grant select on kcson.last_used_workers to info;
     grant select on kcson.live_min to info;
-    grant select on kcson.log_edit_archive to info;
+--    grant select on kcson.log_edit_archive to info;
     grant select on kcson.main to info;
     grant select on kcson.main_cprice to info;
     grant select on kcson.main_has_ugroup to info;
