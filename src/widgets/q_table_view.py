@@ -102,7 +102,7 @@ class tsQTableView(tsQTableViewDockInfo):
         # update
         # ---------------------------
         self.setFocus()
-        self.update()
+        # self.update(self.selectedIndexes()[0])
 
     def init_model(self, val=True):
         self.inited = val

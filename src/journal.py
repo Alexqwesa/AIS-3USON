@@ -912,7 +912,9 @@ class editStorage(PersistentStorage):
                     # activate widget
                     # ---------------------------
                     with suppress(AttributeError):
-                        uce.view.update()  # TODO: fix it
+                        # uce.view.update(ModelIndex(uce.model, row_id, uce.model.indexOf(column_name)) )
+                        # don't try to find index just update layout, maybe change it later
+                        uce.view.updateLayout()
                         uce.view.activate()
                         # TODO: move to row/col
                     # bce = self.global_log[self.back_id]
