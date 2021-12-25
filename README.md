@@ -49,6 +49,7 @@ Windows должны использовать 64 битные утилиты(Pyt
     - MySQL Connector/ODBC 8  [mysql-connector-odbc.msi](https://dev.mysql.com/downloads/connector/odbc/)
 - на **клиентских Linux компьютерах** нужно установить и указать:
     - MySQL Connector/ODBC 8  [mysql-connector-odbc.tar.gz](https://dev.mysql.com/downloads/connector/odbc/)
+    - unixODBC
     - добавить в /etc/unixODBC/odbcinst.ini следующие строки:
 
 ```
