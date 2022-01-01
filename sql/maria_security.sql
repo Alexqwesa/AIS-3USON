@@ -9,12 +9,12 @@ select * from kcson.role;
 # routine GET_PRIVILEGES
 # ---------------------------
 drop procedure IF EXISTS INIT_SECURITY;
-delimiter $$;
+delimiter $$
 create procedure INIT_SECURITY()
     SQL SECURITY DEFINER
 BEGIN
 
-    create SCHEMA IF NOT EXISTS `kcson_tmp` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+    create SCHEMA IF NOT EXISTS `kcson_tmp` DEFAULT CHARACTER SET utf8mb4  ;
     grant execute,select, create TEMPORARY TABLES on kcson_tmp.* to info;
 
     #############################
@@ -316,7 +316,7 @@ delimiter ;
 # routine GET_PRIVILEGES
 # ---------------------------
 drop procedure IF EXISTS GET_PRIVILEGES;
-delimiter $$;
+delimiter $$
 create procedure GET_PRIVILEGES()
     SQL SECURITY DEFINER
 BEGIN
@@ -373,7 +373,7 @@ delimiter ;
 # routine RESET_PRIVILEGES
 # ---------------------------
 drop procedure IF EXISTS RESET_PRIVILEGES;
-delimiter $$;
+delimiter $$
 create procedure RESET_PRIVILEGES()
     SQL SECURITY invoker
 BEGIN
@@ -411,7 +411,7 @@ delimiter ;
 # routine DROP_ROLES
 # ---------------------------
 drop procedure IF EXISTS DROP_ROLES;
-delimiter $$;
+delimiter $$
 create procedure DROP_ROLES()
     SQL SECURITY invoker
 BEGIN
@@ -429,7 +429,7 @@ delimiter ;
 # routine SET_DEP_
 # ---------------------------
 drop procedure IF EXISTS SET_DEP_;
-delimiter $$;
+delimiter $$
 create definer=`root`@`localhost` PROCEDURE `kcson`.`SET_DEP_`(`depId` INT)
     MODIFIES SQL DATA
     COMMENT 'set default department (with checking is it possible)'
@@ -506,7 +506,7 @@ delimiter ;
 # ---------------------------
 
 drop procedure IF EXISTS show_cols_root;
-delimiter $$;
+delimiter $$
 create definer=`root`@`localhost` PROCEDURE `kcson`.`show_cols_root`(IN tname TEXT)
     READS SQL DATA
     DETERMINISTIC
@@ -524,8 +524,8 @@ delimiter ;
 # allow all see percents: contract_pay_inmonth
 # ---------------------------
 drop procedure IF EXISTS contract_pay_inmonth;
-delimiter $$;
-create procedure kcson.contract_pay_inmonth(IN   UID  INT, IN  STARTDATE DATE, IN ENDDATE DATE)
+delimiter $$
+create procedure kcson.contract_pay_inmonth(IN UID  INT, IN  STARTDATE DATE, IN ENDDATE DATE)
 sql security definer
 begin
 	
