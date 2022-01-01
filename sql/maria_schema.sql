@@ -1682,14 +1682,14 @@ CREATE TABLE `add_info` (
   `work_livemin` tinyint DEFAULT '0',
   PRIMARY KEY (`pddate`,`contracts_id`),
   KEY `fk_add_info_contracts1_idx` (`contracts_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -1708,7 +1708,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -1732,7 +1732,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -1797,7 +1797,7 @@ CREATE TABLE `api_key_insert_main` (
   `note` varchar(255) DEFAULT NULL,
   `create` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='web_info inserts table';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  COMMENT='web_info inserts table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1814,7 +1814,7 @@ CREATE TABLE `audit` (
   `user` varchar(32) DEFAULT NULL,
   `host` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1833,7 +1833,7 @@ CREATE TABLE `category` (
   `subof` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `category_UNIQUE` (`category`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1848,7 +1848,7 @@ CREATE TABLE `complex_dep` (
   `complex_dep` varchar(255) DEFAULT NULL,
   `note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1864,7 +1864,7 @@ CREATE TABLE `complex_dep_has_dep` (
   PRIMARY KEY (`complex_dep_id`,`dep_id`),
   KEY `fk_complex_dep_has_dep_dep1_idx` (`dep_id`),
   KEY `fk_complex_dep_has_dep_complex_dep1_idx` (`complex_dep_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1898,14 +1898,14 @@ CREATE TABLE `contracts` (
   KEY `fk_contract_ufio1_idx` (`ufio_id`),
   KEY `fk_contracts_ripso1_idx` (`ripso_id`),
   KEY `fk_contracts_dep1_idx` (`dep_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1510 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1510 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -1936,7 +1936,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -1963,7 +1963,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2016,14 +2016,14 @@ CREATE TABLE `contracts_has_serv` (
   PRIMARY KEY (`serv_id`,`contracts_id`),
   KEY `fk_contracts_has_serv_contracts1_idx` (`contracts_id`),
   CONSTRAINT `fk_contracts_has_serv_serv1` FOREIGN KEY (`serv_id`) REFERENCES `serv` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2041,7 +2041,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2116,7 +2116,7 @@ CREATE TABLE `data_log` (
   `date` datetime NOT NULL,
   `prim` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2136,14 +2136,14 @@ CREATE TABLE `dep` (
   `complex_dep_id` int unsigned DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `dep_UNIQUE` (`dep`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Departments';
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4  COMMENT='Departments';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2199,7 +2199,7 @@ CREATE TABLE `dep_has_ripso` (
   PRIMARY KEY (`dep_id`,`ripso_id`),
   KEY `fk_dep_has_ripso_ripso1_idx` (`ripso_id`),
   KEY `fk_dep_has_ripso_dep1_idx` (`dep_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2297,7 +2297,7 @@ CREATE TABLE `dep_has_worker` (
   `from` date DEFAULT '2000-01-01',
   `till` date DEFAULT '2050-01-01',
   `role_id` int unsigned NOT NULL DEFAULT '1',
-  `api_key` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `api_key` varchar(64) CHARACTER SET utf8mb4  DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `wid_UNIQUE` (`id`),
   UNIQUE KEY `dep_has_worker_UNIQUE` (`dep_has_worker`),
@@ -2306,14 +2306,14 @@ CREATE TABLE `dep_has_worker` (
   KEY `fk_dep_has_worker_role1_idx` (`role_id`),
   KEY `fk_dep_has_worker_worker1` (`worker_id`),
   CONSTRAINT `fk_dep_has_worker_worker1` FOREIGN KEY (`worker_id`) REFERENCES `worker` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=228 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=228 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2336,7 +2336,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2405,7 +2405,7 @@ CREATE TABLE `dhw_has_ufio` (
   KEY `dhw_has_ufio_FK_1` (`ufio_id`),
   CONSTRAINT `dhw_has_ufio_FK` FOREIGN KEY (`dhw_id`) REFERENCES `dep_has_worker` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `dhw_has_ufio_FK_1` FOREIGN KEY (`ufio_id`) REFERENCES `ufio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2451,7 +2451,7 @@ CREATE TABLE `holiday` (
   `holiday` date NOT NULL,
   `prim` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`holiday`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2479,14 +2479,14 @@ CREATE TABLE `invoice` (
   KEY `fk_invoice_ufio1_idx` (`ufio_id`),
   KEY `fk_invoice_dep1_idx` (`dep_id`),
   CONSTRAINT `fk_invoice_ufio1` FOREIGN KEY (`ufio_id`) REFERENCES `ufio` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2505,7 +2505,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2532,14 +2532,14 @@ CREATE TABLE `invoice_has_payment` (
   PRIMARY KEY (`invoice_id`,`payment_id`),
   KEY `fk_invoice_has_payment_payment1_idx` (`payment_id`),
   KEY `fk_invoice_has_payment_invoice1_idx` (`invoice_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2566,7 +2566,7 @@ CREATE TABLE `job` (
   `job` varchar(255) DEFAULT NULL,
   `prim` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2582,7 +2582,7 @@ CREATE TABLE `job_has_jobgroup` (
   PRIMARY KEY (`job_id`,`jobGroup_id`),
   KEY `fk_job_has_jobGroup_jobGroup1_idx` (`jobGroup_id`),
   KEY `fk_job_has_jobGroup_job1_idx` (`job_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2598,7 +2598,7 @@ CREATE TABLE `job_has_serv` (
   PRIMARY KEY (`job_id`,`serv_id`),
   KEY `fk_job_has_serv_serv1_idx` (`serv_id`),
   KEY `fk_job_has_serv_job1_idx` (`job_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2613,7 +2613,7 @@ CREATE TABLE `jobgroup` (
   `jobGroup` varchar(25) DEFAULT NULL,
   `prim` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2650,14 +2650,14 @@ CREATE TABLE `live_min` (
   `cr_by` int DEFAULT NULL,
   `upd_by` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2675,7 +2675,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2707,7 +2707,7 @@ CREATE TABLE `log_edit_archive` (
   `note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_log_edit_archive_worker1_idx` (`worker_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2744,21 +2744,21 @@ CREATE TABLE `main` (
   KEY `fk_main2_worker1_idx` (`worker_id`),
   KEY `fk_main2_dep_has_worker1_idx` (`dep_has_worker_id`),
   KEY `vdate_` (`vdate`),
-  KEY `ts` (`ts`) /*!80000 INVISIBLE */,
+  KEY `ts` (`ts`) /*!80000 IN */,
   KEY `upd_by` (`upd_by`),
   KEY `create_by` (`cr_by`),
   CONSTRAINT `fk_main2_contracts` FOREIGN KEY (`contracts_id`) REFERENCES `contracts` (`id`),
   CONSTRAINT `fk_main2_dep` FOREIGN KEY (`dep_id`) REFERENCES `dep` (`id`),
   CONSTRAINT `fk_main2_serv1` FOREIGN KEY (`serv_id`) REFERENCES `serv` (`id`),
   CONSTRAINT `worker` FOREIGN KEY (`worker_id`) REFERENCES `worker` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=175266 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='main table';
+) ENGINE=InnoDB AUTO_INCREMENT=175266 DEFAULT CHARSET=utf8mb4  COMMENT='main table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2792,7 +2792,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2813,7 +2813,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2858,7 +2858,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2877,7 +2877,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2940,7 +2940,7 @@ CREATE TABLE `main_has_ugroup` (
   PRIMARY KEY (`main_id`,`ugroup_id`),
   KEY `fk_main_has_ugroup_ugroup1_idx` (`ugroup_id`),
   KEY `fk_main_has_ugroup_main1_idx` (`main_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3046,7 +3046,7 @@ CREATE TABLE `notifies` (
   `worker_id` int unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_notifies_worker1_idx` (`worker_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3065,7 +3065,7 @@ CREATE TABLE `payment` (
   `ts` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_payment_ufio1_idx` (`ufio_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3080,7 +3080,7 @@ CREATE TABLE `pcat` (
   `pcat` varchar(255) NOT NULL,
   `prim` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3095,7 +3095,7 @@ CREATE TABLE `permiss` (
   `perm` varchar(50) NOT NULL,
   `prim` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3123,7 +3123,7 @@ CREATE TABLE `rdata` (
   KEY `fk_Rdata_serv1_idx` (`serv_id`),
   KEY `fk_Rdata_worker1_idx` (`worker_id`),
   CONSTRAINT `fk_Rdata_ufio1` FOREIGN KEY (`ufio_id`) REFERENCES `ufio` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3143,7 +3143,7 @@ CREATE TABLE `rdep` (
   `2ndmoney` int DEFAULT NULL,
   `peoples` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3155,8 +3155,8 @@ DROP TABLE IF EXISTS `ripso`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ripso` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `ripso` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `ripso_short` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `ripso` varchar(255) CHARACTER SET utf8mb4  NOT NULL,
+  `ripso_short` varchar(255) CHARACTER SET utf8mb4  NOT NULL,
   `year` year NOT NULL,
   `archive` tinyint DEFAULT '0',
   `servform_id` int unsigned NOT NULL,
@@ -3165,7 +3165,7 @@ CREATE TABLE `ripso` (
   PRIMARY KEY (`id`),
   KEY `fk_ripso_servform1_idx` (`servform_id`),
   KEY `fk_ripso_pcat1_idx` (`pcat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3184,7 +3184,7 @@ CREATE TABLE `ripso_has_serv` (
   PRIMARY KEY (`serv_id`,`ripso_id`),
   KEY `fk_ripso_has_serv_ripso1_idx` (`ripso_id`),
   CONSTRAINT `fk_ripso_has_serv_serv1` FOREIGN KEY (`serv_id`) REFERENCES `serv` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3202,7 +3202,7 @@ CREATE TABLE `rname` (
   `cr_ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `scheduled` tinyint DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3218,7 +3218,7 @@ CREATE TABLE `role` (
   `prim` varchar(255) DEFAULT NULL,
   `role_sqlname` varchar(100) DEFAULT 'info',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3235,7 +3235,7 @@ CREATE TABLE `role_has_permiss` (
   KEY `fk_role_has_permiss_permiss1_idx` (`permiss_id`),
   KEY `fk_role_has_permiss_roles1_idx` (`role_id`),
   CONSTRAINT `fk_role_has_permiss_roles1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3256,7 +3256,7 @@ CREATE TABLE `rperiod` (
   `archive` tinyint DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `period_UNIQUE` (`Rperiod`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3271,7 +3271,7 @@ CREATE TABLE `rperiodsofrname` (
   `Rperiod_id` int unsigned NOT NULL,
   PRIMARY KEY (`Rperiod_id`,`Rname_id`),
   KEY `fk_RperiodsOFRname_Rname1_idx` (`Rname_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3306,14 +3306,14 @@ CREATE TABLE `serv` (
   UNIQUE KEY `servcol_UNIQUE` (`serv`),
   KEY `serv_sub_serv_IDX` (`sub_serv`) USING BTREE,
   KEY `serv_sub_serv_str_IDX` (`sub_serv_str`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=828 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=828 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -3332,7 +3332,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -3359,7 +3359,7 @@ CREATE TABLE `serv_images` (
   `image` varchar(255) DEFAULT NULL,
   `words` varchar(100) DEFAULT NULL,
   `archiv` tinyint(1) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3374,7 +3374,7 @@ CREATE TABLE `servform` (
   `servform` varchar(255) DEFAULT NULL,
   `prim` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3535,7 +3535,7 @@ CREATE TABLE `setting` (
   `prim` varchar(255) DEFAULT NULL,
   `sdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3575,7 +3575,7 @@ CREATE TABLE `street_home` (
   `upd_by` int DEFAULT NULL,
   `coordinate` point DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3590,7 +3590,7 @@ CREATE TABLE `stub_model` (
   `msg` varchar(45) DEFAULT NULL,
   `msg1` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Used as default table model if right model  not implemented yet';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  COMMENT='Used as default table model if right model  not implemented yet';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3606,7 +3606,7 @@ CREATE TABLE `tables_checksums` (
   `checksum` varchar(45) DEFAULT NULL,
   `lastid` int DEFAULT NULL,
   PRIMARY KEY (`id`,`table`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3624,7 +3624,7 @@ CREATE TABLE `test` (
   `decimal` decimal(10,2) DEFAULT NULL,
   `double` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3665,14 +3665,14 @@ CREATE TABLE `ufio` (
   `cr_dep_id` int unsigned DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `ufio_UNIQUE` (`ufio`)
-) ENGINE=InnoDB AUTO_INCREMENT=1447 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1447 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -3693,7 +3693,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -3715,7 +3715,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -3751,14 +3751,14 @@ CREATE TABLE `ufio_has_category` (
   KEY `fk_ufio_has_category_category1_idx` (`category_id`),
   KEY `fk_ufio_has_category_ufio1_idx` (`ufio_id`),
   CONSTRAINT `fk_ufio_has_category_ufio1` FOREIGN KEY (`ufio_id`) REFERENCES `ufio` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -3776,7 +3776,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -3807,7 +3807,7 @@ CREATE TABLE `ugroup` (
   PRIMARY KEY (`id`),
   KEY `fk_ugroup_dep1_idx` (`dep_id`),
   KEY `fk_ugroup_worker1_idx` (`worker_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3824,7 +3824,7 @@ CREATE TABLE `ugroup_has_ufio` (
   KEY `fk_ugroup_has_ufio_ufio1_idx` (`ufio_id`),
   KEY `fk_ugroup_has_ufio_ugroup1_idx` (`ugroup_id`),
   CONSTRAINT `fk_ugroup_has_ufio_ugroup1` FOREIGN KEY (`ugroup_id`) REFERENCES `ugroup` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3842,7 +3842,7 @@ CREATE TABLE `ui_select_fiolist` (
   `orderby` int DEFAULT NULL,
   `prim` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4253,14 +4253,14 @@ CREATE TABLE `worker` (
   KEY `fk_worker_roles1_idx` (`role_id`),
   KEY `fk_worker_dep1_idx` (`dep_id`),
   CONSTRAINT `fk_worker_roles1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4302,7 +4302,7 @@ CREATE TABLE `worker_settings` (
   `last_ufio_filter` int DEFAULT NULL,
   `last_year` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4318,7 +4318,7 @@ CREATE TABLE `worker_settings` (
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4348,7 +4348,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4377,7 +4377,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4418,7 +4418,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4469,7 +4469,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4496,7 +4496,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4523,7 +4523,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4546,7 +4546,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4584,7 +4584,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4621,7 +4621,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4663,7 +4663,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4708,7 +4708,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4731,7 +4731,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4758,7 +4758,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4782,7 +4782,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4806,7 +4806,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4831,7 +4831,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4857,7 +4857,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -4975,7 +4975,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5004,7 +5004,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5160,7 +5160,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5179,7 +5179,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5206,7 +5206,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5228,7 +5228,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5320,7 +5320,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5344,7 +5344,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5408,7 +5408,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5427,14 +5427,14 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `INIT_SECURITY`()
 BEGIN
 
-    create SCHEMA IF NOT EXISTS `kcson_tmp` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+    create SCHEMA IF NOT EXISTS `kcson_tmp` DEFAULT CHARACTER SET utf8mb4  ;
     grant execute,select, create TEMPORARY TABLES on kcson_tmp.* to info;
 
     #############################
@@ -5730,7 +5730,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5766,7 +5766,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5831,7 +5831,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5865,7 +5865,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5909,7 +5909,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5936,7 +5936,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -5964,7 +5964,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -6043,7 +6043,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -6071,7 +6071,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -6108,7 +6108,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -6132,7 +6132,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -6153,7 +6153,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -6190,7 +6190,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -6214,7 +6214,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_active_dep` AS select `dep`.`id` AS `id`,`dep`.`dep` AS `dep`,`dep`.`dep_full_name` AS `dep_full_name`,`dep`.`dep_puname` AS `dep_puname`,`dep`.`note` AS `note`,`dep`.`archive` AS `archive`,`dep`.`complex_dep_id` AS `complex_dep_id` from `dep` where ((0 <> `IS_CUR_DEP_STATIC`(`dep`.`id`)) and (`dep`.`complex_dep_id` = 0)) group by `dep`.`dep` */;
@@ -6232,7 +6232,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_active_dep_static` AS select `dep`.`id` AS `id`,`dep`.`dep` AS `dep`,`dep`.`dep_full_name` AS `dep_full_name`,`dep`.`dep_puname` AS `dep_puname`,`dep`.`note` AS `note`,`dep`.`archive` AS `archive`,`dep`.`complex_dep_id` AS `complex_dep_id` from `dep` where ((0 <> `IS_CUR_DEP_STATIC`(`dep`.`id`)) and (`dep`.`complex_dep_id` = 0)) group by `dep`.`dep` */;
@@ -6250,7 +6250,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_api_key_planned` AS select `ahc`.`contract_id` AS `contract_id`,`chs`.`serv_id` AS `serv_id`,`chs`.`planned` AS `planned`,`chs`.`filled` AS `filled`,`ahc`.`api_key` AS `api_key` from (`contracts_has_serv` `chs` join `_apikey_has_contracts` `ahc` on((`ahc`.`contract_id` = `chs`.`contracts_id`))) */;
@@ -6268,7 +6268,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_api_key_services` AS select `sa`.`id` AS `id`,`sa`.`serv` AS `serv`,`sa`.`serv_text` AS `serv_text`,`sa`.`tnum` AS `tnum`,`sa`.`price` AS `price`,`sa`.`total` AS `total`,`sa`.`sub_serv` AS `sub_serv`,`sa`.`serv_id_list` AS `serv_id_list`,`si`.`image` AS `image`,`si`.`expr` AS `expr`,`si`.`words` AS `short_text` from (`_serv_activ` `sa` left join `serv_images` `si` on((`sa`.`serv_text` like `si`.`expr`))) */;
@@ -6286,7 +6286,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_apikey_has_contracts` AS select `dhw`.`api_key` AS `api_key`,`c`.`id` AS `contract_id`,`c`.`dep_id` AS `dep_id`,`c`.`ufio_id` AS `ufio_id`,`c`.`contracts` AS `contract`,concat(substr(`u`.`ufio`,1,3),'. *. ',substr(substring_index(`u`.`ufio`,' ',-(1)),1,1),'-',substr(substring_index(`u`.`ufio`,' ',-(1)),-(2),2)) AS `ufio`,`dhw`.`id` AS `dhw_id` from ((`dep_has_worker` `dhw` join `contracts` `c` on((`c`.`dep_id` = `dhw`.`dep_id`))) join `ufio` `u` on((`u`.`id` = `c`.`ufio_id`))) */;
@@ -6304,7 +6304,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_bm_dep_has_ufio` AS select `u`.`id` AS `id`,`u`.`ufio` AS `ufio`,`u`.`ufio_short` AS `ufio_short`,`u`.`ufioDeath` AS `ufioDeath`,`u`.`ufiobirth` AS `ufiobirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `ufio` `u` where `u`.`id` in (select `m`.`ufio_id` from `main` `m` where `m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
@@ -6322,7 +6322,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_bm_dep_has_ufio_other_year` AS select `_bm_dep_has_ufio`.`id` AS `id`,`_bm_dep_has_ufio`.`ufio` AS `ufio`,`_bm_dep_has_ufio`.`ufio_short` AS `ufio_short`,`_bm_dep_has_ufio`.`ufioDeath` AS `ufioDeath`,`_bm_dep_has_ufio`.`ufiobirth` AS `ufiobirth`,`_bm_dep_has_ufio`.`ESRN` AS `ESRN`,`_bm_dep_has_ufio`.`prim` AS `prim`,`_bm_dep_has_ufio`.`phone` AS `phone`,`_bm_dep_has_ufio`.`snils` AS `snils`,`_bm_dep_has_ufio`.`curator` AS `curator`,`_bm_dep_has_ufio`.`create` AS `create`,`_bm_dep_has_ufio`.`ts` AS `ts`,`_bm_dep_has_ufio`.`cr_by` AS `cr_by`,`_bm_dep_has_ufio`.`upd_by` AS `upd_by`,`_bm_dep_has_ufio`.`cr_dep_id` AS `cr_dep_id` from `_bm_dep_has_ufio` where `_bm_dep_has_ufio`.`id` in (select `_bm_dep_has_ufio_year`.`id` from `_bm_dep_has_ufio_year`) is false */;
@@ -6340,7 +6340,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_bm_dep_has_ufio_year` AS select `u`.`id` AS `id`,`u`.`ufio` AS `ufio`,`u`.`ufio_short` AS `ufio_short`,`u`.`ufioDeath` AS `ufioDeath`,`u`.`ufiobirth` AS `ufiobirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `ufio` `u` where `u`.`id` in (select `m`.`ufio_id` from `main` `m` where (`m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) and (year(`m`.`vdate`) = `GET_YEAR`(`GET_WID`())))) */;
@@ -6358,7 +6358,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_categ_list_ufio` AS select `uhc`.`category_id` AS `category_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`uslnum` AS `uslnum`,`m`.`vdate` AS `vdate`,`s`.`tnum` AS `serv` from ((`main` `m` join `ufio_has_category` `uhc` on((`m`.`ufio_id` = `uhc`.`ufio_id`))) join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) where (`m`.`dep_id` in (select `_active_dep_static`.`id` from `_active_dep_static`) and (coalesce(`uhc`.`archive`,0) = 0)) */;
@@ -6376,7 +6376,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_contr_has_add_info` AS select `add_info`.`pddate` AS `pddate`,`add_info`.`contracts_id` AS `contracts_id`,`add_info`.`predv_money` AS `predv_money`,`add_info`.`curFIO` AS `curFIO`,`add_info`.`psp` AS `psp`,`add_info`.`address` AS `address`,`add_info`.`sdd` AS `sdd`,`add_info`.`sdd_date` AS `sdd_date`,`add_info`.`perc` AS `perc`,`add_info`.`not_standart_contract` AS `not_standart_contract`,`add_info`.`not_standart_act` AS `not_standart_act`,`add_info`.`prim` AS `prim`,`add_info`.`create` AS `create`,`add_info`.`ts` AS `ts`,`add_info`.`cr_by` AS `cr_by`,`add_info`.`upd_by` AS `upd_by`,`add_info`.`repr_FIO` AS `repr_FIO`,`add_info`.`repr_addr` AS `repr_addr`,`add_info`.`repr_psp` AS `repr_psp`,`add_info`.`work_livemin` AS `work_livemin` from `add_info` where (`add_info`.`contracts_id` = `get_last_contr`()) */;
@@ -6394,7 +6394,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_contr_has_main` AS select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from (`main` `m` join `contracts` `c` on((`m`.`contracts_id` = `c`.`id`))) */;
@@ -6412,7 +6412,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_contr_has_serv_predv` AS select `f`.`contracts_id` AS `contracts_id`,(`f`.`uslnum` * `f`.`price`) AS `full_price`,`f`.`tnum` AS `tnum`,`f`.`serv` AS `serv`,`f`.`serv_text` AS `serv_text`,`f`.`uslnum` AS `uslnum`,`f`.`price` AS `price`,((`f`.`uslnum` * `f`.`price`) * `f`.`perc`) AS `to_pay`,`f`.`servform_id` AS `servform_id`,`f`.`serv_id` AS `serv_id`,`f`.`sub_serv` AS `sub_serv`,`f`.`vdate` AS `vdate`,`f`.`dep_id` AS `dep_id`,`f`.`perc` AS `perc`,`f`.`year` AS `year` from (select `s`.`year` AS `year`,`khs`.`contracts_id` AS `contracts_id`,`s`.`tnum` AS `tnum`,`s`.`serv_text` AS `serv_text`,`s`.`serv` AS `serv`,if((round((`khs`.`planned` / `r`.`months`),0) = 0),ceiling((`khs`.`planned` / `r`.`months`)),round((`khs`.`planned` / `r`.`months`),0)) AS `uslnum`,`s`.`price` AS `price`,`r`.`servform_id` AS `servform_id`,`khs`.`serv_id` AS `serv_id`,`s`.`sub_serv` AS `sub_serv`,`c`.`startdate` AS `vdate`,`c`.`dep_id` AS `dep_id`,(select `pd`.`perc` from `add_info` `pd` where ((`pd`.`pddate` <= `c`.`startdate`) and (`pd`.`contracts_id` = `khs`.`contracts_id`)) order by `pd`.`pddate` desc limit 1) AS `perc` from ((((`_contracts_has_serv` `khs` join `contracts` `c` on((`c`.`id` = `khs`.`contracts_id`))) join `serv` `s` on((`s`.`id` = `khs`.`serv_id`))) join `ripso` `r` on((`r`.`id` = `c`.`ripso_id`))) join `servform` `sf` on((`r`.`servform_id` = `sf`.`id`)))) `f` */;
@@ -6430,7 +6430,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_contracts` AS select `c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`ufio_id` AS `ufio_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date`,`r`.`servform_id` AS `servform_id` from (`contracts` `c` left join `ripso` `r` on((`r`.`id` = `c`.`ripso_id`))) */;
@@ -6448,7 +6448,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_contracts_has_serv` AS select `chs`.`serv_id` AS `serv_id`,`chs`.`contracts_id` AS `contracts_id`,`chs`.`planned` AS `planned`,`chs`.`filled` AS `filled`,`chs`.`filled_pyc` AS `filled_pyc`,`chs`.`prim` AS `prim`,`chs`.`archive` AS `archive`,`chs`.`create` AS `create`,`chs`.`ts` AS `ts`,`chs`.`cr_by` AS `cr_by`,`chs`.`upd_by` AS `upd_by`,`chs`.`to_recheck` AS `to_recheck`,`chs`.`check_date` AS `check_date`,`chs`.`filled_old` AS `filled_old`,`s`.`tnum` AS `tnum` from (`contracts_has_serv` `chs` join `serv` `s` on((`s`.`id` = `chs`.`serv_id`))) */;
@@ -6466,7 +6466,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_add_info` AS select `ai`.`pddate` AS `pddate`,`ai`.`contracts_id` AS `contracts_id`,`ai`.`predv_money` AS `predv_money`,`ai`.`curFIO` AS `curFIO`,`ai`.`psp` AS `psp`,`ai`.`address` AS `address`,`ai`.`sdd` AS `sdd`,`ai`.`sdd_date` AS `sdd_date`,`ai`.`perc` AS `perc`,`ai`.`not_standart_contract` AS `not_standart_contract`,`ai`.`not_standart_act` AS `not_standart_act`,`ai`.`prim` AS `prim`,`ai`.`create` AS `create`,`ai`.`ts` AS `ts`,`ai`.`cr_by` AS `cr_by`,`ai`.`upd_by` AS `upd_by`,`ai`.`repr_FIO` AS `repr_FIO`,`ai`.`repr_addr` AS `repr_addr`,`ai`.`repr_psp` AS `repr_psp`,`ai`.`work_livemin` AS `work_livemin` from (`add_info` `ai` join `contracts` `c` on((`c`.`id` = `ai`.`contracts_id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -6484,7 +6484,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_contracts` AS select `u`.`ufio` AS `ufio`,`c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`contracts2` AS `contracts2`,`c`.`ufio_id` AS `ufio_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date`,`c`.`pyc_prim` AS `pyc_prim` from (`ufio` `u` join `contracts` `c` on((`c`.`ufio_id` = `u`.`id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -6502,7 +6502,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -6520,7 +6520,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_new_ufio` AS select `u`.`id` AS `id`,`u`.`ufio` AS `ufio`,`u`.`ufio_short` AS `ufio_short`,`u`.`ufioDeath` AS `ufioDeath`,`u`.`ufiobirth` AS `ufiobirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `ufio` `u` where `u`.`id` in (select `u1`.`id` from (`ufio` `u1` left join `contracts` `c` on((`c`.`ufio_id` = `u1`.`id`))) where `u1`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
@@ -6538,7 +6538,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ripso` AS select `dhr`.`ripso_id` AS `ripso_id`,`r`.`ripso` AS `ripso` from (`dep_has_ripso` `dhr` join `ripso` `r` on((`dhr`.`ripso_id` = `r`.`id`))) where `dhr`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -6556,7 +6556,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=MERGE */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ufio` AS select `u1`.`id` AS `id`,`u1`.`ufio` AS `ufio`,`u1`.`ufio_short` AS `ufio_short`,`u1`.`ufioDeath` AS `ufioDeath`,`u1`.`ufiobirth` AS `ufiobirth`,`u1`.`ESRN` AS `ESRN`,`u1`.`prim` AS `prim`,`u1`.`phone` AS `phone`,`u1`.`snils` AS `snils`,`u1`.`curator` AS `curator`,`u1`.`create` AS `create`,`u1`.`ts` AS `ts`,`u1`.`cr_by` AS `cr_by`,`u1`.`upd_by` AS `upd_by`,`u1`.`cr_dep_id` AS `cr_dep_id` from (select distinct `u`.`id` AS `id`,`u`.`ufio` AS `ufio`,`u`.`ufio_short` AS `ufio_short`,`u`.`ufioDeath` AS `ufioDeath`,`u`.`ufiobirth` AS `ufiobirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`ufio` `u` join `contracts` `c` on((`c`.`ufio_id` = `u`.`id`))) where ((`c`.`blocked` = false) and (`u`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`) or `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)))) `u1` */;
@@ -6574,7 +6574,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ufio_blocked_in_year` AS select `u`.`id` AS `id`,`u`.`ufio` AS `ufio`,`u`.`ufio_short` AS `ufio_short`,`u`.`ufioDeath` AS `ufioDeath`,`u`.`ufiobirth` AS `ufiobirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`ufio` `u` join `contracts` `c` on((`c`.`ufio_id` = `u`.`id`))) where ((`c`.`blocked` = true) and (year(`c`.`enddate`) = `get_year`(`get_WID`())) and (`u`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`) or `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`))) */;
@@ -6592,7 +6592,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ufio_by_ripso` AS select `ufio`.`id` AS `id`,`ufio`.`ufio` AS `ufio`,`ufio`.`ufio_short` AS `ufio_short`,`ufio`.`ufioDeath` AS `ufioDeath`,`ufio`.`ufiobirth` AS `ufiobirth`,`ufio`.`ESRN` AS `ESRN`,`ufio`.`prim` AS `prim`,`ufio`.`phone` AS `phone`,`ufio`.`snils` AS `snils`,`ufio`.`curator` AS `curator`,`ufio`.`create` AS `create`,`ufio`.`ts` AS `ts`,`ufio`.`cr_by` AS `cr_by`,`ufio`.`upd_by` AS `upd_by` from `ufio` where `ufio`.`id` in (select `c`.`ufio_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where `rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
@@ -6610,7 +6610,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ufio_contracts` AS select `u`.`id` AS `id`,`u`.`ufio` AS `ufio`,`u`.`ufio_short` AS `ufio_short`,`u`.`ufioDeath` AS `ufioDeath`,`u`.`ufiobirth` AS `ufiobirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`ufio` `u` join `contracts` `c` on((`c`.`ufio_id` = `u`.`id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -6628,7 +6628,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ufio_count_2month` AS select sum(`m`.`uslnum`) AS `uslnum`,`u`.`id` AS `id`,`u`.`ufio` AS `ufio`,`u`.`ufio_short` AS `ufio_short`,`u`.`ufioDeath` AS `ufioDeath`,`u`.`ufiobirth` AS `ufiobirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`ufio` `u` join `dep_has_main` `m` on((`m`.`ufio_id` = `u`.`id`))) where (year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) and (month(`m`.`vdate`) in (month(curdate()),(month(curdate()) - 1)))) group by `u`.`id` */;
@@ -6646,7 +6646,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ufio_count_main_year` AS select sum(`m`.`uslnum`) AS `uslnum`,`u`.`id` AS `id`,`u`.`ufio` AS `ufio`,`u`.`ufio_short` AS `ufio_short`,`u`.`ufioDeath` AS `ufioDeath`,`u`.`ufiobirth` AS `ufiobirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`ufio` `u` join `dep_has_main` `m` on((`m`.`ufio_id` = `u`.`id`))) where year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) group by `u`.`id` */;
@@ -6664,7 +6664,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ufio_count_month` AS select sum(`m`.`uslnum`) AS `uslnum`,`u`.`id` AS `id`,`u`.`ufio` AS `ufio`,`u`.`ufio_short` AS `ufio_short`,`u`.`ufioDeath` AS `ufioDeath`,`u`.`ufiobirth` AS `ufiobirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`ufio` `u` join `dep_has_main` `m` on((`m`.`ufio_id` = `u`.`id`))) where (year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) and (month(`m`.`vdate`) = month(curdate()))) group by `u`.`id` */;
@@ -6682,7 +6682,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ufio_ended` AS select `u`.`ufio` AS `ufio`,`c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`ufio_id` AS `ufio_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date` from (`ufio` `u` join `contracts` `c` on((`c`.`ufio_id` = `u`.`id`))) where ((`c`.`enddate` < curdate()) and `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
@@ -6700,7 +6700,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ufio_ending` AS select `u`.`ufio` AS `ufio`,`c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`ufio_id` AS `ufio_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date` from (`ufio` `u` join `contracts` `c` on((`c`.`ufio_id` = `u`.`id`))) where (`c`.`enddate` between (curdate() - 30) and (curdate() + 30)) */;
@@ -6718,7 +6718,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ufio_more` AS select `du`.`id` AS `id`,`du`.`ufio` AS `ufio`,`du`.`ufio_short` AS `ufio_short`,`du`.`ufioDeath` AS `ufioDeath`,`du`.`ufiobirth` AS `ufiobirth`,`du`.`ESRN` AS `ESRN`,`du`.`prim` AS `prim_fio`,`du`.`phone` AS `phone`,`du`.`snils` AS `snils`,`du`.`curator` AS `curator_fio`,`du`.`create` AS `create_fio`,`du`.`ts` AS `ts_fio`,`du`.`cr_by` AS `cr_by_fio`,`du`.`upd_by` AS `upd_by_fio`,`au`.`ufio_id` AS `ufio_id`,`au`.`pddate` AS `pddate`,`au`.`contracts_id` AS `contracts_id`,`au`.`predv_money` AS `predv_money`,`au`.`curFIO` AS `curFIO`,`au`.`psp` AS `psp`,`au`.`address` AS `address`,`au`.`sdd` AS `sdd`,`au`.`sdd_date` AS `sdd_date`,`au`.`perc` AS `perc`,`au`.`not_standart_contract` AS `not_standart_contract`,`au`.`not_standart_act` AS `not_standart_act`,`au`.`prim` AS `prim`,`au`.`create` AS `create`,`au`.`ts` AS `ts`,`au`.`cr_by` AS `cr_by`,`au`.`upd_by` AS `upd_by`,`au`.`repr_FIO` AS `repr_FIO`,`au`.`repr_addr` AS `repr_addr`,`au`.`repr_psp` AS `repr_psp`,`au`.`work_livemin` AS `work_livemin` from ((select `t2`.`ufio_id` AS `ufio_id`,`t2`.`pddate` AS `pddate`,`t2`.`contracts_id` AS `contracts_id`,`t2`.`predv_money` AS `predv_money`,`t2`.`curFIO` AS `curFIO`,`t2`.`psp` AS `psp`,`t2`.`address` AS `address`,`t2`.`sdd` AS `sdd`,`t2`.`sdd_date` AS `sdd_date`,`t2`.`perc` AS `perc`,`t2`.`not_standart_contract` AS `not_standart_contract`,`t2`.`not_standart_act` AS `not_standart_act`,`t2`.`prim` AS `prim`,`t2`.`create` AS `create`,`t2`.`ts` AS `ts`,`t2`.`cr_by` AS `cr_by`,`t2`.`upd_by` AS `upd_by`,`t2`.`repr_FIO` AS `repr_FIO`,`t2`.`repr_addr` AS `repr_addr`,`t2`.`repr_psp` AS `repr_psp`,`t2`.`work_livemin` AS `work_livemin` from (select `au1`.`ufio_id` AS `ufio_id`,`au1`.`pddate` AS `pddate`,`au1`.`contracts_id` AS `contracts_id`,`au1`.`predv_money` AS `predv_money`,`au1`.`curFIO` AS `curFIO`,`au1`.`psp` AS `psp`,`au1`.`address` AS `address`,`au1`.`sdd` AS `sdd`,`au1`.`sdd_date` AS `sdd_date`,`au1`.`perc` AS `perc`,`au1`.`not_standart_contract` AS `not_standart_contract`,`au1`.`not_standart_act` AS `not_standart_act`,`au1`.`prim` AS `prim`,`au1`.`create` AS `create`,`au1`.`ts` AS `ts`,`au1`.`cr_by` AS `cr_by`,`au1`.`upd_by` AS `upd_by`,`au1`.`repr_FIO` AS `repr_FIO`,`au1`.`repr_addr` AS `repr_addr`,`au1`.`repr_psp` AS `repr_psp`,`au1`.`work_livemin` AS `work_livemin` from `add_info_for_ufio` `au1` order by `au1`.`pddate` desc) `t2` group by `t2`.`ufio_id`) `au` join `_dep_has_ufio` `du` on((`du`.`id` = `au`.`ufio_id`))) order by `au`.`pddate` desc */;
@@ -6736,7 +6736,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ufio_ripso` AS select `ufio`.`id` AS `id`,`ufio`.`ufio` AS `ufio`,`ufio`.`ufio_short` AS `ufio_short`,`ufio`.`ufioDeath` AS `ufioDeath`,`ufio`.`ufiobirth` AS `ufiobirth`,`ufio`.`ESRN` AS `ESRN`,`ufio`.`prim` AS `prim`,`ufio`.`phone` AS `phone`,`ufio`.`snils` AS `snils`,`ufio`.`curator` AS `curator`,`ufio`.`create` AS `create`,`ufio`.`ts` AS `ts`,`ufio`.`cr_by` AS `cr_by`,`ufio`.`upd_by` AS `upd_by`,`ufio`.`cr_dep_id` AS `cr_dep_id` from `ufio` where `ufio`.`id` in (select `c`.`ufio_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where `rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
@@ -6754,7 +6754,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ufio_ripso_or_contracts` AS select `ufio`.`id` AS `id`,`ufio`.`ufio` AS `ufio`,`ufio`.`ufio_short` AS `ufio_short`,`ufio`.`ufioDeath` AS `ufioDeath`,`ufio`.`ufiobirth` AS `ufiobirth`,`ufio`.`ESRN` AS `ESRN`,`ufio`.`prim` AS `prim`,`ufio`.`phone` AS `phone`,`ufio`.`snils` AS `snils`,`ufio`.`curator` AS `curator`,`ufio`.`create` AS `create`,`ufio`.`ts` AS `ts`,`ufio`.`cr_by` AS `cr_by`,`ufio`.`upd_by` AS `upd_by`,`ufio`.`cr_dep_id` AS `cr_dep_id` from `ufio` where `ufio`.`id` in (select `c`.`ufio_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where (`rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) or `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`))) */;
@@ -6772,7 +6772,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_ufio_year` AS select `ufio`.`id` AS `id`,`ufio`.`ufio` AS `ufio`,`ufio`.`ufio_short` AS `ufio_short`,`ufio`.`ufioDeath` AS `ufioDeath`,`ufio`.`ufiobirth` AS `ufiobirth`,`ufio`.`ESRN` AS `ESRN`,`ufio`.`prim` AS `prim`,`ufio`.`phone` AS `phone`,`ufio`.`snils` AS `snils`,`ufio`.`curator` AS `curator`,`ufio`.`create` AS `create`,`ufio`.`ts` AS `ts`,`ufio`.`cr_by` AS `cr_by`,`ufio`.`upd_by` AS `upd_by`,`ufio`.`cr_dep_id` AS `cr_dep_id` from `ufio` where `ufio`.`id` in (select `c`.`ufio_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where ((`rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) or `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) and ((year(`c`.`startdate`) = `GET_YEAR`(`GET_wID`())) or (year(`c`.`startdate`) = `GET_YEAR`(`GET_wID`()))))) */;
@@ -6790,7 +6790,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_worker` AS select `dhr`.`id` AS `id`,`dhr`.`dep_has_worker` AS `dep_has_worker`,`dhr`.`worker_id` AS `worker_id`,`dhr`.`dep_id` AS `dep_id`,`dhr`.`job_id` AS `job_id`,`dhr`.`prim` AS `prim`,`dhr`.`archive` AS `archive`,`dhr`.`from` AS `from`,`dhr`.`till` AS `till`,`dhr`.`role_id` AS `role_id`,`dhr`.`api_key` AS `api_key` from `dep_has_worker` `dhr` where `dhr`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -6808,7 +6808,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_workers` AS select `dhr`.`id` AS `id`,`dhr`.`worker` AS `worker`,`dhr`.`user` AS `user`,`dhr`.`prim` AS `prim`,`dhr`.`role_id` AS `role_id`,`dhr`.`dep_id` AS `dep_id`,`dhr`.`archive` AS `archive` from `worker` `dhr` where `dhr`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -6826,7 +6826,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dhw_has_ufio` AS select `dhwu`.`dhw_id` AS `dhw_id`,`dhwu`.`ufio_id` AS `ufio_id`,`dhwu`.`prim` AS `prim` from `dhw_has_ufio` `dhwu` where `dhwu`.`dhw_id` in (select `_dep_has_worker`.`id` from `_dep_has_worker`) */;
@@ -6844,7 +6844,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_g_categ_list_ufio_for_dep_for_year` AS select `uhc`.`category_id` AS `category_id`,`m`.`ufio_id` AS `ufio_id`,sum(`m`.`uslnum`) AS `SUM(uslnum)` from (`main` `m` join `ufio_has_category` `uhc` on((`m`.`ufio_id` = `uhc`.`ufio_id`))) where (`m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) and (coalesce(`uhc`.`archive`,0) = 0) and (coalesce(year(`uhc`.`create`),0) = `GET_YEAR`(`GET_WID`()))) group by `uhc`.`category_id`,`m`.`ufio_id` */;
@@ -6862,7 +6862,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_g_serv_list_for_dep_for_year` AS select `t`.`category_id` AS `category_id`,count(`t`.`ufio_id`) AS `count(ufio_id)`,sum(`t`.`uslnum`) AS `SUM(uslnum)` from (select `uhc`.`category_id` AS `category_id`,`m`.`ufio_id` AS `ufio_id`,sum(`m`.`uslnum`) AS `uslnum` from (`main` `m` left join `ufio_has_category` `uhc` on((`m`.`ufio_id` = `uhc`.`ufio_id`))) where (`m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) and (coalesce(`uhc`.`archive`,0) = 0) and (coalesce(year(`uhc`.`get_date`),0) <= `GET_YEAR`(`GET_WID`()))) group by `uhc`.`category_id`,`m`.`ufio_id`) `t` group by `t`.`category_id` */;
@@ -6880,10 +6880,10 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_g_serv_total_you` AS select `m`.`serv_id` AS `serv_id`,sum(`m`.`uslnum`) AS `uslnum`,(select count(0) from (select `mfd`.`ufio_id` AS `ufio_id` from `_main_for_dep` `mfd` where (`m`.`serv_id` = `mfd`.`serv_id`) group by `mfd`.`ufio_id`) `t`) AS `ufio_id_count`,`m`.`ufio_id` AS `ufio_id`,count(`m`.`ufio_id`) AS `records` from `_main_for_dep` `m` group by `m`.`serv_id`,`m`.`ufio_id` order by `m`.`serv_id` */;
+/*!50001 VIEW `_g_serv_total_you` AS select `m`.`serv_id` AS `serv_id`,sum(`m`.`uslnum`) AS `uslnum`,(select count(0) from (select `mfd`.`ufio_id` AS `ufio_id` from `_main_for_dep` `mfd` where (`serv_id` = `mfd`.`serv_id`) group by `mfd`.`ufio_id`) `t`) AS `ufio_id_count`,`m`.`ufio_id` AS `ufio_id`,count(`m`.`ufio_id`) AS `records` from `_main_for_dep` `m` group by `m`.`serv_id`,`m`.`ufio_id` order by `m`.`serv_id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6898,10 +6898,23 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_information_schema_columns` AS select `columns`.`TABLE_NAME` AS `TABLE_NAME`,`columns`.`ORDINAL_POSITION` AS `ORDINAL_POSITION`,`columns`.`COLUMN_NAME` AS `COLUMN_NAME`,`columns`.`IS_NULLABLE` AS `IS_NULLABLE`,`columns`.`COLUMN_DEFAULT` AS `COLUMN_DEFAULT`,`columns`.`DATA_TYPE` AS `DATA_TYPE`,`columns`.`NUMERIC_PRECISION` AS `NUMERIC_PRECISION`,`columns`.`COLUMN_TYPE` AS `COLUMN_TYPE`,`columns`.`CHARACTER_MAXIMUM_LENGTH` AS `CHARACTER_MAXIMUM_LENGTH` from `information_schema`.`COLUMNS` where (`columns`.`TABLE_SCHEMA` = 'kcson') order by `columns`.`TABLE_NAME`,`columns`.`ORDINAL_POSITION` */;
+/*!50001
+VIEW `_information_schema_columns` AS
+select `COLUMNS`.`TABLE_NAME` AS `TABLE_NAME`,
+`COLUMNS`.`ORDINAL_POSITION`
+AS `ORDINAL_POSITION`,
+`COLUMNS`.`COLUMN_NAME` AS `COLUMN_NAME`,
+`COLUMNS`.`IS_NULLABLE` AS `IS_NULLABLE`,
+`COLUMNS`.`COLUMN_DEFAULT` AS `COLUMN_DEFAULT`,
+`COLUMNS`.`DATA_TYPE` AS `DATA_TYPE`,`COLUMNS`.`NUMERIC_PRECISION`
+AS `NUMERIC_PRECISION`,`COLUMNS`.`COLUMN_TYPE` AS `COLUMN_TYPE`,`COLUMNS`.`CHARACTER_MAXIMUM_LENGTH` AS
+`CHARACTER_MAXIMUM_LENGTH`
+from `information_schema`.`COLUMNS` where (`COLUMNS`.`TABLE_SCHEMA` = 'kcson')
+order by `COLUMNS`.`TABLE_NAME`,`COLUMNS`.`ORDINAL_POSITION`
+*/;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6916,7 +6929,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_main__months` AS with `m1` as (select `main`.`ufio_id` AS `ufio_id`,`main`.`dep_id` AS `dep_id`,`main`.`contracts_id` AS `contracts_id`,`main`.`serv_id` AS `serv_id`,month(`main`.`vdate`) AS `month1`,year(`main`.`vdate`) AS `year1`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`uslnum` AS `uslnum` from `main`) select `m1`.`serv_id` AS `serv_id`,`m1`.`dep_id` AS `dep_id`,`m1`.`contracts_id` AS `contracts_id`,`m1`.`year1` AS `year1`,`m1`.`dep_has_worker_id` AS `dep_has_worker_id`,sum((case when (`m1`.`month1` = 1) then `m1`.`uslnum` else 0 end)) AS `month1`,sum((case when (`m1`.`month1` = 2) then `m1`.`uslnum` else 0 end)) AS `month2`,sum((case when (`m1`.`month1` = 3) then `m1`.`uslnum` else 0 end)) AS `month3`,sum((case when (`m1`.`month1` = 4) then `m1`.`uslnum` else 0 end)) AS `month4`,sum((case when (`m1`.`month1` = 5) then `m1`.`uslnum` else 0 end)) AS `month5`,sum((case when (`m1`.`month1` = 6) then `m1`.`uslnum` else 0 end)) AS `month6`,sum((case when (`m1`.`month1` = 7) then `m1`.`uslnum` else 0 end)) AS `month7`,sum((case when (`m1`.`month1` = 8) then `m1`.`uslnum` else 0 end)) AS `month8`,sum((case when (`m1`.`month1` = 9) then `m1`.`uslnum` else 0 end)) AS `month9`,sum((case when (`m1`.`month1` = 10) then `m1`.`uslnum` else 0 end)) AS `month10`,sum((case when (`m1`.`month1` = 11) then `m1`.`uslnum` else 0 end)) AS `month11`,sum((case when (`m1`.`month1` = 12) then `m1`.`uslnum` else 0 end)) AS `month12` from `m1` group by `m1`.`dep_id`,`m1`.`contracts_id`,`m1`.`serv_id`,`m1`.`dep_has_worker_id` */;
@@ -6934,7 +6947,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_main_cprice` AS select `f`.`id` AS `id`,`f`.`contracts_id` AS `contracts_id`,`f`.`dep_id` AS `dep_id`,`f`.`ufio_id` AS `ufio_id`,`f`.`serv_id` AS `serv_id`,`f`.`dep_has_worker_id` AS `dep_has_worker_id`,`f`.`worker_id` AS `worker_id`,`f`.`vdate` AS `vdate`,`f`.`uslnum` AS `uslnum`,`f`.`note` AS `note`,`f`.`create` AS `create`,`f`.`ts` AS `ts`,`f`.`cr_by` AS `cr_by`,`f`.`upd_by` AS `upd_by`,`f`.`reported` AS `reported`,`f`.`wdate` AS `wdate`,`f`.`overdid` AS `overdid`,`f`.`prev_uslnum` AS `prev_uslnum`,`f`.`perc` AS `perc`,`f`.`price` AS `price`,`f`.`price2` AS `price2`,`f`.`price3` AS `price3`,`f`.`servform_id` AS `servform_id`,`f`.`tnum` AS `tnum`,`f`.`serv` AS `serv`,`f`.`serv_text` AS `serv_text`,`f`.`sub_serv` AS `sub_serv`,((`f`.`perc` * `f`.`uslnum`) * `f`.`price`) AS `to_pay`,((`f`.`perc` * `f`.`uslnum`) * `f`.`price2`) AS `to_pay2` from (select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum`,(select `pd`.`perc` from `add_info` `pd` where ((`pd`.`pddate` <= `m`.`vdate`) and (`pd`.`contracts_id` = `m`.`contracts_id`)) order by `pd`.`pddate` desc limit 1) AS `perc`,`s`.`price` AS `price`,`s`.`price2` AS `price2`,`s`.`price3` AS `price3`,`r`.`servform_id` AS `servform_id`,`s`.`tnum` AS `tnum`,`s`.`serv` AS `serv`,`s`.`serv_text` AS `serv_text`,`s`.`sub_serv` AS `sub_serv` from (((`main` `m` join `serv` `s` on((`m`.`serv_id` = `s`.`id`))) join `contracts` `c` on((`m`.`contracts_id` = `c`.`id`))) left join `ripso` `r` on((`c`.`ripso_id` = `r`.`id`)))) `f` */;
@@ -6952,7 +6965,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_main_cprice_for_contracts` AS select `f`.`id` AS `id`,`f`.`contracts_id` AS `contracts_id`,`f`.`dep_id` AS `dep_id`,`f`.`ufio_id` AS `ufio_id`,`f`.`serv_id` AS `serv_id`,`f`.`dep_has_worker_id` AS `dep_has_worker_id`,`f`.`worker_id` AS `worker_id`,`f`.`vdate` AS `vdate`,`f`.`uslnum` AS `uslnum`,`f`.`note` AS `note`,`f`.`create` AS `create`,`f`.`ts` AS `ts`,`f`.`cr_by` AS `cr_by`,`f`.`upd_by` AS `upd_by`,`f`.`reported` AS `reported`,`f`.`wdate` AS `wdate`,`f`.`overdid` AS `overdid`,`f`.`prev_uslnum` AS `prev_uslnum`,`f`.`perc` AS `perc`,`f`.`price` AS `price`,`f`.`price2` AS `price2`,`f`.`price3` AS `price3`,`f`.`servform_id` AS `servform_id`,((`f`.`perc` * `f`.`uslnum`) * `f`.`price`) AS `to_pay`,((`f`.`perc` * `f`.`uslnum`) * `f`.`price2`) AS `to_pay2` from (select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum`,(select `pd`.`perc` from `add_info` `pd` where ((`pd`.`pddate` <= `m`.`vdate`) and (`pd`.`contracts_id` = `m`.`contracts_id`)) order by `pd`.`pddate` desc limit 1) AS `perc`,`s`.`price` AS `price`,`s`.`price2` AS `price2`,`s`.`price3` AS `price3`,`r`.`servform_id` AS `servform_id` from (((`main` `m` join `serv` `s` on((`m`.`serv_id` = `s`.`id`))) join (select `contracts`.`id` AS `id`,`contracts`.`contracts` AS `contracts`,`contracts`.`contracts2` AS `contracts2`,`contracts`.`ufio_id` AS `ufio_id`,`contracts`.`dep_id` AS `dep_id`,`contracts`.`ripso_id` AS `ripso_id`,`contracts`.`blocked` AS `blocked`,`contracts`.`startdate` AS `startdate`,`contracts`.`enddate` AS `enddate`,`contracts`.`ippsuNum` AS `ippsuNum`,`contracts`.`note` AS `note`,`contracts`.`create` AS `create`,`contracts`.`ts` AS `ts`,`contracts`.`cr_by` AS `cr_by`,`contracts`.`upd_by` AS `upd_by`,`contracts`.`to_recheck` AS `to_recheck`,`contracts`.`check_date` AS `check_date`,`contracts`.`pyc_prim` AS `pyc_prim` from `contracts` where (`contracts`.`id` = `get_last_contr`())) `c` on((`m`.`contracts_id` = `c`.`id`))) left join `ripso` `r` on((`c`.`ripso_id` = `r`.`id`)))) `f` */;
@@ -6970,7 +6983,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_main_for_dep` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -6988,7 +7001,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_main_for_you` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where (`main`.`worker_id` = `GET_WID`()) */;
@@ -7006,7 +7019,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_main_months` AS with `m1` as (select `main`.`ufio_id` AS `ufio_id`,`main`.`dep_id` AS `dep_id`,`main`.`contracts_id` AS `contracts_id`,`main`.`serv_id` AS `serv_id`,month(`main`.`vdate`) AS `month1`,year(`main`.`vdate`) AS `year1`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`uslnum` AS `uslnum` from `main`) select `m1`.`serv_id` AS `serv_id`,`m1`.`dep_id` AS `dep_id`,`m1`.`contracts_id` AS `contracts_id`,`m1`.`year1` AS `year1`,`m1`.`dep_has_worker_id` AS `dep_has_worker_id`,sum((case when (`m1`.`month1` = 1) then `m1`.`uslnum` else 0 end)) AS `month1`,sum((case when (`m1`.`month1` = 2) then `m1`.`uslnum` else 0 end)) AS `month2`,sum((case when (`m1`.`month1` = 3) then `m1`.`uslnum` else 0 end)) AS `month3`,sum((case when (`m1`.`month1` = 4) then `m1`.`uslnum` else 0 end)) AS `month4`,sum((case when (`m1`.`month1` = 5) then `m1`.`uslnum` else 0 end)) AS `month5`,sum((case when (`m1`.`month1` = 6) then `m1`.`uslnum` else 0 end)) AS `month6`,sum((case when (`m1`.`month1` = 7) then `m1`.`uslnum` else 0 end)) AS `month7`,sum((case when (`m1`.`month1` = 8) then `m1`.`uslnum` else 0 end)) AS `month8`,sum((case when (`m1`.`month1` = 9) then `m1`.`uslnum` else 0 end)) AS `month9`,sum((case when (`m1`.`month1` = 10) then `m1`.`uslnum` else 0 end)) AS `month10`,sum((case when (`m1`.`month1` = 11) then `m1`.`uslnum` else 0 end)) AS `month11`,sum((case when (`m1`.`month1` = 12) then `m1`.`uslnum` else 0 end)) AS `month12` from `m1` group by `m1`.`dep_id`,`m1`.`contracts_id`,`m1`.`serv_id`,`m1`.`dep_has_worker_id` */;
@@ -7024,7 +7037,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_main_serv_name` AS select `s`.`tnum` AS `serv`,`m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from (`main` `m` join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) where `m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -7042,7 +7055,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_main_serv_name_ripso` AS select `s`.`tnum` AS `serv`,`c`.`ripso_id` AS `ripso_id`,`m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from ((`main` `m` join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) join `contracts` `c` on((`c`.`id` = `m`.`contracts_id`))) where `m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -7060,7 +7073,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_main_serv_name_ripso_static` AS select `s`.`tnum` AS `serv`,`c`.`ripso_id` AS `ripso_id`,`m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from ((`main` `m` join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) join `contracts` `c` on((`c`.`id` = `m`.`contracts_id`))) where `m`.`dep_id` in (select `_active_dep_static`.`id` from `_active_dep_static`) */;
@@ -7078,7 +7091,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_main_serv_name_static` AS select `s`.`tnum` AS `serv`,`m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from (`main` `m` join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) where `m`.`dep_id` in (select `_active_dep_static`.`id` from `_active_dep_static`) */;
@@ -7096,7 +7109,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=TEMPTABLE */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_serv_activ` AS with `sa` as (select `serv`.`id` AS `id`,`serv`.`serv` AS `serv`,`serv`.`serv_text` AS `serv_text`,`serv`.`tnum` AS `tnum`,`serv`.`year` AS `year`,`serv`.`sub_serv` AS `sub_serv`,`serv`.`sub_serv_str` AS `sub_serv_str`,`serv`.`price` AS `price`,`serv`.`price2` AS `price2`,`serv`.`price3` AS `price3`,`serv`.`archive` AS `archive`,`serv`.`total` AS `total`,`serv`.`acronym` AS `acronym`,`serv`.`workload` AS `workload`,`serv`.`content` AS `content`,`serv`.`create` AS `create`,`serv`.`ts` AS `ts`,`serv`.`cr_by` AS `cr_by`,`serv`.`upd_by` AS `upd_by` from `serv` where (`serv`.`year` = `Get_year`(`Get_WID`()))), `slvl` as (select `s`.`id` AS `id`,(select trim(trailing ',' from (select concat(`s`.`id`,',',coalesce(group_concat(`s1`.`id` separator ','),'')) from `sa` `s1` where (`s1`.`sub_serv` = `s`.`id`)))) AS `lvl`,(select trim(trailing ',' from (select concat(coalesce(group_concat(`s2`.`id` separator ','),'')) from (`sa` `s1` join `sa` `s2` on((`s2`.`sub_serv` = `s1`.`id`))) where (`s1`.`sub_serv` = `s`.`id`)))) AS `lvl2`,(select trim(trailing ',' from concat(coalesce(group_concat(`s3`.`id` separator ','),''))) from ((`sa` `s1` join `sa` `s2` on((`s2`.`sub_serv` = `s1`.`id`))) join `sa` `s3` on((`s3`.`sub_serv` = `s2`.`id`))) where (`s1`.`sub_serv` = `s`.`id`)) AS `lvl3`,(select trim(trailing ',' from concat(coalesce(group_concat(`s4`.`id` separator ','),''))) from (((`sa` `s1` join `sa` `s2` on((`s2`.`sub_serv` = `s1`.`id`))) join `sa` `s3` on((`s3`.`sub_serv` = `s2`.`id`))) join `sa` `s4` on((`s4`.`sub_serv` = `s3`.`id`))) where (`s1`.`sub_serv` = `s`.`id`)) AS `lvl4`,(select trim(trailing ',' from concat(coalesce(group_concat(`s5`.`id` separator ','),''))) from ((((`sa` `s1` join `sa` `s2` on((`s2`.`sub_serv` = `s1`.`id`))) join `sa` `s3` on((`s3`.`sub_serv` = `s2`.`id`))) join `sa` `s4` on((`s4`.`sub_serv` = `s3`.`id`))) join `sa` `s5` on((`s5`.`sub_serv` = `s4`.`id`))) where (`s1`.`sub_serv` = `s`.`id`)) AS `lvl5` from `sa` `s`), `sid_list` as (select `sa`.`id` AS `id`,trim(trailing ',' from concat(`l`.`lvl`,',',`l`.`lvl2`,',',`l`.`lvl3`,',',`l`.`lvl4`,',',`l`.`lvl5`,',')) AS `serv_id_list` from (`sa` join `slvl` `l` on((`sa`.`id` = `l`.`id`)))) select `s`.`id` AS `id`,`s`.`serv` AS `serv`,`s`.`serv_text` AS `serv_text`,`s`.`tnum` AS `tnum`,`s`.`price` AS `price`,`s`.`total` AS `total`,`s`.`sub_serv` AS `sub_serv`,`sl`.`serv_id_list` AS `serv_id_list` from (`sa` `s` left join `sid_list` `sl` on((`sl`.`id` = `s`.`id`))) */;
@@ -7114,7 +7127,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_serv_total` AS select `serv`.`id` AS `id`,`serv`.`serv` AS `serv`,`serv`.`serv_text` AS `serv_text`,`serv`.`tnum` AS `tnum`,`serv`.`year` AS `year`,`serv`.`sub_serv` AS `sub_serv`,`serv`.`sub_serv_str` AS `sub_serv_str`,`serv`.`price` AS `price`,`serv`.`price2` AS `price2`,`serv`.`price3` AS `price3`,`serv`.`archive` AS `archive`,`serv`.`total` AS `total`,`serv`.`acronym` AS `acronym`,`serv`.`workload` AS `workload`,`serv`.`content` AS `content`,`serv`.`create` AS `create`,`serv`.`ts` AS `ts`,`serv`.`cr_by` AS `cr_by`,`serv`.`upd_by` AS `upd_by` from `serv` where (`serv`.`total` = 1) */;
@@ -7132,7 +7145,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_ufio` AS select `ufio`.`id` AS `id`,`ufio`.`ufio` AS `ufio`,`ufio`.`ufio_short` AS `ufio_short`,`ufio`.`ufioDeath` AS `ufioDeath`,`ufio`.`ufiobirth` AS `ufiobirth`,`ufio`.`ESRN` AS `ESRN`,`ufio`.`prim` AS `prim`,`ufio`.`phone` AS `phone`,`ufio`.`snils` AS `snils`,`ufio`.`curator` AS `curator`,`ufio`.`create` AS `create`,`ufio`.`ts` AS `ts`,`ufio`.`cr_by` AS `cr_by`,`ufio`.`upd_by` AS `upd_by`,`ufio`.`cr_dep_id` AS `cr_dep_id` from `ufio` */;
@@ -7150,7 +7163,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_ufio_has_add_info` AS select `u`.`id` AS `ufio_id`,`a`.`pddate` AS `pddate`,`a`.`contracts_id` AS `contracts_id`,`a`.`predv_money` AS `predv_money`,`a`.`curFIO` AS `curFIO`,`a`.`psp` AS `psp`,`a`.`address` AS `address`,`a`.`sdd` AS `sdd`,`a`.`sdd_date` AS `sdd_date`,`a`.`perc` AS `perc`,`a`.`not_standart_contract` AS `not_standart_contract`,`a`.`not_standart_act` AS `not_standart_act`,`a`.`prim` AS `prim`,`a`.`create` AS `create`,`a`.`ts` AS `ts`,`a`.`cr_by` AS `cr_by`,`a`.`upd_by` AS `upd_by`,`a`.`repr_FIO` AS `repr_FIO`,`a`.`repr_addr` AS `repr_addr`,`a`.`repr_psp` AS `repr_psp`,`a`.`work_livemin` AS `work_livemin` from ((`add_info` `a` join `contracts` `c` on((`c`.`id` = `a`.`contracts_id`))) join `ufio` `u` on((`c`.`ufio_id` = `u`.`id`))) order by `a`.`pddate` desc */;
@@ -7168,7 +7181,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_ufio_has_category_for_last_ufio` AS select `uhc`.`ufio_id` AS `ufio_id`,`uhc`.`category_id` AS `category_id`,`uhc`.`get_date` AS `get_date`,`uhc`.`archive` AS `archive`,`uhc`.`prim` AS `prim`,`uhc`.`create` AS `create`,`uhc`.`ts` AS `ts`,`uhc`.`cr_by` AS `cr_by`,`uhc`.`upd_by` AS `upd_by` from `ufio_has_category` `uhc` where (`uhc`.`ufio_id` = `get_last_ufio`()) */;
@@ -7186,7 +7199,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_ufio_has_contracts` AS select `c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`contracts2` AS `contracts2`,`c`.`ufio_id` AS `ufio_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date`,`c`.`pyc_prim` AS `pyc_prim` from `contracts` `c` order by `c`.`blocked` */;
@@ -7204,7 +7217,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_ufio_has_invalid_contracts` AS select `u`.`ufio` AS `ufio`,`c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`ufio_id` AS `ufio_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date` from (`ufio` `u` join `contracts` `c` on((`c`.`ufio_id` = `u`.`id`))) where (`c`.`enddate` < curdate()) */;
@@ -7222,7 +7235,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_ufio_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where (`main`.`ufio_id` = `get_last_ufio`()) */;
@@ -7240,7 +7253,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_ufio_has_valid_contracts` AS select `u`.`ufio` AS `ufio`,`c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`ufio_id` AS `ufio_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date` from (`ufio` `u` join `contracts` `c` on((`c`.`ufio_id` = `u`.`id`))) where (`c`.`enddate` > curdate()) */;
@@ -7258,7 +7271,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_user_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where ((`main`.`cr_by` = `GET_WID`()) or (`main`.`upd_by` = `GET_WID`())) order by `main`.`ts` desc */;
@@ -7276,7 +7289,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_user_has_main_limit30` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where ((`main`.`cr_by` = `GET_WID`()) or (`main`.`upd_by` = `GET_WID`())) order by `main`.`id` desc limit 30 */;
@@ -7294,7 +7307,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_user_has_main_today` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where (((`main`.`cr_by` = `GET_WID`()) or (`main`.`upd_by` = `GET_WID`())) and (`main`.`ts` = curdate())) order by `main`.`ts` desc */;
@@ -7312,7 +7325,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_worker_has_dep` AS select `dw`.`dep_id` AS `id`,`d`.`dep` AS `dep` from ((`dep_has_worker` `dw` join `dep` `d` on((`d`.`id` = `dw`.`dep_id`))) join `worker` `w` on((`dw`.`worker_id` = `w`.`id`))) where ((`dw`.`worker_id` = `GET_wID`()) and (`dw`.`archive` = 0)) */;
@@ -7330,7 +7343,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_worker_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where (`main`.`worker_id` = `GET_WID`()) */;
@@ -7348,7 +7361,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_worker_settings` AS select `worker_settings`.`id` AS `id`,`worker_settings`.`last_tab` AS `last_tab`,`worker_settings`.`last_dep` AS `last_dep`,`worker_settings`.`last_ufio` AS `last_ufio`,`worker_settings`.`last_contr` AS `last_contr`,`worker_settings`.`last_ufio_filter` AS `last_ufio_filter`,`worker_settings`.`last_year` AS `last_year` from `worker_settings` where (`worker_settings`.`id` = `GET_wID`()) */;
@@ -7366,7 +7379,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `add_info_for_ufio` AS select `u`.`id` AS `ufio_id`,`a`.`pddate` AS `pddate`,`a`.`contracts_id` AS `contracts_id`,`a`.`predv_money` AS `predv_money`,`a`.`curFIO` AS `curFIO`,`a`.`psp` AS `psp`,`a`.`address` AS `address`,`a`.`sdd` AS `sdd`,`a`.`sdd_date` AS `sdd_date`,`a`.`perc` AS `perc`,`a`.`not_standart_contract` AS `not_standart_contract`,`a`.`not_standart_act` AS `not_standart_act`,`a`.`prim` AS `prim`,`a`.`create` AS `create`,`a`.`ts` AS `ts`,`a`.`cr_by` AS `cr_by`,`a`.`upd_by` AS `upd_by`,`a`.`repr_FIO` AS `repr_FIO`,`a`.`repr_addr` AS `repr_addr`,`a`.`repr_psp` AS `repr_psp`,`a`.`work_livemin` AS `work_livemin` from ((`add_info` `a` join `contracts` `c` on((`c`.`id` = `a`.`contracts_id`))) join `ufio` `u` on((`c`.`ufio_id` = `u`.`id`))) order by `a`.`pddate` desc */;
@@ -7384,7 +7397,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `cr_by` AS select `worker`.`id` AS `id`,`worker`.`worker` AS `cr_by`,`worker`.`user` AS `user`,`worker`.`prim` AS `prim`,`worker`.`role_id` AS `role_id`,`worker`.`dep_id` AS `dep_id`,`worker`.`archive` AS `archive` from `worker` */;
@@ -7402,7 +7415,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `cr_dep` AS select `dep`.`id` AS `id`,`dep`.`dep` AS `cr_dep` from `dep` */;
@@ -7420,7 +7433,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `cr_dep_id` AS select `dep`.`id` AS `id`,`dep`.`dep` AS `dep`,`dep`.`dep_full_name` AS `dep_full_name`,`dep`.`dep_puname` AS `dep_puname`,`dep`.`note` AS `note`,`dep`.`archive` AS `archive`,`dep`.`complex_dep_id` AS `complex_dep_id` from `dep` */;
@@ -7438,7 +7451,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `dep_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -7456,7 +7469,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `dep_has_serv` AS select `s`.`id` AS `id`,`s`.`tnum` AS `tnum`,`s`.`serv` AS `serv`,`s`.`year` AS `year`,`s`.`sub_serv` AS `sub_serv`,`s`.`sub_serv_str` AS `sub_serv_str`,`s`.`price` AS `price`,`s`.`price2` AS `price2`,`s`.`price3` AS `price3`,`s`.`archive` AS `archive`,`s`.`total` AS `total`,`s`.`acronym` AS `acronym`,`s`.`workload` AS `workload`,`s`.`content` AS `content` from ((`serv` `s` join `ripso_has_serv` `rhs` on((`rhs`.`serv_id` = `s`.`id`))) join `dep_has_ripso` `dhr` on((`rhs`.`ripso_id` = `dhr`.`ripso_id`))) where `dhr`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -7474,7 +7487,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `dep_has_ufio_by_contr` AS select `ufio`.`id` AS `id`,`ufio`.`ufio` AS `ufio`,`ufio`.`ufio_short` AS `ufio_short`,`ufio`.`ufioDeath` AS `ufioDeath`,`ufio`.`ufiobirth` AS `ufiobirth`,`ufio`.`ESRN` AS `ESRN`,`ufio`.`prim` AS `prim`,`ufio`.`phone` AS `phone`,`ufio`.`snils` AS `snils`,`ufio`.`curator` AS `curator`,`ufio`.`create` AS `create`,`ufio`.`ts` AS `ts`,`ufio`.`cr_by` AS `cr_by`,`ufio`.`upd_by` AS `upd_by`,`ufio`.`cr_dep_id` AS `cr_dep_id` from `ufio` where `ufio`.`id` in (select `c`.`ufio_id` from `contracts` `c` where (`c`.`dep_id` = `GET_DEP`(`GET_wID`()))) */;
@@ -7492,7 +7505,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `dep_has_ufio_by_ripso` AS select `ufio`.`id` AS `id`,`ufio`.`ufio` AS `ufio`,`ufio`.`ufio_short` AS `ufio_short`,`ufio`.`ufioDeath` AS `ufioDeath`,`ufio`.`ufiobirth` AS `ufiobirth`,`ufio`.`ESRN` AS `ESRN`,`ufio`.`prim` AS `prim`,`ufio`.`phone` AS `phone`,`ufio`.`snils` AS `snils`,`ufio`.`curator` AS `curator`,`ufio`.`create` AS `create`,`ufio`.`ts` AS `ts`,`ufio`.`cr_by` AS `cr_by`,`ufio`.`upd_by` AS `upd_by`,`ufio`.`cr_dep_id` AS `cr_dep_id` from `ufio` where `ufio`.`id` in (select `c`.`ufio_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where `rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
@@ -7510,7 +7523,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `dep_total_serv` AS select `main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`serv_id` AS `serv_id`,`main`.`worker_id` AS `worker_id`,sum(`main`.`uslnum`) AS `SUM(uslnum)`,month(`main`.`vdate`) AS `MONTH(vdate)`,year(`main`.`vdate`) AS `YEAR(vdate)` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) group by `main`.`contracts_id`,`main`.`dep_id`,`main`.`serv_id`,`main`.`worker_id`,month(`main`.`vdate`),year(`main`.`vdate`) */;
@@ -7528,7 +7541,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `dep_total_supserv1` AS select `m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`s`.`sub_serv` AS `sub_serv`,`m`.`worker_id` AS `worker_id`,sum(`m`.`uslnum`) AS `SUM(uslnum)`,`m`.`mnth1` AS `mnth1`,`m`.`year1` AS `year1` from (`serv` `s` left join (select `main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`serv_id` AS `serv_id`,`main`.`worker_id` AS `worker_id`,sum(`main`.`uslnum`) AS `uslnum`,month(`main`.`vdate`) AS `mnth1`,year(`main`.`vdate`) AS `year1` from `main` group by `main`.`contracts_id`,`main`.`dep_id`,`main`.`serv_id`,`main`.`worker_id`,month(`main`.`vdate`),year(`main`.`vdate`)) `m` on((`m`.`serv_id` = `s`.`id`))) group by `m`.`contracts_id`,`m`.`dep_id`,`s`.`sub_serv`,`m`.`worker_id`,`m`.`mnth1`,`m`.`year1` */;
@@ -7546,7 +7559,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `fioofdepbyserv` AS select `ufio`.`ufio` AS `ufio`,`ufio`.`ufio_short` AS `ufio_short`,`ufio`.`ufiobirth` AS `ufiobirth`,`ufio`.`ESRN` AS `ESRN`,`ufio`.`ufioDeath` AS `ufioDeath` from `ufio` where `ufio`.`id` in (select `ufio`.`id` from ((`main` join `ufio` on((`main`.`ufio_id` = `ufio`.`id`))) join `dep` on((`main`.`dep_id` = `dep`.`id`))) where (`main`.`cr_by` = `GET_wID`())) */;
@@ -7564,7 +7577,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `fioofdepbyset` AS select `ufio`.`ufio` AS `ufio`,`ufio`.`ufio_short` AS `ufio_short`,`ufio`.`ufiobirth` AS `ufiobirth`,`ufio`.`ESRN` AS `ESRN`,`ufio`.`ufioDeath` AS `ufioDeath` from `ufio` where `ufio`.`id` in (select `ufio`.`id` from ((`main` join `ufio` on((`main`.`ufio_id` = `ufio`.`id`))) join `dep` on((`main`.`dep_id` = `dep`.`id`))) where (`main`.`cr_by` = `GET_wID`())) */;
@@ -7582,7 +7595,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `last_used_workers` AS select `worker`.`id` AS `id`,`worker`.`worker` AS `worker` from (`worker` join `main` on((`worker`.`id` = `main`.`worker_id`))) where (`main`.`cr_by` = `GET_wID`()) group by `worker`.`id`,`worker`.`worker` order by `worker`.`worker` limit 30 */;
@@ -7600,7 +7613,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `main_cprice` AS select `f`.`id` AS `id`,`f`.`contracts_id` AS `contracts_id`,`f`.`dep_id` AS `dep_id`,`f`.`ufio_id` AS `ufio_id`,`f`.`serv_id` AS `serv_id`,`f`.`dep_has_worker_id` AS `dep_has_worker_id`,`f`.`worker_id` AS `worker_id`,`f`.`vdate` AS `vdate`,`f`.`uslnum` AS `uslnum`,`f`.`note` AS `note`,`f`.`create` AS `create`,`f`.`ts` AS `ts`,`f`.`cr_by` AS `cr_by`,`f`.`upd_by` AS `upd_by`,`f`.`reported` AS `reported`,`f`.`wdate` AS `wdate`,`f`.`overdid` AS `overdid`,`f`.`prev_uslnum` AS `prev_uslnum`,`f`.`perc` AS `perc`,`f`.`price` AS `price`,`f`.`price2` AS `price2`,`f`.`price3` AS `price3`,`f`.`servform_id` AS `servform_id`,((`f`.`perc` * `f`.`uslnum`) * `f`.`price`) AS `to_pay`,((`f`.`perc` * `f`.`uslnum`) * `f`.`price2`) AS `to_pay2` from (select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum`,(select `pd`.`perc` from `add_info` `pd` where ((`pd`.`pddate` <= `m`.`vdate`) and (`pd`.`contracts_id` = `m`.`contracts_id`)) order by `pd`.`pddate` desc limit 1) AS `perc`,`s`.`price` AS `price`,`s`.`price2` AS `price2`,`s`.`price3` AS `price3`,`r`.`servform_id` AS `servform_id` from (((`main` `m` join `serv` `s` on((`m`.`serv_id` = `s`.`id`))) join `contracts` `c` on((`m`.`contracts_id` = `c`.`id`))) left join `ripso` `r` on((`c`.`ripso_id` = `r`.`id`)))) `f` */;
@@ -7618,7 +7631,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `main_nz` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where (`main`.`uslnum` > 0) */;
@@ -7636,7 +7649,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `max_pay_in_month` AS select `d`.`contracts_id` AS `contracts_id`,`d`.`ripso_id` AS `ripso_id`,`d`.`pddate` AS `pddate`,`d`.`sdd` AS `sdd`,`d`.`servform_id` AS `servform_id`,`d`.`lm` AS `lm`,`d`.`perc` AS `perc`,`d`.`work_livemin` AS `work_livemin`,`d`.`ufio_id` AS `ufio_id`,(case when (`d`.`max_pay` >= 0) then `d`.`max_pay` when (`d`.`max_pay` < 0) then 0 else -(1) end) AS `max_pay`,`d`.`new_at` AS `new_at` from (select `t`.`contracts_id` AS `contracts_id`,`t`.`ripso_id` AS `ripso_id`,`t`.`pddate` AS `pddate`,`t`.`sdd` AS `sdd`,`t`.`servform_id` AS `servform_id`,`t`.`lm` AS `lm`,`t`.`perc` AS `perc`,`t`.`work_livemin` AS `work_livemin`,`t`.`ufio_id` AS `ufio_id`,(case when (`t`.`servform_id` in (1,2,3)) then ((`t`.`sdd` - (`t`.`lm` * 1.5)) / 2) when (`t`.`servform_id` = 4) then (`t`.`sdd` * 0.75) end) AS `max_pay`,(select `a`.`pddate` from (`add_info` `a` join `contracts` `c` on((`c`.`id` = `a`.`contracts_id`))) where ((`c`.`ufio_id` = `t`.`ufio_id`) and (`c`.`id` <> `t`.`contracts_id`) and (`a`.`pddate` > `t`.`pddate`)) order by `a`.`pddate` limit 1) AS `new_at` from (select `a`.`contracts_id` AS `contracts_id`,`c`.`ripso_id` AS `ripso_id`,`a`.`pddate` AS `pddate`,`a`.`sdd` AS `sdd`,`r`.`servform_id` AS `servform_id`,`a`.`perc` AS `perc`,`a`.`work_livemin` AS `work_livemin`,`c`.`ufio_id` AS `ufio_id`,(select if((`a`.`work_livemin` = 0),`live_min`.`live_min_p`,`live_min`.`live_min_w`) AS `live_min` from `live_min` where (`a`.`pddate` > `live_min`.`lmdate`) order by `live_min`.`lmdate` desc limit 1) AS `lm` from ((`add_info` `a` join `contracts` `c` on((`c`.`id` = `a`.`contracts_id`))) join `ripso` `r` on((`r`.`id` = `c`.`ripso_id`)))) `t` order by `t`.`pddate`) `d` */;
@@ -7654,7 +7667,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `max_pay_in_month_50` AS select `t`.`contracts_id` AS `contracts_id`,`t`.`ripso_id` AS `ripso_id`,`t`.`pddate` AS `pddate`,`t`.`sdd` AS `sdd`,`t`.`servform_id` AS `servform_id`,`t`.`lm` AS `lm`,((`t`.`sdd` - (`t`.`lm` * 1.5)) / 2) AS `max_pay` from (select `a`.`contracts_id` AS `contracts_id`,`c`.`ripso_id` AS `ripso_id`,`a`.`pddate` AS `pddate`,`a`.`sdd` AS `sdd`,`r`.`servform_id` AS `servform_id`,(select if((`a`.`work_livemin` = 0),`live_min`.`live_min_p`,`live_min`.`live_min_w`) AS `live_min` from `live_min` where (`a`.`pddate` > `live_min`.`lmdate`) order by `live_min`.`lmdate` desc limit 1) AS `lm` from ((`add_info` `a` join `contracts` `c` on((`c`.`id` = `a`.`contracts_id`))) join `ripso` `r` on((`r`.`id` = `c`.`ripso_id`))) where (`r`.`servform_id` in (1,2,3))) `t` order by `t`.`pddate` */;
@@ -7672,7 +7685,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `max_pay_in_month_75` AS select `t`.`contracts_id` AS `contracts_id`,`t`.`ripso_id` AS `ripso_id`,`t`.`pddate` AS `pddate`,`t`.`sdd` AS `sdd`,`t`.`servform_id` AS `servform_id`,`t`.`lm` AS `lm`,(`t`.`sdd` * 0.75) AS `max_pay` from (select `a`.`contracts_id` AS `contracts_id`,`c`.`ripso_id` AS `ripso_id`,`a`.`pddate` AS `pddate`,`a`.`sdd` AS `sdd`,`r`.`servform_id` AS `servform_id`,(select if((`a`.`work_livemin` = 0),`live_min`.`live_min_p`,`live_min`.`live_min_w`) AS `live_min` from `live_min` where (`a`.`pddate` > `live_min`.`lmdate`) order by `live_min`.`lmdate` desc limit 1) AS `lm` from ((`add_info` `a` join `contracts` `c` on((`c`.`id` = `a`.`contracts_id`))) join `ripso` `r` on((`r`.`id` = `c`.`ripso_id`))) where (`r`.`servform_id` = 4)) `t` order by `t`.`pddate` */;
@@ -7690,7 +7703,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `servofripso` AS select `s`.`id` AS `id`,`s`.`tnum` AS `tnum`,`s`.`serv` AS `serv`,`s`.`year` AS `year`,`s`.`sub_serv` AS `sub_serv`,`s`.`sub_serv_str` AS `sub_serv_str`,`s`.`price` AS `price`,`s`.`price2` AS `price2`,`s`.`price3` AS `price3`,`s`.`archive` AS `archive`,`s`.`total` AS `total`,`s`.`acronym` AS `acronym`,`s`.`workload` AS `workload`,`s`.`content` AS `content`,`r`.`id` AS `r_id`,`r`.`ripso` AS `ripso` from ((`ripso` `r` join `ripso_has_serv` `fr` on((`fr`.`ripso_id` = `r`.`id`))) join `serv` `s` on((`s`.`id` = `fr`.`ripso_id`))) where ((`s`.`archive` = 0) and (`r`.`archive` = 0)) */;
@@ -7708,7 +7721,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `servofyear` AS select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from `main` `m` where (year(`m`.`vdate`) = year(curdate())) */;
@@ -7726,7 +7739,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `servofyear-1` AS select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from `main` `m` where (year(`m`.`vdate`) = (year(curdate()) - 1)) */;
@@ -7744,7 +7757,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `servofyear-2` AS select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from `main` `m` where (year(`m`.`vdate`) = (year(curdate()) - 2)) */;
@@ -7762,7 +7775,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `servofyear-3` AS select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from `main` `m` where (year(`m`.`vdate`) = (year(curdate()) - 3)) */;
@@ -7780,7 +7793,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `should_perc` AS select `t`.`contracts_id` AS `contracts_id`,`t`.`pddate` AS `pddate`,`t`.`ripso_id` AS `ripso_id`,`t`.`sdd` AS `sdd`,`t`.`servform_id` AS `servform_id`,`t`.`lm` AS `lm`,`t`.`category_id` AS `category_id`,`t`.`perc` AS `perc`,(case when (`t`.`category_id` = 5) then (case when (`t`.`servform_id` = 4) then 0.10 else 0.5 end) else (case when (`t`.`servform_id` = 4) then 0.35 else (case when ((`t`.`sdd` - (`t`.`lm` * 4)) > 0) then 0.4 when ((`t`.`sdd` - (`t`.`lm` * 3)) > 0) then 0.3 when ((`t`.`sdd` - (`t`.`lm` * 2.5)) > 0) then 0.2 when ((`t`.`sdd` - (`t`.`lm` * 2)) > 0) then 0.15 when ((`t`.`sdd` - (`t`.`lm` * 1.5)) > 0) then 0.1 else 0 end) end) end) AS `should_perc` from (select `a`.`contracts_id` AS `contracts_id`,`c`.`ripso_id` AS `ripso_id`,`a`.`pddate` AS `pddate`,`a`.`sdd` AS `sdd`,`r`.`servform_id` AS `servform_id`,`uhc`.`category_id` AS `category_id`,`a`.`perc` AS `perc`,(select if((`a`.`work_livemin` = 0),`live_min`.`live_min_p`,`live_min`.`live_min_w`) AS `live_min` from `live_min` where (`a`.`pddate` > `live_min`.`lmdate`) order by `live_min`.`lmdate` desc limit 1) AS `lm` from ((((`add_info` `a` left join `contracts` `c` on((`c`.`id` = `a`.`contracts_id`))) left join `ripso` `r` on((`r`.`id` = `c`.`ripso_id`))) left join `ufio` `u` on((`u`.`id` = `c`.`ufio_id`))) left join `ufio_has_category` `uhc` on(((`uhc`.`ufio_id` = `c`.`ufio_id`) and (`uhc`.`get_date` < `a`.`pddate`) and (`uhc`.`category_id` = 5))))) `t` order by `t`.`pddate` */;
@@ -7798,7 +7811,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `total_cprice_in_month` AS select `main_cprice`.`contracts_id` AS `contracts_id`,sum(`main_cprice`.`to_pay`) AS `SUM(to_pay)` from `main_cprice` group by month(`main_cprice`.`vdate`),year(`main_cprice`.`vdate`) */;
@@ -7816,7 +7829,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `upd_by` AS select `worker`.`id` AS `id`,`worker`.`worker` AS `upd_by`,`worker`.`user` AS `user`,`worker`.`prim` AS `prim`,`worker`.`role_id` AS `role_id`,`worker`.`dep_id` AS `dep_id`,`worker`.`archive` AS `archive` from `worker` */;
@@ -7834,7 +7847,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `updatable_2__dep_has_ufio` AS select `u`.`id` AS `id`,`u`.`ufio` AS `ufio`,`u`.`ufio_short` AS `ufio_short`,`u`.`ufioDeath` AS `ufioDeath`,`u`.`ufiobirth` AS `ufiobirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `ufio` `u` where `u`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -7852,7 +7865,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `updatable__contr_has_add_info` AS select `_contr_has_add_info`.`pddate` AS `pddate`,`_contr_has_add_info`.`contracts_id` AS `contracts_id`,`_contr_has_add_info`.`predv_money` AS `predv_money`,`_contr_has_add_info`.`curFIO` AS `curFIO`,`_contr_has_add_info`.`psp` AS `psp`,`_contr_has_add_info`.`address` AS `address`,`_contr_has_add_info`.`sdd` AS `sdd`,`_contr_has_add_info`.`sdd_date` AS `sdd_date`,`_contr_has_add_info`.`perc` AS `perc`,`_contr_has_add_info`.`not_standart_contract` AS `not_standart_contract`,`_contr_has_add_info`.`not_standart_act` AS `not_standart_act`,`_contr_has_add_info`.`prim` AS `prim`,`_contr_has_add_info`.`create` AS `create`,`_contr_has_add_info`.`ts` AS `ts`,`_contr_has_add_info`.`cr_by` AS `cr_by`,`_contr_has_add_info`.`upd_by` AS `upd_by`,`_contr_has_add_info`.`repr_FIO` AS `repr_FIO`,`_contr_has_add_info`.`repr_addr` AS `repr_addr`,`_contr_has_add_info`.`repr_psp` AS `repr_psp`,`_contr_has_add_info`.`work_livemin` AS `work_livemin` from `_contr_has_add_info` */;
@@ -7870,7 +7883,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `updatable__dep_has_add_info` AS select `ai`.`pddate` AS `pddate`,`ai`.`contracts_id` AS `contracts_id`,`ai`.`predv_money` AS `predv_money`,`ai`.`curFIO` AS `curFIO`,`ai`.`psp` AS `psp`,`ai`.`address` AS `address`,`ai`.`sdd` AS `sdd`,`ai`.`sdd_date` AS `sdd_date`,`ai`.`perc` AS `perc`,`ai`.`not_standart_contract` AS `not_standart_contract`,`ai`.`not_standart_act` AS `not_standart_act`,`ai`.`prim` AS `prim`,`ai`.`create` AS `create`,`ai`.`ts` AS `ts`,`ai`.`cr_by` AS `cr_by`,`ai`.`upd_by` AS `upd_by`,`ai`.`repr_FIO` AS `repr_FIO`,`ai`.`repr_addr` AS `repr_addr`,`ai`.`repr_psp` AS `repr_psp`,`ai`.`work_livemin` AS `work_livemin` from (`add_info` `ai` join `contracts` `c` on((`c`.`id` = `ai`.`contracts_id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -7888,7 +7901,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `updatable__dep_has_contracts` AS select `c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`contracts2` AS `contracts2`,`c`.`ufio_id` AS `ufio_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date`,`c`.`pyc_prim` AS `pyc_prim` from `contracts` `c` where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -7906,7 +7919,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `updatable__dep_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -7924,7 +7937,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `updatable__dep_has_ufio` AS select `u`.`id` AS `id`,`u`.`ufio` AS `ufio`,`u`.`ufio_short` AS `ufio_short`,`u`.`ufioDeath` AS `ufioDeath`,`u`.`ufiobirth` AS `ufiobirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`ufio` `u` join `contracts` `c` on((`c`.`ufio_id` = `u`.`id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
@@ -7942,7 +7955,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `updatable__user_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where ((`main`.`cr_by` = `GET_WID`()) or (`main`.`upd_by` = `GET_WID`())) order by `main`.`ts` desc */;
@@ -7960,7 +7973,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `updatable_add_info` AS select `add_info`.`pddate` AS `pddate`,`add_info`.`contracts_id` AS `contracts_id`,`add_info`.`predv_money` AS `predv_money`,`add_info`.`curFIO` AS `curFIO`,`add_info`.`psp` AS `psp`,`add_info`.`address` AS `address`,`add_info`.`sdd` AS `sdd`,`add_info`.`sdd_date` AS `sdd_date`,`add_info`.`perc` AS `perc`,`add_info`.`not_standart_contract` AS `not_standart_contract`,`add_info`.`not_standart_act` AS `not_standart_act`,`add_info`.`prim` AS `prim`,`add_info`.`create` AS `create`,`add_info`.`ts` AS `ts`,`add_info`.`cr_by` AS `cr_by`,`add_info`.`upd_by` AS `upd_by`,`add_info`.`repr_FIO` AS `repr_FIO`,`add_info`.`repr_addr` AS `repr_addr`,`add_info`.`repr_psp` AS `repr_psp`,`add_info`.`work_livemin` AS `work_livemin` from `add_info` */;
@@ -7978,7 +7991,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `updatable_contracts` AS select `contracts`.`id` AS `id`,`contracts`.`contracts` AS `contracts`,`contracts`.`contracts2` AS `contracts2`,`contracts`.`ufio_id` AS `ufio_id`,`contracts`.`dep_id` AS `dep_id`,`contracts`.`ripso_id` AS `ripso_id`,`contracts`.`blocked` AS `blocked`,`contracts`.`startdate` AS `startdate`,`contracts`.`enddate` AS `enddate`,`contracts`.`ippsuNum` AS `ippsuNum`,`contracts`.`note` AS `note`,`contracts`.`create` AS `create`,`contracts`.`ts` AS `ts`,`contracts`.`cr_by` AS `cr_by`,`contracts`.`upd_by` AS `upd_by`,`contracts`.`to_recheck` AS `to_recheck`,`contracts`.`check_date` AS `check_date`,`contracts`.`pyc_prim` AS `pyc_prim` from `contracts` */;
@@ -7996,7 +8009,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `updatable_contracts_has_serv` AS select `contracts_has_serv`.`serv_id` AS `serv_id`,`contracts_has_serv`.`contracts_id` AS `contracts_id`,`contracts_has_serv`.`planned` AS `planned`,`contracts_has_serv`.`filled` AS `filled`,`contracts_has_serv`.`filled_pyc` AS `filled_pyc`,`contracts_has_serv`.`prim` AS `prim`,`contracts_has_serv`.`archive` AS `archive`,`contracts_has_serv`.`create` AS `create`,`contracts_has_serv`.`ts` AS `ts`,`contracts_has_serv`.`cr_by` AS `cr_by`,`contracts_has_serv`.`upd_by` AS `upd_by`,`contracts_has_serv`.`to_recheck` AS `to_recheck`,`contracts_has_serv`.`check_date` AS `check_date`,`contracts_has_serv`.`filled_old` AS `filled_old` from `contracts_has_serv` */;
@@ -8014,7 +8027,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `updatable_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` */;
@@ -8032,7 +8045,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `updatable_ufio` AS select `ufio`.`id` AS `id`,`ufio`.`ufio` AS `ufio`,`ufio`.`ufio_short` AS `ufio_short`,`ufio`.`ufioDeath` AS `ufioDeath`,`ufio`.`ufiobirth` AS `ufiobirth`,`ufio`.`ESRN` AS `ESRN`,`ufio`.`prim` AS `prim`,`ufio`.`phone` AS `phone`,`ufio`.`snils` AS `snils`,`ufio`.`curator` AS `curator`,`ufio`.`create` AS `create`,`ufio`.`ts` AS `ts`,`ufio`.`cr_by` AS `cr_by`,`ufio`.`upd_by` AS `upd_by`,`ufio`.`cr_dep_id` AS `cr_dep_id` from `ufio` */;
@@ -8050,7 +8063,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `user_has_serv` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`ufio_id` AS `ufio_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where (`main`.`cr_by` = `GET_wID`()) */;
@@ -8068,7 +8081,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `worker_has_dep` AS select `dw`.`dep_id` AS `id`,`d`.`dep` AS `dep` from ((`dep_has_worker` `dw` join `dep` `d` on((`d`.`id` = `dw`.`dep_id`))) join `worker` `w` on((`dw`.`worker_id` = `w`.`id`))) where ((`dw`.`worker_id` = `GET_wID`()) and (`dw`.`archive` = 0)) */;

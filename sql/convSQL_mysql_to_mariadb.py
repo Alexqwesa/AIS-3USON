@@ -22,12 +22,22 @@ COLLATE utf8mb4_0900_ai_ci
 """, """
 COLLATE = utf8mb4_0900_ai_ci
 """, """
+COLLATE=utf8mb4_0900_ai_ci
+""", """
 VISIBLE
 """, ["""
 utf8mb4 COLLATE utf8mb4_0900_ai_ci
 """,
       "utf8"], """
 
+
+""", """
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+""", """
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+""", """
+
+""", """
 
 """, """
 
@@ -38,16 +48,7 @@ utf8mb4 COLLATE utf8mb4_0900_ai_ci
 ]
 
 
-def main(*arg):
-    fin = "kcson.sql"
-    fout = "kcson_mariadb.sql"
-    if arg:
-        try:
-            print(arg)
-            fin = arg[1]
-            fout = arg[2]
-        except:
-            pass
+def main(fin, fout):
     data = ""
     with open(fin, "r") as fp:
         line = "" + datetime.date.today().strftime("# Converted %d.%m.%y'")
@@ -59,6 +60,7 @@ def main(*arg):
     print(data)
     with open(fout, "w") as fo:
         fo.write(data)
+
 
 def replacer(line: str) -> str:
     for exp in list_of_wrong:
@@ -72,5 +74,12 @@ def replacer(line: str) -> str:
         line = line.replace(exp, repl)
     return line
 
+
 if __name__ == "__main__":
-    main(sys.argv)
+    if len(sys.argv) > 2:
+        main(sys.arg[1], sys.arg[2])
+    else:
+        main("schema.sql","maria_schema.sql")
+        main("security.sql","maria_security.sql")
+        main("data.sql","maria_data.sql")
+        main("test_data.sql","maria_test_data.sql")

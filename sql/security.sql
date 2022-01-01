@@ -363,7 +363,7 @@ BEGIN
 		DEALLOCATE PREPARE stmt; 
 
   END LOOP;
-  set role all;
+  # set role all;
   # select CURRENT_ROLE() ;
   CLOSE cursor_i;
 END $$
