@@ -6883,7 +6883,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_g_serv_total_you` AS select `m`.`serv_id` AS `serv_id`,sum(`m`.`uslnum`) AS `uslnum`,(select count(0) from (select `mfd`.`ufio_id` AS `ufio_id` from `_main_for_dep` `mfd` where (`m`.`serv_id` = `mfd`.`serv_id`) group by `mfd`.`ufio_id`) `t`) AS `ufio_id_count`,`m`.`ufio_id` AS `ufio_id`,count(`m`.`ufio_id`) AS `records` from `_main_for_dep` `m` group by `m`.`serv_id`,`m`.`ufio_id` order by `m`.`serv_id` */;
+/*!50001 VIEW `_g_serv_total_you` AS select `m`.`serv_id` AS `serv_id`,sum(`m`.`uslnum`) AS `uslnum`,(select count(0) from (select `mfd`.`ufio_id` AS `ufio_id` from `_main_for_dep` `mfd` where (`serv_id` = `mfd`.`serv_id`) group by `mfd`.`ufio_id`) `t`) AS `ufio_id_count`,`m`.`ufio_id` AS `ufio_id`,count(`m`.`ufio_id`) AS `records` from `_main_for_dep` `m` group by `m`.`serv_id`,`m`.`ufio_id` order by `m`.`serv_id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
