@@ -3,6 +3,7 @@ USE `kcson`;
 
 INSERT INTO `kcson`.`dep` (`id`, `dep`, `dep_full_name`, `note`) VALUES (DEFAULT, 'Не указано', 'Не указано', NULL);
 
+
 INSERT INTO kcson.worker (id, worker, `user`, prim, role_id, dep_id, archive) VALUES(1, 'Не указан(Работник)', 'newuser', NULL, 1, 1, 0);
 INSERT INTO kcson.worker (id, worker, `user`, prim, role_id, dep_id, archive) VALUES(2, 'Не указан(Админ)', 'root', NULL, 1, 1, 0);
 
@@ -29,7 +30,6 @@ INSERT INTO kcson.category (id, category, archive, prim, total, subof) VALUES(15
 INSERT INTO kcson.category (id, category, archive, prim, total, subof) VALUES(16, 'Социо-псих. ИПР', NULL, NULL, NULL, 14);
 
 
-
 INSERT INTO kcson.ufio_has_category (ufio_id, category_id, get_date, archive, prim, `create`, ts, cr_by, upd_by, stop_date) VALUES(1, 1, NULL, NULL, '4113', NULL, NULL, 2, 2, '9999-01-01');
 INSERT INTO kcson.ufio_has_category (ufio_id, category_id, get_date, archive, prim, `create`, ts, cr_by, upd_by, stop_date) VALUES(1, 2, NULL, NULL, '1245', NULL, '2020-06-26 15:50:21', 2, 1, '9999-01-01');
 INSERT INTO kcson.ufio_has_category (ufio_id, category_id, get_date, archive, prim, `create`, ts, cr_by, upd_by, stop_date) VALUES(1, 3, '2018-01-01', 0, NULL, '2020-08-05 15:12:31', '2020-08-05 15:12:31', 1, 1, '9999-01-01');
@@ -38,7 +38,6 @@ INSERT INTO kcson.ufio_has_category (ufio_id, category_id, get_date, archive, pr
 INSERT INTO kcson.ufio_has_category (ufio_id, category_id, get_date, archive, prim, `create`, ts, cr_by, upd_by, stop_date) VALUES(2, 6, NULL, NULL, '33311', NULL, '2020-06-26 15:44:41', 2, 1, '9999-01-01');
 INSERT INTO kcson.ufio_has_category (ufio_id, category_id, get_date, archive, prim, `create`, ts, cr_by, upd_by, stop_date) VALUES(2, 7, '2018-01-01', 0, NULL, '2020-08-05 15:11:00', '2020-08-05 15:11:00', 1, 1, '9999-01-01');
 INSERT INTO kcson.ufio_has_category (ufio_id, category_id, get_date, archive, prim, `create`, ts, cr_by, upd_by, stop_date) VALUES(2, 10, '2018-01-01', 0, NULL, '2020-08-07 18:42:42', '2020-08-07 18:42:42', 1, 1, '9999-01-01');
-
 
 
 INSERT INTO kcson.dep (id, dep, dep_full_name, dep_puname, note, archive, complex_dep_id) VALUES(1, 'Не указано1', 'Не указано отделение', NULL, NULL, NULL, 0);
@@ -65,10 +64,6 @@ INSERT INTO kcson.dep_has_ripso (dep_id, ripso_id) VALUES(2, 2);
 INSERT INTO kcson.dep_has_ripso (dep_id, ripso_id) VALUES(2, 1);
 
 
-
-
-
-
 INSERT INTO kcson.contracts (id, contracts, contracts2, ufio_id, dep_id, ripso_id, blocked, startdate, enddate, ippsuNum, note, `create`, ts, cr_by, upd_by, to_recheck, check_date, pyc_prim) VALUES(1, '12312313/2001', NULL, 1, 1, 1, 0, '2001-01-01', '2020-12-31', NULL, NULL, NULL, '2020-01-21 18:45:29', NULL, 2, 0, NULL, NULL);
 INSERT INTO kcson.contracts (id, contracts, contracts2, ufio_id, dep_id, ripso_id, blocked, startdate, enddate, ippsuNum, note, `create`, ts, cr_by, upd_by, to_recheck, check_date, pyc_prim) VALUES(2, '123441/2020', '0', 1, 1, 1, 0, '2020-01-21', '2020-01-21', NULL, 'test note1', '2020-01-21 19:22:28', '2021-12-15 16:08:49', 2, 2, 0, NULL, NULL);
 INSERT INTO kcson.contracts (id, contracts, contracts2, ufio_id, dep_id, ripso_id, blocked, startdate, enddate, ippsuNum, note, `create`, ts, cr_by, upd_by, to_recheck, check_date, pyc_prim) VALUES(3, '43434/2001', NULL, 2, 1, 1, 0, '2011-01-01', '2019-12-31', NULL, '', NULL, '2020-02-07 16:18:31', NULL, 1, 1, NULL, NULL);
@@ -89,7 +84,6 @@ INSERT INTO kcson.complex_dep (id, complex_dep, note) VALUES(5, 'Отделен�
 INSERT INTO kcson.complex_dep (id, complex_dep, note) VALUES(6, 'Срочные отделения', NULL);
 
 
-
 --INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 1);
 --INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 2);
 --INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 3);
@@ -102,15 +96,12 @@ INSERT INTO kcson.complex_dep (id, complex_dep, note) VALUES(6, 'Срочные 
 --INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 10);
 
 
-
 INSERT INTO kcson.add_info (pddate, contracts_id, predv_money, curFIO, psp, address, sdd, sdd_date, perc, not_standart_contract, not_standart_act, prim, `create`, ts, cr_by, upd_by, repr_FIO, repr_addr, repr_psp, work_livemin) VALUES('2020-01-01', 1, 0.00, 'Тестовый человек', '6', '1', 22000.00, '2020-01-01', 20.0, 0, 0, '', '2020-04-27 15:29:54', '2020-09-14 00:11:26', 1, 1, '', '', '', 0);
 INSERT INTO kcson.add_info (pddate, contracts_id, predv_money, curFIO, psp, address, sdd, sdd_date, perc, not_standart_contract, not_standart_act, prim, `create`, ts, cr_by, upd_by, repr_FIO, repr_addr, repr_psp, work_livemin) VALUES('2020-07-01', 1, NULL, 'Тестовый человек', '6', '1', 18000.00, '2020-07-01', 15.0, NULL, NULL, NULL, '2020-07-21 18:56:07', '2020-09-14 00:11:25', 1, 1, NULL, NULL, NULL, 0);
 INSERT INTO kcson.add_info (pddate, contracts_id, predv_money, curFIO, psp, address, sdd, sdd_date, perc, not_standart_contract, not_standart_act, prim, `create`, ts, cr_by, upd_by, repr_FIO, repr_addr, repr_psp, work_livemin) VALUES('2020-03-01', 1, 5284.43, '1212', '6', '1', 24000.00, '2002-01-01', 0.2, NULL, NULL, NULL, NULL, '2020-09-14 00:35:02', 2, 1, NULL, NULL, NULL, 0);
 INSERT INTO kcson.add_info (pddate, contracts_id, predv_money, curFIO, psp, address, sdd, sdd_date, perc, not_standart_contract, not_standart_act, prim, `create`, ts, cr_by, upd_by, repr_FIO, repr_addr, repr_psp, work_livemin) VALUES('2020-01-01', 2, 0.00, 'Тестовый чел2', '1', '1', 0.00, '2020-01-01', 0.1, 0, 0, '', '2020-01-21 15:06:23', '2020-01-21 15:06:23', 1, 1, '', '', '', 0);
 INSERT INTO kcson.add_info (pddate, contracts_id, predv_money, curFIO, psp, address, sdd, sdd_date, perc, not_standart_contract, not_standart_act, prim, `create`, ts, cr_by, upd_by, repr_FIO, repr_addr, repr_psp, work_livemin) VALUES('2001-02-01', 2, 0.00, NULL, '5555', '111', 13000.00, NULL, 0.2, NULL, NULL, NULL, NULL, '2020-09-14 10:22:21', 2, 1, NULL, NULL, NULL, 0);
 INSERT INTO kcson.add_info (pddate, contracts_id, predv_money, curFIO, psp, address, sdd, sdd_date, perc, not_standart_contract, not_standart_act, prim, `create`, ts, cr_by, upd_by, repr_FIO, repr_addr, repr_psp, work_livemin) VALUES('2001-06-01', 2, 0.00, 'Тестовый человек2', '43434', '2', 17000.00, NULL, 0.1, NULL, NULL, NULL, NULL, '2020-09-14 10:22:21', 2, 1, NULL, NULL, NULL, 0);
-
-
 
 
 INSERT INTO kcson.dhw_has_ufio (dhw_id, ufio_id, prim) VALUES(1, 1, NULL);

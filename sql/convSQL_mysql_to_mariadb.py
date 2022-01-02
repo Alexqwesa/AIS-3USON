@@ -1,11 +1,11 @@
 #!/usr/bin/python
 # -------------------------------------------------------------------------------
 # -*- coding: utf-8 -*-
-# Name:        convert SQL create Script from MySQL to mariadb
+# Name:        convert SQL create Scripts from MySQL to mariaDB
 # Purpose:
 #
 # Author:      Savin Alexander Viktorovich aka alexqwesa
-# Created:     2019
+# Created:     2019-2022
 # Copyright:   Savin Alexander Viktorovich aka alexqwesa
 # Licence:     LGPL 3
 # This software is licensed under the "LGPLv3" License as described in the "LICENSE" file,
@@ -29,7 +29,6 @@ VISIBLE
 utf8mb4 COLLATE utf8mb4_0900_ai_ci
 ""","utf8"], """
 
-
 """, """
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 """, """
@@ -41,8 +40,7 @@ utf8mb4 COLLATE utf8mb4_0900_ai_ci
 """, """
 
 """
-# ,["""INSERT INTO kcson.serv (id, serv, serv_text, tnum, `year`, sub_serv, sub_serv_str, """,
-#       "INSERT INTO kcson.serv (id, serv_text, tnum, `year`, sub_serv, sub_serv_str, "]
+
 
 ]
 

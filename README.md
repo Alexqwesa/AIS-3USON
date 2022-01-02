@@ -22,7 +22,7 @@ An AIS-3USON project contain both Backend(SQL) and desktop Frontend(python+Qt), 
 ## Установка
 
 - Установить SQL СУБД - приложение протестировано на СУБД MySQL 8 _(для других СУБД не забудьте установить другие коннекторы и изменить настройки по умолчанию в файле 3uson.conf)_
-- Импортировать в БД из папки sql следующие файлы:
+- Импортировать в БД из папки sql следующие файлы(для **mariaDB** используйте файлы maria_*):
     - schema.sql
     - data.sql
     - test_data.sql

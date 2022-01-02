@@ -525,7 +525,7 @@ delimiter ;
 # ---------------------------
 drop procedure IF EXISTS contract_pay_inmonth;
 delimiter $$
-create procedure kcson.contract_pay_inmonth(IN   UID  INT, IN  STARTDATE DATE, IN ENDDATE DATE)
+create procedure kcson.contract_pay_inmonth(IN UID INT, IN STARTDATE DATE, IN ENDDATE DATE)
 sql security definer
 begin
 	
