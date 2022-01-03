@@ -14,17 +14,18 @@ create procedure INIT_SECURITY()
     SQL SECURITY DEFINER
 BEGIN
 
-    create SCHEMA IF NOT EXISTS `kcson_tmp` DEFAULT CHARACTER SET utf8mb4  ;
-    grant execute,select, create TEMPORARY TABLES on kcson_tmp.* to info;
-
     #############################
     # create roles
     # ---------------------------
     create role if not exists reporter,  none1, info, worker, specialist, trusted_specialist, manager, part_admin, admin, booker;
+    #############################
+    # grang temporary tables
+    # ---------------------------
+    create SCHEMA IF NOT EXISTS `kcson_tmp` DEFAULT CHARACTER SET utf8mb4  ;
     grant execute,select, create TEMPORARY TABLES on kcson.* to reporter;
     grant execute,select, create TEMPORARY TABLES on kcson_tmp.* to reporter;
+    grant execute,select, create TEMPORARY TABLES on kcson_tmp.* to info;
 
-    # grant CREATE TEMPORARY TABLES on kcson.* to newuser;
 
     #############################
     # TODO reset all permissions
