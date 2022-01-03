@@ -56,12 +56,12 @@ modules = list(sys.modules.keys())  # TODO: filter
 if "PyQt5" in modules:
     debug("loading PyQt5")
     UI.qtpy = "pyqt5"
-elif "PySide2" in modules:
-    debug("loading PySide2")
-    UI.qtpy = "pyside2"
 elif "PySide6" in modules:
     debug("loading PySide6")
     UI.qtpy = "pyside6"
+elif "PySide2" in modules:
+    debug("loading PySide2")
+    UI.qtpy = "pyside2"
 else:
     debug("Qt not found: %s ", modules)
 #############################
