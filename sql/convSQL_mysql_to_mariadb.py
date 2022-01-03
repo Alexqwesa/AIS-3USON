@@ -27,7 +27,7 @@ COLLATE=utf8mb4_0900_ai_ci
 VISIBLE
 """, ["""
 utf8mb4 COLLATE utf8mb4_0900_ai_ci
-""","utf8"], """
+""", "utf8"], """
 
 """, """
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
@@ -41,17 +41,17 @@ utf8mb4 COLLATE utf8mb4_0900_ai_ci
 
 """
 
-
 ]
 
 #############################
 # mariadb import disallow import generated columns
 # replace it
 # ---------------------------
-regexp=[
-" id,\ serv,\ serv_text,\ tnum,\ `year`,\ sub_serv,\ sub_serv_str,\ price,\ price2,\ price3,\ archive,\ total,\ acronym,\ workload,\ content,\ `create`,\ ts,\ cr_by,\ upd_by\)\ VALUES([^,]*,)\ '([^']*)',\ ",
-" id, serv_text, tnum, `year`, sub_serv, sub_serv_str, price, price2, price3,  archive, total, acronym, workload, content, `create`, ts, cr_by, upd_by) VALUES\\1 ",
+regexp = [
+    " id,\ serv,\ serv_text,\ tnum,\ `year`,\ sub_serv,\ sub_serv_str,\ price,\ price2,\ price3,\ archive,\ total,\ acronym,\ workload,\ content,\ `create`,\ ts,\ cr_by,\ upd_by\)\ VALUES([^,]*,)\ '([^']*)',\ ",
+    " id, serv_text, tnum, `year`, sub_serv, sub_serv_str, price, price2, price3,  archive, total, acronym, workload, content, `create`, ts, cr_by, upd_by) VALUES\\1 ",
 ]
+
 
 def main(fin, fout):
     data = ""
@@ -62,9 +62,9 @@ def main(fin, fout):
         while line:
             ln = +1
             line = fp.readline()
-            line=line.replace("`columns`", "`COLUMNS`")
+            line = line.replace("`columns`", "`COLUMNS`")
             if r"INSERT INTO kcson.serv (id, serv, serv_text, tnum, `year`, sub_serv, sub_serv_str, price, price2, price3, archive, total, acronym, workload," in line:
-                line= p.sub(regexp[1], line)
+                line = p.sub(regexp[1], line)
             data = data + replacer(line)
     print(data)
     with open(fout, "w") as fo:
@@ -88,7 +88,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 2:
         main(sys.arg[1], sys.arg[2])
     else:
-        main("schema.sql","maria_schema.sql")
-        main("security.sql","maria_security.sql")
-        main("data.sql","maria_data.sql")
-        main("test_data.sql","maria_test_data.sql")
+        main("schema.sql", "maria_schema.sql")
+        main("security.sql", "maria_security.sql")
+        main("data.sql", "maria_data.sql")
+        main("test_data.sql", "maria_test_data.sql")
