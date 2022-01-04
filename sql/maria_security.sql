@@ -321,47 +321,55 @@ delimiter $$
 create procedure GET_PRIVILEGES()
     SQL SECURITY DEFINER
 BEGIN
+
+
   DECLARE cursor_n VARCHAR(100) DEFAULT '';
   DECLARE cursor_rol VARCHAR(100) DEFAULT '';
   DECLARE done INT DEFAULT FALSE;
   DECLARE drop_priv INT DEFAULT TRUE;
-  DECLARE cursor_i CURSOR FOR  
+  DECLARE cursor_i CURSOR FOR
 	select  w.`user`, role_sqlname from  kcson.dep_has_worker dhw join  kcson.`role` r on r.id = dhw.role_id join  kcson.worker w on dhw.worker_id = w.id
 	where worker_id=get_WID() and dhw.dep_id = GET_DEP(get_WID()) and w.`user` <> "root";
-  DECLARE CONTINUE handler FOR NOT FOUND SET done = TRUE;
+
+# for mariaDB
+DECLARE CONTINUE HANDLER FOR SQLSTATE 'HY000' SET @error_revoke = 1;
+DECLARE CONTINUE HANDLER FOR SQLSTATE '42000' SET @error_revoke = 1;
+
+DECLARE CONTINUE handler FOR NOT FOUND SET done = TRUE;
+
   OPEN cursor_i;
   read_loop: LOOP
     FETCH cursor_i INTO cursor_n, cursor_rol;
-   
+
     IF drop_priv THEN
      	SET @queryStringRP = CONCAT('REVOKE ALL on *.* FROM  ', cursor_n, ';  ' );
 		PREPARE stmt FROM @queryStringRP;
 		EXECUTE stmt;
-		DEALLOCATE PREPARE stmt; 
-	
+		DEALLOCATE PREPARE stmt;
+
      	SET @queryStringRP = CONCAT('grant execute, usage on kcson.* to  ', cursor_n, ';  ' );
 		PREPARE stmt FROM @queryStringRP;
 		EXECUTE stmt;
 		DEALLOCATE PREPARE stmt;
 
 	    # applies after user relogin
-     	SET @queryStringRP = CONCAT('REVOKE manager, worker, specialist, trusted_specialist  FROM  ', cursor_n, ';  ' ); # admin, part_admin 
+     	SET @queryStringRP = CONCAT('REVOKE manager, worker, specialist, trusted_specialist  FROM  ', cursor_n, ';  ' ); # admin, part_admin
 		PREPARE stmt FROM @queryStringRP;
 		EXECUTE stmt;
 		DEALLOCATE PREPARE stmt;
-	
+
         set drop_priv = false;
     END IF;
-   
+
     IF done THEN
       LEAVE read_loop;
     END IF;
-	
+
 		SET @queryString = CONCAT('GRANT ',  cursor_rol , ' TO ', cursor_n, ';');
 		# select @queryString;
 		PREPARE stmt FROM @queryString;
 		EXECUTE stmt;
-		DEALLOCATE PREPARE stmt; 
+		DEALLOCATE PREPARE stmt;
 
   END LOOP;
   # set role all;
