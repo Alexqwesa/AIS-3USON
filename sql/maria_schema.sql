@@ -1796,9 +1796,29 @@ CREATE TABLE `api_key_insert_main` (
   `uslnum` int DEFAULT '0' COMMENT 'Количество услуг',
   `note` varchar(255) DEFAULT NULL,
   `create` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  `uuid` varchar(36) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `api_key_insert_main_UN` (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  COMMENT='web_info inserts table';
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+
+DROP TRIGGER IF EXISTS kcson.api_key_insert_main_on_insert;
+USE kcson;
+
+DELIMITER $$
+$$
+CREATE DEFINER=`root`@`localhost` TRIGGER api_key_insert_main_on_insert
+BEFORE INSERT
+ON api_key_insert_main FOR EACH ROW BEGIN
+
+	SET  NEW.dep_id = (SELECT dep_id from dep_has_worker dhw where dhw.id = new.dep_has_worker_id);
+
+	SET  NEW.ufio_id = (SELECT ufio_id from contracts c where c.id = new.contracts_id);
+
+	END $$
+DELIMITER ;
+
 
 --
 -- Table structure for table `audit`

@@ -147,9 +147,7 @@ class MyServer(BaseHTTPRequestHandler):
             self.end_headers()
             return
 
-        if self.path == "/add":
-            pass
-        elif self.path == "/fio":
+        if self.path == "/fio":
             _, api_key = self.get_auth()
             if api_key:
                 message = self.get_sql_data(sql_query="""
@@ -174,6 +172,17 @@ class MyServer(BaseHTTPRequestHandler):
                 message = self.get_sql_data(sql_query="""
                         select id, tnum, serv_text, total, image, serv_id_list, sub_serv, short_text from _api_key_services 
                     """)
+                # send the message back
+                self.json_header()
+                self.write(json.dumps(message, default=str))
+        elif self.path == "/add":
+            data, api_key = self.get_auth()
+            if api_key:
+                message = self.get_sql_data(sql_query="""
+                        INSERT INTO kcson.api_key_insert_main
+(contracts_id, serv_id, dep_has_worker_id, vdate, uslnum, uuid)
+VALUES(%(contracts_id)s , %(serv_id)s, %(dep_has_worker_id)s, '%(vdate)s', 1, '%(uuid)s' ); 
+                    """ % data)
                 # send the message back
                 self.json_header()
                 self.write(json.dumps(message, default=str))
@@ -218,14 +227,21 @@ class MyServer(BaseHTTPRequestHandler):
         self.write("<p>Thread Count: %s</p>" % threading.active_count())
         self.write("</body></html>")
 
-    def get_sql_data(self, host='localhost', port="3366", user='web_info', password=PASSWORD,
+    def get_sql_data(self, host='localhost', port=3306, user='web_info', password=PASSWORD,
                      database='kcson', sql_query="select * from holiday"):
         if self.api_key:
             database = connect(host=host, port=port, user=user, password=password, database=database)
             cursor = database.cursor()
             cursor.execute(sql_query)
-            ret = cursor.fetchall()
-            ret_structure = [{key: val for key, val in zip(cursor.column_names, lst)} for lst in ret]
+            if "INSERT INTO" in sql_query:
+                database.commit()
+                ret = cursor.lastrowid
+                cursor.close()
+                ret_structure = [{"id": ret}]
+            else:
+                ret = cursor.fetchall()
+                cursor.close()
+                ret_structure = [{key: val for key, val in zip(cursor.column_names, lst)} for lst in ret]
             # database.commit()
             database.close()
             return ret_structure
