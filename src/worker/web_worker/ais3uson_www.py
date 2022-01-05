@@ -2,10 +2,12 @@
 # -------------------------------------------------------------------------------
 # -*- coding: utf-8 -*-
 # Name:        AIS 3USON web worker
-# Purpose:
+# Purpose:     Middleware to connect SQL DBMS to mobile clients,
+#                   this file should have minimal amount of dependency,
+#                   and should be able to run on any system
 #
 # Author:      Savin Alexander Viktorovich aka alexqwesa
-# Created:     2019
+# Created:     2021-2022
 # Copyright:   Savin Alexander Viktorovich aka alexqwesa
 # Licence:     LGPL 3
 # This software is licensed under the "LGPLv3" License as described in the "LICENSE" file,
@@ -118,8 +120,10 @@ except (FileNotFoundError, PermissionError):
 
 
 class MyServer(BaseHTTPRequestHandler):
-    # def __init__(self):
-    #     super().__init__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.api_key = None
+
     def do_OPTIONS(self):
         self.send_response(204)
         # self.send_header('Access-Control-Allow-Origin', '*')
@@ -240,6 +244,7 @@ class MyServer(BaseHTTPRequestHandler):
     def put_sql_data(self, host='localhost', port=3306, user='web_info', password=PASSWORD,
                      database='kcson', sql_query="select * from holiday"):
         if self.api_key:
+            cursor = None
             try:
                 database = connect(host=host, port=port, user=user, password=password, database=database)
                 cursor = database.cursor()
@@ -249,11 +254,12 @@ class MyServer(BaseHTTPRequestHandler):
                 ret_structure = {"id": ret}
                 cursor.close()
                 database.close()
-            except(mysql.connector.errors.IntegrityError):
+            except mysql.connector.errors.IntegrityError:
                 ret_structure = {"id": 0, "error": "duplicate"}
                 print(ret_structure)
             finally:
-                cursor.close()
+                if cursor:
+                    cursor.close()
                 database.close()
             return ret_structure
         return "Wrong authorization key"
