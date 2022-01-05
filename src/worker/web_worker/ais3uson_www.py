@@ -19,10 +19,8 @@ from mysql.connector import connect
 import threading
 
 from http.server import BaseHTTPRequestHandler
-
-DEBUG_MODE = None
-if os.environ["DEBUG_MODE"].lower() == "on":
-    DEBUG_MODE = True
+import mysql
+DEBUG_MODE = True
 #############################
 # add support python 3.5
 # ---------------------------
@@ -178,10 +176,10 @@ class MyServer(BaseHTTPRequestHandler):
         elif self.path == "/add":
             data, api_key = self.get_auth()
             if api_key:
-                message = self.get_sql_data(sql_query="""
+                message = self.put_sql_data(sql_query="""
                         INSERT INTO kcson.api_key_insert_main
-(contracts_id, serv_id, dep_has_worker_id, vdate, uslnum, uuid)
-VALUES(%(contracts_id)s , %(serv_id)s, %(dep_has_worker_id)s, '%(vdate)s', 1, '%(uuid)s' ); 
+                        (contracts_id, serv_id, dep_has_worker_id, vdate, uslnum, uuid)
+                        VALUES(%(contracts_id)s , %(serv_id)s, %(dep_has_worker_id)s, '%(vdate)s', 1, '%(uuid)s' ); 
                     """ % data)
                 # send the message back
                 self.json_header()
@@ -227,21 +225,36 @@ VALUES(%(contracts_id)s , %(serv_id)s, %(dep_has_worker_id)s, '%(vdate)s', 1, '%
         self.write("<p>Thread Count: %s</p>" % threading.active_count())
         self.write("</body></html>")
 
+    def put_sql_data(self, host='localhost', port=3306, user='web_info', password=PASSWORD,
+                     database='kcson', sql_query="select * from holiday"):
+        if self.api_key:
+            try:
+                database = connect(host=host, port=port, user=user, password=password, database=database)
+                cursor = database.cursor()
+                cursor.execute(sql_query)
+                database.commit()
+                ret = cursor.lastrowid
+                ret_structure = {"id": ret}
+                cursor.close()
+                database.close()
+            except(mysql.connector.errors.IntegrityError):
+                ret_structure = {"id": 0, "error": "duplicate"}
+                print(ret_structure)
+            finally:
+                cursor.close()
+                database.close()
+            return ret_structure
+        return "Wrong authorization key"
+
     def get_sql_data(self, host='localhost', port=3306, user='web_info', password=PASSWORD,
                      database='kcson', sql_query="select * from holiday"):
         if self.api_key:
             database = connect(host=host, port=port, user=user, password=password, database=database)
             cursor = database.cursor()
             cursor.execute(sql_query)
-            if "INSERT INTO" in sql_query:
-                database.commit()
-                ret = cursor.lastrowid
-                cursor.close()
-                ret_structure = [{"id": ret}]
-            else:
-                ret = cursor.fetchall()
-                cursor.close()
-                ret_structure = [{key: val for key, val in zip(cursor.column_names, lst)} for lst in ret]
+            ret = cursor.fetchall()
+            cursor.close()
+            ret_structure = [{key: val for key, val in zip(cursor.column_names, lst)} for lst in ret]
             # database.commit()
             database.close()
             return ret_structure
