@@ -12,21 +12,18 @@
 # which should be included with this package. The terms are also available at
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
+import sys
 import json
-import os
-
-from mysql.connector import connect
 import threading
-
 from http.server import BaseHTTPRequestHandler
-import mysql
+
 DEBUG_MODE = True
 #############################
-# add support python 3.5
+# add support python pre 3.6
 # ---------------------------
 try:
     _ = ModuleNotFoundError
-except Exception:  # Python 3.6 and before.
+except Exception:  # for Python 3.6 and before.
     class ModuleNotFoundError(Exception):
         pass
 
@@ -42,17 +39,20 @@ except (ModuleNotFoundError, ImportError):
         pass
 
 # import ssl
+#############################
+# import mysql connector with check
+# ---------------------------
 
 README_linux = """
 # To setup this service:
 
 useradd -r -s /bin/false ais3uson
 # or prohibit login to exist user with  passwd -l 
-# consider to use only key authentication: PasswordAuthentication no  (/etc/ssh/sshd_conf) 
+# consider to use only key authentication: PasswordAuthentication no  (in /etc/ssh/sshd_conf) 
 
 # save script on server to /usr/local/bin
 mkdir -p /usr/local/bin
-
+cp -a %s /usr/local/bin/
 
 # create file for password and secure it
 touch /etc/ais3uson.key
@@ -88,7 +88,23 @@ systemctl start  ais3uson_www
 systemctl status ais3uson_www
 
 
-"""
+""" % __file__
+
+
+def this_help():
+    print(README_linux)
+    exit()
+
+
+try:
+    import mysql
+    from mysql.connector import connect
+except:
+    print("=============================")
+    print("Install mysql connector")
+    print("pip install mysql-connector-python")
+    print("=============================")
+    this_help()
 
 hostName = "localhost"
 serverPort = 48080
@@ -153,7 +169,6 @@ class MyServer(BaseHTTPRequestHandler):
                 """ % self.api_key)
                 # send the message back
                 self.json_header()
-                # message=message+message # test
                 self.write(json.dumps(message, default=str))
         elif self.path == "/planned":
             _, api_key = self.get_auth()
@@ -168,7 +183,7 @@ class MyServer(BaseHTTPRequestHandler):
             _, api_key = self.get_auth()
             if api_key:
                 message = self.get_sql_data(sql_query="""
-                        select id, tnum, serv_text, total, image, serv_id_list, sub_serv, short_text from _api_key_services 
+                        select id, tnum, serv_text, total, image, serv_id_list, sub_serv, short_text from _api_key_services;
                     """)
                 # send the message back
                 self.json_header()
@@ -187,13 +202,10 @@ class MyServer(BaseHTTPRequestHandler):
         elif self.path == "/test":
             # read the message and convert it into a python dictionary
             message, api_key = self.get_auth()
-            if api_key:
-                # add a property to the object
-                self.api_key = "123"
-                message['received'] = self.get_sql_data()
-                # send the message back
-                self.json_header()
-                self.write(json.dumps(message, default=str))
+            message['received'] = self.get_sql_data()
+            # send the message back
+            self.json_header()
+            self.write(json.dumps(message, default=str))
 
     def get_auth(self):
         content_len = int(self.headers.get('Content-Length'))
@@ -261,14 +273,11 @@ class MyServer(BaseHTTPRequestHandler):
         return "Wrong authorization key"
 
 
-#
-# class mysql_json:
-#     def __init__(self, host='localhost', port="3366", user='web_info', password=PASSWORD,
-#                  database='kcson'):
-#         pass
-
-
 if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        if sys.argv[1] in ["-h", "--help", "/h", "/help"]:
+            this_help()
+
     webServer = ThreadingHTTPServer((hostName, serverPort), MyServer)
     # webServer.socket = ssl.wrap_socket(webServer.socket, keyfile='./privkey.pem',certfile='./certificate.pem',
     #                   server_side=True)

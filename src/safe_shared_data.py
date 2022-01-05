@@ -708,8 +708,8 @@ class _safe_share_data(QObject):
     @property
     def get_db(self):  # connect_name
         db_name = str(threading.get_ident())
-        while is_locked(self.lock__db_connections):
-            time.sleep(1)
+        # while is_locked(self.lock__db_connections):
+        #     time.sleep(1)
         with QMutexLocker(self.lock__db_connections):
             #############################
             # check exist
