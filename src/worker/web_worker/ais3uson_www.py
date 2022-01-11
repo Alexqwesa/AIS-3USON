@@ -210,6 +210,20 @@ class MyServer(BaseHTTPRequestHandler):
             # send the message back
             self.json_header()
             self.write(json.dumps(message, default=str))
+        elif self.path == "/delete":
+            data, api_key = self.get_auth()
+            if api_key:
+                message = self.put_sql_data(sql_query="""
+                        UPDATE kcson.api_key_insert_main
+                        SET uslnum = 0 
+                        WHERE 
+                            dep_has_worker_id =  %(dep_has_worker_id)s AND
+                            uuid = '%(uuid)s' AND
+                            check_api_key = '%(check_api_key)s'
+                    """ % data)
+                # send the message back
+                self.json_header()
+                self.write(json.dumps(message, default=str))
 
     def get_auth(self):
         content_len = int(self.headers.get('Content-Length'))
