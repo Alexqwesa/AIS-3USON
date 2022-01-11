@@ -84,16 +84,16 @@ INSERT INTO kcson.complex_dep (id, complex_dep, note) VALUES(5, 'Отделен�
 INSERT INTO kcson.complex_dep (id, complex_dep, note) VALUES(6, 'Срочные отделения', NULL);
 
 
---INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 1);
---INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 2);
---INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 3);
---INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 4);
---INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 5);
---INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 6);
---INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 7);
---INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 8);
---INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 9);
---INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 10);
+-- INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 1);
+-- INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 2);
+-- INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 3);
+-- INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 4);
+-- INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 5);
+-- INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 6);
+-- INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 7);
+-- INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 8);
+-- INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 9);
+-- INSERT INTO kcson.complex_dep_has_dep (complex_dep_id, dep_id) VALUES(1, 10);
 
 
 INSERT INTO kcson.add_info (pddate, contracts_id, predv_money, curFIO, psp, address, sdd, sdd_date, perc, not_standart_contract, not_standart_act, prim, `create`, ts, cr_by, upd_by, repr_FIO, repr_addr, repr_psp, work_livemin) VALUES('2020-01-01', 1, 0.00, 'Тестовый человек', '6', '1', 22000.00, '2020-01-01', 20.0, 0, 0, '', '2020-04-27 15:29:54', '2020-09-14 00:11:26', 1, 1, '', '', '', 0);

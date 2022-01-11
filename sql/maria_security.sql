@@ -1,3 +1,5 @@
+USE `kcson`;
+
 select * from kcson.role;
 # show tables;
 

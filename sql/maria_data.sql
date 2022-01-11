@@ -1,5 +1,6 @@
 USE `kcson`;
 
+
 INSERT INTO kcson.setting (id, archive, setting, value, prim, sdate) VALUES(1, 0, 'org', 'СПБ ГБУСОН "КЦСОН Адмиралтейского района Санкт-Петербурга"', NULL, '2020-01-16 15:28:57');
 INSERT INTO kcson.setting (id, archive, setting, value, prim, sdate) VALUES(2, 0, 'full_org', 'Санкт-Петербургское государственное бюджетное учреждение социального обслуживания населения «Комплексный центр социального обслуживания населения Адмиралтейского района Санкт-Петербурга»', NULL, '2020-01-16 15:28:57');
 INSERT INTO kcson.setting (id, archive, setting, value, prim, sdate) VALUES(3, 0, 'mobile_server', '80.87.196.11', 'Адрес сервера для мобильного приложения', '2021-12-24 18:07:17');
@@ -162,6 +163,7 @@ INSERT INTO kcson.job (id, job, prim) VALUES(12, 'Специалист по со
 INSERT INTO kcson.job (id, job, prim) VALUES(13, 'Юрист', '');
 INSERT INTO kcson.job (id, job, prim) VALUES(14, 'Инструктор по ЛФК', '');
 INSERT INTO kcson.job (id, job, prim) VALUES(15, 'Медицинский брат', NULL);
+
 
 
 INSERT INTO kcson.serv ( id, serv_text, tnum, `year`, sub_serv, sub_serv_str, price, price2, price3,  archive, total, acronym, workload, content, `create`, ts, cr_by, upd_by) VALUES(1, 'Итого:', 'Всего-2019', 2019, 0, '', 0.00, 0.00, 0.00, 1, 1, '', NULL, NULL, '2020-02-06 15:36:10.000', '2020-02-07 11:08:19.000', NULL, NULL);
