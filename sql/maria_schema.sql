@@ -1798,28 +1798,39 @@ CREATE TABLE `api_key_insert_main` (
   `note` varchar(255) DEFAULT NULL,
   `create` datetime DEFAULT CURRENT_TIMESTAMP,
   `uuid` varchar(36) NOT NULL,
+  `check_api_key` varchar(100) DEFAULT NULL COMMENT 'If new.check_api_key incorrect - error',
   PRIMARY KEY (`id`),
   UNIQUE KEY `api_key_insert_main_UN` (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  COMMENT='web_info inserts table';
 /*!40101 SET character_set_client = @saved_cs_client */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
 
-
-DROP TRIGGER IF EXISTS kcson.api_key_insert_main_on_insert;
-USE kcson;
-
-DELIMITER $$
-$$
-CREATE DEFINER=`root`@`localhost` TRIGGER api_key_insert_main_on_insert
-BEFORE INSERT
-ON api_key_insert_main FOR EACH ROW BEGIN
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `api_key_insert_main_on_insert` BEFORE INSERT ON `api_key_insert_main` FOR EACH ROW BEGIN
 
 	SET  NEW.dep_id = (SELECT dep_id from dep_has_worker dhw where dhw.id = new.dep_has_worker_id);
 
 	SET  NEW.ufio_id = (SELECT ufio_id from contracts c where c.id = new.contracts_id);
 
-	END $$
-DELIMITER ;
+	if ( new.check_api_key =  (SELECT api_key from dep_has_worker dhw where dhw.id = new.dep_has_worker_id)) then 
+		set new.check_api_key=new.dep_has_worker_id;
+	else
+		set new.check_api_key='error: wrong dep_has_worker_id';
+		set new.uslnum = 0;
+	end if;
 
+	END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `audit`
@@ -3327,7 +3338,7 @@ CREATE TABLE `serv` (
   UNIQUE KEY `servcol_UNIQUE` (`serv`),
   KEY `serv_sub_serv_IDX` (`sub_serv`) USING BTREE,
   KEY `serv_sub_serv_str_IDX` (`sub_serv_str`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=828 DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1098 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -3556,7 +3567,7 @@ CREATE TABLE `setting` (
   `prim` varchar(255) DEFAULT NULL,
   `sdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4327,10 +4338,6 @@ CREATE TABLE `worker_settings` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping events for database 'kcson'
---
-
---
 -- Dumping routines for database 'kcson'
 --
 /*!50003 DROP FUNCTION IF EXISTS `CHECK_OVERDID` */;
@@ -4880,9 +4887,9 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `contract_pay_inmonth`(IN   UID  INT, IN  STARTDATE DATE, IN ENDDATE DATE)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `contract_pay_inmonth`(IN UID INT, IN STARTDATE DATE, IN ENDDATE DATE)
 begin
 	
 	IF EXISTS (SELECT 1 FROM `main` where ufio_id = UID and vdate BETWEEN STARTDATE AND ENDDATE)
@@ -5229,7 +5236,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `DROP_ROLES`()
     SQL SECURITY INVOKER
@@ -5367,51 +5374,59 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_PRIVILEGES`()
 BEGIN
+
+
   DECLARE cursor_n VARCHAR(100) DEFAULT '';
   DECLARE cursor_rol VARCHAR(100) DEFAULT '';
   DECLARE done INT DEFAULT FALSE;
   DECLARE drop_priv INT DEFAULT TRUE;
-  DECLARE cursor_i CURSOR FOR  
+  DECLARE cursor_i CURSOR FOR
 	select  w.`user`, role_sqlname from  kcson.dep_has_worker dhw join  kcson.`role` r on r.id = dhw.role_id join  kcson.worker w on dhw.worker_id = w.id
 	where worker_id=get_WID() and dhw.dep_id = GET_DEP(get_WID()) and w.`user` <> "root";
-  DECLARE CONTINUE handler FOR NOT FOUND SET done = TRUE;
+
+# for mariaDB TODO: more checks here
+DECLARE CONTINUE HANDLER FOR SQLSTATE 'HY000' SET @error_revoke = 1;
+DECLARE CONTINUE HANDLER FOR SQLSTATE '42000' SET @error_revoke = 1;
+
+DECLARE CONTINUE handler FOR NOT FOUND SET done = TRUE;
+
   OPEN cursor_i;
   read_loop: LOOP
     FETCH cursor_i INTO cursor_n, cursor_rol;
-   
+
     IF drop_priv THEN
      	SET @queryStringRP = CONCAT('REVOKE ALL on *.* FROM  ', cursor_n, ';  ' );
 		PREPARE stmt FROM @queryStringRP;
 		EXECUTE stmt;
-		DEALLOCATE PREPARE stmt; 
-	
+		DEALLOCATE PREPARE stmt;
+
      	SET @queryStringRP = CONCAT('grant execute, usage on kcson.* to  ', cursor_n, ';  ' );
 		PREPARE stmt FROM @queryStringRP;
 		EXECUTE stmt;
 		DEALLOCATE PREPARE stmt;
 
 	    # applies after user relogin
-     	SET @queryStringRP = CONCAT('REVOKE manager, worker, specialist, trusted_specialist  FROM  ', cursor_n, ';  ' ); # admin, part_admin 
+     	SET @queryStringRP = CONCAT('REVOKE manager, worker, specialist, trusted_specialist  FROM  ', cursor_n, ';  ' ); # admin, part_admin
 		PREPARE stmt FROM @queryStringRP;
 		EXECUTE stmt;
 		DEALLOCATE PREPARE stmt;
-	
+
         set drop_priv = false;
     END IF;
-   
+
     IF done THEN
       LEAVE read_loop;
     END IF;
-	
+
 		SET @queryString = CONCAT('GRANT ',  cursor_rol , ' TO ', cursor_n, ';');
 		# select @queryString;
 		PREPARE stmt FROM @queryString;
 		EXECUTE stmt;
-		DEALLOCATE PREPARE stmt; 
+		DEALLOCATE PREPARE stmt;
 
   END LOOP;
   # set role all;
@@ -5450,22 +5465,23 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `INIT_SECURITY`()
 BEGIN
-
-    create SCHEMA IF NOT EXISTS `kcson_tmp` DEFAULT CHARACTER SET utf8mb4  ;
-    grant execute,select, create TEMPORARY TABLES on kcson_tmp.* to info;
 
     #############################
     # create roles
     # ---------------------------
     create role if not exists reporter,  none1, info, worker, specialist, trusted_specialist, manager, part_admin, admin, booker;
+    #############################
+    # grang temporary tables
+    # ---------------------------
+    create SCHEMA IF NOT EXISTS `kcson_tmp` DEFAULT CHARACTER SET utf8mb4  ;
     grant execute,select, create TEMPORARY TABLES on kcson.* to reporter;
     grant execute,select, create TEMPORARY TABLES on kcson_tmp.* to reporter;
+    grant execute,select, create TEMPORARY TABLES on kcson_tmp.* to info;
 
-    # grant CREATE TEMPORARY TABLES on kcson.* to newuser;
 
     #############################
     # TODO reset all permissions
@@ -5532,7 +5548,7 @@ BEGIN
     grant select on kcson._worker_has_dep to info;
     grant select on kcson._worker_has_main to info;
     grant select on kcson._worker_settings to info;
-    grant select on kcson.audit to info;
+--    grant select on kcson.audit to info;
     grant select on kcson.category to info;
     grant select on kcson.complex_dep to info;
     grant select on kcson.complex_dep_has_dep to info;
@@ -5562,7 +5578,7 @@ BEGIN
     grant select on kcson.jobgroup to info;
     grant select on kcson.last_used_workers to info;
     grant select on kcson.live_min to info;
-    grant select on kcson.log_edit_archive to info;
+--    grant select on kcson.log_edit_archive to info;
     grant select on kcson.main to info;
     grant select on kcson.main_cprice to info;
     grant select on kcson.main_has_ugroup to info;
@@ -5620,6 +5636,7 @@ BEGIN
     # grant perm. to web_info
     # ---------------------------
    	GRANT Select ON kcson.`_apikey_has_contracts` TO 'web_info'@'%';
+   	# todo: make procedure for insert
    	GRANT insert ON kcson.`api_key_insert_main` TO 'web_info'@'%';
    	GRANT Select ON kcson.`_api_key_planned` TO 'web_info'@'%';
    	GRANT Select ON kcson.`_api_key_services` TO 'web_info'@'%';
@@ -5739,6 +5756,12 @@ BEGIN
     grant select,update,insert,delete on kcson.complex_dep_has_dep to part_admin;
     grant select,update,insert,delete on kcson.holiday to part_admin;
     grant select,update,insert,delete on kcson.ui_select_fiolist to part_admin;
+
+    #############################
+    # grant perm. to admin role
+    # ---------------------------
+    grant part_admin to admin;
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -5888,7 +5911,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `RESET_PRIVILEGES`()
     SQL SECURITY INVOKER
@@ -5987,7 +6010,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SET_DEP_`(`depId` INT)
     MODIFIES SQL DATA
@@ -6131,7 +6154,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `show_cols_root`(IN tname TEXT)
     READS SQL DATA
@@ -6904,7 +6927,7 @@ DELIMITER ;
 
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_g_serv_total_you` AS select `m`.`serv_id` AS `serv_id`,sum(`m`.`uslnum`) AS `uslnum`,(select count(0) from (select `mfd`.`ufio_id` AS `ufio_id` from `_main_for_dep` `mfd` where (`serv_id` = `mfd`.`serv_id`) group by `mfd`.`ufio_id`) `t`) AS `ufio_id_count`,`m`.`ufio_id` AS `ufio_id`,count(`m`.`ufio_id`) AS `records` from `_main_for_dep` `m` group by `m`.`serv_id`,`m`.`ufio_id` order by `m`.`serv_id` */;
+/*!50001 VIEW `_g_serv_total_you` AS select `m`.`serv_id` AS `serv_id`,sum(`m`.`uslnum`) AS `uslnum`,(select count(0) from (select `mfd`.`ufio_id` AS `ufio_id` from `_main_for_dep` `mfd` where (`mfd`.`serv_id` = `mfd`.`serv_id`) group by `mfd`.`ufio_id`) `t`) AS `ufio_id_count`,`m`.`ufio_id` AS `ufio_id`,count(`m`.`ufio_id`) AS `records` from `_main_for_dep` `m` group by `m`.`serv_id`,`m`.`ufio_id` order by `m`.`serv_id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -8106,4 +8129,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-15 16:20:01
+-- Dump completed on 2022-01-11 19:01:24
