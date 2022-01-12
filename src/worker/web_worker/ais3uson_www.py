@@ -197,8 +197,9 @@ class MyServer(BaseHTTPRequestHandler):
             if api_key:
                 message = self.put_sql_data(sql_query="""
                         INSERT INTO kcson.api_key_insert_main
-                        (contracts_id, serv_id, dep_has_worker_id, vdate, uslnum, uuid)
-                        VALUES(%(contracts_id)s , %(serv_id)s, %(dep_has_worker_id)s, '%(vdate)s', 1, '%(uuid)s' ); 
+                        (contracts_id, serv_id, dep_has_worker_id, vdate, uslnum, uuid, check_api_key )
+                        VALUES(%(contracts_id)s , %(serv_id)s, %(dep_has_worker_id)s, '%(vdate)s', 1,
+                         '%(uuid)s', '%(check_api_key)s' ); 
                     """ % data)
                 # send the message back
                 self.json_header()
