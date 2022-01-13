@@ -144,10 +144,11 @@ class MyServer(BaseHTTPRequestHandler):
         # elif self.path.startswith("/post"):
         #     self.post()
 
-    def json_header(self):
+    def json_header(self, content=""):
         self.send_response(200)
         # self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Content-type", "application/json")
+        self.send_header("Content-Length", len(content))
         self.end_headers()
 
     def end_headers(self):
@@ -172,8 +173,9 @@ class MyServer(BaseHTTPRequestHandler):
                     select * from _apikey_has_contracts where api_key = '%s'
                 """ % self.api_key)
                 # send the message back
-                self.json_header()
-                self.write(json.dumps(message, default=str))
+                json_message = json.dumps(message, default=str)
+                self.json_header(json_message)
+                self.write(json_message)
         elif self.path == "/planned":
             _, api_key = self.get_auth()
             if api_key:
@@ -181,8 +183,9 @@ class MyServer(BaseHTTPRequestHandler):
                         select contract_id,serv_id,planned,filled from _api_key_planned where api_key = '%s'
                     """ % self.api_key)
                 # send the message back
-                self.json_header()
-                self.write(json.dumps(message, default=str))
+                json_message = json.dumps(message, default=str)
+                self.json_header(json_message)
+                self.write(json_message)
         elif self.path == "/services":
             _, api_key = self.get_auth()
             if api_key:
@@ -190,8 +193,9 @@ class MyServer(BaseHTTPRequestHandler):
                         select id, tnum, serv_text, total, image, serv_id_list, sub_serv, short_text from _api_key_services;
                     """)
                 # send the message back
-                self.json_header()
-                self.write(json.dumps(message, default=str))
+                json_message = json.dumps(message, default=str)
+                self.json_header(json_message)
+                self.write(json_message)
         elif self.path == "/add":
             data, api_key = self.get_auth()
             if api_key:
@@ -202,15 +206,17 @@ class MyServer(BaseHTTPRequestHandler):
                          '%(uuid)s', '%(check_api_key)s' ); 
                     """ % data)
                 # send the message back
-                self.json_header()
-                self.write(json.dumps(message, default=str))
+                json_message = json.dumps(message, default=str)
+                self.json_header(json_message)
+                self.write(json_message)
         elif self.path == "/test":
             # read the message and convert it into a python dictionary
             message, api_key = self.get_auth()
             message['received'] = self.get_sql_data()
             # send the message back
-            self.json_header()
-            self.write(json.dumps(message, default=str))
+            json_message = json.dumps(message, default=str)
+            self.json_header(json_message)
+            self.write(json_message)
         elif self.path == "/delete":
             data, api_key = self.get_auth()
             if api_key:
@@ -223,8 +229,9 @@ class MyServer(BaseHTTPRequestHandler):
                             check_api_key = '%(check_api_key)s'
                     """ % data)
                 # send the message back
-                self.json_header()
-                self.write(json.dumps(message, default=str))
+                json_message = json.dumps(message, default=str)
+                self.json_header(json_message)
+                self.write(json_message)
 
     def get_auth(self):
         content_len = int(self.headers.get('Content-Length'))
@@ -239,6 +246,7 @@ class MyServer(BaseHTTPRequestHandler):
             for c in ["'", '"']:
                 if c in self.api_key:
                     self.api_key = None
+        message['check_api_key'] = self.api_key
         return message, self.api_key
 
     def get(self):
