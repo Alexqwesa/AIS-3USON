@@ -209,9 +209,9 @@ class clstab_admin(QOBase):
             debug(sql_cmd)
             ret = SD.line_query(sql_cmd)
             ret2 = SD.line_query("""
-                call replace_user('{}','{}')
-            """.format(ui.lineEdit_login.text(), ui.lineEdit_pass.text()))
-            if ret is None and ret2 == 1:
+                call replace_user('{}','{}',{})
+            """.format(ui.lineEdit_login.text(), ui.lineEdit_pass.text(), worker_id))
+            if ret is None and ret2 == "finished":
                 ui.statusBar().showMessage(self.tr("Логин работника обновлен"))
                 self.pass_list[ui.cbx_1_worker__pass.currentIndex()] = ui.lineEdit_pass.text()
                 ui.qle_fio_log_pass.setText(

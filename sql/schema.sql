@@ -1,9 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
 --
--- Host: localhost    Database: kcson
+-- Host: 127.0.0.1    Database: kcson
 -- ------------------------------------------------------
 -- Server version	8.0.20
-USE `kcson`;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -1801,7 +1800,7 @@ CREATE TABLE `api_key_insert_main` (
   `check_api_key` varchar(100) DEFAULT NULL COMMENT 'If new.check_api_key incorrect - error',
   PRIMARY KEY (`id`),
   UNIQUE KEY `api_key_insert_main_UN` (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='web_info inserts table';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='web_info inserts table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1954,7 +1953,7 @@ CREATE TABLE `contracts` (
   KEY `fk_contract_ufio1_idx` (`ufio_id`),
   KEY `fk_contracts_ripso1_idx` (`ripso_id`),
   KEY `fk_contracts_dep1_idx` (`dep_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1510 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2735 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -2192,7 +2191,7 @@ CREATE TABLE `dep` (
   `complex_dep_id` int unsigned DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `dep_UNIQUE` (`dep`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Departments';
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Departments';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -2373,14 +2372,33 @@ CREATE TABLE `dep_has_worker` (
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `dep_has_worker_BEFORE_INSERT` BEFORE INSERT ON `dep_has_worker` FOR EACH ROW BEGIN
-  if length( coalesce( new.dep_has_worker, "") ) = 0 then
-	set new.dep_has_worker = (select concat( worker, " " , job, " ", dep)  
-			from worker w join  job j join  dep d 
-			where w.id = NEW.worker_id and j.id = NEW.job_id and  d.id = NEW.dep_id);
-  end if;
- 
- set NEW.api_key=concat( floor(RAND()*(1000000000000000000-100000000000000000)+100000000000000000), uuid());
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `dep_has_worker_BEFORE_INSERT` BEFORE INSERT ON `dep_has_worker` FOR EACH ROW begin
+	
+    DECLARE cuser CHAR(32);
+    DECLARE crole int;
+   
+	if length( coalesce( new.dep_has_worker, "") ) = 0 then
+		set new.dep_has_worker = (select concat( worker, " " , job, " ", dep)  
+				from worker w join  job j join  dep d 
+				where w.id = NEW.worker_id and j.id = NEW.job_id and  d.id = NEW.dep_id);
+	end if;
+	 
+	set NEW.api_key=concat( floor(RAND()*(1000000000000000000-100000000000000000)+100000000000000000), uuid());
+	
+	SET cuser := SUBSTRING_INDEX(current_user(),'@',1);
+	set crole := (select dhw.role_id  from dep_has_worker dhw inner join  worker w  on 
+		w.id = dhw.worker_id 
+		where w.`user` = cuser
+		order by dhw.role_id desc 
+		limit 1);
+	
+	if  crole is null then
+		set new.role_id = 1; -- throw error?
+	elseif ( crole = 7 or crole = 8 ) then  -- admin and part admin
+		set crole = crole;
+	elseif (new.role_id > crole) then
+		set new.role_id = crole - 1;
+	end if;
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2394,15 +2412,36 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `dep_has_worker_BEFORE_UPDATE` BEFORE UPDATE ON `dep_has_worker` FOR EACH ROW BEGIN
-  if length( coalesce( new.dep_has_worker, "") ) = 0 then
-	set new.dep_has_worker = (select concat( worker, " " , job, " ", dep)  
-						from worker w join  job j join  dep d 
-						where w.id = NEW.worker_id and j.id = NEW.job_id and  d.id = NEW.dep_id);
-  end if;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `dep_has_worker_BEFORE_UPDATE` BEFORE UPDATE ON `dep_has_worker` FOR EACH ROW BEGIN	
+    DECLARE cuser CHAR(32);
+    DECLARE crole int;
+	   
+	if length( coalesce( new.dep_has_worker, "") ) = 0 then
+		set new.dep_has_worker = (select concat( worker, " " , job, " ", dep)  
+							from worker w join  job j join  dep d 
+							where w.id = NEW.worker_id and j.id = NEW.job_id and  d.id = NEW.dep_id);
+	end if;
 
+ 
+	 if new.role_id != old.role_id then
+	 	SET cuser := SUBSTRING_INDEX(current_user(),'@',1);
+		set crole := (select dhw.role_id  from dep_has_worker dhw inner join  worker w  on 
+			w.id = dhw.worker_id 
+			where w.`user` = cuser
+			order by dhw.role_id desc 
+			limit 1);
+		
+		if  crole is null then
+			set new.role_id = 1; -- throw error?
+		elseif ( crole = 7 or crole = 8 ) then  -- admin and part admin
+			set crole = crole;
+		elseif (new.role_id > crole) then
+			set new.role_id = crole - 1;
+		end if;
+	 end if;
+ 
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -3140,69 +3179,6 @@ CREATE TABLE `pcat` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `permiss`
---
-
-DROP TABLE IF EXISTS `permiss`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `permiss` (
-  `id` int unsigned NOT NULL,
-  `perm` varchar(50) NOT NULL,
-  `prim` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `rdata`
---
-
-DROP TABLE IF EXISTS `rdata`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `rdata` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `saved` tinyint DEFAULT '0',
-  `ts` datetime DEFAULT CURRENT_TIMESTAMP,
-  `year` year DEFAULT NULL,
-  `uslnum` int DEFAULT NULL,
-  `money` int DEFAULT NULL,
-  `2ndmoney` int DEFAULT NULL,
-  `ufio_id` int unsigned NOT NULL,
-  `dep_id` int unsigned NOT NULL,
-  `serv_id` int unsigned NOT NULL,
-  `worker_id` int unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_Rdata_ufio1_idx` (`ufio_id`),
-  KEY `fk_Rdata_dep1_idx` (`dep_id`),
-  KEY `fk_Rdata_serv1_idx` (`serv_id`),
-  KEY `fk_Rdata_worker1_idx` (`worker_id`),
-  CONSTRAINT `fk_Rdata_ufio1` FOREIGN KEY (`ufio_id`) REFERENCES `ufio` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `rdep`
---
-
-DROP TABLE IF EXISTS `rdep`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `rdep` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `saved` tinyint DEFAULT '0',
-  `ts` datetime DEFAULT CURRENT_TIMESTAMP,
-  `year` year DEFAULT NULL,
-  `uslnum` int DEFAULT NULL,
-  `money` int DEFAULT NULL,
-  `2ndmoney` int DEFAULT NULL,
-  `peoples` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `ripso`
 --
 
@@ -3275,59 +3251,6 @@ CREATE TABLE `role` (
   `role_sqlname` varchar(100) DEFAULT 'info',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `role_has_permiss`
---
-
-DROP TABLE IF EXISTS `role_has_permiss`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `role_has_permiss` (
-  `role_id` int unsigned NOT NULL,
-  `permiss_id` int unsigned NOT NULL,
-  PRIMARY KEY (`role_id`,`permiss_id`),
-  KEY `fk_role_has_permiss_permiss1_idx` (`permiss_id`),
-  KEY `fk_role_has_permiss_roles1_idx` (`role_id`),
-  CONSTRAINT `fk_role_has_permiss_roles1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `rperiod`
---
-
-DROP TABLE IF EXISTS `rperiod`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `rperiod` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `Rperiod` varchar(45) NOT NULL,
-  `st_mnth` int NOT NULL,
-  `end_mnth` int NOT NULL,
-  `st_day` int DEFAULT '0',
-  `end_day` int DEFAULT '0',
-  `prim` varchar(255) DEFAULT NULL,
-  `archive` tinyint DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `period_UNIQUE` (`Rperiod`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `rperiodsofrname`
---
-
-DROP TABLE IF EXISTS `rperiodsofrname`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `rperiodsofrname` (
-  `Rname_id` int unsigned NOT NULL,
-  `Rperiod_id` int unsigned NOT NULL,
-  PRIMARY KEY (`Rperiod_id`,`Rname_id`),
-  KEY `fk_RperiodsOFRname_Rname1_idx` (`Rname_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3469,93 +3392,6 @@ DROP TABLE IF EXISTS `servofyear`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `servofyear` AS SELECT 
- 1 AS `id`,
- 1 AS `contracts_id`,
- 1 AS `dep_id`,
- 1 AS `ufio_id`,
- 1 AS `serv_id`,
- 1 AS `dep_has_worker_id`,
- 1 AS `worker_id`,
- 1 AS `vdate`,
- 1 AS `uslnum`,
- 1 AS `note`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `reported`,
- 1 AS `wdate`,
- 1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `servofyear-1`
---
-
-DROP TABLE IF EXISTS `servofyear-1`;
-/*!50001 DROP VIEW IF EXISTS `servofyear-1`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `servofyear-1` AS SELECT 
- 1 AS `id`,
- 1 AS `contracts_id`,
- 1 AS `dep_id`,
- 1 AS `ufio_id`,
- 1 AS `serv_id`,
- 1 AS `dep_has_worker_id`,
- 1 AS `worker_id`,
- 1 AS `vdate`,
- 1 AS `uslnum`,
- 1 AS `note`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `reported`,
- 1 AS `wdate`,
- 1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `servofyear-2`
---
-
-DROP TABLE IF EXISTS `servofyear-2`;
-/*!50001 DROP VIEW IF EXISTS `servofyear-2`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `servofyear-2` AS SELECT 
- 1 AS `id`,
- 1 AS `contracts_id`,
- 1 AS `dep_id`,
- 1 AS `ufio_id`,
- 1 AS `serv_id`,
- 1 AS `dep_has_worker_id`,
- 1 AS `worker_id`,
- 1 AS `vdate`,
- 1 AS `uslnum`,
- 1 AS `note`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `reported`,
- 1 AS `wdate`,
- 1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `servofyear-3`
---
-
-DROP TABLE IF EXISTS `servofyear-3`;
-/*!50001 DROP VIEW IF EXISTS `servofyear-3`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `servofyear-3` AS SELECT 
  1 AS `id`,
  1 AS `contracts_id`,
  1 AS `dep_id`,
@@ -4261,6 +4097,65 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Table structure for table `user_change`
+--
+
+DROP TABLE IF EXISTS `user_change`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_change` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `old_login` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `p` varchar(32) DEFAULT NULL,
+  `new_login` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `p2` varchar(32) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `create` datetime DEFAULT CURRENT_TIMESTAMP,
+  `ts` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `cr_by` int DEFAULT NULL,
+  `upd_by` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_changer_id_IDX` (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `user_change_before_insert` BEFORE INSERT ON `user_change` FOR EACH ROW begin
+	SET  NEW.cr_by = get_wID();
+	SET  NEW.upd_by = get_wID();
+end */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `user_change_before_update` BEFORE UPDATE ON `user_change` FOR EACH ROW begin
+	SET  NEW.cr_by = old.cr_by;
+	SET  NEW.upd_by = get_wID();
+end */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
 -- Temporary view structure for view `user_has_serv`
 --
 
@@ -4299,7 +4194,7 @@ DROP TABLE IF EXISTS `worker`;
 CREATE TABLE `worker` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `worker` varchar(255) NOT NULL,
-  `user` varchar(32) DEFAULT NULL COMMENT 'user login',
+  `user` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'user login',
   `prim` varchar(145) DEFAULT NULL,
   `role_id` int unsigned NOT NULL DEFAULT '1' COMMENT 'default role',
   `dep_id` int unsigned NOT NULL DEFAULT '1',
@@ -4431,14 +4326,14 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` FUNCTION `GET_CONTR`(
  `idfio` INT, `vdate` date, `idep` int
 ) RETURNS int
     READS SQL DATA
     DETERMINISTIC
-    COMMENT 'get idcontract '
+    COMMENT 'get idcontract at date'
 BEGIN
 	declare cc int (0);
 	declare rr varchar (255);
@@ -5274,98 +5169,6 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `fix_dates_after_ADO_import` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `fix_dates_after_ADO_import`()
-sp: BEGIN
-	
-    # don't allow any one to run by accident
-	leave sp ;
-
-	UPDATE kcson.contracts 
-	SET    
-		startdate = CASE WHEN  DAY(startdate) < 13  
-			THEN CONCAT(YEAR(startdate), '-', DAY(startdate), '-', MONTH(startdate)) 
-			ELSE startdate END,
-		enddate = CASE WHEN  DAY(enddate) < 13  
-			THEN CONCAT(YEAR(enddate), '-', DAY(enddate), '-', MONTH(enddate)) 
-			ELSE enddate END
-	WHERE
-		cr_by = 1  
-		AND ts < '2020-01-17'	AND ts > '2020-01-15';
-
-
-
-	UPDATE kcson.ufio 
-	SET    
-		ufiobirth = CASE WHEN  DAY(ufiobirth) < 13  
-			THEN CONCAT(YEAR(ufiobirth), '-', DAY(ufiobirth), '-', MONTH(ufiobirth)) 
-			ELSE ufiobirth END,
-		ufioDeath = CASE WHEN  DAY(ufioDeath) < 13  
-			THEN CONCAT(YEAR(ufioDeath), '-', DAY(ufioDeath), '-', MONTH(ufioDeath)) 
-			ELSE ufioDeath END
-	WHERE
-		cr_by = 1  
-		AND ts < '2020-01-17'	AND ts > '2020-01-15';
-
-		
-
-
-	UPDATE kcson.live_min 
-	SET    
-		lmdate = CASE WHEN  DAY(lmdate) < 13  
-			THEN CONCAT(YEAR(lmdate), '-', DAY(lmdate), '-', MONTH(lmdate)) 
-			ELSE lmdate END,
-		post_date = CASE WHEN  DAY(post_date) < 13  
-			THEN CONCAT(YEAR(post_date), '-', DAY(post_date), '-', MONTH(post_date)) 
-			ELSE post_date END
-	WHERE
-		cr_by = 1  
-		AND ts < '2020-01-17'	AND ts > '2020-01-15';
-
-
-
-	UPDATE kcson.add_info 
-	SET    
-		pddate = CASE WHEN  DAY(pddate) < 13  
-			THEN CONCAT(YEAR(pddate), '-', DAY(pddate), '-', MONTH(pddate)) 
-			ELSE pddate END,
-		sdd_date = CASE WHEN  DAY(sdd_date) < 13  
-			THEN CONCAT(YEAR(sdd_date), '-', DAY(sdd_date), '-', MONTH(sdd_date)) 
-			ELSE sdd_date END
-	WHERE
-		cr_by = 1  
-		AND ts < '2020-01-18'	AND ts > '2020-01-16';
-	  
-	UPDATE kcson.main 
-	SET    
-		vdate = CASE WHEN  DAY(vdate) < 13  
-			THEN CONCAT(YEAR(vdate), '-', DAY(vdate), '-', MONTH(vdate)) 
-			ELSE vdate END,
-		wdate = CASE WHEN  DAY(wdate) < 13  
-			THEN CONCAT(YEAR(wdate), '-', DAY(wdate), '-', MONTH(wdate)) 
-			ELSE wdate END
-	WHERE
-		cr_by = 1  and ( ts is null or
-		(ts < '2020-01-17'	AND ts > '2020-01-15'));
-	  
-	SELECT * FROM kcson.main
-	  ;
-
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `GET_DEPS` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -5412,7 +5215,7 @@ BEGIN
 	select  w.`user`, role_sqlname from  kcson.dep_has_worker dhw join  kcson.`role` r on r.id = dhw.role_id join  kcson.worker w on dhw.worker_id = w.id
 	where worker_id=get_WID() and dhw.dep_id = GET_DEP(get_WID()) and w.`user` <> "root";
 
-# for mariaDB TODO: more checks here
+# for mariaDB
 DECLARE CONTINUE HANDLER FOR SQLSTATE 'HY000' SET @error_revoke = 1;
 DECLARE CONTINUE HANDLER FOR SQLSTATE '42000' SET @error_revoke = 1;
 
@@ -5901,26 +5704,83 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `replace_user`(IN `p_Name` VARCHAR(32), IN `p_Passw` VARCHAR(200))
-BEGIN
-    DECLARE `_HOST` CHAR(60) DEFAULT '@\'%\'';
-    SET `p_Name` := CONCAT('\'', REPLACE(TRIM(`p_Name`), CHAR(39), CONCAT(CHAR(92), CHAR(39))), '\''),
-    `p_Passw` := CONCAT('\'', REPLACE(`p_Passw`, CHAR(39), CONCAT(CHAR(92), CHAR(39))), '\'');
+CREATE DEFINER=`root`@`localhost` PROCEDURE `replace_user`(IN `p_Name` VARCHAR(16), IN `p_Passw` VARCHAR(32), IN wID int)
+this_proc:BEGIN
+    DECLARE `_HOST` CHAR(64);
+    DECLARE cuser CHAR(16);
+    DECLARE crole int;
+    DECLARE wrole int;
+    DECLARE old_login CHAR(16);
+   
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET @done = 1;
+    	-- select 'start ';
+    
+    set `_HOST` = '@\'%\'';
+   -- get role of current user
+   	SET cuser := SUBSTRING_INDEX(user(),'@',1);
+    set crole := (select dhw.role_id  from dep_has_worker dhw inner join  worker w  on 
+		w.id = dhw.worker_id 
+		where w.`user` = cuser and (dhw.role_id  in  (6, 7, 8) )
+		order by dhw.role_id desc 
+		limit 1);
+	-- select crole;
+
+   -- get role of user whom we trying to change here
+    set wrole := (select dhw.role_id  from dep_has_worker dhw
+		where dhw.id = wID 
+		order by dhw.role_id desc 
+		limit 1);
+	-- select wrole;
+   
+    -- check privileges
+    if (  crole is null ) then
+    	select 'rejected: current user role is null';
+    	LEAVE this_proc;
+    elseif ( crole = 7 or crole = 8 ) then -- admin and part admin
+    	set crole = crole;  -- ok
+    elseif wrole is null then
+    	select 'rejected: worker user role is null';
+    	LEAVE this_proc; -- maybe assign minimal role here?
+    elseif (( crole = 6 ) and crole > wrole ) then -- manager change login of worker
+    	set crole = crole;  -- ok
+    else
+    	select 'rejected: unknown';
+    	LEAVE this_proc;
+    end if; 
+    
+   	-- remove old login
+   set old_login := (select w.`user` from dep_has_worker dhw inner join  worker w  on 
+		w.id = dhw.worker_id 
+		where dhw.id = wId
+		limit 1);
+   if ( old_login is not null ) then 
+		SET @`sql` := CONCAT('DROP USER IF EXISTS ', old_login, `_HOST`);
+		PREPARE `stmt` FROM @`sql`;
+		EXECUTE `stmt`;
+   end if;
+    
+  -- create new login
+    SET `p_Name` := CONCAT('\'', REPLACE(TRIM(`p_Name`), CHAR(39), CONCAT(CHAR(92), CHAR(39))), '\'');
+    set `p_Passw` := CONCAT('\'', REPLACE(`p_Passw`, CHAR(39), CONCAT(CHAR(92), CHAR(39))), '\'');
+   
     SET @`sql` := CONCAT('DROP USER IF EXISTS ', `p_Name`, `_HOST`);
     PREPARE `stmt` FROM @`sql`;
     EXECUTE `stmt`;
     SET @`sql` := CONCAT('CREATE USER ', `p_Name`, `_HOST`, ' IDENTIFIED  with mysql_native_password BY ', `p_Passw`);
     PREPARE `stmt` FROM @`sql`;
     EXECUTE `stmt`;
-    SET @`sql` := CONCAT('GRANT newuser ON *.* TO ', `p_Name`, `_HOST`, " WITH GRANT OPTION ");
-    SET @`sql` := CONCAT('GRANT select, insert, update, execute ON kcson.* TO ', `p_Name`, `_HOST`, ' WITH GRANT OPTION ' );
+    SET @`sql` := CONCAT('GRANT execute ON kcson.* TO ', `p_Name`, `_HOST` );
     PREPARE `stmt` FROM @`sql`;
     EXECUTE `stmt`;
     DEALLOCATE PREPARE `stmt`;
+   
+   insert into user_change(old_login, new_login)
+   	values(old_login, p_Name);
+   
     FLUSH PRIVILEGES;
-    select 1 ;
+    select "finished" ;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -5992,34 +5852,6 @@ BEGIN
 
 	 "ufio_id", "serv_tnum", "uslnum" , "" , "");
      
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `SET_DEPS_TABLE` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SET_DEPS_TABLE`(
- `wrkID` INT )
-    COMMENT 'set  departments '
-BEGIN
-	#set @wrkID  = (select id from worker w where w.user=user());
-    DECLARE CONTINUE HANDLER FOR SQLSTATE '42S02' SET @err = 1;
-    SET @err = 0;
-    select null from active_deps;
-
-    if @err = 1 then
-		CREATE temporary table active_deps select distinct dep_id from dep_has_worker  where worker_id=wrkID and (archive=0 or archive is null);
-	end if;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -6147,23 +5979,14 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SHOW_COL1`(IN sqlToShow TEXT)
     READS SQL DATA
     DETERMINISTIC
 BEGIN
-
     DROP TEMPORARY TABLE IF EXISTS tempTable;
-
     SET @sqlLimit0 = CONCAT('CREATE TEMPORARY TABLE tempTable AS (SELECT * FROM (',
-
                             sqlToShow, ') subq LIMIT 1)');
-
     #select  @sqlLimit0;
-
     PREPARE stmt FROM @sqlLimit0;
-
     EXECUTE stmt;
-
     SHOW COLUMNS FROM tempTable;   
-
     DEALLOCATE PREPARE stmt;
-
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -6189,83 +6012,6 @@ begin
     execute stmt;
     DEALLOCATE PREPARE stmt;
 end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `test1` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `test1`()
-BEGIN
-
-	call DROP_ROLES;
-
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `test_RESET_PRIVILEGES` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `test_RESET_PRIVILEGES`()
-    SQL SECURITY INVOKER
-BEGIN
-  
-    DECLARE uid int default 0;
-  DECLARE name VARCHAR(64) DEFAULT ''; #32?
-  DECLARE done INT DEFAULT FALSE;
-  DECLARE kill_i CURSOR FOR  
-		SELECT t.id, t.user FROM information_schema.processlist t where t.user = SUBSTRING_INDEX(user(),'@',1);
-  DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
-  OPEN kill_i;
-  kill_loop: LOOP
-    FETCH kill_i INTO uid, name;
-    IF done THEN
-      LEAVE kill_loop;
-    END IF;
-     	kill uid;
-  END LOOP;
-  CLOSE kill_i;
-  
-  
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `__INIT__` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `__INIT__`()
-BEGIN
-	call SET_DEPS_TABLE();
-END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -7785,60 +7531,6 @@ DELIMITER ;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `servofyear-1`
---
-
-/*!50001 DROP VIEW IF EXISTS `servofyear-1`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `servofyear-1` AS select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from `main` `m` where (year(`m`.`vdate`) = (year(curdate()) - 1)) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `servofyear-2`
---
-
-/*!50001 DROP VIEW IF EXISTS `servofyear-2`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `servofyear-2` AS select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from `main` `m` where (year(`m`.`vdate`) = (year(curdate()) - 2)) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `servofyear-3`
---
-
-/*!50001 DROP VIEW IF EXISTS `servofyear-3`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `servofyear-3` AS select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`ufio_id` AS `ufio_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from `main` `m` where (year(`m`.`vdate`) = (year(curdate()) - 3)) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `should_perc`
 --
 
@@ -8153,4 +7845,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-11 19:42:49
+-- Dump completed on 2022-01-16 23:37:52

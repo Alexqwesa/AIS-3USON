@@ -111,6 +111,7 @@ except:
 hostName = "localhost"
 serverPort = 48080
 PASSWORD = "nopassword"
+MYSQLPORT=3306
 try:
     with open(r"/etc/ais3uson.key", mode="r") as f:
         PASSWORD = f.readline()
@@ -264,7 +265,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.write("<p>Thread Count: %s</p>" % threading.active_count())
         self.write("</body></html>")
 
-    def put_sql_data(self, host='localhost', port=3306, user='web_info', password=PASSWORD,
+    def put_sql_data(self, host='localhost', port=MYSQLPORT, user='web_info', password=PASSWORD,
                      database='kcson', sql_query="select * from holiday"):
         if self.api_key:
             cursor = None
@@ -287,7 +288,7 @@ class MyServer(BaseHTTPRequestHandler):
             return ret_structure
         return "Wrong authorization key"
 
-    def get_sql_data(self, host='localhost', port=3306, user='web_info', password=PASSWORD,
+    def get_sql_data(self, host='localhost', port=MYSQLPORT, user='web_info', password=PASSWORD,
                      database='kcson', sql_query="select * from holiday"):
         if self.api_key:
             database = connect(host=host, port=port, user=user, password=password, database=database)
