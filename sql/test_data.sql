@@ -52,7 +52,7 @@ INSERT INTO kcson.dep (id, dep, dep_full_name, dep_puname, note, archive, comple
 
 
 INSERT INTO kcson.dep_has_worker (id, dep_has_worker, worker_id, dep_id, job_id, prim, archive, `from`, till, role_id, api_key) VALUES(1, 'тестовый работник', 1, 1, 1, NULL, 0, '2000-01-01', '2050-01-01', 6, '123');
-INSERT INTO kcson.dep_has_worker (id, dep_has_worker, worker_id, dep_id, job_id, prim, archive, `from`, till, role_id, api_key) VALUES(2, 'тестовый работник2', 1, 2, 1, NULL, 0, '2000-01-01', '2050-01-01', 7, '7.362514797935743e174ac3be74-4b21-11ec-b2a6-04d9f5c97b0c');
+INSERT INTO kcson.dep_has_worker (id, dep_has_worker, worker_id, dep_id, job_id, prim, archive, `from`, till, role_id, api_key) VALUES(2, 'тестовый работник2', 1, 2, 1, NULL, 0, '2000-01-01', '2050-01-01', 6, '7.362514797935743e174ac3be74-4b21-11ec-b2a6-04d9f5c97b0c');
 
 
 INSERT INTO kcson.dep_has_ripso (dep_id, ripso_id) VALUES(1, 1);

@@ -182,8 +182,7 @@ BEGIN
     # grant perm. to web_info
     # ---------------------------
    	GRANT Select ON kcson.`_apikey_has_contracts` TO 'web_info'@'%';
-   	# todo: make procedure for insert
-   	GRANT insert ON kcson.`api_key_insert_main` TO 'web_info'@'%';
+   	GRANT insert,update ON kcson.`api_key_insert_main` TO 'web_info'@'%';
    	GRANT Select ON kcson.`_api_key_planned` TO 'web_info'@'%';
    	GRANT Select ON kcson.`_api_key_services` TO 'web_info'@'%';
 
@@ -302,6 +301,8 @@ BEGIN
     grant select,update,insert,delete on kcson.complex_dep_has_dep to part_admin;
     grant select,update,insert,delete on kcson.holiday to part_admin;
     grant select,update,insert,delete on kcson.ui_select_fiolist to part_admin;
+
+    grant select kcson.user_changer to part_admin;
 
     #############################
     # grant perm. to admin role
@@ -535,11 +536,11 @@ delimiter ;
 # allow all see percents: contract_pay_inmonth
 # ---------------------------
 drop procedure IF EXISTS contract_pay_inmonth;
+
 delimiter $$
-create procedure kcson.contract_pay_inmonth(IN UID INT, IN STARTDATE DATE, IN ENDDATE DATE)
+create procedure kcson.contract_pay_inmonth( IN UID INT, IN STARTDATE DATE, IN ENDDATE DATE)
 sql security definer
-begin
-	
+BEGIN
 	IF EXISTS (SELECT 1 FROM `main` where ufio_id = UID and vdate BETWEEN STARTDATE AND ENDDATE)
 	THEN
 		
@@ -639,10 +640,93 @@ begin
 			c.enddate >= STARTDATE;
 	end if;
 	
-end
-$$
+end$$
 
 delimiter ;
+
+
+DROP PROCEDURE IF EXISTS kcson.replace_user;
+
+DELIMITER $$
+$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `kcson`.`replace_user`(IN `p_Name` VARCHAR(16), IN `p_Passw` VARCHAR(32), IN wID int)
+this_proc:BEGIN
+    DECLARE `_HOST` CHAR(64);
+    DECLARE cuser CHAR(16);
+    DECLARE crole int;
+    DECLARE wrole int;
+    DECLARE old_login CHAR(16);
+
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET @done = 1;
+    	-- select 'start ';
+
+    set `_HOST` = '@\'%\'';
+   -- get role of current user
+   	SET cuser := SUBSTRING_INDEX(user(),'@',1);
+    set crole := (select dhw.role_id  from dep_has_worker dhw inner join  worker w  on
+		w.id = dhw.worker_id
+		where w.`user` = cuser and (dhw.role_id  in  (6, 7, 8) )
+		order by dhw.role_id desc
+		limit 1);
+	-- select crole;
+
+   -- get role of user whom we trying to change here
+    set wrole := (select dhw.role_id  from dep_has_worker dhw
+		where dhw.id = wID
+		order by dhw.role_id desc
+		limit 1);
+	-- select wrole;
+
+    -- check privileges
+    if (  crole is null ) then
+    	select 'rejected: current user role is null';
+    	LEAVE this_proc;
+    elseif ( crole = 7 or crole = 8 ) then -- admin and part admin
+    	set crole = crole;  -- ok
+    elseif wrole is null then
+    	select 'rejected: worker user role is null';
+    	LEAVE this_proc; -- maybe assign minimal role here?
+    elseif (( crole = 6 ) and crole > wrole ) then -- manager change login of worker
+    	set crole = crole;  -- ok
+    else
+    	select 'rejected: unknown';
+    	LEAVE this_proc;
+    end if;
+
+   	-- remove old login
+   set old_login := (select w.`user` from dep_has_worker dhw inner join  worker w  on
+		w.id = dhw.worker_id
+		where dhw.id = wId
+		limit 1);
+   if ( old_login is not null ) then
+		SET @`sql` := CONCAT('DROP USER IF EXISTS ', old_login, `_HOST`);
+		PREPARE `stmt` FROM @`sql`;
+		EXECUTE `stmt`;
+   end if;
+
+  -- create new login
+    SET `p_Name` := CONCAT('\'', REPLACE(TRIM(`p_Name`), CHAR(39), CONCAT(CHAR(92), CHAR(39))), '\'');
+    set `p_Passw` := CONCAT('\'', REPLACE(`p_Passw`, CHAR(39), CONCAT(CHAR(92), CHAR(39))), '\'');
+
+    SET @`sql` := CONCAT('DROP USER IF EXISTS ', `p_Name`, `_HOST`);
+    PREPARE `stmt` FROM @`sql`;
+    EXECUTE `stmt`;
+    SET @`sql` := CONCAT('CREATE USER ', `p_Name`, `_HOST`, ' IDENTIFIED  with mysql_native_password BY ', `p_Passw`);
+    PREPARE `stmt` FROM @`sql`;
+    EXECUTE `stmt`;
+    SET @`sql` := CONCAT('GRANT execute ON kcson.* TO ', `p_Name`, `_HOST` );
+    PREPARE `stmt` FROM @`sql`;
+    EXECUTE `stmt`;
+    DEALLOCATE PREPARE `stmt`;
+
+   insert into user_change(old_login, new_login)
+   	values(old_login, p_Name);
+
+    FLUSH PRIVILEGES;
+    select "finished" ;
+END$$
+DELIMITER ;
+
 
 
 call INIT_SECURITY();

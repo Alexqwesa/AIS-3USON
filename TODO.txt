@@ -52,6 +52,8 @@
 BUGS
 -[x] table - not updated by default
 -[] update backgraund of view after insert
+-[] delay send signals until selected or async?!!!!!!!
+
 
 DONE - DataMapper not always switched - after model changed (sometimes stay empty  )
 DONE - QComboBox sometimes no new row (вкладка на месяц после смены отделения)
