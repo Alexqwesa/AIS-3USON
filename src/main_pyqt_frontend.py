@@ -12,8 +12,6 @@
 # which should be included with this package. The terms are also available at
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
-import os
-
 import typing
 from typing import NoReturn
 
@@ -23,9 +21,8 @@ import subprocess
 # QT Libraries
 # ---------------------------
 from qtpy import QtGui
-from qtpy.QtWidgets import QMainWindow
 import qtawesome as qta
-from qtpy.QtWidgets import QStyleFactory
+import qtpy.QtWidgets
 #############################
 # setup logger
 # ---------------------------
@@ -98,6 +95,7 @@ elif UI.qtpy == "pyside6":
 
 class decorate_events_with_try(QObject):
     def eventFilter(self, qobj, event):
+        # noinspection PyBroadException
         try:
             # return super().eventFilter(qobj, event)
             QApplication.instance().sendEvent(qobj, event)
@@ -128,7 +126,7 @@ class allEventFilter(QObject):
         return super().eventFilter(qobj, event)
 
 
-class MyAppConnect(QMainWindow):
+class MyAppConnect(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         #############################
@@ -362,7 +360,7 @@ class MyAppConnect(QMainWindow):
         # ---------------------------
         if dep != SD.last_dep:
             return SD.set_last_dep(dep)  # update SQL DB privileges and current dep
-            self.reselect_all_models()
+            # self.reselect_all_models()
         #############################
         # show cur dep
         # ---------------------------
@@ -491,11 +489,11 @@ class MyAppMenu(MyAppConnect):
     @Slot()
     def on_qa_style_triggered(self):
         items = {}
-        for k in QStyleFactory.keys():
+        for k in qtpy.QtWidgets.QStyleFactory.keys():
             items[k] = k
         style, ok = QInputDialog.getItem(self, "", "Выберите стиль", list(items.values()), 0, False)
         if ok:
-            qstyle = QStyleFactory.create(style)
+            qstyle = qtpy.QtWidgets.QStyleFactory.create(style)
             QApplication.setStyle(qstyle)
             QApplication.setPalette(qstyle.standardPalette())
 
