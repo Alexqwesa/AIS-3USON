@@ -2169,18 +2169,6 @@ class bugfix_for_add_info(tsSqlTableModel):
             if index.isValid() and role == Qt.EditRole:
                 self.perc_for.cache_clear()
                 if value and index.column() == self.tsFieldNames.index("contracts_id"):
-                    from logic.data_worker import WD
-                    mdl = WD.models("contracts")
-                    try:
-                        return super().setData(index,
-                                               mdl.match_with_fetch(mdl.index(0, 1), value)[0].siblingAtColumn(0).data(
-                                                   Qt.EditRole),
-                                               role)
-                    except IndexError:
-                        pass
-                elif self.auto_empty_row_case:
-                    pass
-                else:
-                    error("wrong index - %s", self.objectName())
+                    return super().setData(index, value, role)
             return super().setData(index, value, role)
         return False

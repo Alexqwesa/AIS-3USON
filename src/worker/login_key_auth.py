@@ -59,7 +59,7 @@ def api_key(worker_dep_id: int, dep: str, name: str = "test", password=None, db=
     # ---------------------------
     qim = ImageQt(
         qrcode.make(
-            json.dumps(key)
+            json.dumps(key,  ensure_ascii=True)  # standard
         )
     )
     # QtGui.QPixmap.fromImage(qim)
