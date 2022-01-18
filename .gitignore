@@ -9,3 +9,4 @@ AIS-3USON.spec
 **/*.~lock.*
 *.pstat*
 *копия*
+*.private.sql

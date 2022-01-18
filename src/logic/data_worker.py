@@ -290,11 +290,11 @@ class _data_worker(QObject):
         else:
             return 0, tr("Нет договора (на данную дату)")
 
-    def get_data_from_model_name(self, model_name, mcol_name, id0, id1=None, role=Qt.EditRole) -> any:
+    def get_data_from_model_name(self, model_name, mcol_name, id0, id1=None, role=Qt.EditRole, force=False) -> any:
         if not model_name:
             return None
         model = self.models(model_name)
-        if not model.selection_in_progress:
+        if not model.selection_in_progress or force:
             #############################
             # get data
             # ---------------------------
@@ -316,10 +316,10 @@ class _data_worker(QObject):
                 ret = None
             return ret
         else:
-            time.sleep(3)
-            return self.get_data_from_model_name(model_name, mcol_name, id0, id1, role)
-            # return "UPDATE IN PROGRESS"
-            # TODO: or call later?
+            time.sleep(2)
+            # just return whatever we have...
+            # TODO: make async method
+            return self.get_data_from_model_name(model_name, mcol_name, id0, id1, role, True)
 
     # TODO: move to model all call from model cached func...
     def get_rows_from_model_name(self, model_name, id0, id1=None, id_field="id", id_field1="") -> [QModelIndex]:

@@ -51,8 +51,10 @@
 
 BUGS
 -[x] table - not updated by default
--[] update backgraund of view after insert
--[] delay send signals until selected or async?!!!!!!!
+-[ ] update backgraund of view after insert
+-[ ] editTextChanged is fired as soon as select get new data, but we use variable to control selection state,
+ this lead to inconsistence... (dirty fix in get_data_from_model_name)
+
 
 
 DONE - DataMapper not always switched - after model changed (sometimes stay empty  )
