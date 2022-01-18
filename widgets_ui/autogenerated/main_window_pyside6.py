@@ -1644,23 +1644,23 @@ class Ui_MainWindow(object):
         self.verticalLayout_13.addLayout(self.verticalLayout)
 
         self.tabs_client.addTab(self.tab_people_main, "")
-        self.tab_34 = myQWidget()
-        self.tab_34.setObjectName(u"tab_34")
-        self.verticalLayout_31 = QVBoxLayout(self.tab_34)
+        self.tab_pcat = myQWidget()
+        self.tab_pcat.setObjectName(u"tab_pcat")
+        self.verticalLayout_31 = QVBoxLayout(self.tab_pcat)
         self.verticalLayout_31.setObjectName(u"verticalLayout_31")
         self.gridLayout_18 = QGridLayout()
         self.gridLayout_18.setObjectName(u"gridLayout_18")
-        self.table_ufio_has_category__by_ufio_id = myQTableView(self.tab_34)
+        self.table_ufio_has_category__by_ufio_id = myQTableView(self.tab_pcat)
         self.table_ufio_has_category__by_ufio_id.setObjectName(u"table_ufio_has_category__by_ufio_id")
 
         self.gridLayout_18.addWidget(self.table_ufio_has_category__by_ufio_id, 1, 1, 1, 1)
 
-        self.label_54 = QLabel(self.tab_34)
+        self.label_54 = QLabel(self.tab_pcat)
         self.label_54.setObjectName(u"label_54")
 
         self.gridLayout_18.addWidget(self.label_54, 0, 0, 1, 1)
 
-        self.label_83 = QLabel(self.tab_34)
+        self.label_83 = QLabel(self.tab_pcat)
         self.label_83.setObjectName(u"label_83")
         self.label_83.setTextFormat(Qt.RichText)
 
@@ -1669,7 +1669,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_31.addLayout(self.gridLayout_18)
 
-        self.tabs_client.addTab(self.tab_34, "")
+        self.tabs_client.addTab(self.tab_pcat, "")
         self.tab_client_contr = myQWidget()
         self.tab_client_contr.setObjectName(u"tab_client_contr")
         self.verticalLayout_34 = QVBoxLayout(self.tab_client_contr)
@@ -5774,14 +5774,14 @@ class Ui_MainWindow(object):
         self.table_dep.selectionChanged1.connect(self.table_dep_has_ripso__by_dep_id.filter_by_selection_of)
         self.table_dep.selectionChanged1.connect(self.table_dep_has_worker__by_dep_id.filter_by_selection_of)
 
-        self.tabMain.setCurrentIndex(5)
+        self.tabMain.setCurrentIndex(3)
         self.tabs_add_serv.setCurrentIndex(0)
         self.tab__main_for_dep_by.setCurrentIndex(1)
         self.pb_start_serv_add.setDefault(False)
         self.tab_user_has_main.setCurrentIndex(5)
         self.tabs_fio_dep.setCurrentIndex(1)
         self.tabs_ufio.setCurrentIndex(0)
-        self.tabs_client.setCurrentIndex(0)
+        self.tabs_client.setCurrentIndex(1)
         self.tab_sub_ufio.setCurrentIndex(2)
         self.tabs_total.setCurrentIndex(0)
         self.tabs_tot_serv.setCurrentIndex(0)
@@ -6097,7 +6097,7 @@ class Ui_MainWindow(object):
         self.label_83.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u0437\u0434\u0435\u0441\u044c \u0431\u0443\u0434\u0443\u0442 \u0444\u043b\u0430\u0436\u043a\u0438</p><p> \u0441\n"
 "                    \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f\u043c\u0438</p></body></html>\n"
 "                   ", None))
-        self.tabs_client.setTabText(self.tabs_client.indexOf(self.tab_34), QCoreApplication.translate("MainWindow", u"\u041b\u044c\u0433\u043e\u0442\u043d\u044b\u0435 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438", None))
+        self.tabs_client.setTabText(self.tabs_client.indexOf(self.tab_pcat), QCoreApplication.translate("MainWindow", u"\u041b\u044c\u0433\u043e\u0442\u043d\u044b\u0435 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438", None))
         self.label_60.setText(QCoreApplication.translate("MainWindow", u"\u041d\u043e\u043c\u0435\u0440 \u0418\u041f\u041f\u0421\u0423:", None))
         self.label_59.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0418\u041f\u0421\u041e:", None))
         self.chk_to_recheck.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0437\u044f\u0442\u044c \u043f\u043e\u043b\u043e\u0436\u0435\u043d\u043e \u0443\u0441\u043b\u0443\u0433 \u0438\u0437 \u0418\u041f\u041f\u0421\u0423", None))

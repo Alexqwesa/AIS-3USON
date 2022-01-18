@@ -124,6 +124,19 @@ class clstab_dock_people_info(QOBase):
         # ui.cbx_1_servform =
 
 
+class clstab_pcat(QOBase):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.me = self.ui.tab_pcat
+
+    @Slot(bool)
+    def on_tab_pcat_widgetVisibilityChanged(self, state):
+        ui = self.ui
+        cbox: myQComboBox = ui.cbx_1__dep_has_ufio
+        table: myQTableView = ui.table_ufio_has_category__by_ufio_id
+        table.set_first_filter_exact(cbox.currentText())
+
+
 class clstab_workers(QOBase):
     def __init__(self, parent):
         super().__init__(parent)

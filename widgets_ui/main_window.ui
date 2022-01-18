@@ -44,7 +44,7 @@
          </sizepolicy>
         </property>
         <property name="currentIndex">
-         <number>5</number>
+         <number>3</number>
         </property>
         <widget class="myQWidget" name="tab_add_serv">
          <attribute name="title">
@@ -1944,7 +1944,7 @@ p, li { white-space: pre-wrap; }
           <item>
            <widget class="myQTabWidget" name="tabs_client">
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="myQWidget" name="tab_people_main">
              <attribute name="title">
@@ -2261,7 +2261,7 @@ p, li { white-space: pre-wrap; }
               </item>
              </layout>
             </widget>
-            <widget class="myQWidget" name="tab_34">
+            <widget class="myQWidget" name="tab_pcat">
              <attribute name="title">
               <string>Льготные категории</string>
              </attribute>

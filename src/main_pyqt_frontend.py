@@ -212,6 +212,7 @@ class MyAppConnect(QtWidgets.QMainWindow):
         self.tab_table_serv1 = clstab_table_serv(self)
         self.tab_dock_people_info = clstab_dock_people_info(self)
         self.tab_workers = clstab_workers(self)
+        self.tab_pcat = clstab_pcat(self)
 
         self.ui.action_year.setText(self.tr("Год: ") + str(SD.last_year))
         #############################
