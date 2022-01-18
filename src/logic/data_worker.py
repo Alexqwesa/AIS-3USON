@@ -293,6 +293,8 @@ class _data_worker(QObject):
     def get_data_from_model_name(self, model_name, mcol_name, id0, id1=None, role=Qt.EditRole, force=False) -> any:
         if not model_name:
             return None
+        if model_name in self._old_models:
+            return None
         model = self.models(model_name)
         if not model.selection_in_progress or force:
             #############################

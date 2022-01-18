@@ -143,14 +143,15 @@ class clstab_workers(QOBase):
                 worker_dep_id=index.siblingAtColumn(index.model().index_of_col("id")).data(Qt.EditRole),
                 password=index.siblingAtColumn(index.model().index_of_col("api_key")).data(Qt.EditRole)
             )
+            dep_name = index.siblingAtColumn(index.model().index_of_col("dep_id")).data(Qt.DisplayRole)
             try:
                 window = QDialog()
                 window.resize(600, 600)
-                window.setWindowTitle("QR код работника отделения")
+                window.setWindowTitle("QR код работника, отделение: " + dep_name)
                 verticalLayout = QVBoxLayout(window)
                 qlable = QLabel(parent=window)
                 verticalLayout.addWidget(qlable)
-                qlable.setText("QR код работника отделения" + name)
+                qlable.setText("QR код работника отделения: " + name)
                 qtext = QLineEdit(parent=window)
                 qtext.setText(str(key))
                 verticalLayout.addWidget(qtext)
