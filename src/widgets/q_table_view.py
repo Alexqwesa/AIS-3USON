@@ -243,7 +243,7 @@ class tsQTableView(tsQTableViewDockInfo):
             clipboard = QApplication.clipboard().text()
             selection: QItemSelectionModel = self.selectionModel()
             indexes: [QModelIndex] = selection.selectedIndexes()
-            return paste_to_model(clipboard, indexes, None, self)
+            return paste_to_model(indexes, None, self)
 
     # def super_model(self) -> tsSqlTableModel:
     #     # this is just a stub
@@ -513,10 +513,9 @@ class wsQTableView(myQTableView):
 
 @try_wrapper
 @reloader
-def paste_to_model(clipboard, indexes, model: tsSqlTableModel = None, view=None):
+def paste_to_model(indexes, model: tsSqlTableModel = None, view=None):
     """
     Paste text table(clipboard), into model starting from indexes[0]
-    :param clipboard:
     :param indexes:
     :param model:
     :param view:
@@ -610,7 +609,7 @@ def paste_to_model(clipboard, indexes, model: tsSqlTableModel = None, view=None)
     # ---------------------------
     if src_table:
         SD.unsaved_view = view  # TODO: make obsolete
-    old_defaults = model.default_values  # TODO: use it
+    old_defaults = model.default_values
     #############################
     # edit rows
     # ---------------------------
@@ -692,5 +691,117 @@ def paste_to_model(clipboard, indexes, model: tsSqlTableModel = None, view=None)
                 debug("paste data value error for col - %s, value - %s", ind.column(), value)
                 pass
             # SD.commit_edit(model, index.data(Qt.EditRole), ins_table[sr][sc])
+    model.default_values = old_defaults
+    return True
+
+
+@try_wrapper
+@reloader
+def paste_planned(view: tsQTableView):
+    """
+    Paste text table(clipboard), into model
+    """
+    # TODO: maybe replace if exists?
+    #############################
+    # checks model inited
+    # ---------------------------
+    COLLS = 8
+    CHECKBOXUNSET = "  "
+    from logic.data_worker import WD
+    model: tsSqlTableModel = view.super_model()
+    if not model.default_values["contracts_id"]:
+        QMessageBox.critical(UI.main_window, UI.main_window.tr("Не выбран договор!"),
+                             UI.main_window.tr("Выберите договор и повторите попытку!"))
+        return
+    contracts_id = model.default_values["contracts_id"]
+    #############################
+    # get clipboard text, TODO: use html,
+    # right now we use dirty hack - there is two space if checkbox is not set
+    # ---------------------------
+    clipboard = QApplication.clipboard().text()
+    if clipboard == "":
+        return
+    #############################
+    # cut malformed lines
+    # ---------------------------
+    if clipboard[0] == "\n":
+        clipboard = clipboard[1:]
+    if clipboard[-1] == "\n":
+        clipboard = clipboard[:-1]
+    crows = clipboard.split("\n")
+    if len(crows[0].split("\t")) < COLLS:
+        crows = crows[1:]
+    if len(crows[0].split("\t")) < COLLS:  # cut twice
+        crows = crows[1:]
+    if len(crows[-1].split("\t")) < COLLS:
+        crows = crows[:-1]
+    if len(crows[-1].split("\t")) < COLLS:
+        crows = crows[:-1]
+    if crows[0].split("\t")[1] == "Номер услуги":
+        crows = crows[1:]
+    #############################
+    # parse
+    # ---------------------------
+    services = []
+    skipped = 0
+    for crow in crows:
+        cells = crow.split("\t")
+        if len(cells) < COLLS:
+            return
+        if cells[3] == CHECKBOXUNSET or cells[4] == CHECKBOXUNSET:
+            skipped += 1
+            continue
+        #############################
+        # parse cell values
+        # ---------------------------
+        planned = 0
+        try:
+            planned = int(cells[5].strip())
+        except:
+            skipped += 1
+            continue
+        filled = 0
+        try:
+            filled = int(cells[7].strip())
+        except ValueError:
+            pass
+        #############################
+        # add to list
+        # ---------------------------
+        services.append(
+            {
+                "planned": planned,
+                "filled": filled,
+                "serv_id": cells[2].strip(),
+                "contracts_id": contracts_id
+            }
+        )
+    for s in services:
+        try:
+            serv_id = WD.models("_serv_activ").index_by_id(s["serv_id"], "serv_text")[0].siblingAtColumn(0).data(
+                Qt.EditRole)
+            s["serv_id"] = serv_id
+        except:
+            s["prim"] = s["serv_id"]
+            s["serv_id"] = ""
+    #############################
+    # backup default values
+    # ---------------------------
+    old_defaults = model.default_values
+    #############################
+    # add rows
+    # ---------------------------
+    col = model.index_of_col("contracts_id")  # just any column
+    for s in services:
+        model.default_values = s
+        contracts_id = model.default_values["contracts_id"]
+        model.default_values["contracts_id"] = 0
+        index = model.index(model.special_row, col)
+        SD.start_edit(view, model, model.row_id(index.row()), "contracts_id")
+        # ce = model.insert_row(s)  # use this for speed + manual commitAll()
+        model.setData(index, contracts_id, Qt.EditRole)
+    #############################
+    # restore default_values
+    # ---------------------------
     model.default_values = old_defaults
     return True

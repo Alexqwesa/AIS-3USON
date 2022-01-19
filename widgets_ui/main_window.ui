@@ -1944,7 +1944,7 @@ p, li { white-space: pre-wrap; }
           <item>
            <widget class="myQTabWidget" name="tabs_client">
             <property name="currentIndex">
-             <number>1</number>
+             <number>2</number>
             </property>
             <widget class="myQWidget" name="tab_people_main">
              <attribute name="title">
@@ -2505,18 +2505,47 @@ p, li { white-space: pre-wrap; }
                 <item row="4" column="0" colspan="13">
                  <widget class="myQTabWidget" name="tab_sub_ufio">
                   <property name="currentIndex">
-                   <number>2</number>
+                   <number>0</number>
                   </property>
-                  <widget class="myQWidget" name="tab_42">
+                  <widget class="myQWidget" name="tab_contract_planned">
                    <attribute name="title">
                     <string>Положено услуг</string>
                    </attribute>
                    <layout class="QVBoxLayout" name="verticalLayout_40">
                     <item>
-                     <widget class="QPushButton" name="pushButton">
-                      <property name="text">
-                       <string>Получить план услуг из ПУКДССО</string>
-                      </property>
+                     <widget class="QWidget" name="widget_14" native="true">
+                      <layout class="QHBoxLayout" name="horizontalLayout_28">
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_6">
+                         <item>
+                          <widget class="QPushButton" name="btn_paste_planned">
+                           <property name="font">
+                            <font>
+                             <weight>75</weight>
+                             <bold>true</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>Вставить план услуг...</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="pushButton">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="text">
+                            <string>Подсказка </string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
                      </widget>
                     </item>
                     <item>
@@ -7158,6 +7187,9 @@ p, li { white-space: pre-wrap; }
      <height>0</height>
     </size>
    </property>
+   <property name="windowTitle">
+    <string>Информация:</string>
+   </property>
    <attribute name="dockWidgetArea">
     <number>2</number>
    </attribute>
@@ -8042,8 +8074,6 @@ p, li { white-space: pre-wrap; }
   <tabstop>de_enddate</tabstop>
   <tabstop>chk_blocked</tabstop>
   <tabstop>tab_sub_ufio</tabstop>
-  <tabstop>pushButton</tabstop>
-  <tabstop>table__contracts_has_serv__where_contracts_id__by_contracts_id</tabstop>
   <tabstop>table_main__where_ufio_id__by_contracts_id</tabstop>
   <tabstop>table__ufio_has_add_info__where_ufio_id__by_contracts_id</tabstop>
   <tabstop>btn_prev_2</tabstop>

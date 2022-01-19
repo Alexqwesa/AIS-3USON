@@ -121,7 +121,16 @@ class clstab_dock_people_info(QOBase):
         super().__init__(parent)
         ui = self.ui
         self.me = ui.dock_people_info
-        # ui.cbx_1_servform =
+
+
+class clstab_contract_planned(QOBase):
+
+    @Slot()
+    def on_btn_paste_planned_clicked(self):
+        try:
+            paste_planned(self.ui.table__contracts_has_serv__where_contracts_id__by_contracts_id)
+        except:
+            pass
 
 
 class clstab_pcat(QOBase):
