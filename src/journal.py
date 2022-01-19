@@ -40,7 +40,7 @@ class cellEdit():
         # self.model: tsSqlTableModel = model
         self._row_ind = None
         # if col_name not in model.info.ids:
-        self.row_id = row_id  # list
+        self.row_id = row_id
         self.col_name = col_name
         self.prev = prev
         self.value = new_value
@@ -375,7 +375,8 @@ class PersistentStorage(_EditStorage):
         # update views
         # ---------------------------
         for view in self.SD.unsaved_view:
-            view.update()  # TODO: add checks?
+            view.updateLayout()  # use view.update()
+            # view.update()  # TODO: add checks?
             # if action == "below":
             #     if hid == 0:  # save alla
             #         action = "all"
@@ -850,7 +851,7 @@ class editStorage(PersistentStorage):
                     # activate widget
                     # ---------------------------
                     with suppress(AttributeError):
-                        nce.view.update()  # TODO: fix it:
+                        nce.view.update(nce.view.model().index(nce._row_ind, nce.view.model().index_of_col(ce.col_name)))
                         nce.view.activate()
                         # TODO: move to row/col
         if global_log_changed:

@@ -56,8 +56,8 @@ class tsPureItemDelegate(QSqlRelationalDelegate):
             return editor
         elif "year" in ctyp:
             editor = QSpinBox(parent)
-            editor.setMinimum(2155)
-            editor.setMinimum(1901)  # TODO: make constants
+            editor.setMaximum(2100)
+            editor.setMinimum(1901)
             return editor
         elif cnam[-3:] == "_id":
             if "_raw" == index.model().objectName()[-4:]:
@@ -240,14 +240,12 @@ class tsPureItemDelegate(QSqlRelationalDelegate):
                 val = editor.toPlainText()
                 ret = model.setData(index, val, Qt.EditRole)
             elif isinstance(editor, QLineEdit):
-                # index.setData(editor.text(), Qt.EditRole)
                 val = editor.text()
                 ret = model.setData(index, val, Qt.EditRole)
             elif isinstance(editor, QCheckBox):
                 val = 0
                 if editor.checkState() == Qt.Checked:
                     val = 1
-                # index.setData(val, Qt.EditRole)
                 ret = model.setData(index, val, Qt.CheckStateRole)
             elif isinstance(editor, QSpinBox):
                 val = editor.value()
@@ -259,9 +257,7 @@ class tsPureItemDelegate(QSqlRelationalDelegate):
                     val = editor.model().data(editor.model().index(ind, 0), Qt.EditRole)
                     model.setData(index, val, Qt.EditRole)
                     ret = True
-                    # can't set values bigger than 256 !? WTF qt 5.12.6
-                    # super().setModelData(editor, model, index)
-                    # return super().setModelData(editor, model, index) # wrong by default!
+                    # by default, related tables fetch only first 255 records... should be fixed...?
                 elif isinstance(editor, QDateTimeEdit):
                     val = editor.dateTime()
                     ret = model.setData(index, val, Qt.EditRole)
@@ -269,11 +265,9 @@ class tsPureItemDelegate(QSqlRelationalDelegate):
                 val = editor.date()
                 ret = model.setData(index, val, Qt.EditRole)
             else:
-                # val = editor.value()
                 ret = super(QSqlRelationalDelegate, self).setModelData(
                     editor, model, index)
-        else:  # invalid index ?
-            # val = editor.value()
+        else:
             ret = super(QSqlRelationalDelegate, self).setModelData(
                 editor, model, index)
         return ret

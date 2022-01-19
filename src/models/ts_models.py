@@ -1553,7 +1553,10 @@ class tsSqlTableModelWithNewRow(tsSqltRelTableModelEdit):
             return ret
 
     def insert_row(self, rec: dict):
-        """ Insert row from journal journal pending edit"""
+        """
+        Insert row from the pending edit of journal.
+        Most of the time this function is used internally by journal.
+        """
         # prev_def = self.default_values
         fkey, fval = rec.popitem()
         ce = SD.journal.pending_edit

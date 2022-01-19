@@ -247,6 +247,7 @@ class _safe_share_data(QObject):
         debug("save_conf")
         config = self._config
         config['DEFAULT']['last_user'] = self.user
+        # config['DEFAULT']['year'] = self.last_year
         config['DEFAULT']['last_dep'] = str(self.last_dep)
         config['DEFAULT']['driver'] = str(self.driver)
         config['DEFAULT']['server'] = str(self.server)
