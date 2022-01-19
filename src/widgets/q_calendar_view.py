@@ -12,10 +12,11 @@
 # which should be included with this package. The terms are also available at
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
+import PySide2 as PySide2
 from qtpy.QtGui import QPainter
 from qtpy.QtCore import QRect, QSemaphore, QThread, QPoint
 from qtpy.QtGui import QKeySequence, QPen, QShowEvent
-from qtpy.QtWidgets import QAction,QCalendarWidget
+from qtpy.QtWidgets import QAction, QCalendarWidget
 
 from widgets.widget_metaclasses import *
 
@@ -724,10 +725,17 @@ class myQCalendar(QCalendarView):  # QCalendarParalled
             # if self.parent.input_state and self.parent.iswheel:  # double check just for sure
             if event.type() == QEvent.Wheel:
                 # event.accept()  # here?
+                # if UI.qt = "PySide2" or UI.qt = "Qt5" :
+                #     index = self.table.indexAt(
+                #         self.vp.mapFromGlobal(
+                #             self.parent().window().mapToGlobal(
+                #                 event.pos()    # PySide2
+                #             )))
                 index = self.table.indexAt(
                     self.vp.mapFromGlobal(
                         self.parent().window().mapToGlobal(
-                            event.pos())))
+                            event.position()  # PySide6
+                        )).toPoint())
                 if index.isValid():
                     numDegrees: QPoint = event.angleDelta() / 8
                     if numDegrees.y() > 0:
