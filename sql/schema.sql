@@ -1799,8 +1799,9 @@ CREATE TABLE `api_key_insert_main` (
   `uuid` varchar(36) NOT NULL,
   `check_api_key` varchar(100) DEFAULT NULL COMMENT 'If new.check_api_key incorrect - error',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `api_key_insert_main_UN` (`uuid`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='web_info inserts table';
+  UNIQUE KEY `api_key_insert_main_UN` (`uuid`),
+  KEY `api_key_insert_main_uuid_IDX` (`uuid`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='web_info inserts table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1843,12 +1844,13 @@ DELIMITER ;;
 	
 	if ( new.check_api_key =  (SELECT api_key from dep_has_worker dhw where dhw.id = old.dep_has_worker_id)) then 
 		set new.check_api_key=new.dep_has_worker_id;
+		set new.dep_has_worker_id=old.dep_has_worker_id;
 	else
 		SIGNAL SQLSTATE '45000' 
 		SET MESSAGE_TEXT = "error: wrong api_key";
 	end if;
 	
-	end */;;
+end */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -7845,4 +7847,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-16 23:37:52
+-- Dump completed on 2022-01-19  3:00:31
