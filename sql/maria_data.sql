@@ -28,7 +28,8 @@ INSERT INTO kcson.live_min (id, lmdate, live_min_p, live_min_w, live_min_c, live
 INSERT INTO kcson.live_min (id, lmdate, live_min_p, live_min_w, live_min_c, live_min_all, post, post_date, `create`, ts, cr_by, upd_by) VALUES(20, '2020-12-02', 9478.00, 12826.30, 11391.10, 11684.50, 'Постановление Правительства Санкт‑Петербурга № 1003 от 02.12.2020', '2020-12-02', '2021-12-15 15:47:48', '2021-12-15 15:47:48', 2, 2);
 INSERT INTO kcson.live_min (id, lmdate, live_min_p, live_min_w, live_min_c, live_min_all, post, post_date, `create`, ts, cr_by, upd_by) VALUES(21, '2021-03-15', 9664.10, 13073.80, 11607.50, 11910.40, 'Постановление Правительства Санкт‑Петербурга № 120 от 15.03.2021', '2021-03-15', '2021-12-15 15:47:48', '2021-12-15 15:47:48', 2, 2);
 INSERT INTO kcson.live_min (id, lmdate, live_min_p, live_min_w, live_min_c, live_min_all, post, post_date, `create`, ts, cr_by, upd_by) VALUES(22, '2021-03-24', 10280.30, 13073.80, 11607.50, 11910.40, 'Постановление Правительства Санкт‑Петербурга № 143 от 24.03.2021', '2021-03-24', '2021-12-15 15:47:48', '2021-12-15 15:47:48', 2, 2);
-INSERT INTO kcson.live_min (id, lmdate, live_min_p, live_min_w, live_min_c, live_min_all, post, post_date, `create`, ts, cr_by, upd_by) VALUES(23, '2022-01-01', 10688.10, 13571.90, 12055.20, 12428.00, 'Постановление Правительства Санкт‑Петербурга № 665 от 14.09.2021', '2001-01-20', '2021-12-15 15:47:48', '2021-12-15 15:47:48', 2, 2);
+-- INSERT INTO kcson.live_min (id, lmdate, live_min_p, live_min_w, live_min_c, live_min_all, post, post_date, `create`, ts, cr_by, upd_by) VALUES(23, '2022-01-01', 10688.10, 13571.90, 12055.20, 12428.00, 'Постановление Правительства Санкт‑Петербурга № 665 от 14.09.2021', '2021-09-14', '2021-12-15 15:47:48', '2021-12-15 15:47:48', 2, 2);
+INSERT INTO kcson.live_min (id, lmdate, live_min_p, live_min_w, live_min_c, live_min_all, post, post_date, `create`, ts, cr_by, upd_by) VALUES(23, '2022-01-01', 11317.80, 14344.60, 12765.40, 13160.20, 'Постановление Правительства Санкт‑Петербурга № 1141 от 29.12.2021', '2021-12-29', '2021-12-15 15:47:48', '2021-12-15 15:47:48', 2, 2);
 
 
 INSERT INTO kcson.holiday (holiday, prim) VALUES('2019-01-01', '');
@@ -143,6 +144,29 @@ INSERT INTO kcson.pcat (id, pcat, prim) VALUES(2, 'одиноко прожива
 INSERT INTO kcson.pcat (id, pcat, prim) VALUES(3, 'граждане пожилого возраста проживающие в семьях', NULL);
 INSERT INTO kcson.pcat (id, pcat, prim) VALUES(4, 'инвалиды трудоспособного возраста', NULL);
 INSERT INTO kcson.pcat (id, pcat, prim) VALUES(5, 'одиноко проживающие граждане пожилого возраста', NULL);
+INSERT INTO kcson.pcat (id, pcat, prim) VALUES(6, 'граждане пожилого возраста', NULL);
+INSERT INTO kcson.pcat (id, pcat, prim) VALUES(7, 'граждане без определенного места жительства', NULL);
+INSERT INTO kcson.pcat (id, pcat, prim) VALUES(8, 'граждане трудоспособного возраста утратившие способность к самообслуживанию в связи с заболеванием или травмой', NULL);
+
+
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(1, '111', '111', 2022, 0, 1, 12, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(2, '211', '211', 2022, 0, 2, 12, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(3, '311', '311', 2022, 0, 3, 2, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(4, '412', '412', 2022, 0, 4, 3, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(5, '5', '5', 2019, 1, 4, 12, 1);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(6, '112', '112', 2022, 0, 1, 12, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(7, '212', '212', 2022, 0, 2, 12, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(8, '312', '312', 2022, 0, 3, 2, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(9, '413', '413', 2022, 0, 4, 3, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(16, '121', '121', 2022, 0, 1, 12, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(11, '70', '70', 2019, 1, 3, 12, 1);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(12, '3101', '3101', 2022, 0, 3, 12, 1);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(14, '113', '113', 2022, 0, 1, 12, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(15, '114', '114', 2022, 0, 1, 12, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(17, '122', '122', 2022, 0, 1, 12, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(18, '123', '123', 2022, 0, 1, 12, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(19, '124', '124', 2022, 0, 1, 12, 6);
+INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(23, '1121', '1121', 2022, 0, 1, 12, 8);
 
 
 INSERT INTO kcson.jobgroup (id, jobGroup, prim) VALUES(1, 'Группа не указана ', NULL);

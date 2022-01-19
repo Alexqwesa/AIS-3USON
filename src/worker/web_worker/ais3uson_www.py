@@ -222,12 +222,11 @@ class MyServer(BaseHTTPRequestHandler):
             data, api_key = self.get_auth()
             if api_key:
                 message = self.put_sql_data(sql_query="""
-                        UPDATE kcson.api_key_insert_main
-                        SET uslnum = 0 
-                        WHERE 
-                            dep_has_worker_id =  %(dep_has_worker_id)s AND
-                            uuid = '%(uuid)s' AND
-                            check_api_key = '%(check_api_key)s'
+                    UPDATE kcson.api_key_insert_main
+                        SET uslnum = 0, 
+                            check_api_key = '%(check_api_key)s', 
+                            dep_has_worker_id =  %(dep_has_worker_id)s
+                        WHERE uuid = '%(uuid)s' 
                     """ % data)
                 # send the message back
                 json_message = json.dumps(message, default=str)
