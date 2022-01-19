@@ -12,7 +12,6 @@
 # which should be included with this package. The terms are also available at
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
-import PySide2 as PySide2
 from qtpy.QtGui import QPainter
 from qtpy.QtCore import QRect, QSemaphore, QThread, QPoint
 from qtpy.QtGui import QKeySequence, QPen, QShowEvent
