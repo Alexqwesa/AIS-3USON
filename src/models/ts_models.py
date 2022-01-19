@@ -232,7 +232,7 @@ class QSqlRelTableModel_extended:  # QSqlRelModelAbstract
         return self.match_with_fetch(self.index(0, col), item, Qt.EditRole, hits, Qt.MatchExactly)
         # return self.match(self.index(0, col), Qt.EditRole, item, 1, Qt.MatchExactly)
 
-    def index_by_id(self, item, id_field="id") -> [QModelIndex]:  # TODO: rename
+    def index_by_id(self, item, id_field="id") -> [QModelIndex]:  # TODO: rework this!!
         col = self.index_of_col(id_field)
         return self.match_with_fetch(self.index(0, col), item, Qt.EditRole, 1, Qt.MatchExactly)
         # return self.match(self.index(0, col), Qt.EditRole, item, 1, Qt.MatchExactly)
@@ -2099,7 +2099,7 @@ class tsSqlTableModelSSorted(tsSqlTableModelWithColors):
 
 
 class tsSqlTableModel(tsSqlTableModelSSorted):
-    """3SON custum table model"""
+    """3SON custom table model"""
 
 
 class bugfix_for_add_info(tsSqlTableModel):

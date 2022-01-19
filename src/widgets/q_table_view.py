@@ -94,7 +94,7 @@ class tsQTableView(tsQTableViewDockInfo):
         # activate tab with widget
         # ---------------------------
         p = self.parent()
-        from widgets.custumQWidgets import myQWidget
+        from widgets.customQWidgets import myQWidget
         while p and not isinstance(p, myQWidget):
             p = p.parent()
         p.activate()
@@ -225,7 +225,7 @@ class tsQTableView(tsQTableViewDockInfo):
         # ---------------------------
         selected_as_html = "<html><style>br{mso-data-placement:same-cell;}</style><table>"  # body?
         selected_as_txt = ""
-        # TODO: use custum string conversion method
+        # TODO: use custom string conversion method
         for row in table_indexes:
             selected_as_html += "<tr>" + "".join(["<td>" + str(el) + "</td>" for el in row]) + "</tr>"
             selected_as_txt += "".join([str(el) + "\t" for el in row]) + "\n"

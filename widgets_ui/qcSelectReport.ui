@@ -246,19 +246,19 @@
   <customwidget>
    <class>myQTabWidget</class>
    <extends>QTabWidget</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>qcSelectPeriod</class>
    <extends>QWidget</extends>
-      <header>widgets.custumQWidgets</header>
+      <header>widgets.customQWidgets</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>stubQTableView</class>
    <extends>QTableView</extends>
-      <header>widgets.custumQWidgets</header>
+      <header>widgets.customQWidgets</header>
    <slots>
     <slot>set_first_filter_str(QString)</slot>
    </slots>

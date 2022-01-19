@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QFrame,
     QGridLayout, QLabel, QSizePolicy, QSpinBox,
     QVBoxLayout, QWidget)
 
-from widgets.custumQWidgets import myQTabWidget
+from widgets.customQWidgets import myQTabWidget
 
 class Ui_Form(object):
     def setupUi(self, Form):

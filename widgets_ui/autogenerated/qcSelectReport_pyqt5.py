@@ -162,7 +162,7 @@ class Ui_Form(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_data), _translate("Form", "Собираемые данные"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_where), _translate("Form", "Список ограничений"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_filter), _translate("Form", "Фильтры по собранным данным"))
-from widgets.custumQWidgets import myQTabWidget, qcSelectPeriod, stubQTableView
+from widgets.customQWidgets import myQTabWidget, qcSelectPeriod, stubQTableView
 
 
 if __name__ == "__main__":

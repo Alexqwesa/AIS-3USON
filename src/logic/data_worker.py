@@ -26,7 +26,7 @@ import string
 from qtpy.QtCore import QRegularExpression as QRegExp
 
 from logic.data_worker_sql_code import _data_worker_SQL_CODE
-from widgets.custumQWidgets import *
+from widgets.customQWidgets import *
 
 
 class _data_worker(QObject):

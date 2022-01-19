@@ -12,8 +12,8 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-from widgets.custumQWidgets import myQLineEdit
-from widgets.custumQWidgets import myQStackedWidget
+from widgets.customQWidgets import myQLineEdit
+from widgets.customQWidgets import myQStackedWidget
 
 
 class Ui_loginDialog(object):

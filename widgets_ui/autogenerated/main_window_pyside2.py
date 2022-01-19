@@ -12,22 +12,22 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-from widgets.custumQWidgets import myQTabWidget
-from widgets.custumQWidgets import stubQTableView
-from widgets.custumQWidgets import myQTableView
-from widgets.custumQWidgets import myQLineEdit
-from widgets.custumQWidgets import myQWidget
-from widgets.custumQWidgets import myQComboBox
-from widgets.custumQWidgets import myQCalendar
-from widgets.custumQWidgets import wsQTableView
-from widgets.custumQWidgets import qcSelectReport
-from widgets.custumQWidgets import QComboBoxWithDataMapper
-from widgets.custumQWidgets import myQDateEdit
-from widgets.custumQWidgets import add_info_QTableView
-from widgets.custumQWidgets import tsQTableViewYear
-from widgets.custumQWidgets import DepQTableView
-from widgets.custumQWidgets import infoQDockWidget
-from widgets.custumQWidgets import myQWidgetUnblockable
+from widgets.customQWidgets import myQTabWidget
+from widgets.customQWidgets import stubQTableView
+from widgets.customQWidgets import myQTableView
+from widgets.customQWidgets import myQLineEdit
+from widgets.customQWidgets import myQWidget
+from widgets.customQWidgets import myQComboBox
+from widgets.customQWidgets import myQCalendar
+from widgets.customQWidgets import wsQTableView
+from widgets.customQWidgets import qcSelectReport
+from widgets.customQWidgets import QComboBoxWithDataMapper
+from widgets.customQWidgets import myQDateEdit
+from widgets.customQWidgets import add_info_QTableView
+from widgets.customQWidgets import tsQTableViewYear
+from widgets.customQWidgets import DepQTableView
+from widgets.customQWidgets import infoQDockWidget
+from widgets.customQWidgets import myQWidgetUnblockable
 
 
 class Ui_MainWindow(object):

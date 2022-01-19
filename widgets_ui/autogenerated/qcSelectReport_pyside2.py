@@ -12,9 +12,9 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-from widgets.custumQWidgets import myQTabWidget
-from widgets.custumQWidgets import qcSelectPeriod
-from widgets.custumQWidgets import stubQTableView
+from widgets.customQWidgets import myQTabWidget
+from widgets.customQWidgets import qcSelectPeriod
+from widgets.customQWidgets import stubQTableView
 
 
 class Ui_Form(object):

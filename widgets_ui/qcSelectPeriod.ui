@@ -163,7 +163,7 @@
   <customwidget>
    <class>myQTabWidget</class>
    <extends>QTabWidget</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

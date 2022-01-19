@@ -26,7 +26,7 @@ from PySide6.QtWidgets import (QAbstractButton, QAbstractSpinBox, QApplication, 
     QTableView, QTextEdit, QToolBar, QToolButton,
     QTreeView, QVBoxLayout, QWidget)
 
-from widgets.custumQWidgets import (DepQTableView, QComboBoxWithDataMapper, add_info_QTableView, infoQDockWidget,
+from widgets.customQWidgets import (DepQTableView, QComboBoxWithDataMapper, add_info_QTableView, infoQDockWidget,
     myQCalendar, myQComboBox, myQDateEdit, myQLineEdit,
     myQTabWidget, myQTableView, myQWidget, myQWidgetUnblockable,
     qcSelectReport, stubQTableView, tsQTableViewYear, wsQTableView)

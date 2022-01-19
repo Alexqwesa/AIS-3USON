@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogBu
     QLineEdit, QPlainTextEdit, QPushButton, QSizePolicy,
     QSpacerItem, QSpinBox, QVBoxLayout, QWidget)
 
-from widgets.custumQWidgets import (myQLineEdit, myQStackedWidget)
+from widgets.customQWidgets import (myQLineEdit, myQStackedWidget)
 
 class Ui_loginDialog(object):
     def setupUi(self, loginDialog):

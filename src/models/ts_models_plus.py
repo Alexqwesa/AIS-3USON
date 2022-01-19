@@ -53,7 +53,7 @@ class tsQDataWidgetMapper(QDataWidgetMapper):
                 # ---------------------------
                 widget = self._mapped[col][0]
                 p = widget.parent()
-                from widgets.custumQWidgets import myQWidget
+                from widgets.customQWidgets import myQWidget
                 while p and not isinstance(p, myQWidget):
                     p = p.parent()
                 self.itemDelegate().setEditorData(widget, self.model().index(self.currentIndex(), col))

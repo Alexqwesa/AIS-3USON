@@ -611,7 +611,7 @@ class QCalendarParalled(QCalendarView):
 
 
 class myQCalendar(QCalendarView):  # QCalendarParalled
-    """custum QCalendarWidget"""
+    """custom QCalendarWidget"""
     add: Signal = Signal(QDate)
     inwork: Signal = Signal(bool)
     inwork_total: Signal = Signal(int)

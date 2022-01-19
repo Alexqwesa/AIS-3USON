@@ -117,7 +117,7 @@ class Ui_Form(object):
         self.label_64.setText(_translate("Form", "Месяц:"))
         self.label_65.setText(_translate("Form", "Год:"))
         self.tabs.setTabText(self.tabs.indexOf(self.tab_month), _translate("Form", "Период из списка"))
-from widgets.custumQWidgets import myQTabWidget
+from widgets.customQWidgets import myQTabWidget
 
 
 if __name__ == "__main__":

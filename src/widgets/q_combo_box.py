@@ -116,7 +116,7 @@ class myQComboBox(_myQComboBox):
                 self.editTextChanged.connect(self.highlight_wrong_text)
                 # self.model().super_model().fetch_all()  # to trigger above signals
                 #############################
-                # connect custum signals
+                # connect custom signals
                 # ---------------------------
                 self.model().super_model().selected.connect(self.set_default_index)
                 self.model().super_model().selected.connect(self.delayed_sort)

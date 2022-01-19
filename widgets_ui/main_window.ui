@@ -7774,13 +7774,13 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>myQTabWidget</class>
    <extends>QTabWidget</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>stubQTableView</class>
    <extends>QTableView</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <slots>
     <slot>set_first_filter_str(QString)</slot>
    </slots>
@@ -7788,7 +7788,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>myQTableView</class>
    <extends>QTableView</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <slots>
     <slot>set_first_filter_str(QString)</slot>
     <slot>set_first_filter_int(int)</slot>
@@ -7806,18 +7806,18 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>myQLineEdit</class>
    <extends>QLineEdit</extends>
-   <header location="global">widgets.custumQWidgets</header>
+   <header location="global">widgets.customQWidgets</header>
   </customwidget>
   <customwidget>
    <class>myQWidget</class>
    <extends>QWidget</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>myQComboBox</class>
    <extends>QComboBox</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <slots>
     <signal>currentIndexChanged3(int,int,QString)</signal>
     <signal>currentIndexChanged_id(int)</signal>
@@ -7829,7 +7829,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>myQCalendar</class>
    <extends>QCalendarWidget</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <slots>
     <signal>inwork(bool)</signal>
     <signal>inwork_total(int)</signal>
@@ -7854,7 +7854,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>wsQTableView</class>
    <extends>QTableView</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <slots>
     <signal>selectionChanged0(QString,int)</signal>
     <signal>selectionChanged1(QString,int)</signal>
@@ -7863,7 +7863,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>qcSelectReport</class>
    <extends>QWidget</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <container>1</container>
    <slots>
     <slot>set_first_filter_model(int,QString)</slot>
@@ -7875,7 +7875,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>QComboBoxWithDataMapper</class>
    <extends>QComboBox</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <slots>
     <signal>currentIndexChanged_model(int,QString)</signal>
     <signal>currentIndexChanged_col_id(QString,int)</signal>
@@ -7892,7 +7892,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>myQDateEdit</class>
    <extends>QDateEdit</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <slots>
     <slot>plus_day()</slot>
     <slot>minus_day()</slot>
@@ -7901,7 +7901,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>add_info_QTableView</class>
    <extends>QTableView</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <slots>
     <slot>set_curFIO(int,QString)</slot>
    </slots>
@@ -7909,7 +7909,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>tsQTableViewYear</class>
    <extends>QTableView</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <slots>
     <slot>set_contract_id(QString,int)</slot>
     <slot>visibleDataChangedEmit()</slot>
@@ -7918,7 +7918,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>DepQTableView</class>
    <extends>QTableView</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <slots>
     <slot>update_where(QDate)</slot>
     <slot>set_second_filter_exact(int,QString)</slot>
@@ -7927,7 +7927,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>infoQDockWidget</class>
    <extends>QDockWidget</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <container>1</container>
    <slots>
     <slot>update_ufio_id(int)</slot>
@@ -7939,7 +7939,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>myQWidgetUnblockable</class>
    <extends>QWidget</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

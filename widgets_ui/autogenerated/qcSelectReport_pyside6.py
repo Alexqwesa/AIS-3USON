@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QFrame,
     QPushButton, QSizePolicy, QSpacerItem, QSpinBox,
     QVBoxLayout, QWidget)
 
-from widgets.custumQWidgets import (myQTabWidget, qcSelectPeriod, stubQTableView)
+from widgets.customQWidgets import (myQTabWidget, qcSelectPeriod, stubQTableView)
 
 class Ui_Form(object):
     def setupUi(self, Form):

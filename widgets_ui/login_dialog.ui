@@ -295,12 +295,12 @@
   <customwidget>
    <class>myQLineEdit</class>
    <extends>QLineEdit</extends>
-   <header location="global">widgets.custumQWidgets</header>
+   <header location="global">widgets.customQWidgets</header>
   </customwidget>
   <customwidget>
    <class>myQStackedWidget</class>
    <extends>QStackedWidget</extends>
-   <header>widgets.custumQWidgets</header>
+   <header>widgets.customQWidgets</header>
    <container>1</container>
    <slots>
     <slot>next_tab()</slot>

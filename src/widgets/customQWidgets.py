@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -------------------------------------------------------------------------------
 # -*- coding: utf-8 -*-
-# Name:        AIS 3USON Custum QT Widgets
+# Name:        AIS 3USON Custom QT Widgets
 # Purpose:     only slightly changed widgets
 #              or just widget with different default properties
 #

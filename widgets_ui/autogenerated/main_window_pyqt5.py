@@ -5433,7 +5433,7 @@ class Ui_MainWindow(object):
         self.qa_goto_forward_tab.setText(_translate("MainWindow", "Вперед(следующая вкладка)"))
         self.qa_dirty_tab_unblocked.setText(_translate("MainWindow", "Разрешить переход с несохраненных вкладок"))
         self.qa_import_XLS.setText(_translate("MainWindow", "Импорт отделения из XLS файла"))
-from widgets.custumQWidgets import DepQTableView, QComboBoxWithDataMapper, add_info_QTableView, infoQDockWidget, myQCalendar, myQComboBox, myQDateEdit, myQLineEdit, myQTabWidget, myQTableView, myQWidget, myQWidgetUnblockable, qcSelectReport, stubQTableView, tsQTableViewYear, wsQTableView
+from widgets.customQWidgets import DepQTableView, QComboBoxWithDataMapper, add_info_QTableView, infoQDockWidget, myQCalendar, myQComboBox, myQDateEdit, myQLineEdit, myQTabWidget, myQTableView, myQWidget, myQWidgetUnblockable, qcSelectReport, stubQTableView, tsQTableViewYear, wsQTableView
 
 
 if __name__ == "__main__":

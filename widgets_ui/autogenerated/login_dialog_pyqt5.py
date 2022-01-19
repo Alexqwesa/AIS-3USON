@@ -191,7 +191,7 @@ class Ui_loginDialog(object):
         self.label_8.setText(_translate("loginDialog", "Сервер:"))
         self.label_7.setText(_translate("loginDialog", "№ отделения"))
         self.pushButton.setText(_translate("loginDialog", "info"))
-from widgets.custumQWidgets import myQLineEdit, myQStackedWidget
+from widgets.customQWidgets import myQLineEdit, myQStackedWidget
 
 
 if __name__ == "__main__":
