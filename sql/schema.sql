@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: kcson
+-- Host: localhost    Database: kcson
 -- ------------------------------------------------------
 -- Server version	8.0.20
 
@@ -328,7 +328,6 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `contracts_id`,
  1 AS `planned`,
  1 AS `filled`,
- 1 AS `filled_pyc`,
  1 AS `prim`,
  1 AS `archive`,
  1 AS `create`,
@@ -2060,7 +2059,6 @@ CREATE TABLE `contracts_has_serv` (
   `contracts_id` int unsigned NOT NULL,
   `planned` int DEFAULT '0',
   `filled` int DEFAULT '0',
-  `filled_pyc` int DEFAULT '0',
   `prim` varchar(255) DEFAULT NULL,
   `archive` tinyint DEFAULT '0',
   `create` datetime DEFAULT CURRENT_TIMESTAMP,
@@ -4031,7 +4029,6 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `contracts_id`,
  1 AS `planned`,
  1 AS `filled`,
- 1 AS `filled_pyc`,
  1 AS `prim`,
  1 AS `archive`,
  1 AS `create`,
@@ -6267,7 +6264,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_contracts_has_serv` AS select `chs`.`serv_id` AS `serv_id`,`chs`.`contracts_id` AS `contracts_id`,`chs`.`planned` AS `planned`,`chs`.`filled` AS `filled`,`chs`.`filled_pyc` AS `filled_pyc`,`chs`.`prim` AS `prim`,`chs`.`archive` AS `archive`,`chs`.`create` AS `create`,`chs`.`ts` AS `ts`,`chs`.`cr_by` AS `cr_by`,`chs`.`upd_by` AS `upd_by`,`chs`.`to_recheck` AS `to_recheck`,`chs`.`check_date` AS `check_date`,`chs`.`filled_old` AS `filled_old`,`s`.`tnum` AS `tnum` from (`contracts_has_serv` `chs` join `serv` `s` on((`s`.`id` = `chs`.`serv_id`))) */;
+/*!50001 VIEW `_contracts_has_serv` AS select `chs`.`serv_id` AS `serv_id`,`chs`.`contracts_id` AS `contracts_id`,`chs`.`planned` AS `planned`,`chs`.`filled` AS `filled`,`chs`.`prim` AS `prim`,`chs`.`archive` AS `archive`,`chs`.`create` AS `create`,`chs`.`ts` AS `ts`,`chs`.`cr_by` AS `cr_by`,`chs`.`upd_by` AS `upd_by`,`chs`.`to_recheck` AS `to_recheck`,`chs`.`check_date` AS `check_date`,`chs`.`filled_old` AS `filled_old`,`s`.`tnum` AS `tnum` from (`contracts_has_serv` `chs` join `serv` `s` on((`s`.`id` = `chs`.`serv_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7761,7 +7758,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `updatable_contracts_has_serv` AS select `contracts_has_serv`.`serv_id` AS `serv_id`,`contracts_has_serv`.`contracts_id` AS `contracts_id`,`contracts_has_serv`.`planned` AS `planned`,`contracts_has_serv`.`filled` AS `filled`,`contracts_has_serv`.`filled_pyc` AS `filled_pyc`,`contracts_has_serv`.`prim` AS `prim`,`contracts_has_serv`.`archive` AS `archive`,`contracts_has_serv`.`create` AS `create`,`contracts_has_serv`.`ts` AS `ts`,`contracts_has_serv`.`cr_by` AS `cr_by`,`contracts_has_serv`.`upd_by` AS `upd_by`,`contracts_has_serv`.`to_recheck` AS `to_recheck`,`contracts_has_serv`.`check_date` AS `check_date`,`contracts_has_serv`.`filled_old` AS `filled_old` from `contracts_has_serv` */;
+/*!50001 VIEW `updatable_contracts_has_serv` AS select `contracts_has_serv`.`serv_id` AS `serv_id`,`contracts_has_serv`.`contracts_id` AS `contracts_id`,`contracts_has_serv`.`planned` AS `planned`,`contracts_has_serv`.`filled` AS `filled`,`contracts_has_serv`.`prim` AS `prim`,`contracts_has_serv`.`archive` AS `archive`,`contracts_has_serv`.`create` AS `create`,`contracts_has_serv`.`ts` AS `ts`,`contracts_has_serv`.`cr_by` AS `cr_by`,`contracts_has_serv`.`upd_by` AS `upd_by`,`contracts_has_serv`.`to_recheck` AS `to_recheck`,`contracts_has_serv`.`check_date` AS `check_date`,`contracts_has_serv`.`filled_old` AS `filled_old` from `contracts_has_serv` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7847,4 +7844,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-19  3:00:31
+-- Dump completed on 2022-01-19 18:50:34
