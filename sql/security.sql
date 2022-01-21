@@ -303,7 +303,7 @@ BEGIN
     grant select,update,insert,delete on kcson.holiday to part_admin;
     grant select,update,insert,delete on kcson.ui_select_fiolist to part_admin;
 
-    grant select kcson.user_change to part_admin;
+    grant select,insert on kcson.user_change to part_admin;
 
     #############################
     # grant perm. to admin role
