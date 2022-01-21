@@ -26,15 +26,18 @@ from qtpy.QtWidgets import QMessageBox
 
 
 class cellEdit():
-    """Class for storing single edit of cell
+    """
+    Class for storing single edit of cell (== any field).
     view, model, row_id, col_name, prev, value, saved, prev_edit
     """
 
     def __init__(self, journal, view, model, row_id, col_name, prev, new_value):
-        """Constructor for cellEdit"""
+        """"
+        Constructor for cellEdit
+        """
         # from models.ts_models import tsSqlTableModel
         self.id = None
-        self.journal = journal
+        self.journal: editStorage = journal
         self.view = view
         self.model = model
         # self.model: tsSqlTableModel = model
@@ -48,7 +51,7 @@ class cellEdit():
         now = dt.now()
         self.timestamp = dt.timestamp(now)
         self._prev_edit = None  # link to object or False if it First Edit (currently: new chain created on save)
-        self.default_values = None
+        self.default_values: Union[dict, None] = None
         self.verified = {}  # TODO: all data returned from confirmed row ?
         # maybe use child cellEdit for representing this value in journal
 
@@ -62,6 +65,57 @@ class cellEdit():
     @property
     def row_id(self):
         return self.journal.inner_row_id[self._row_ind]
+
+    @property
+    def sql_query(self):
+        """
+        Helper method - return QSqlQuery,
+        sql_query.lastQuery() to see sql statement.
+        :return: QSqlQuery
+        """
+        if self.row_id[:4] == "new_":
+            #############################
+            # prepare insert from cellEdits and add default keys
+            # ---------------------------
+            items = {self.col_name: self.value}
+            items = {**self.default_values, **items}
+            #############################
+            # subtract alien keys
+            # ---------------------------
+            for key in self.model.info.not_for_edit:
+                with suppress(KeyError):
+                    items.pop(key)
+            #############################
+            # prepare vars
+            # ---------------------------
+            key_list = list(items.keys())
+            val_list = list(items.values())
+            bind_val = ", ".join(["?" for k in key_list])
+            keys = "`" + "`, `".join(key_list) + "`"
+            #############################
+            # prepare query
+            # ---------------------------
+            query = QSqlQuery(self.journal.SD.get_db)
+            query.prepare("INSERT INTO {} ({}) ".format(self.model.info.sql_name, keys) +
+                          " VALUES ({})".format(bind_val))
+            #############################
+            # bind values and exec query
+            # ---------------------------
+            for val in val_list:
+                query.addBindValue(val)
+            return query
+        elif self.row_id[:4] == "row_":
+            #############################
+            # sql update row
+            # ---------------------------
+            row_ids = self.row_id[4:]
+            if self.col_name in self.model.info.ids:
+                row_ids = row_ids.replace(data_sql_format(self.value), data_sql_format(self.prev))
+            where = " and ".join(
+                [" {} = {} ".format(key, val) for key, val in zip(self.model.info.ids, row_ids.split("_"))])
+            keys = "`" + self.col_name + "` = ? "
+            return QSqlQuery(self.journal.SD.get_db).prepare(
+                f"UPDATE {self.model.info.sql_name} SET {keys} where ( {where} )")
 
     @row_id.setter
     def row_id(self, new_row_id):
@@ -134,8 +188,8 @@ class cellEdit():
 
 
 class _EditStorage(QObject):
-    """Class for storing edit history
-        for every edit object there is several states:
+    """Class for storing edit history.
+        For every edit object there is several states:
             pending - in process of creation
             commited - added to history
             submited - submit to DB
@@ -257,6 +311,7 @@ class _EditStorage(QObject):
         return False, None
 
     def _commit_edit(self, model, prev, new, added_values=None):
+        """ Realisation of SD.commit_edit"""
         # :tsSqlTableModel # , col_name, orig, new_value, index
         id = next(self.id_gen)
         ce: cellEdit = self.pending_edit  # TODO check is the same
@@ -417,7 +472,7 @@ class PersistentStorage(_EditStorage):
                 # update row
                 # ---------------------------
                 row_ids = ce.row_id[4:]
-                for ce in ces:  # ces here didn't have doubles - done in save row
+                for ce in ces:  # ces here had only unique elements - it is deduplicated in save row
                     if ce.col_name in model.info.ids:
                         row_ids = row_ids.replace(data_sql_format(ce.value), data_sql_format(ce.prev))
                 row_ids = row_ids.split("_")
