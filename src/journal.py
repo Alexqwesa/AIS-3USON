@@ -429,20 +429,16 @@ class PersistentStorage(_EditStorage):
         #############################
         # update views
         # ---------------------------
-        for view in self.SD.unsaved_view:
-            view.updateLayout()  # use view.update()
-            # view.update()  # TODO: add checks?
-            # if action == "below":
-            #     if hid == 0:  # save alla
-            #         action = "all"
-            # if action == "all":
-            # self.global_log[eid].saved = True
-        #############################
-        # update log
-        # ---------------------------
-        if global_log_changed:
-            self.add_stop_mark()
-        return global_log_changed
+        try:
+            for view in self.SD.unsaved_view:
+                view.viewport.visibleDataChangedEmit()
+        finally:
+            #############################
+            # update log
+            # ---------------------------
+            if global_log_changed:
+                self.add_stop_mark()
+            return global_log_changed
 
     @Slot()
     @Slot(int)
@@ -725,7 +721,7 @@ class PersistentStorage(_EditStorage):
                 return True, ""
             else:
                 critical("No return from query - %s - %s", upd_table, where)
-                return None
+                return None, ""
         return None, "wrong query"
 
     def _save_error(self, ret, cur_row, msg):
@@ -906,7 +902,9 @@ class editStorage(PersistentStorage):
                     # activate widget
                     # ---------------------------
                     with suppress(AttributeError):
-                        nce.view.update(nce.view.model().index(nce._row_ind, nce.view.model().index_of_col(ce.col_name)))
+                        # maybe just nce.view.viewport.visibleDataChangedEmit()
+                        nce.view.update(
+                            nce.view.model().index(nce._row_ind, nce.view.model().index_of_col(ce.col_name)))
                         nce.view.activate()
                         # TODO: move to row/col
         if global_log_changed:
@@ -968,9 +966,7 @@ class editStorage(PersistentStorage):
                     # activate widget
                     # ---------------------------
                     with suppress(AttributeError):
-                        # uce.view.update(ModelIndex(uce.model, row_id, uce.model.indexOf(column_name)) )
-                        # don't try to find index just update layout, maybe change it later
-                        uce.view.updateLayout()
+                        uce.view.viewport.visibleDataChangedEmit()
                         uce.view.activate()
                         # TODO: move to row/col
                     # bce = self.global_log[self.back_id]
