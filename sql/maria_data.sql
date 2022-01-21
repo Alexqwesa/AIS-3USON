@@ -1289,33 +1289,6 @@ INSERT INTO kcson.serv ( id, serv_text, tnum, `year`, sub_serv, sub_serv_str, pr
 INSERT INTO kcson.serv ( id, serv_text, tnum, `year`, sub_serv, sub_serv_str, price, price2, price3,  archive, total, acronym, workload, content, `create`, ts, cr_by, upd_by) VALUES(1097, 'Предоставление лицам в случае отсутствия места жительства услуг обогрева и питания в ночное время в нестационарных временных сооружениях в период с 15 октября по 15 апреля.', '4.10', 2022, 1084, '4', 0.00, 0.00, 0.00, 0, 0, NULL, NULL, NULL, '2022-01-03 19:11:10.000', '2022-01-03 19:11:10.000', 2, 2);
 
 
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(1, '1(2019)', '1', 2019, 1, 1, 12, 5);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(2, '2(2019)', '2', 2019, 1, 2, 12, 5);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(3, '3(2019)', '3', 2019, 1, 3, 2, 5);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(4, '4(2019)', '4', 2019, 1, 4, 3, 5);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(5, '5(2019)', '5', 2019, 1, 4, 12, 1);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(6, '6(2019)', '6', 2019, 1, 1, 12, 3);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(7, '7(2019)', '7', 2019, 1, 2, 12, 3);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(8, '8(2019)', '8', 2019, 1, 3, 2, 3);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(9, '9(2019)', '9', 2019, 1, 4, 3, 3);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(10, '14(2019)', '14', 2019, 1, 1, 12, 4);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(11, '70(2019)', '70', 2019, 1, 3, 12, 1);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(12, '71(2019)', '71', 2019, 1, 3, 12, 1);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(13, '1(2020)', '1|Старое рипсо 2019 года|', 2020, 0, 1, 12, 5);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(14, '2(2020)', '2|Старое рипсо 2019 года|', 2020, 0, 2, 12, 5);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(15, '3(2020)', '3|Старое рипсо 2019 года|', 2020, 0, 3, 2, 5);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(16, '4(2020)', '4|Старое рипсо 2019 года|', 2020, 0, 4, 3, 5);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(17, '5(2020)', '5|Старое рипсо 2019 года|', 2020, 0, 4, 12, 1);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(18, '6(2020)', '6|Старое рипсо 2019 года|', 2020, 0, 1, 12, 3);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(19, '7(2020)', '7|Старое рипсо 2019 года|', 2020, 0, 2, 12, 3);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(20, '8(2020)', '8', 2020, 0, 3, 2, 3);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(21, '9(2020)', '9', 2020, 0, 4, 3, 3);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(22, '14(2020)', '14|Старое рипсо 2019 года|', 2020, 0, 1, 12, 4);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(23, '70(2020)', '70', 2020, 0, 3, 12, 1);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(24, '71(2020)', '71', 2020, 0, 3, 12, 1);
-INSERT INTO kcson.ripso (id, ripso, ripso_short, `year`, archive, servform_id, months, pcat_id) VALUES(25, '12(2020)', '12', 2020, 0, 1, 12, 1);
-
-
 
 
 INSERT INTO kcson.ripso_has_serv (planned, serv_id, ripso_id, `year`, archive) VALUES(1768, 1, 1, NULL, NULL);
@@ -2308,7 +2281,6 @@ INSERT INTO kcson.ripso_has_serv (planned, serv_id, ripso_id, `year`, archive) V
 
 
 
-
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Покупка %доставка на дом продуктов питания%', 'grocery-cart.png', 'Покупка продуктов питания', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%приготовлени% пищи', 'cook.png', 'Помощь в приготовлении пищи', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%приеме пищи%', 'feed.png', 'Помощь в приеме пищи (кормление)', 0);
@@ -2316,7 +2288,7 @@ INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Помощь 
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Смена %постельного белья', 'bed.png', 'Смена (помощь в смене) постельного белья', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Смена подгузников%', 'diapers.png', 'Смена подгузников и абсорбирующего белья', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Предоставление гигиенических услуг%', 'bath.png', 'Предоставление гигиенических услуг', 0);
-INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Сопровождение в баню (для проживающих %горячего водоснабжения)', 'sauna.png', 'Сопровождение в баню (для проживающих без горячего водоснабжения)', 0);
+INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Сопровождение в баню (для проживающих %горячего водоснабжения)', 'sauna.png', 'Сопровождение в баню', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Вызов врача%', 'female-doctor.png', 'Вызов врача, запись на прием к врачу', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Сопровождение%врач%', 'wheelchair.png', 'Сопровождение к врачу', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%получении лекарственных%', 'vaccine.png', 'Содействие в получении лекарств', 0);
@@ -2332,9 +2304,9 @@ INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Выполн�
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Профилактика образования пролежней%', 'sleeping.png', 'Профилактика образования пролежней', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Оповещение родственников', 'emergency-call.png', 'Оповещение родственников', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Чтение журналов, газет, книг', 'read.png', 'Чтение журналов, газет, книг', 0);
-INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Отправка за счет средств получателя социальных услуг почтовой корреспонденции', 'email.png', 'Отправка за счет средств получателя социальных услуг почтовой корреспонденции', 0);
-INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%в обеспечении техническими средствами реабилитации%', 'elderly-things.png', 'Содействие в обеспечении техническими средствами реабилитации', 0);
-INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%в оформлении документов и восстановлении%', 'document.png', 'Оказание помощи в оформлении и восстановлении документов', 0);
+INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Отправка% почтовой корреспонденции', 'email.png', 'Отправка почтовой корреспонденции', 0);
+INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%в обеспечении техническими средствами реабилитации%', 'elderly-things.png', 'Содействие в обеспечении тех. средствами реабилитации', 0);
+INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%в оформлении документов и восстановлении%', 'document.png', 'Помощи в оформлении и восстановлении документов', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%для выезда на отдых%', 'bagage.png', 'Помощь в выезде на отдых', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%вещей в стирку, химчистку, ремонт%', 'laundry.png', 'Передача вещей, в стирку, хичистку и ремонт', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%Содействие в обеспечении топливом%', 'firewood.png', 'Обспечение топливом', 0);
@@ -2363,3 +2335,4 @@ INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%по воп�
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%навыкам% поведения в быту и общественных местах%', 'conversation.png', '', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%санаторно-курортного лечения или оздоровительного отдыха%', 'vacation.png', '', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%по вопросам самообслуживания и социально-бытовой адаптации%', 'self-service.png', 'Консультирование по самообслуживанию и соц. быт. адаптации', 0);
+INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%Обучение навыкам поведения в быту и общественных местах%', 'conversation.png', 'Обучение навыкам поведения в быту и общественных местах', 0);

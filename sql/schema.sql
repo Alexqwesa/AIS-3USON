@@ -2705,8 +2705,8 @@ DROP TABLE IF EXISTS `jobgroup`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `jobgroup` (
   `id` int NOT NULL,
-  `jobGroup` varchar(25) DEFAULT NULL,
-  `prim` varchar(45) DEFAULT NULL,
+  `jobGroup` varchar(255) DEFAULT NULL,
+  `prim` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3334,7 +3334,7 @@ DROP TABLE IF EXISTS `serv_images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `serv_images` (
-  `expr` varchar(100) NOT NULL,
+  `expr` varchar(255) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `words` varchar(100) DEFAULT NULL,
   `archiv` tinyint(1) DEFAULT '0'
@@ -3423,8 +3423,8 @@ CREATE TABLE `setting` (
   `id` int NOT NULL AUTO_INCREMENT,
   `archive` tinyint DEFAULT '0',
   `setting` varchar(45) DEFAULT NULL,
-  `value` varchar(255) DEFAULT NULL,
-  `prim` varchar(255) DEFAULT NULL,
+  `value` varchar(1024) DEFAULT NULL,
+  `prim` varchar(1024) DEFAULT NULL,
   `sdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -3728,11 +3728,11 @@ DROP TABLE IF EXISTS `ui_select_fiolist`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ui_select_fiolist` (
   `id` int NOT NULL,
-  `list_name` varchar(45) NOT NULL,
-  `sql_table` varchar(45) DEFAULT NULL,
+  `list_name` varchar(200) NOT NULL,
+  `sql_table` varchar(100) DEFAULT NULL,
   `col` int DEFAULT NULL,
   `orderby` int DEFAULT NULL,
-  `prim` varchar(45) DEFAULT NULL,
+  `prim` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
