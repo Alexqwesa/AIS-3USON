@@ -113,17 +113,17 @@ INSERT INTO kcson.servform (id, servform, prim) VALUES(4, 'Стационарн�
 
 
 
-INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(1, 'Обслуживаются на отделении', '_dep_has_ufio', 1, 1, NULL);
-INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(2, 'Договоры ведутся на отделении', '_dep_has_ufio_contracts', 1, 1, NULL);
-INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(3, 'Подходят по рипсо', '_dep_has_ufio_ripso', 1, 1, NULL);
+INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(1, 'Обслуживаются на отделении', '_dep_has_client', 1, 1, NULL);
+INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(2, 'Договоры ведутся на отделении', '_dep_has_client_contracts', 1, 1, NULL);
+INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(3, 'Подходят по рипсо', '_dep_has_client_ripso', 1, 1, NULL);
 INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(4, 'Последние 30 обслуженных вами', NULL, 1, 1, NULL);
 INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(5, 'Последние 60 обслуженных вами', NULL, 1, 1, NULL);
-INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(6, 'Обслуживались в этом месяце', '_dep_has_ufio_count_month', 1, 1, NULL);
-INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(7, 'Обслуживались в этом или прошлом месяце', '_dep_has_ufio_count_2month', 1, 1, NULL);
+INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(6, 'Обслуживались в этом месяце', '_dep_has_client_count_month', 1, 1, NULL);
+INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(7, 'Обслуживались в этом или прошлом месяце', '_dep_has_client_count_2month', 1, 1, NULL);
 INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(8, 'Только дейсвующие договора в этом месяце ', NULL, 1, 1, NULL);
-INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(9, 'Обслуживались в этом году', '_dep_has_ufio_count_main_year', 1, 1, NULL);
-INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(10, 'Все', 'ufio', 1, 1, NULL);
-INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(11, 'Все обращавшиеся', '_ufio', 1, 1, NULL);
+INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(9, 'Обслуживались в этом году', '_dep_has_client_count_main_year', 1, 1, NULL);
+INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(10, 'Все', 'client', 1, 1, NULL);
+INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(11, 'Все обращавшиеся', '_client', 1, 1, NULL);
 INSERT INTO kcson.ui_select_fiolist (id, list_name, sql_table, col, orderby, prim) VALUES(12, 'Все обращавшиеся по рипсо', '', 1, 1, NULL);
 
 

@@ -351,16 +351,16 @@ class QSqlRelTableModelSelectStatus(QSqlRelTableModel_extended, QSqlRelationalTa
             "prim": tr("Примечание "),
             "worker": tr("Работник "),
             "worker_id": tr("Работник"),
-            "ufio_id": tr("ФИО                               "),
-            "ufio": tr("ФИО                                "),
-            "ufio_ufio_2": tr("ФИО                                "),
+            "client_id": tr("ФИО                               "),
+            "client": tr("ФИО                                "),
+            "client_client_2": tr("ФИО                                "),
             "vdate": tr("Дата оказания"),
             "create": tr("Создана     "),
             "ts": tr("Изменена   "),
             "cr_by": tr("Кем создана"),
             "overdid": tr("Переполнение"),
-            "ufiobirth": tr("Дата рождения"),
-            "ufioDeath": tr("Дата смерти"),
+            "clientbirth": tr("Дата рождения"),
+            "clientDeath": tr("Дата смерти"),
             "upd_by": tr("Кем изменена"),
             "user": tr("Логин"),
             "dep_full_name": tr("Полное название отделения"),
@@ -369,7 +369,7 @@ class QSqlRelTableModelSelectStatus(QSqlRelTableModel_extended, QSqlRelationalTa
             "acronym": tr("Сокращение"),
             "total": tr("Итог по услугам"),
             "planned": tr("Положено услуг"),
-            "ufio_short": tr("Фамилия и инициалы"),
+            "client_short": tr("Фамилия и инициалы"),
             "ESRN": tr("№ ЭСРН      "),
             "snils": tr("СНИЛС            "),
             "phone": tr("Телефон        "),
@@ -1352,16 +1352,16 @@ class tsSqltRelTableModelEdit(QSqlRelTableModelExtWithMetaData):
         #             # _dep_has_main
         #             indx = db.primaryIndex("main")
         #             self.setPrimaryKey(indx)
-        #         elif "_dep_has_ufio" in sql_table:
-        #             self.setPrimaryKey(db.primaryIndex("ufio"))
+        #         elif "_dep_has_client" in sql_table:
+        #             self.setPrimaryKey(db.primaryIndex("client"))
         #             # qind = QSqlIndex()
         #             # qind.append(self.record()[0])
         #             # self.setPrimaryKey(qind)
-        #         elif "_dep_has_ufio_" in sql_table:
+        #         elif "_dep_has_client_" in sql_table:
         #             self.setPrimaryKey(db.primaryIndex("contracts"))
-        #         elif "_ufio_has_add_info" in sql_table:
+        #         elif "_client_has_add_info" in sql_table:
         #             self.setPrimaryKey(db.primaryIndex("add_info"))
-        #         elif "_ufio_has_contracts" in sql_table:
+        #         elif "_client_has_contracts" in sql_table:
         #             self.setPrimaryKey(db.primaryIndex("contracts"))
         # thd: QThread = QThread(self)
         # thd.
@@ -1812,11 +1812,11 @@ class tsSqlTableModelWithNewRow(tsSqltRelTableModelEdit):
         new_items = kwargs
         if "dep_id" in self.tsFieldNames and "dep_id" not in new_items:
             new_items = {**new_items, "dep_id": SD.last_dep}
-        if "ufio_id" in self.tsFieldNames and "ufio_id" not in new_items and \
+        if "client_id" in self.tsFieldNames and "client_id" not in new_items and \
                 "contracts_id" in new_items and new_items["contracts_id"] and new_items["contracts_id"] > 0:
             from logic.data_worker import WD
             new_items = {**new_items,
-                         "ufio_id": WD.get_data_from_model_name("contracts", "ufio_id", new_items["contracts_id"])
+                         "client_id": WD.get_data_from_model_name("contracts", "client_id", new_items["contracts_id"])
                          }
         for col, val in new_items.items():
             self.default_values[col] = val

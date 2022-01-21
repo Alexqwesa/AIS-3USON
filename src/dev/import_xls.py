@@ -25,8 +25,8 @@ from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 
 from dev.logger_setup import debug, error, critical
 from safe_shared_data import UI, SD
-from models.orm import Updatable_contracts as Contracts, Updatable_ufio as Ufio, Updatable_add_info as Add_info, \
-    Ripso, Ufio_has_category, Serv, main, updatable_main, Worker
+from models.orm import Updatable_contracts as Contracts, Updatable_client as Client, Updatable_add_info as Add_info, \
+    Ripso, Client_has_category, Serv, main, updatable_main, Worker
 import os
 from thirdparty.levenshtein import levenshtein
 
@@ -47,7 +47,7 @@ def read_xls(file):
     :return: DataFrames: dfio, dcontracts, duhc, dainfo, dmain, dmetainfo
 
     >>> read_xls( os.path.join(os.getcwd() , "tests","export_for_3uson.xlsx"))[0]
-         ippsuNum ufio  ... phone           snils
+         ippsuNum client  ... phone           snils
     0  3333333333       ...        333-123-333-85
     1  2222222222       ...        233-123-124-85
     2  1111111111       ...        133-123-123-85
@@ -62,11 +62,11 @@ def read_xls(file):
     [3 rows x 9 columns]
     """
     dmetainfo = pd.read_excel(file, sheet_name="metainfo").fillna('')
-    dfio = pd.read_excel(file, sheet_name="ufio").fillna('')  # , inplace=True
+    dfio = pd.read_excel(file, sheet_name="client").fillna('')  # , inplace=True
     # dfio.insert(9, 'curator', dmetainfo["dep"][0])
-    dfio.insert(5, 'ufio_id', "")
+    dfio.insert(5, 'client_id', "")
     dcontracts = pd.read_excel(file, sheet_name="contracts").fillna('')
-    duhc = pd.read_excel(file, sheet_name="ufio_has_category", dtype=object).fillna('')
+    duhc = pd.read_excel(file, sheet_name="client_has_category", dtype=object).fillna('')
     dainfo = pd.read_excel(file, sheet_name="add_info").fillna('')
     dmain = pd.read_excel(file, sheet_name="main").fillna('')
     return dfio, dcontracts, duhc, dainfo, dmain, dmetainfo
@@ -83,17 +83,17 @@ def parse_data_frame(data_frame: pd.DataFrame, cls, with_save=True):
 
     >>> dfio, dcontracts, *_ = read_xls(os.path.join(os.getcwd(), "tests", "export_for_3uson.xlsx"))
     >>> SD.engine.echo = False
-    >>> ufios = parse_data_frame(dfio, UfioCheck, False)
+    >>> clients = parse_data_frame(dfio, ClientCheck, False)
     status - updated, for - Батестова бария Бавтестовна
     status - updated, for - Атестова ария Автестовна
     status - updated, for - Тестов тевт Тертович
     >>> dcontracts.insert(8, "year", 2020)
     >>> _ = parse_data_frame(dcontracts, ContractCheck, False)
-    status - failed - different ufio_id, for - 123456783/2020 at 2020-01-09
-    status - failed - different ufio_id, for - 123456782/2020 at 2020-01-09
-    status - failed - different ufio_id, for - 123456781/2020 at 2020-01-09
-    >>> for i in range(len(ufios)):
-    ...     dcontracts.loc[i, "ufio_id"] = ufios.loc[i, "id"]
+    status - failed - different client_id, for - 123456783/2020 at 2020-01-09
+    status - failed - different client_id, for - 123456782/2020 at 2020-01-09
+    status - failed - different client_id, for - 123456781/2020 at 2020-01-09
+    >>> for i in range(len(clients)):
+    ...     dcontracts.loc[i, "client_id"] = clients.loc[i, "id"]
     >>> _ = parse_data_frame(dcontracts, ContractCheck, False)
     status - updated, for - 123456783/2020 at 2020-01-09
     status - updated, for - 123456782/2020 at 2020-01-09
@@ -130,7 +130,7 @@ def parse_data_frame(data_frame: pd.DataFrame, cls, with_save=True):
                 # if "id" not in data_frame.keys():
                 #     data_frame.insert(len(data_frame.keys()), "id", 0)
                 data_frame.loc[i, "id"] = id
-                data_frame.loc[i, "ufio"] = record.ufio
+                data_frame.loc[i, "client"] = record.client
             except AttributeError:
                 pass
         data_frame.update(drow, )
@@ -200,9 +200,9 @@ class ContractCheck(Check):
         :return: drow: pd.Series
 
         >>> SD.engine.echo = False
-        >>> ContractCheck.drow_precheck( pd.Series({"ufio_id": 1, "dep_id" : 1 , "year": 2020, "contracts": 1232132, \
+        >>> ContractCheck.drow_precheck( pd.Series({"client_id": 1, "dep_id" : 1 , "year": 2020, "contracts": 1232132, \
              "ripso_id": "1|Старое рипсо 2019 года|", "startdate":pd.Timestamp('2020-01-01') , "enddate": ""}))
-        ufio_id                 1
+        client_id                 1
         dep_id                  1
         year                 2020
         contracts    1232132/2020
@@ -227,8 +227,8 @@ class ContractCheck(Check):
         # precheck contract name
         # ---------------------------
         if not drow.at["contracts"]:
-            drow.at["contracts"] = str(drow.at["ufio_id"]) + "_" + str(drow.at["ufio_id"]) + "_" + str(
-                drow.at["ufio_id"])
+            drow.at["contracts"] = str(drow.at["client_id"]) + "_" + str(drow.at["client_id"]) + "_" + str(
+                drow.at["client_id"])
         if ((isinstance(drow.at["contracts"], str) and "/" not in drow.at["contracts"] and "\\" not in drow.at[
             "contracts"])
                 or (isinstance(drow.at["contracts"], int))):
@@ -273,8 +273,8 @@ class ContractCheck(Check):
             #############################
             # additional checks if exist
             # ---------------------------
-            if drow.at["ufio_id"] != rec.ufio_id:
-                return "failed - different ufio_id", rec
+            if drow.at["client_id"] != rec.client_id:
+                return "failed - different client_id", rec
             elif drow.at["startdate"] != rec.startdate:
                 error("startdate is different for - %s / %s != %s", rec.contracts, rec.startdate, drow.at["startdate"])
             drow.at["id"] = rec.id
@@ -284,19 +284,19 @@ class ContractCheck(Check):
         except NoResultFound:
             pass
         #############################
-        # check by startdate and ufio_id - try twice
+        # check by startdate and client_id - try twice
         # ---------------------------
         try:
             try:
                 rec = SD.session.query(Contracts).filter_by(startdate=drow.at["startdate"],
-                                                            ufio_id=int(drow.at["ufio_id"])).one()
+                                                            client_id=int(drow.at["client_id"])).one()
             except (OperationalError, ProgrammingError):
-                debug("rollback query %s ", drow.at["ufio"])
+                debug("rollback query %s ", drow.at["client"])
                 SD.session.rollback()
                 # SD.session.execute("CALL GET_PRIVILEGES")
                 # SD.session.execute("SET ROLE ALL")
                 rec = SD.session.query(Contracts).filter_by(startdate=drow.at["startdate"],
-                                                            ufio_id=int(drow.at["ufio_id"])).one()
+                                                            client_id=int(drow.at["client_id"])).one()
             #############################
             # additional checks if exist
             # ---------------------------
@@ -312,7 +312,7 @@ class ContractCheck(Check):
             rec.startdate = drow.at["startdate"]
             rec.enddate = drow.at["enddate"]
             rec.ripso_id = int(drow.at["ripso_id"])
-            rec.ufio_id = int(drow.at["ufio_id"])
+            rec.client_id = int(drow.at["client_id"])
             rec.dep_id = int(drow.at["dep_id"])
             rec.ippsuNum = int(drow.at["ippsuNum"])
             return "new", rec
@@ -360,8 +360,8 @@ class MainCheck(Check):
     @staticmethod
     def status_print(status, record):
         try:
-            debug("status - %s, for - %s %s", status, record.id, record.ufio_id)
-            print("status - %s, for - %s %s" % (status, record.id, record.ufio_id))
+            debug("status - %s, for - %s %s", status, record.id, record.client_id)
+            print("status - %s, for - %s %s" % (status, record.id, record.client_id))
         except AttributeError:
             debug("record error")
 
@@ -379,7 +379,7 @@ class MainCheck(Check):
         fday, endday = calendar.monthrange(dat.year, dat.month)
         start = date(dat.year, dat.month, 1)
         end = date(dat.year, dat.month, endday)
-        s = select([main]).where(and_(main.c.ufio_id == drow.at["ufio_id"],
+        s = select([main]).where(and_(main.c.client_id == drow.at["client_id"],
                                       main.c.contracts_id == drow.at["contracts_id"],
                                       main.c.serv_id == drow.at["serv_id"],
                                       main.c.worker_id == drow.at["worker_id"],
@@ -392,7 +392,7 @@ class MainCheck(Check):
         for row in SD.connection.execute(s):
             print(row)
             rec.id = row.id
-            rec.ufio_id = drow.at["ufio_id"]
+            rec.client_id = drow.at["client_id"]
             return "exist", rec
         else:
             return "new", rec
@@ -402,7 +402,7 @@ class MainCheck(Check):
         if status != "exist":
             dat = drow.at["vdate"]
             pydat = date(dat.year, dat.month, dat.day)
-            ins = updatable_main.insert().values(ufio_id=drow.at["ufio_id"],
+            ins = updatable_main.insert().values(client_id=drow.at["client_id"],
                                                  contracts_id=drow.at["contracts_id"],
                                                  serv_id=drow.at["serv_id"],
                                                  worker_id=drow.at["worker_id"],
@@ -414,7 +414,7 @@ class MainCheck(Check):
                 # if "COMMIT" in result:
                 # rec = Rec()
                 record.id = result.inserted_primary_key
-                record.ufio_id = drow.at["ufio_id"]
+                record.client_id = drow.at["client_id"]
                 return True, record
             return False, record
         else:
@@ -445,9 +445,9 @@ class MainCheck(Check):
         :return: drow: pd.Series
 
         >>> SD.engine.echo = False
-        >>> ContractCheck.drow_precheck( pd.Series({"ufio_id": 1, "dep_id" : 1 , "year": 2020, "contracts": 1232132, \
+        >>> ContractCheck.drow_precheck( pd.Series({"client_id": 1, "dep_id" : 1 , "year": 2020, "contracts": 1232132, \
              "ripso_id": "1|Старое рипсо 2019 года|", "startdate":pd.Timestamp('2020-01-01') , "enddate": ""}))
-        ufio_id                 1
+        client_id                 1
         dep_id                  1
         year                 2020
         contracts    1232132/2020
@@ -478,14 +478,14 @@ class MainCheck(Check):
         return drow
 
 
-class UfioCheck(Check):
+class ClientCheck(Check):
 
     @staticmethod
     def data_frame_precheck(data_frame: pd.DataFrame):
         if "id" not in data_frame.keys():
             data_frame.insert(len(data_frame.keys()), "id", 0)
-            # data_frame.insert(len(data_frame.keys()), "ufio_orig", 0)
-            data_frame["ufio_orig"] = data_frame["ufio_full"]
+            # data_frame.insert(len(data_frame.keys()), "client_orig", 0)
+            data_frame["client_orig"] = data_frame["client_full"]
         return data_frame
 
     @staticmethod
@@ -495,34 +495,34 @@ class UfioCheck(Check):
         :param drow: pd.Series
         :return: drow: pd.Series
 
-        >>> UfioCheck.drow_precheck( pd.Series({"ufio": "Тестовы тест твич", "snils" : "112-123-123-22", \
-             "ESRN": 1121321311, "ufiobirth":pd.Timestamp('1953-01-01') , "ufioDeath": ""}))
-        ufio         Тестовы тест твич
+        >>> ClientCheck.drow_precheck( pd.Series({"client": "Тестовы тест твич", "snils" : "112-123-123-22", \
+             "ESRN": 1121321311, "clientbirth":pd.Timestamp('1953-01-01') , "clientDeath": ""}))
+        client         Тестовы тест твич
         snils           112-123-123-22
         ESRN                1121321311
-        ufiobirth           1953-01-01
-        ufioDeath           1900-01-01
+        clientbirth           1953-01-01
+        clientDeath           1900-01-01
         dtype: object
         """
         #############################
         # precheck
         # ---------------------------
         try:
-            drow.at["ufiobirth"] = drow.at["ufiobirth"].to_pydatetime().date()
+            drow.at["clientbirth"] = drow.at["clientbirth"].to_pydatetime().date()
         except AttributeError:
-            drow.at["ufiobirth"] = date(1900, 1, 1)
+            drow.at["clientbirth"] = date(1900, 1, 1)
         try:
-            drow.at["ufioDeath"] = drow.at["ufioDeath"].to_pydatetime().date()
+            drow.at["clientDeath"] = drow.at["clientDeath"].to_pydatetime().date()
         except AttributeError:
-            drow.at["ufioDeath"] = date(1900, 1, 1)
-        if not drow.at["ufio"]:
-            drow.at["ufio"] = drow.at["ufio_full"]
+            drow.at["clientDeath"] = date(1900, 1, 1)
+        if not drow.at["client"]:
+            drow.at["client"] = drow.at["client_full"]
         return drow
 
     @staticmethod
     def status_print(status, record):
         debug("status - %s, for - %s", status, record.id)
-        print("status - %s, for - %s" % (status, record.ufio))
+        print("status - %s, for - %s" % (status, record.client))
 
     @staticmethod
     def new_with_dup_check(drow):
@@ -536,9 +536,9 @@ class UfioCheck(Check):
         # ---------------------------
         try:
             rec = SD.session.query(Contracts).filter_by(ippsuNum=drow.at["ippsuNum"]).one()
-            ufio = SD.session.query(Ufio).filter_by(ufio=rec.ufio_id).one()
-            if levenshtein(ufio.ufio, drow.at["ufio"]) < 4 or levenshtein(ufio.ufio, drow.at["ufio_full"]) < 4:
-                return UfioCheck.same_additional_checks(drow, ufio)
+            client = SD.session.query(Client).filter_by(client=rec.client_id).one()
+            if levenshtein(client.client, drow.at["client"]) < 4 or levenshtein(client.client, drow.at["client_full"]) < 4:
+                return ClientCheck.same_additional_checks(drow, client)
             else:
                 return "failed - different fio", rec
         except MultipleResultsFound:
@@ -546,22 +546,22 @@ class UfioCheck(Check):
         except NoResultFound:
             pass
         #############################
-        # check exist in DB by ufio
+        # check exist in DB by client
         # ---------------------------
         try:
-            rec = SD.session.query(Ufio).filter_by(ufio=drow.at["ufio"]).one()
-            return UfioCheck.same_additional_checks(drow, rec)
+            rec = SD.session.query(Client).filter_by(client=drow.at["client"]).one()
+            return ClientCheck.same_additional_checks(drow, rec)
         except MultipleResultsFound:
-            critical("ufio MultipleResultsFound")
+            critical("client MultipleResultsFound")
         except NoResultFound:
             # SD.session.rollback()
             #############################
             # create new record
             # ---------------------------
-            rec = Ufio()
-            rec.ufio = drow.at["ufio"]
-            rec.ufiobirth = drow.at["ufiobirth"]
-            rec.ufioDeath = drow.at["ufioDeath"]
+            rec = Client()
+            rec.client = drow.at["client"]
+            rec.clientbirth = drow.at["clientbirth"]
+            rec.clientDeath = drow.at["clientDeath"]
             rec.ESRN = drow.at["ESRN"]
             rec.prim = drow.at["prim"]
             rec.phone = drow.at["phone"]
@@ -573,19 +573,19 @@ class UfioCheck(Check):
         #############################
         # check same record
         # ---------------------------
-        if rec.ufiobirth == drow.at["ufiobirth"]:
+        if rec.clientbirth == drow.at["clientbirth"]:
             rec.ESRN = drow.at["ESRN"]
         elif rec.ESRN == drow.at["ESRN"]:
-            rec.ufiobirth = drow.at["ufiobirth"]
+            rec.clientbirth = drow.at["clientbirth"]
         else:
             #############################
             # not same
             # ---------------------------
-            if drow.at["ufiobirth"] and drow.at["ufiobirth"].strftime("dd.MM.yyy") not in drow.at["ufio"]:
-                drow.at["ufio"] += "(" + drow.at["ufiobirth"].strftime("dd.MM.yyy") + ")"
+            if drow.at["clientbirth"] and drow.at["clientbirth"].strftime("dd.MM.yyy") not in drow.at["client"]:
+                drow.at["client"] += "(" + drow.at["clientbirth"].strftime("dd.MM.yyy") + ")"
             else:
-                return "false - can't add ufio", drow
-            return UfioCheck.new_with_dup_check(drow)
+                return "false - can't add client", drow
+            return ClientCheck.new_with_dup_check(drow)
         #############################
         # the same
         # ---------------------------
@@ -598,7 +598,7 @@ class UfioCheck(Check):
             for field in only_this_fields:
                 setattr(rec, field, drow.at[field])
         else:
-            rec.ufioDeath = drow.at["ufioDeath"]
+            rec.clientDeath = drow.at["clientDeath"]
             rec.phone = drow.at["phone"]
             rec.snils = drow.at["snils"]
             new_note = rec.prim + drow.at["prim"]
@@ -619,7 +619,7 @@ class UhcCheck(Check):
         for i, drow in df.iterrows():
             data = data + UhcCheck.transpose(drow)
         if data:
-            df = pd.DataFrame(data, columns=("ufio_id", "category_id"), dtype=int)
+            df = pd.DataFrame(data, columns=("client_id", "category_id"), dtype=int)
         return df
 
     @staticmethod
@@ -630,7 +630,7 @@ class UhcCheck(Check):
         :return: drow: pd.Series
 
         >>> SD.engine.echo = False
-        >>> UhcCheck.transpose( pd.Series({"ufio_id": 1, "category_id" : 1 , "1": 0, "2": 1, \
+        >>> UhcCheck.transpose( pd.Series({"client_id": 1, "category_id" : 1 , "1": 0, "2": 1, \
              "3": 0, "4":1 , "5":1} ,dtype=int) )
         [[1, 2], [1, 4], [1, 5]]
         """
@@ -641,30 +641,30 @@ class UhcCheck(Check):
         i = 0
         data = []
         for col, val in drow.to_dict().items():
-            if col == "ufio_id":
+            if col == "client_id":
                 uid = val
             elif col == "category_id":
                 pass
             elif isinstance(col, int) and val > 0:
                 data.append([uid, col])
-                # drow.loc[i, "ufio_id"] = uid
+                # drow.loc[i, "client_id"] = uid
                 # drow.loc[i, "category_id"] = col
                 i += 1
             elif isinstance(col, str) and val > 0:
                 col = int(col.replace("_1", ""))
                 data.append([uid, col])
-                # drow.loc[i, "ufio_id"] = uid
+                # drow.loc[i, "client_id"] = uid
                 # drow.loc[i, "category_id"] = col
                 i += 1
         return data
-        # ret = pd.DataFrame(data, columns=("ufio_id", "category_id"))
+        # ret = pd.DataFrame(data, columns=("client_id", "category_id"))
         # return ret
 
     @staticmethod
     def status_print(status, record):
         try:
-            debug("status - %s, for - %s %s", status, record.ufio_id, record.category_id)
-            print("status - %s, for - %s %s" % (status, record.ufio_id, record.category_id))
+            debug("status - %s, for - %s %s", status, record.client_id, record.category_id)
+            print("status - %s, for - %s %s" % (status, record.client_id, record.category_id))
         except AttributeError:
             debug("record error")
 
@@ -680,7 +680,7 @@ class UhcCheck(Check):
         # ---------------------------
         # recs = []
         try:
-            rec = SD.session.query(Ufio_has_category).filter_by(ufio_id=int(drow.at["ufio_id"]),
+            rec = SD.session.query(Client_has_category).filter_by(client_id=int(drow.at["client_id"]),
                                                                 category_id=int(drow.at["category_id"])).one()
             return "exist", rec
             # return UhcCheck.same_additional_checks(drow, rec)
@@ -691,8 +691,8 @@ class UhcCheck(Check):
             #############################
             # create new record
             # ---------------------------
-            rec = Ufio_has_category()
-            rec.ufio_id = int(drow.at["ufio_id"])
+            rec = Client_has_category()
+            rec.client_id = int(drow.at["client_id"])
             rec.category_id = int(drow.at["category_id"])
             # recs.append(rec)
             return "new", rec
@@ -782,7 +782,7 @@ class AddInfoCheck(Check):
             if data[i][1:] == data[i + 1][1:]:
                 del data[i + 1]
         return data
-        # ret = pd.DataFrame(data, columns=("ufio_id", "category_id"))
+        # ret = pd.DataFrame(data, columns=("client_id", "category_id"))
         # return ret
 
     @staticmethod
@@ -855,7 +855,7 @@ def import_dep_from_xls(file, dep, year):
     status - exist, for - 2020-04-01 1507
     status - exist, for - 2020-01-01 1508
     status - exist, for - 2020-01-01 1509
-       worker_id  serv_id  dep_id  contracts_id  ufio_id      vdate
+       worker_id  serv_id  dep_id  contracts_id  client_id      vdate
     0          1      406       1        1507.0     1444  21.1.2020
     1          1      391       1        1507.0     1444  14.2.2020
     2          1      387       1        1507.0     1444  17.3.2020
@@ -897,19 +897,19 @@ def import_dep_from_xls(file, dep, year):
     #############################
     # import dfio
     # ---------------------------
-    dfio = parse_data_frame(dfio, UfioCheck)
+    dfio = parse_data_frame(dfio, ClientCheck)
     #############################
     # import dcontracts
     # ---------------------------
     for i in range(len(dfio)):
-        dcontracts.loc[i, "ufio_id"] = dfio.loc[i, "id"]
-        duhc.loc[i, "ufio_id"] = dfio.loc[i, "id"]
-        dainfo.loc[i, "curfio"] = dfio.loc[i, "ufio"]
+        dcontracts.loc[i, "client_id"] = dfio.loc[i, "id"]
+        duhc.loc[i, "client_id"] = dfio.loc[i, "id"]
+        dainfo.loc[i, "curfio"] = dfio.loc[i, "client"]
     dcontracts["dep_id"] = dep
     dcontracts.insert(8, "year", year)
     dcontracts = parse_data_frame(dcontracts, ContractCheck)
     #############################
-    # import ufio_has_category
+    # import client_has_category
     # ---------------------------
     duhc = parse_data_frame(duhc, UhcCheck)
     #############################
@@ -924,21 +924,21 @@ def import_dep_from_xls(file, dep, year):
     # ---------------------------
 
     # dmain.insert(0, "year", year)
-    dmain.insert(0, "ufio_id", 0)
+    dmain.insert(0, "client_id", 0)
     dmain.insert(0, "contracts_id", 0)
     dmain.insert(0, "dep_id", dep)
     dmain.insert(0, "serv_id", 0)
     dmain.insert(0, "worker_id", 0)
     # fio_contr = pd.DataFrame()
-    # fio_contr["ufio"] = dfio["ufio"]
-    # fio_contr["ufio_id"] = dfio["ufio_id"]
+    # fio_contr["client"] = dfio["client"]
+    # fio_contr["client_id"] = dfio["client_id"]
     # fio_contr["contracts_id"] = dcontracts["contracts_id"]
     # fio_contr["ESRN"] = dfio["ESRN"]
-    # fio_contr["ufio_orig"] = dfio["ufio_orig"]
+    # fio_contr["client_orig"] = dfio["client_orig"]
     for i in range(len(dmain)):
-        uid = dcontracts.loc[dcontracts["contracts_id"] == dmain.loc[i, "ufio"], "ufio_id"].values[0]
-        cid = dcontracts.loc[dcontracts["contracts_id"] == dmain.loc[i, "ufio"], "id"].values[0]
-        dmain.loc[i, "ufio_id"] = uid
+        uid = dcontracts.loc[dcontracts["contracts_id"] == dmain.loc[i, "client"], "client_id"].values[0]
+        cid = dcontracts.loc[dcontracts["contracts_id"] == dmain.loc[i, "client"], "id"].values[0]
+        dmain.loc[i, "client_id"] = uid
         dmain.loc[i, "contracts_id"] = cid
         # serv_text=dmain.loc[i, "serv_text"])
         sid = SD.session.query(Serv).filter(and_(
@@ -953,12 +953,12 @@ def import_dep_from_xls(file, dep, year):
             dmain.loc[i, "worker_id"] = wid.id
         except (NoResultFound, MultipleResultsFound):
             dmain.loc[i, "worker_id"] = 1
-        # index = fio_contr.loc[fio_contr["ufio"] == dmain.loc[i, "ufio"]].index
+        # index = fio_contr.loc[fio_contr["client"] == dmain.loc[i, "client"]].index
         # if index.empty or index < 0:
-        #     index = fio_contr.loc[fio_contr["ufio"] == dmain.loc[i, "ufio_orig"]].index
-        # dmain.loc[i, "ufio_id"] = fio_contr.loc[index, "ufio_id"]
+        #     index = fio_contr.loc[fio_contr["client"] == dmain.loc[i, "client_orig"]].index
+        # dmain.loc[i, "client_id"] = fio_contr.loc[index, "client_id"]
         # dmain.loc[i, "contracts_id"] = fio_contr.loc[index, "contracts_id"]
-    print(dmain[["worker_id", "serv_id", "dep_id", "contracts_id", "ufio_id", "vdate"]])
+    print(dmain[["worker_id", "serv_id", "dep_id", "contracts_id", "client_id", "vdate"]])
     dmain = parse_data_frame(dmain, MainCheck)
     print("done")
     # if not contract_ids:

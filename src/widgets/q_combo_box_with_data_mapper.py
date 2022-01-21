@@ -52,8 +52,8 @@ class QComboBoxWithDataMapper(myQComboBox):
             #############################
             # set SQL settings
             # ---------------------------
-            if col_name == "ufio_id":
-                SD.set_last_ufio(id_)
+            if col_name == "client_id":
+                SD.set_last_client(id_)
             elif col_name == "contracts_id":
                 SD.set_last_contr(id_)
 

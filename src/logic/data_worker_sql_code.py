@@ -23,7 +23,7 @@ class _data_worker_SQL_CODE:
         sql_query["_g_serv_total_dep"] = """
             with m as (
             select
-                serv_id, ufio_id, uslnum, {0} as start_vdate, {1} as end_vdate
+                serv_id, client_id, uslnum, {0} as start_vdate, {1} as end_vdate
             from
                 _dep_has_main
             where
@@ -31,14 +31,14 @@ class _data_worker_SQL_CODE:
                 
             select
                 m.serv_id as serv_id,
-                ufio_id,
+                client_id,
                 sum(m.uslnum) as uslnum,
-                count(m.ufio_id) as records
+                count(m.client_id) as records
             from
                 m
             group by
                 m.serv_id,
-                m.ufio_id
+                m.client_id
             order by
                 m.serv_id
                 # {2}
@@ -52,7 +52,7 @@ class _data_worker_SQL_CODE:
         sql_query["_g_serv_total_dep_with_worker"] = """
             with m as (
             select
-                serv_id, ufio_id, worker_id, dep_has_worker_id, uslnum,  {0} as start_vdate, {1} as end_vdate
+                serv_id, client_id, worker_id, dep_has_worker_id, uslnum,  {0} as start_vdate, {1} as end_vdate
             from
                 _dep_has_main
             where
@@ -60,14 +60,14 @@ class _data_worker_SQL_CODE:
                 
             select
                 m.serv_id as serv_id,
-                ufio_id, worker_id, dep_has_worker_id, 
+                client_id, worker_id, dep_has_worker_id, 
                 sum(m.uslnum) as uslnum,
-                count(m.ufio_id) as records
+                count(m.client_id) as records
             from
                 m
             group by
                 m.serv_id,
-                m.ufio_id,
+                m.client_id,
                 m.worker_id,
                 m.dep_has_worker_id
             order by
@@ -88,7 +88,7 @@ class _data_worker_SQL_CODE:
                                                    QDate(1950, 1, 31).toString(SQL_DATE_FORMAT),
                                                    "_call_export_dep")
         sql_query["_call_export_dep"] = """
-            call CREATE_PIVOT("_main_serv_name_ripso_static", "ufio_id, worker_id, ripso_id", "serv", "uslnum", 
+            call CREATE_PIVOT("_main_serv_name_ripso_static", "client_id, worker_id, ripso_id", "serv", "uslnum", 
             "where vdate between '{0}' and '{1}' ", "" , "", "{2}");
 
             """  # last - WITH ROLLUP
@@ -99,59 +99,59 @@ class _data_worker_SQL_CODE:
                                                       QDate(1950, 1, 31).toString(SQL_DATE_FORMAT),
                                                       "_call_workers_total")
         sql_query["_call_workers_total"] = """
-            call CREATE_PIVOT("_main_serv_name_static", "worker_id, ufio_id", "serv", "uslnum", 
+            call CREATE_PIVOT("_main_serv_name_static", "worker_id, client_id", "serv", "uslnum", 
             "where vdate between '{0}' and '{1}' ", "" , " WITH ROLLUP ", "{2}");
 
             """  # last - WITH ROLLUP
         #############################
-        # _g_categ_list_ufio
+        # _g_categ_list_client
         # ---------------------------
-        sql_query_stub_data["_g_categ_list_ufio"] = (QDate(1950, 1, 1).toString(SQL_DATE_FORMAT),
+        sql_query_stub_data["_g_categ_list_client"] = (QDate(1950, 1, 1).toString(SQL_DATE_FORMAT),
                                                      QDate(1950, 1, 31).toString(SQL_DATE_FORMAT),
                                                      "")
-        sql_query["_g_categ_list_ufio"] = """
+        sql_query["_g_categ_list_client"] = """
             select
                 `uhc`.`category_id` as `category_id`,
-                `m`.`ufio_id` as `ufio_id`,
+                `m`.`client_id` as `client_id`,
                 sum(`m`.`uslnum`) as `SUM(uslnum)`
             from
                 (`_dep_has_main` `m`
-            join `ufio_has_category` `uhc` on
-                ((`m`.`ufio_id` = `uhc`.`ufio_id`)))
+            join `client_has_category` `uhc` on
+                ((`m`.`client_id` = `uhc`.`client_id`)))
             where
                  (coalesce(`uhc`.`archive`,    0) = 0)
                 and (vdate between '{0}' and '{1}')
             group by
                 `uhc`.`category_id`,
-                `m`.`ufio_id`
+                `m`.`client_id`
             # {2}
             """
         #############################
-        # _call_categ_list_ufio_total
+        # _call_categ_list_client_total
         # ---------------------------
-        sql_query_stub_data["_call_categ_list_ufio_total"] = (QDate(1950, 1, 1).toString(SQL_DATE_FORMAT),
+        sql_query_stub_data["_call_categ_list_client_total"] = (QDate(1950, 1, 1).toString(SQL_DATE_FORMAT),
                                                               QDate(1950, 1, 31).toString(SQL_DATE_FORMAT),
-                                                              "_call_categ_list_ufio_total")
-        sql_query["_call_categ_list_ufio_total"] = """
-            call CREATE_PIVOT("_categ_list_ufio", "category_id", "serv", "uslnum", 
+                                                              "_call_categ_list_client_total")
+        sql_query["_call_categ_list_client_total"] = """
+            call CREATE_PIVOT("_categ_list_client", "category_id", "serv", "uslnum", 
             "where vdate between '{0}' and '{1}' ", "" , " WITH ROLLUP ", "{2}");
 
             """
         #############################
-        # _g_dep_serv_ufio_statistic
+        # _g_dep_serv_client_statistic
         # ---------------------------
-        sql_query_stub_data["_g_dep_serv_ufio_statistic"] = (QDate(1950, 1, 1).toString(SQL_DATE_FORMAT),
+        sql_query_stub_data["_g_dep_serv_client_statistic"] = (QDate(1950, 1, 1).toString(SQL_DATE_FORMAT),
                                                              QDate(1950, 1, 31).toString(SQL_DATE_FORMAT),
-                                                             "_g_dep_serv_ufio_statistic")
-        sql_query["_g_dep_serv_ufio_statistic"] = """SELECT 
+                                                             "_g_dep_serv_client_statistic")
+        sql_query["_g_dep_serv_client_statistic"] = """SELECT 
             `m`.`serv_id` AS `serv_id`,
             SUM(`m`.`uslnum`) AS `uslnum`,
-            ufio_id,
-            COUNT(`m`.`ufio_id`) AS `records`
+            client_id,
+            COUNT(`m`.`client_id`) AS `records`
         FROM
             `_dep_has_main` `m`
         where vdate between '{0}' and '{1}'
-        GROUP BY `m`.`serv_id` , `m`.`ufio_id`
+        GROUP BY `m`.`serv_id` , `m`.`client_id`
         ORDER BY `m`.`serv_id` # {2}
         """
 
@@ -165,7 +165,7 @@ class _data_worker_SQL_CODE:
     SELECT 
         `m`.`serv_id` AS `serv_id`,
         SUM(`m`.`uslnum`) AS `uslnum`,
-        `m`.`ufio_id` as ufio_id,
+        `m`.`client_id` as client_id,
                 
             (
                     SELECT 
@@ -190,42 +190,42 @@ class _data_worker_SQL_CODE:
                 ) AS `last_vdate`,
                 
                 
-        COUNT(`m`.`ufio_id`) AS `records`
+        COUNT(`m`.`client_id`) AS `records`
         
     FROM
         `_dep_has_main` `m`
     WHERE
          `m`.vdate between '{0}' and '{1}'
-    GROUP BY `m`.`serv_id` , `m`.`ufio_id`
+    GROUP BY `m`.`serv_id` , `m`.`client_id`
     ORDER BY `m`.`serv_id`
     # {2}
     """
 
         #############################
-        # _g_category_total_uslnum_ufio
+        # _g_category_total_uslnum_client
         # ---------------------------
-        sql_query_stub_data["_g_category_total_uslnum_ufio"] = (QDate(1950, 1, 1).toString(SQL_DATE_FORMAT),
+        sql_query_stub_data["_g_category_total_uslnum_client"] = (QDate(1950, 1, 1).toString(SQL_DATE_FORMAT),
                                                                 QDate(1950, 1, 31).toString(SQL_DATE_FORMAT),
-                                                                "_g_category_total_uslnum_ufio")
-        sql_query["_g_category_total_uslnum_ufio"] = """
+                                                                "_g_category_total_uslnum_client")
+        sql_query["_g_category_total_uslnum_client"] = """
 SELECT 
     t.category_id AS `category_id`,
-    COUNT(t.`ufio_id`) AS `ufio_id`,
+    COUNT(t.`client_id`) AS `client_id`,
     SUM(t.`uslnum`) AS `uslnum`
 FROM
     (SELECT 
         `uhc`.`category_id` AS `category_id`,
-            `m`.`ufio_id`,
+            `m`.`client_id`,
             SUM(`m`.`uslnum`) AS `uslnum`
     FROM
         (`main` `m`
-    JOIN `ufio_has_category` `uhc` ON ((`m`.`ufio_id` = `uhc`.`ufio_id`)))
+    JOIN `client_has_category` `uhc` ON ((`m`.`client_id` = `uhc`.`client_id`)))
     WHERE
         (`m`.`dep_id` IN (31)
             AND (COALESCE(`uhc`.`archive`, 0) = 0)
             AND `m`.vdate between '{0}' and '{1}'
             AND (COALESCE(YEAR(`uhc`.`get_date`), 0) <= (SELECT GET_YEAR(GET_WID()))))
-    GROUP BY `uhc`.`category_id` , `m`.`ufio_id`) t
+    GROUP BY `uhc`.`category_id` , `m`.`client_id`) t
 GROUP BY t.`category_id`
     # {2}
     """
@@ -239,24 +239,24 @@ GROUP BY t.`category_id`
         sql_query["_g_category_total_new"] = """
 SELECT 
     COALESCE(`t`.`category_id`, 'Прочие') AS `category_id`,
-    `t`.`ufio_id`,
+    `t`.`client_id`,
     SUM(`t`.`uslnum`) AS `SUM(uslnum)`
 FROM
     (SELECT 
         `uhc`.`category_id` AS `category_id`,
-            `m`.`ufio_id` AS `ufio_id`,
+            `m`.`client_id` AS `client_id`,
             SUM(`m`.`uslnum`) AS `uslnum`
     FROM
         (`main` `m`
-    LEFT JOIN `ufio_has_category` `uhc` ON ((`m`.`ufio_id` = `uhc`.`ufio_id`)))
+    LEFT JOIN `client_has_category` `uhc` ON ((`m`.`client_id` = `uhc`.`client_id`)))
     WHERE
         (`m`.`dep_id` IN (SELECT 
                 `_active_dep`.`id`
             FROM
                 `_active_dep`)
             AND m.vdate between '{0}' and '{1}'
-            AND m.ufio_id NOT IN (SELECT distinct 
-                ufio_id
+            AND m.client_id NOT IN (SELECT distinct 
+                client_id
             FROM
                 main
             WHERE
@@ -264,7 +264,7 @@ FROM
                 and vdate < '{0}')
             AND (COALESCE(`uhc`.`archive`, 0) = 0)
             AND (COALESCE(YEAR(`uhc`.`get_date`), 0) <= GET_YEAR(GET_WID())))
-    GROUP BY `uhc`.`category_id` , `m`.`ufio_id`) t
-GROUP BY `t`.`category_id`,ufio_id
+    GROUP BY `uhc`.`category_id` , `m`.`client_id`) t
+GROUP BY `t`.`category_id`,client_id
     # {2}
     """

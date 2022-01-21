@@ -378,14 +378,14 @@
                  </widget>
                 </item>
                 <item row="2" column="2">
-                 <widget class="QToolButton" name="btn_goto_ufio">
+                 <widget class="QToolButton" name="btn_goto_client">
                   <property name="text">
                    <string>...</string>
                   </property>
                  </widget>
                 </item>
                 <item row="2" column="1">
-                 <widget class="myQComboBox" name="cbx_1__dep_has_ufio__2">
+                 <widget class="myQComboBox" name="cbx_1__dep_has_client__2">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -443,7 +443,7 @@
                  </attribute>
                  <layout class="QVBoxLayout" name="verticalLayout_3">
                   <item>
-                   <widget class="DepQTableView" name="table__dep_has_main__where_vdate__by_vdate_by_ufio_id"/>
+                   <widget class="DepQTableView" name="table__dep_has_main__where_vdate__by_vdate_by_client_id"/>
                   </item>
                  </layout>
                 </widget>
@@ -512,7 +512,7 @@
                      </widget>
                     </item>
                     <item row="0" column="1" colspan="3">
-                     <widget class="myQComboBox" name="cbx_1__dep_has_ufio__3">
+                     <widget class="myQComboBox" name="cbx_1__dep_has_client__3">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -976,7 +976,7 @@ border: none;
                        </spacer>
                       </item>
                       <item row="1" column="0" colspan="3">
-                       <widget class="DepQTableView" name="table__dep_has_main__where_calendar__by_vdate_by_ufio_id__2"/>
+                       <widget class="DepQTableView" name="table__dep_has_main__where_calendar__by_vdate_by_client_id__2"/>
                       </item>
                      </layout>
                     </widget>
@@ -1006,7 +1006,7 @@ border: none;
                      </attribute>
                      <layout class="QGridLayout" name="gridLayout_76">
                       <item row="0" column="0">
-                       <widget class="DepQTableView" name="table__dep_has_main__where_calendar__by_vdate_by_ufio_id_by_serv_id"/>
+                       <widget class="DepQTableView" name="table__dep_has_main__where_calendar__by_vdate_by_client_id_by_serv_id"/>
                       </item>
                      </layout>
                     </widget>
@@ -1451,7 +1451,7 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item row="1" column="2">
-               <widget class="QComboBoxWithDataMapper" name="cbx_1_contracts__by_ufio_id__2">
+               <widget class="QComboBoxWithDataMapper" name="cbx_1_contracts__by_client_id__2">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -1509,7 +1509,7 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item row="1" column="12">
-               <widget class="QPushButton" name="btn_goto_ufio_2">
+               <widget class="QPushButton" name="btn_goto_client_2">
                 <property name="text">
                  <string>Личное дело</string>
                 </property>
@@ -1555,7 +1555,7 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item row="0" column="2" colspan="9">
-               <widget class="myQComboBox" name="cbx_1__dep_has_ufio__4">
+               <widget class="myQComboBox" name="cbx_1__dep_has_client__4">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -1640,7 +1640,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="1" column="2">
-                 <widget class="QPushButton" name="btn_goto_ufio_from_list">
+                 <widget class="QPushButton" name="btn_goto_client_from_list">
                   <property name="text">
                    <string>Личное дело</string>
                   </property>
@@ -1649,7 +1649,7 @@ p, li { white-space: pre-wrap; }
                </layout>
               </item>
               <item>
-               <widget class="myQTableView" name="table__dep_has_ufio__by_ufio">
+               <widget class="myQTableView" name="table__dep_has_client__by_client">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -1672,7 +1672,7 @@ p, li { white-space: pre-wrap; }
              </attribute>
              <layout class="QGridLayout" name="gridLayout_91">
               <item row="0" column="0">
-               <widget class="myQTableView" name="table__dep_has_new_ufio__by_ufio_2"/>
+               <widget class="myQTableView" name="table__dep_has_new_client__by_client_2"/>
               </item>
              </layout>
             </widget>
@@ -1682,7 +1682,7 @@ p, li { white-space: pre-wrap; }
              </attribute>
              <layout class="QGridLayout" name="gridLayout_90">
               <item row="0" column="0">
-               <widget class="myQTableView" name="table__dep_has_ufio_count_main_year__by_ufio"/>
+               <widget class="myQTableView" name="table__dep_has_client_count_main_year__by_client"/>
               </item>
              </layout>
             </widget>
@@ -1692,7 +1692,7 @@ p, li { white-space: pre-wrap; }
              </attribute>
              <layout class="QGridLayout" name="gridLayout_93">
               <item row="0" column="0">
-               <widget class="myQTableView" name="table__dep_has_ufio_blocked_in_year__by_ufio_2">
+               <widget class="myQTableView" name="table__dep_has_client_blocked_in_year__by_client_2">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -1715,7 +1715,7 @@ p, li { white-space: pre-wrap; }
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_37">
               <item>
-               <widget class="myQTableView" name="table__dep_has_ufio_ending__by_ufio"/>
+               <widget class="myQTableView" name="table__dep_has_client_ending__by_client"/>
               </item>
              </layout>
             </widget>
@@ -1725,17 +1725,17 @@ p, li { white-space: pre-wrap; }
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_38">
               <item>
-               <widget class="myQTableView" name="table__dep_has_ufio_ended__by_ufio"/>
+               <widget class="myQTableView" name="table__dep_has_client_ended__by_client"/>
               </item>
              </layout>
             </widget>
-            <widget class="myQWidget" name="tab__dep_has_ufio_more">
+            <widget class="myQWidget" name="tab__dep_has_client_more">
              <attribute name="title">
               <string>Расширенный список</string>
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_39">
               <item>
-               <widget class="myQTableView" name="table__dep_has_ufio_more__by_ufio"/>
+               <widget class="myQTableView" name="table__dep_has_client_more__by_client"/>
               </item>
              </layout>
             </widget>
@@ -1753,7 +1753,7 @@ p, li { white-space: pre-wrap; }
           </item>
          </layout>
         </widget>
-        <widget class="myQWidget" name="tab_ufio">
+        <widget class="myQWidget" name="tab_client">
          <attribute name="title">
           <string>Все люди в организации</string>
          </attribute>
@@ -1761,15 +1761,15 @@ p, li { white-space: pre-wrap; }
           <item>
            <layout class="QGridLayout" name="gridLayout_9">
             <item row="0" column="1">
-             <widget class="myQLineEdit" name="qle_table_ufio_filter"/>
+             <widget class="myQLineEdit" name="qle_table_client_filter"/>
             </item>
             <item row="0" column="0">
-             <widget class="QLabel" name="label_ufio">
+             <widget class="QLabel" name="label_client">
               <property name="text">
                <string>Быстрый &amp;фильтр:</string>
               </property>
               <property name="buddy">
-               <cstring>qle_table_ufio_filter</cstring>
+               <cstring>qle_table_client_filter</cstring>
               </property>
              </widget>
             </item>
@@ -1796,7 +1796,7 @@ p, li { white-space: pre-wrap; }
           <item>
            <layout class="QGridLayout" name="gridLayout_2">
             <item row="1" column="0">
-             <widget class="myQTabWidget" name="tabs_ufio">
+             <widget class="myQTabWidget" name="tabs_client">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -1806,7 +1806,7 @@ p, li { white-space: pre-wrap; }
                </attribute>
                <layout class="QVBoxLayout" name="verticalLayout_35">
                 <item>
-                 <widget class="myQTableView" name="table_ufio__by_ufio"/>
+                 <widget class="myQTableView" name="table_client__by_client"/>
                 </item>
                </layout>
               </widget>
@@ -1818,7 +1818,7 @@ p, li { white-space: pre-wrap; }
                 <item>
                  <layout class="QGridLayout" name="gridLayout_6">
                   <item row="0" column="0">
-                   <widget class="myQTableView" name="table__ufio_has_valid_contracts__by_ufio"/>
+                   <widget class="myQTableView" name="table__client_has_valid_contracts__by_client"/>
                   </item>
                  </layout>
                 </item>
@@ -1830,7 +1830,7 @@ p, li { white-space: pre-wrap; }
                </attribute>
                <layout class="QHBoxLayout" name="horizontalLayout_8">
                 <item>
-                 <widget class="myQTableView" name="table__dep_has_ufio_by_ripso__by_ufio"/>
+                 <widget class="myQTableView" name="table__dep_has_client_by_ripso__by_client"/>
                 </item>
                </layout>
               </widget>
@@ -1840,7 +1840,7 @@ p, li { white-space: pre-wrap; }
                </attribute>
                <layout class="QGridLayout" name="gridLayout_98">
                 <item row="1" column="0">
-                 <widget class="myQTableView" name="table__ufio_has_invalid_contracts__by_ufio"/>
+                 <widget class="myQTableView" name="table__client_has_invalid_contracts__by_client"/>
                 </item>
                </layout>
               </widget>
@@ -1891,7 +1891,7 @@ p, li { white-space: pre-wrap; }
              </widget>
             </item>
             <item>
-             <widget class="QComboBoxWithDataMapper" name="cbx_1__dep_has_ufio">
+             <widget class="QComboBoxWithDataMapper" name="cbx_1__dep_has_client">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -1990,7 +1990,7 @@ p, li { white-space: pre-wrap; }
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_14">
                       <item>
-                       <widget class="myQTableView" name="table__ufio_has_add_info__where_ufio_id__by_ufio_id">
+                       <widget class="myQTableView" name="table__client_has_add_info__where_client_id__by_client_id">
                         <property name="sizePolicy">
                          <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
                           <horstretch>0</horstretch>
@@ -2269,7 +2269,7 @@ p, li { white-space: pre-wrap; }
               <item>
                <layout class="QGridLayout" name="gridLayout_18">
                 <item row="1" column="1">
-                 <widget class="myQTableView" name="table_ufio_has_category__by_ufio_id"/>
+                 <widget class="myQTableView" name="table_client_has_category__by_client_id"/>
                 </item>
                 <item row="0" column="0">
                  <widget class="QLabel" name="label_54">
@@ -2423,7 +2423,7 @@ p, li { white-space: pre-wrap; }
                     </widget>
                    </item>
                    <item>
-                    <widget class="QComboBoxWithDataMapper" name="cbx_1_contracts__by_ufio_id">
+                    <widget class="QComboBoxWithDataMapper" name="cbx_1_contracts__by_client_id">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                        <horstretch>0</horstretch>
@@ -2503,7 +2503,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="4" column="0" colspan="13">
-                 <widget class="myQTabWidget" name="tab_sub_ufio">
+                 <widget class="myQTabWidget" name="tab_sub_client">
                   <property name="currentIndex">
                    <number>0</number>
                   </property>
@@ -2566,7 +2566,7 @@ p, li { white-space: pre-wrap; }
                    </attribute>
                    <layout class="QVBoxLayout" name="verticalLayout_41">
                     <item>
-                     <widget class="myQTableView" name="table_main__where_ufio_id__by_contracts_id"/>
+                     <widget class="myQTableView" name="table_main__where_client_id__by_contracts_id"/>
                     </item>
                    </layout>
                   </widget>
@@ -2576,7 +2576,7 @@ p, li { white-space: pre-wrap; }
                    </attribute>
                    <layout class="QGridLayout" name="gridLayout_92">
                     <item row="0" column="0">
-                     <widget class="add_info_QTableView" name="table__ufio_has_add_info__where_ufio_id__by_contracts_id">
+                     <widget class="add_info_QTableView" name="table__client_has_add_info__where_client_id__by_contracts_id">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
                         <horstretch>0</horstretch>
@@ -2758,7 +2758,7 @@ p, li { white-space: pre-wrap; }
               <item>
                <layout class="QGridLayout" name="gridLayout_24">
                 <item row="0" column="0">
-                 <widget class="myQTableView" name="table_main__where_ufio_id__by_dep_id"/>
+                 <widget class="myQTableView" name="table_main__where_client_id__by_dep_id"/>
                 </item>
                </layout>
               </item>
@@ -2770,7 +2770,7 @@ p, li { white-space: pre-wrap; }
              </attribute>
              <layout class="QGridLayout" name="gridLayout_97">
               <item row="0" column="0">
-               <widget class="myQTableView" name="table_main__where_ufio_id"/>
+               <widget class="myQTableView" name="table_main__where_client_id"/>
               </item>
              </layout>
             </widget>
@@ -2804,7 +2804,7 @@ p, li { white-space: pre-wrap; }
                  </attribute>
                  <layout class="QGridLayout" name="gridLayout_40">
                   <item row="0" column="0">
-                   <widget class="qcSelectReport" name="report__main_for_dep__where_vdate__ufio_id" native="true">
+                   <widget class="qcSelectReport" name="report__main_for_dep__where_vdate__client_id" native="true">
                     <layout class="QGridLayout" name="gridLayout_38">
                      <item row="2" column="2">
                       <widget class="QLabel" name="label_19">
@@ -3370,7 +3370,7 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="1" column="0" colspan="2">
-                   <widget class="qcSelectReport" name="report__main_for_dep__where_vdate__by_ufio_id_by_dep_has_worker_id" native="true">
+                   <widget class="qcSelectReport" name="report__main_for_dep__where_vdate__by_client_id_by_dep_has_worker_id" native="true">
                     <layout class="QGridLayout" name="gridLayout_45">
                      <item row="3" column="0" colspan="2">
                       <widget class="QTableView" name="table__dep_has_main_4"/>
@@ -3539,7 +3539,7 @@ p, li { white-space: pre-wrap; }
                   <item row="0" column="0">
                    <layout class="QGridLayout" name="gridLayout_53">
                     <item row="1" column="0" colspan="2">
-                     <widget class="qcSelectReport" name="report__g_serv_total_dep_with_worker__where_vdate__by_ufio_id_by_dep_has_worker_id_2" native="true">
+                     <widget class="qcSelectReport" name="report__g_serv_total_dep_with_worker__where_vdate__by_client_id_by_dep_has_worker_id_2" native="true">
                       <layout class="QGridLayout" name="gridLayout_104">
                        <item row="3" column="0" colspan="2">
                         <widget class="QTableView" name="table__dep_has_main_10"/>
@@ -3915,7 +3915,7 @@ p, li { white-space: pre-wrap; }
                  </attribute>
                  <layout class="QVBoxLayout" name="verticalLayout_28">
                   <item>
-                   <widget class="qcSelectReport" name="report__g_serv_total_dep__where_vdate__by_ufio_id" native="true">
+                   <widget class="qcSelectReport" name="report__g_serv_total_dep__where_vdate__by_client_id" native="true">
                     <layout class="QGridLayout" name="gridLayout_49">
                      <item row="2" column="2">
                       <widget class="QLabel" name="label_20">
@@ -4121,7 +4121,7 @@ p, li { white-space: pre-wrap; }
                  </attribute>
                  <layout class="QGridLayout" name="gridLayout_7">
                   <item row="0" column="0">
-                   <widget class="qcSelectReport" name="report__g_serv_total_you__where_vdate__by_ufio_id_2" native="true">
+                   <widget class="qcSelectReport" name="report__g_serv_total_you__where_vdate__by_client_id_2" native="true">
                     <layout class="QGridLayout" name="gridLayout_51">
                      <item row="2" column="2">
                       <widget class="QLabel" name="label_51">
@@ -4347,7 +4347,7 @@ p, li { white-space: pre-wrap; }
                      <item row="0" column="0">
                       <layout class="QGridLayout" name="gridLayout_14">
                        <item row="1" column="0" colspan="2">
-                        <widget class="qcSelectReport" name="report__g_serv_total_dep_with_worker__where_vdate__by_ufio_id_by_dep_has_worker_id" native="true">
+                        <widget class="qcSelectReport" name="report__g_serv_total_dep_with_worker__where_vdate__by_client_id_by_dep_has_worker_id" native="true">
                          <layout class="QGridLayout" name="gridLayout_99">
                           <item row="3" column="0" colspan="2">
                            <widget class="QTableView" name="table__dep_has_main_8"/>
@@ -4752,7 +4752,7 @@ p, li { white-space: pre-wrap; }
                  </attribute>
                  <layout class="QVBoxLayout" name="verticalLayout_29">
                   <item>
-                   <widget class="qcSelectReport" name="report__g_serv_list_for_dep_for_year__where_vdate__by_ufio_id" native="true">
+                   <widget class="qcSelectReport" name="report__g_serv_list_for_dep_for_year__where_vdate__by_client_id" native="true">
                     <layout class="QGridLayout" name="gridLayout_78">
                      <item row="2" column="2">
                       <widget class="QLabel" name="label_72">
@@ -4958,7 +4958,7 @@ p, li { white-space: pre-wrap; }
                  </attribute>
                  <layout class="QGridLayout" name="gridLayout_80">
                   <item row="0" column="0">
-                   <widget class="qcSelectReport" name="report__g_serv_total_you__where_vdate__by_ufio_id_3" native="true">
+                   <widget class="qcSelectReport" name="report__g_serv_total_you__where_vdate__by_client_id_3" native="true">
                     <layout class="QGridLayout" name="gridLayout_81">
                      <item row="2" column="2">
                       <widget class="QLabel" name="label_73">
@@ -5166,7 +5166,7 @@ p, li { white-space: pre-wrap; }
                   <item row="0" column="0">
                    <layout class="QGridLayout" name="gridLayout_83">
                     <item row="1" column="0" colspan="2">
-                     <widget class="qcSelectReport" name="report__g_serv_total_dep_with_worker__where_vdate__by_ufio_id_by_dep_has_worker_id__2" native="true">
+                     <widget class="qcSelectReport" name="report__g_serv_total_dep_with_worker__where_vdate__by_client_id_by_dep_has_worker_id__2" native="true">
                       <layout class="QGridLayout" name="gridLayout_102">
                        <item row="3" column="0" colspan="2">
                         <widget class="QTableView" name="table__dep_has_main_9"/>
@@ -5568,7 +5568,7 @@ p, li { white-space: pre-wrap; }
                  </attribute>
                  <layout class="QGridLayout" name="gridLayout_31">
                   <item row="0" column="0">
-                   <widget class="qcSelectReport" name="report__g_categ_list_ufio__by_ufio_id" native="true">
+                   <widget class="qcSelectReport" name="report__g_categ_list_client__by_client_id" native="true">
                     <layout class="QGridLayout" name="gridLayout_62">
                      <item row="2" column="2">
                       <widget class="QLabel" name="label_68">
@@ -5761,7 +5761,7 @@ p, li { white-space: pre-wrap; }
                  </attribute>
                  <layout class="QGridLayout" name="gridLayout_69">
                   <item row="0" column="0">
-                   <widget class="qcSelectReport" name="report__call_categ_list_ufio_total__by_category_id" native="true">
+                   <widget class="qcSelectReport" name="report__call_categ_list_client_total__by_category_id" native="true">
                     <layout class="QGridLayout" name="gridLayout_67">
                      <item row="2" column="2">
                       <widget class="QLabel" name="label_71">
@@ -5954,7 +5954,7 @@ p, li { white-space: pre-wrap; }
                  </attribute>
                  <layout class="QGridLayout" name="gridLayout_66">
                   <item row="0" column="0">
-                   <widget class="qcSelectReport" name="report__g_category_total_new__by_ufio_id__2" native="true">
+                   <widget class="qcSelectReport" name="report__g_category_total_new__by_client_id__2" native="true">
                     <layout class="QGridLayout" name="gridLayout_64">
                      <item row="2" column="2">
                       <widget class="QLabel" name="label_69">
@@ -7038,7 +7038,7 @@ p, li { white-space: pre-wrap; }
     <addaction name="separator"/>
     <addaction name="qa_tab_add_serv_by_day"/>
     <addaction name="qa_tab_people_of_dep"/>
-    <addaction name="qa_tab__dep_has_ufio_more"/>
+    <addaction name="qa_tab__dep_has_client_more"/>
     <addaction name="qa_tab_journal"/>
     <addaction name="qa_tab_workers"/>
     <addaction name="qa_tab_serv_you"/>
@@ -7395,7 +7395,7 @@ p, li { white-space: pre-wrap; }
     <string>Список обслуживаемых</string>
    </property>
   </action>
-  <action name="qa_tab__dep_has_ufio_more">
+  <action name="qa_tab__dep_has_client_more">
    <property name="text">
     <string>Расширенный список ФИО</string>
    </property>
@@ -7835,8 +7835,8 @@ p, li { white-space: pre-wrap; }
     <signal>inwork_total(int)</signal>
     <signal>inwork_status(QString)</signal>
     <signal>can_start(bool)</signal>
-    <signal>signal_cur_ufio_left_serv(int)</signal>
-    <slot>set_flt_ufio(int,QString)</slot>
+    <signal>signal_cur_client_left_serv(int)</signal>
+    <slot>set_flt_client(int,QString)</slot>
     <slot>set_flt_worker(QString)</slot>
     <slot>set_flt_serv_model(int,QString)</slot>
     <slot>set_continue_input(int)</slot>
@@ -7930,7 +7930,7 @@ p, li { white-space: pre-wrap; }
    <header>widgets.customQWidgets</header>
    <container>1</container>
    <slots>
-    <slot>update_ufio_id(int)</slot>
+    <slot>update_client_id(int)</slot>
     <slot>update_vdate(QDate)</slot>
     <slot>sub_month()</slot>
     <slot>add_month()</slot>
@@ -7945,7 +7945,7 @@ p, li { white-space: pre-wrap; }
  </customwidgets>
  <tabstops>
   <tabstop>qle_date</tabstop>
-  <tabstop>cbx_1__dep_has_ufio__2</tabstop>
+  <tabstop>cbx_1__dep_has_client__2</tabstop>
   <tabstop>cbx_1__dep_has_worker</tabstop>
   <tabstop>cbx_1__serv_activ__dis_total</tabstop>
   <tabstop>qleNote</tabstop>
@@ -7963,13 +7963,13 @@ p, li { white-space: pre-wrap; }
   <tabstop>table__dep_has_main__where_vdate__by_vdate_by_worker_id</tabstop>
   <tabstop>table__dep_has_main__where_vdate__by_vdate_by_you</tabstop>
   <tabstop>table__dep_has_main__where_vdate__by_vdate_by_serv_id</tabstop>
-  <tabstop>table__ufio_has_valid_contracts__by_ufio</tabstop>
-  <tabstop>tabs_ufio</tabstop>
+  <tabstop>table__client_has_valid_contracts__by_client</tabstop>
+  <tabstop>tabs_client</tabstop>
   <tabstop>btn_upd_fio_list</tabstop>
   <tabstop>pushButton_2</tabstop>
-  <tabstop>table__dep_has_ufio_by_ripso__by_ufio</tabstop>
+  <tabstop>table__dep_has_client_by_ripso__by_client</tabstop>
   <tabstop>qle_FIO</tabstop>
-  <tabstop>table__ufio_has_add_info__where_ufio_id__by_ufio_id</tabstop>
+  <tabstop>table__client_has_add_info__where_client_id__by_client_id</tabstop>
   <tabstop>table_ripso_has_serv__by_ripso_id</tabstop>
   <tabstop>table_ripso</tabstop>
   <tabstop>table_dep_has_worker__by_worker_id</tabstop>
@@ -8014,10 +8014,10 @@ p, li { white-space: pre-wrap; }
   <tabstop>qleAmount</tabstop>
   <tabstop>qle_serv_left</tabstop>
   <tabstop>cbx_1_ui_select_fiolist</tabstop>
-  <tabstop>btn_goto_ufio</tabstop>
+  <tabstop>btn_goto_client</tabstop>
   <tabstop>btn_goto_worker</tabstop>
-  <tabstop>table__dep_has_main__where_vdate__by_vdate_by_ufio_id</tabstop>
-  <tabstop>cbx_1__dep_has_ufio__3</tabstop>
+  <tabstop>table__dep_has_main__where_vdate__by_vdate_by_client_id</tabstop>
+  <tabstop>cbx_1__dep_has_client__3</tabstop>
   <tabstop>cbx_1__dep_has_worker__2</tabstop>
   <tabstop>cbx_1__serv_activ__dis_total__2</tabstop>
   <tabstop>chk_mouse_left</tabstop>
@@ -8034,29 +8034,29 @@ p, li { white-space: pre-wrap; }
   <tabstop>table__user_has_main_limit30</tabstop>
   <tabstop>table__dep_has_main__where_calendar__by_vdate__2</tabstop>
   <tabstop>lineEdit_15</tabstop>
-  <tabstop>table__dep_has_main__where_calendar__by_vdate_by_ufio_id__2</tabstop>
+  <tabstop>table__dep_has_main__where_calendar__by_vdate_by_client_id__2</tabstop>
   <tabstop>table__dep_has_main__where_calendar__by_vdate_by_serv_id__2</tabstop>
   <tabstop>table__dep_has_main__where_calendar__by_vdate_by_worker_id__3</tabstop>
-  <tabstop>table__dep_has_main__where_calendar__by_vdate_by_ufio_id_by_serv_id</tabstop>
+  <tabstop>table__dep_has_main__where_calendar__by_vdate_by_client_id_by_serv_id</tabstop>
   <tabstop>textEdit_2</tabstop>
   <tabstop>tabs_fio_dep</tabstop>
-  <tabstop>btn_goto_ufio_from_list</tabstop>
+  <tabstop>btn_goto_client_from_list</tabstop>
   <tabstop>btn_goto_serv_from_list</tabstop>
-  <tabstop>table__dep_has_ufio__by_ufio</tabstop>
-  <tabstop>table__dep_has_ufio_count_main_year__by_ufio</tabstop>
-  <tabstop>table__dep_has_ufio_blocked_in_year__by_ufio_2</tabstop>
-  <tabstop>table__dep_has_ufio_ending__by_ufio</tabstop>
-  <tabstop>table__dep_has_ufio_ended__by_ufio</tabstop>
-  <tabstop>table__dep_has_ufio_more__by_ufio</tabstop>
-  <tabstop>table__dep_has_new_ufio__by_ufio_2</tabstop>
+  <tabstop>table__dep_has_client__by_client</tabstop>
+  <tabstop>table__dep_has_client_count_main_year__by_client</tabstop>
+  <tabstop>table__dep_has_client_blocked_in_year__by_client_2</tabstop>
+  <tabstop>table__dep_has_client_ending__by_client</tabstop>
+  <tabstop>table__dep_has_client_ended__by_client</tabstop>
+  <tabstop>table__dep_has_client_more__by_client</tabstop>
+  <tabstop>table__dep_has_new_client__by_client_2</tabstop>
   <tabstop>qle_fio_filter</tabstop>
-  <tabstop>qle_table_ufio_filter</tabstop>
-  <tabstop>table_ufio__by_ufio</tabstop>
+  <tabstop>qle_table_client_filter</tabstop>
+  <tabstop>table_client__by_client</tabstop>
   <tabstop>pushButton_15</tabstop>
-  <tabstop>table__ufio_has_invalid_contracts__by_ufio</tabstop>
+  <tabstop>table__client_has_invalid_contracts__by_client</tabstop>
   <tabstop>btn_goto_serv_add</tabstop>
   <tabstop>btn_prev</tabstop>
-  <tabstop>cbx_1__dep_has_ufio</tabstop>
+  <tabstop>cbx_1__dep_has_client</tabstop>
   <tabstop>btn_next</tabstop>
   <tabstop>cbx_1_ui_select_fiolist__2</tabstop>
   <tabstop>tabs_client</tabstop>
@@ -8066,21 +8066,21 @@ p, li { white-space: pre-wrap; }
   <tabstop>qle_SNILS</tabstop>
   <tabstop>sp_ESRN</tabstop>
   <tabstop>pte_note</tabstop>
-  <tabstop>table_ufio_has_category__by_ufio_id</tabstop>
+  <tabstop>table_client_has_category__by_client_id</tabstop>
   <tabstop>sp_ippsuNum</tabstop>
   <tabstop>cbx_0_worker_has_dep</tabstop>
   <tabstop>cbx_0__dep_has_ripso</tabstop>
   <tabstop>de_startdate</tabstop>
   <tabstop>de_enddate</tabstop>
   <tabstop>chk_blocked</tabstop>
-  <tabstop>tab_sub_ufio</tabstop>
-  <tabstop>table_main__where_ufio_id__by_contracts_id</tabstop>
-  <tabstop>table__ufio_has_add_info__where_ufio_id__by_contracts_id</tabstop>
+  <tabstop>tab_sub_client</tabstop>
+  <tabstop>table_main__where_client_id__by_contracts_id</tabstop>
+  <tabstop>table__client_has_add_info__where_client_id__by_contracts_id</tabstop>
   <tabstop>btn_prev_2</tabstop>
-  <tabstop>cbx_1_contracts__by_ufio_id</tabstop>
+  <tabstop>cbx_1_contracts__by_client_id</tabstop>
   <tabstop>btn_next_2</tabstop>
   <tabstop>pte_contracts_note</tabstop>
-  <tabstop>table_main__where_ufio_id__by_dep_id</tabstop>
+  <tabstop>table_main__where_client_id__by_dep_id</tabstop>
   <tabstop>tabs_total</tabstop>
   <tabstop>tabs_tot_serv</tabstop>
   <tabstop>btn_serv_you_3</tabstop>
@@ -8249,17 +8249,17 @@ p, li { white-space: pre-wrap; }
   <tabstop>chk_autosave</tabstop>
   <tabstop>pushButton_3</tabstop>
   <tabstop>pushButton_37</tabstop>
-  <tabstop>cbx_1_contracts__by_ufio_id__2</tabstop>
+  <tabstop>cbx_1_contracts__by_client_id__2</tabstop>
   <tabstop>chk_all_serv_ripso</tabstop>
-  <tabstop>btn_goto_ufio_2</tabstop>
+  <tabstop>btn_goto_client_2</tabstop>
   <tabstop>de_contracts</tabstop>
   <tabstop>cbx_1_ui_select_fiolist__4</tabstop>
-  <tabstop>cbx_1__dep_has_ufio__4</tabstop>
+  <tabstop>cbx_1__dep_has_client__4</tabstop>
   <tabstop>pushButton_4</tabstop>
   <tabstop>tableViewYear</tabstop>
   <tabstop>pushButton_7</tabstop>
   <tabstop>qle_contracts</tabstop>
-  <tabstop>table_main__where_ufio_id</tabstop>
+  <tabstop>table_main__where_client_id</tabstop>
   <tabstop>table__dep_has_main_10</tabstop>
   <tabstop>pushButton_36</tabstop>
   <tabstop>btn_serv_you_22</tabstop>
@@ -8461,9 +8461,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>qle_table_ufio_filter</sender>
+   <sender>qle_table_client_filter</sender>
    <signal>textChanged(QString)</signal>
-   <receiver>table__ufio_has_invalid_contracts__by_ufio</receiver>
+   <receiver>table__client_has_invalid_contracts__by_client</receiver>
    <slot>set_first_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8477,9 +8477,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>qle_table_ufio_filter</sender>
+   <sender>qle_table_client_filter</sender>
    <signal>textChanged(QString)</signal>
-   <receiver>table__dep_has_ufio_by_ripso__by_ufio</receiver>
+   <receiver>table__dep_has_client_by_ripso__by_client</receiver>
    <slot>set_first_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8493,9 +8493,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>qle_table_ufio_filter</sender>
+   <sender>qle_table_client_filter</sender>
    <signal>textChanged(QString)</signal>
-   <receiver>table__ufio_has_valid_contracts__by_ufio</receiver>
+   <receiver>table__client_has_valid_contracts__by_client</receiver>
    <slot>set_first_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8509,9 +8509,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>qle_table_ufio_filter</sender>
+   <sender>qle_table_client_filter</sender>
    <signal>textChanged(QString)</signal>
-   <receiver>table_ufio__by_ufio</receiver>
+   <receiver>table_client__by_client</receiver>
    <slot>set_first_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8527,7 +8527,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>qle_fio_filter</sender>
    <signal>textChanged(QString)</signal>
-   <receiver>table__dep_has_ufio__by_ufio</receiver>
+   <receiver>table__dep_has_client__by_client</receiver>
    <slot>set_first_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8543,7 +8543,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>qle_fio_filter</sender>
    <signal>textChanged(QString)</signal>
-   <receiver>table__dep_has_ufio_ending__by_ufio</receiver>
+   <receiver>table__dep_has_client_ending__by_client</receiver>
    <slot>set_first_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8559,7 +8559,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>qle_fio_filter</sender>
    <signal>textChanged(QString)</signal>
-   <receiver>table__dep_has_ufio_ended__by_ufio</receiver>
+   <receiver>table__dep_has_client_ended__by_client</receiver>
    <slot>set_first_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8575,7 +8575,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>qle_fio_filter</sender>
    <signal>textChanged(QString)</signal>
-   <receiver>table__dep_has_ufio_more__by_ufio</receiver>
+   <receiver>table__dep_has_client_more__by_client</receiver>
    <slot>set_first_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8589,9 +8589,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1_contracts__by_ufio_id</sender>
+   <sender>cbx_1_contracts__by_client_id</sender>
    <signal>editTextChanged(QString)</signal>
-   <receiver>table_main__where_ufio_id__by_contracts_id</receiver>
+   <receiver>table_main__where_client_id__by_contracts_id</receiver>
    <slot>set_first_filter_exact(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8717,7 +8717,7 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1_contracts__by_ufio_id</sender>
+   <sender>cbx_1_contracts__by_client_id</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
    <receiver>table__contracts_has_serv__where_contracts_id__by_contracts_id</receiver>
    <slot>set_where(int,QString)</slot>
@@ -8733,9 +8733,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio</sender>
+   <sender>cbx_1__dep_has_client</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
-   <receiver>table__ufio_has_add_info__where_ufio_id__by_ufio_id</receiver>
+   <receiver>table__client_has_add_info__where_client_id__by_client_id</receiver>
    <slot>set_where(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8749,9 +8749,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio</sender>
+   <sender>cbx_1__dep_has_client</sender>
    <signal>currentTextChanged(QString)</signal>
-   <receiver>table__ufio_has_add_info__where_ufio_id__by_ufio_id</receiver>
+   <receiver>table__client_has_add_info__where_client_id__by_client_id</receiver>
    <slot>set_first_filter_exact(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8765,9 +8765,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio</sender>
+   <sender>cbx_1__dep_has_client</sender>
    <signal>currentIndexChanged(QString)</signal>
-   <receiver>table_ufio_has_category__by_ufio_id</receiver>
+   <receiver>table_client_has_category__by_client_id</receiver>
    <slot>set_first_filter_exact(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8781,9 +8781,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio</sender>
+   <sender>cbx_1__dep_has_client</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
-   <receiver>table_main__where_ufio_id__by_dep_id</receiver>
+   <receiver>table_main__where_client_id__by_dep_id</receiver>
    <slot>set_where(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8799,7 +8799,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>qle_date</sender>
    <signal>dateChanged(QDate)</signal>
-   <receiver>table__dep_has_main__where_vdate__by_vdate_by_ufio_id</receiver>
+   <receiver>table__dep_has_main__where_vdate__by_vdate_by_client_id</receiver>
    <slot>set_first_filter_date(QDate)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8813,9 +8813,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio__2</sender>
+   <sender>cbx_1__dep_has_client__2</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
-   <receiver>table__dep_has_main__where_vdate__by_vdate_by_ufio_id</receiver>
+   <receiver>table__dep_has_main__where_vdate__by_vdate_by_client_id</receiver>
    <slot>set_second_filter(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8831,7 +8831,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>btn_prev</sender>
    <signal>clicked()</signal>
-   <receiver>cbx_1__dep_has_ufio</receiver>
+   <receiver>cbx_1__dep_has_client</receiver>
    <slot>toPrevious()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8847,7 +8847,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>btn_next</sender>
    <signal>clicked()</signal>
-   <receiver>cbx_1__dep_has_ufio</receiver>
+   <receiver>cbx_1__dep_has_client</receiver>
    <slot>toNext()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8863,7 +8863,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>btn_prev_2</sender>
    <signal>clicked()</signal>
-   <receiver>cbx_1_contracts__by_ufio_id</receiver>
+   <receiver>cbx_1_contracts__by_client_id</receiver>
    <slot>toPrevious()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8879,7 +8879,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>btn_next_2</sender>
    <signal>clicked()</signal>
-   <receiver>cbx_1_contracts__by_ufio_id</receiver>
+   <receiver>cbx_1_contracts__by_client_id</receiver>
    <slot>toNext()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8927,7 +8927,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>clndr__dep_has_main_raw__where_calendar</sender>
    <signal>inwork(bool)</signal>
-   <receiver>cbx_1__dep_has_ufio__3</receiver>
+   <receiver>cbx_1__dep_has_client__3</receiver>
    <slot>disable_events(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -8989,10 +8989,10 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio__3</sender>
+   <sender>cbx_1__dep_has_client__3</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
    <receiver>clndr__dep_has_main_raw__where_calendar</receiver>
-   <slot>set_flt_ufio(int,QString)</slot>
+   <slot>set_flt_client(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>100</x>
@@ -9101,7 +9101,7 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1_contracts__by_ufio_id</sender>
+   <sender>cbx_1_contracts__by_client_id</sender>
    <signal>editTextChanged(QString)</signal>
    <receiver>table__contracts_has_serv__where_contracts_id__by_contracts_id</receiver>
    <slot>set_first_filter_exact(QString)</slot>
@@ -9151,7 +9151,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>cbx_1_ui_select_fiolist</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
-   <receiver>cbx_1__dep_has_ufio__2</receiver>
+   <receiver>cbx_1__dep_has_client__2</receiver>
    <slot>change_model(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9167,7 +9167,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>cbx_1_ui_select_fiolist__3</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
-   <receiver>cbx_1__dep_has_ufio__3</receiver>
+   <receiver>cbx_1__dep_has_client__3</receiver>
    <slot>change_model(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9183,7 +9183,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>cbx_1_ui_select_fiolist__2</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
-   <receiver>cbx_1__dep_has_ufio</receiver>
+   <receiver>cbx_1__dep_has_client</receiver>
    <slot>change_model(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9247,7 +9247,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>clndr__dep_has_main_raw__where_calendar</sender>
    <signal>clicked(QDate)</signal>
-   <receiver>table__dep_has_main__where_calendar__by_vdate_by_ufio_id__2</receiver>
+   <receiver>table__dep_has_main__where_calendar__by_vdate_by_client_id__2</receiver>
    <slot>set_first_filter_date(QDate)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9261,9 +9261,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio__3</sender>
+   <sender>cbx_1__dep_has_client__3</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
-   <receiver>table__dep_has_main__where_calendar__by_vdate_by_ufio_id__2</receiver>
+   <receiver>table__dep_has_main__where_calendar__by_vdate_by_client_id__2</receiver>
    <slot>set_second_filter(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9343,7 +9343,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>clndr__dep_has_main_raw__where_calendar</sender>
    <signal>clicked(QDate)</signal>
-   <receiver>table__dep_has_main__where_calendar__by_vdate_by_ufio_id_by_serv_id</receiver>
+   <receiver>table__dep_has_main__where_calendar__by_vdate_by_client_id_by_serv_id</receiver>
    <slot>set_first_filter_date(QDate)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9357,9 +9357,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio__3</sender>
+   <sender>cbx_1__dep_has_client__3</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
-   <receiver>table__dep_has_main__where_calendar__by_vdate_by_ufio_id_by_serv_id</receiver>
+   <receiver>table__dep_has_main__where_calendar__by_vdate_by_client_id_by_serv_id</receiver>
    <slot>set_second_filter(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9375,7 +9375,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>cbx_1__serv_activ__dis_total__2</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
-   <receiver>table__dep_has_main__where_calendar__by_vdate_by_ufio_id_by_serv_id</receiver>
+   <receiver>table__dep_has_main__where_calendar__by_vdate_by_client_id_by_serv_id</receiver>
    <slot>set_third_filter_model(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9423,7 +9423,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>qle_fio_filter</sender>
    <signal>textChanged(QString)</signal>
-   <receiver>table__dep_has_ufio_count_main_year__by_ufio</receiver>
+   <receiver>table__dep_has_client_count_main_year__by_client</receiver>
    <slot>set_first_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9437,9 +9437,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio</sender>
+   <sender>cbx_1__dep_has_client</sender>
    <signal>currentIndexChanged(QString)</signal>
-   <receiver>cbx_1_contracts__by_ufio_id</receiver>
+   <receiver>cbx_1_contracts__by_client_id</receiver>
    <slot>set_first_filter_exact(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9454,7 +9454,7 @@ p, li { white-space: pre-wrap; }
   </connection>
   <connection>
    <sender>clndr__dep_has_main_raw__where_calendar</sender>
-   <signal>signal_cur_ufio_left_serv(int)</signal>
+   <signal>signal_cur_client_left_serv(int)</signal>
    <receiver>lcdNumber</receiver>
    <slot>display(int)</slot>
    <hints>
@@ -9471,7 +9471,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>qle_fio_filter</sender>
    <signal>textChanged(QString)</signal>
-   <receiver>table__dep_has_new_ufio__by_ufio_2</receiver>
+   <receiver>table__dep_has_new_client__by_client_2</receiver>
    <slot>set_first_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9533,9 +9533,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1_contracts__by_ufio_id</sender>
+   <sender>cbx_1_contracts__by_client_id</sender>
    <signal>editTextChanged(QString)</signal>
-   <receiver>table__ufio_has_add_info__where_ufio_id__by_contracts_id</receiver>
+   <receiver>table__client_has_add_info__where_client_id__by_contracts_id</receiver>
    <slot>set_first_filter_exact(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9551,7 +9551,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>btn_upd_fio_list</sender>
    <signal>clicked()</signal>
-   <receiver>table__dep_has_ufio__by_ufio</receiver>
+   <receiver>table__dep_has_client__by_client</receiver>
    <slot>select_model_data()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9565,9 +9565,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio</sender>
+   <sender>cbx_1__dep_has_client</sender>
    <signal>currentIndexChanged_col_id(QString,int)</signal>
-   <receiver>cbx_1_contracts__by_ufio_id</receiver>
+   <receiver>cbx_1_contracts__by_client_id</receiver>
    <slot>add_new_rec_autofill(QString,int)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9581,9 +9581,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio</sender>
+   <sender>cbx_1__dep_has_client</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
-   <receiver>table__ufio_has_add_info__where_ufio_id__by_contracts_id</receiver>
+   <receiver>table__client_has_add_info__where_client_id__by_contracts_id</receiver>
    <slot>set_curFIO(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9599,7 +9599,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>cbx_1_ui_select_fiolist__4</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
-   <receiver>cbx_1__dep_has_ufio__4</receiver>
+   <receiver>cbx_1__dep_has_client__4</receiver>
    <slot>change_model(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9613,9 +9613,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio__4</sender>
+   <sender>cbx_1__dep_has_client__4</sender>
    <signal>currentIndexChanged(QString)</signal>
-   <receiver>cbx_1_contracts__by_ufio_id__2</receiver>
+   <receiver>cbx_1_contracts__by_client_id__2</receiver>
    <slot>set_first_filter_exact(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9629,7 +9629,7 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1_contracts__by_ufio_id__2</sender>
+   <sender>cbx_1_contracts__by_client_id__2</sender>
    <signal>currentIndexChanged_col_id(QString,int)</signal>
    <receiver>tableViewYear</receiver>
    <slot>set_contract_id(QString,int)</slot>
@@ -9645,7 +9645,7 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1_contracts__by_ufio_id__2</sender>
+   <sender>cbx_1_contracts__by_client_id__2</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>tableViewYear</receiver>
    <slot>visibleDataChangedEmit()</slot>
@@ -9661,9 +9661,9 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio</sender>
+   <sender>cbx_1__dep_has_client</sender>
    <signal>currentIndexChanged_model(int,QString)</signal>
-   <receiver>table_main__where_ufio_id</receiver>
+   <receiver>table_main__where_client_id</receiver>
    <slot>set_where(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9679,7 +9679,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>cbx_1_dep_has_worker__3</sender>
    <signal>editTextChanged(QString)</signal>
-   <receiver>report__g_serv_total_dep_with_worker__where_vdate__by_ufio_id_by_dep_has_worker_id__2</receiver>
+   <receiver>report__g_serv_total_dep_with_worker__where_vdate__by_client_id_by_dep_has_worker_id__2</receiver>
    <slot>set_second_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9695,7 +9695,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>cbx_1_dep_has_worker__2</sender>
    <signal>editTextChanged(QString)</signal>
-   <receiver>report__g_serv_total_dep_with_worker__where_vdate__by_ufio_id_by_dep_has_worker_id</receiver>
+   <receiver>report__g_serv_total_dep_with_worker__where_vdate__by_client_id_by_dep_has_worker_id</receiver>
    <slot>set_second_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9711,7 +9711,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>cbx_1_dep_has_worker</sender>
    <signal>editTextChanged(QString)</signal>
-   <receiver>report__main_for_dep__where_vdate__by_ufio_id_by_dep_has_worker_id</receiver>
+   <receiver>report__main_for_dep__where_vdate__by_client_id_by_dep_has_worker_id</receiver>
    <slot>set_second_filter_str(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -9725,10 +9725,10 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio__2</sender>
+   <sender>cbx_1__dep_has_client__2</sender>
    <signal>currentIndexChanged_id(int)</signal>
    <receiver>dock_people_info</receiver>
-   <slot>update_ufio_id(int)</slot>
+   <slot>update_client_id(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>253</x>
@@ -9757,10 +9757,10 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio__3</sender>
+   <sender>cbx_1__dep_has_client__3</sender>
    <signal>currentIndexChanged_id(int)</signal>
    <receiver>dock_people_info</receiver>
-   <slot>update_ufio_id(int)</slot>
+   <slot>update_client_id(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>100</x>
@@ -9789,10 +9789,10 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio</sender>
+   <sender>cbx_1__dep_has_client</sender>
    <signal>currentIndexChanged_id(int)</signal>
    <receiver>dock_people_info</receiver>
-   <slot>update_ufio_id(int)</slot>
+   <slot>update_client_id(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>656</x>
@@ -9853,10 +9853,10 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>cbx_1__dep_has_ufio__4</sender>
+   <sender>cbx_1__dep_has_client__4</sender>
    <signal>currentIndexChanged_id(int)</signal>
    <receiver>dock_people_info</receiver>
-   <slot>update_ufio_id(int)</slot>
+   <slot>update_client_id(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>94</x>

@@ -72,7 +72,7 @@ class Worker(basePK, Base):
 
 main = Table("main", metadata,
              Column("id", Integer, primary_key=True),
-             Column("ufio_id", Integer),
+             Column("client_id", Integer),
              Column("contracts_id", Integer),
              Column("dep_id", Integer),
              Column("worker_id", Integer),
@@ -83,7 +83,7 @@ main = Table("main", metadata,
 
 updatable_main = Table("updatable_main", metadata,
                        Column("id", Integer, primary_key=True),
-                       Column("ufio_id", Integer),
+                       Column("client_id", Integer),
                        Column("contracts_id", Integer),
                        Column("dep_id", Integer),
                        Column("worker_id", Integer),
@@ -98,12 +98,12 @@ updatable_main = Table("updatable_main", metadata,
 #     id = Column(Integer, primary_key=True)
 
 
-class Ufio(basePK, Base):
-    ufio = Column(String, unique=True)
-    contracts = relationship("Contracts", backref="ufio")
-    uhc = relationship("Ufio_has_category", backref="ufio")  # also Ufio_has_category.ufio
-    ufiobirth = Column(Date)
-    ufioDeath = Column(Date)
+class Client(basePK, Base):
+    client = Column(String, unique=True)
+    contracts = relationship("Contracts", backref="client")
+    uhc = relationship("Client_has_category", backref="client")  # also Client_has_category.client
+    clientbirth = Column(Date)
+    clientDeath = Column(Date)
     ESRN = Column(BigInteger)
     snils = Column(String)
     prim = Column(String)
@@ -125,27 +125,27 @@ class Ufio(basePK, Base):
             return False
 
 
-class Updatable_ufio(basePK, Base):
-    ufio = Column(String, unique=True)
-    # contracts = relationship("Contracts", backref="ufio")
-    # uhc = relationship("Ufio_has_category", backref="ufio")  # also Ufio_has_category.ufio
-    ufiobirth = Column(Date)
-    ufioDeath = Column(Date)
+class Updatable_client(basePK, Base):
+    client = Column(String, unique=True)
+    # contracts = relationship("Contracts", backref="client")
+    # uhc = relationship("Client_has_category", backref="client")  # also Client_has_category.client
+    clientbirth = Column(Date)
+    clientDeath = Column(Date)
     ESRN = Column(BigInteger)
     snils = Column(String)
     prim = Column(String)
 
 
-class Ufio_has_category(def_table_name, Base):
-    ufio_id = RefernceCol("Ufio", primary_key=True)
+class Client_has_category(def_table_name, Base):
+    client_id = RefernceCol("Client", primary_key=True)
     category_id = RefernceCol("Category", primary_key=True)
-    # cat= relationship("Category", back_populates="Ufio_has_category")
+    # cat= relationship("Category", back_populates="Client_has_category")
     get_date = Column(Date, default=datetime.date(dt.now().year, 1, 1))
 
 
 class Category(basePK, Base):
     category = Column(String, unique=True)
-    uhc = relationship("Ufio_has_category", backref="cat")
+    uhc = relationship("Client_has_category", backref="cat")
 
 
 class Ripso(basePK, Base):
@@ -160,10 +160,10 @@ class Dep(basePK, Base):
 
 class Contracts(basePK, Base):
     contracts = Column(String, unique=True)
-    ufio_id = RefernceCol("Ufio")
+    client_id = RefernceCol("Client")
     dep_id = RefernceCol("Dep")
     ripso_id = RefernceCol("Ripso")
-    # ufio = relationship("Ufio", back_populates="Contracts")
+    # client = relationship("Client", back_populates="Contracts")
     add_info = relationship("Add_info", backref="contracts")
     max_last_pay = relationship("Max_pay_in_month", backref="contracts")
     ippsuNum = Column(Integer)
@@ -194,10 +194,10 @@ class Contracts(basePK, Base):
 
 class Updatable_contracts(basePK, Base):
     contracts = Column(String, unique=True)
-    ufio_id = RefernceCol("Ufio")
+    client_id = RefernceCol("Client")
     dep_id = RefernceCol("Dep")
     ripso_id = RefernceCol("Ripso")
-    # ufio = relationship("Ufio", back_populates="Contracts")
+    # client = relationship("Client", back_populates="Contracts")
     # add_info = relationship("Add_info", backref="contracts")
     # max_last_pay = relationship("Max_pay_in_month", backref="contracts")
     ippsuNum = Column(Integer)
@@ -219,7 +219,7 @@ class Max_pay_in_month(def_table_name, Base):
 
     def counted_perc(self):
         servform_id = self.servform_id
-        ivov = self.contracts.ufio.ivov_at(self.pddate.month, self.pddate.year)
+        ivov = self.contracts.client.ivov_at(self.pddate.month, self.pddate.year)
         if ivov:
             if servform_id == 4:
                 return 0.1
@@ -306,10 +306,10 @@ def profiled():
 
 
 if __name__ == "__main__":
-    # for instance in session.query(Ufio).order_by(Ufio.id):
-    #     print(instance.ufio, instance.id)
+    # for instance in session.query(Client).order_by(Client.id):
+    #     print(instance.client, instance.id)
     with profiled():
         if not session:
             session = SD.sess
-        for instance in session.query(Contracts).order_by(Contracts.ufio_id):
-            print(instance.ufio.ufio, instance.ufio_id, instance.id, instance.in_month_meta_pay(1, 2020))
+        for instance in session.query(Contracts).order_by(Contracts.client_id):
+            print(instance.client.client, instance.client_id, instance.id, instance.in_month_meta_pay(1, 2020))

@@ -448,13 +448,13 @@ class PrepareDocument(base_pd):
         return max_to_pay
 
     @staticmethod
-    def prepare_serv_table(ufio, start, end):
+    def prepare_serv_table(client, start, end):
         sqlstart = QDate(start).toString(SQL_DATE_FORMAT)
         sqlend = QDate(end).toString(SQL_DATE_FORMAT)
         mserv = WD.models("_main_cprice__where_for_fill",
                           "_main_cprice",
-                          "_main_cprice.ufio_id = {} and vdate between '{}' and '{}' ".format(
-                              ufio, sqlstart, sqlend),  # dep,  and main_cprice.dep_id = {1}
+                          "_main_cprice.client_id = {} and vdate between '{}' and '{}' ".format(
+                              client, sqlstart, sqlend),  # dep,  and main_cprice.dep_id = {1}
                           False)
         header = ["contracts_id", "dep_id", "tnum", "serv", "serv_text", "uslnum", "price", "to_pay", "servform_id",
                   "serv_id",
@@ -507,7 +507,7 @@ class PrepareDocument(base_pd):
 
     @staticmethod
     @try_wrapper
-    def print_doc(ufio, month, year, dep, contr="__all__", do_document="акт", vdate=None):
+    def print_doc(client, month, year, dep, contr="__all__", do_document="акт", vdate=None):
         start = 0
         end = 0
         if month == 13:
@@ -526,7 +526,7 @@ class PrepareDocument(base_pd):
             #############################
             # create serv table
             # ---------------------------
-            table = PrepareDocument.prepare_serv_table(ufio, start, end)
+            table = PrepareDocument.prepare_serv_table(client, start, end)
             if not table:
                 error("Нет услуг в этот период")
                 return False
@@ -564,9 +564,9 @@ class PrepareDocument(base_pd):
             contr_count = contr_mdl.rowCount()
         elif vdate:
             from data_worker import get_contract
-            contr = get_contract(ufio, QDate(vdate).toString(SQL_DATE_FORMAT), dep)
+            contr = get_contract(client, QDate(vdate).toString(SQL_DATE_FORMAT), dep)
             if contr == -1:
-                debug("No contract for %s, %s, %s", ufio, QDate(vdate).toString(SQL_DATE_FORMAT), dep)
+                debug("No contract for %s, %s, %s", client, QDate(vdate).toString(SQL_DATE_FORMAT), dep)
                 pass  # TODO: other department
             contr_set.add(contr)
             contr_mdl = PrepareDocument.prepare_contr_model(contr_set)
@@ -604,7 +604,7 @@ class PrepareDocument(base_pd):
             #############################
             # get add_info datamodel
             # ---------------------------
-            PrepareDocument.fill_add_info(dl, ufio, cur_contr, cend)
+            PrepareDocument.fill_add_info(dl, client, cur_contr, cend)
             # TODO: warning if services not in any contract
             #############################
             # livemin
@@ -922,7 +922,7 @@ class PrepareDocument(base_pd):
         #     start = contr_start
 
     @staticmethod
-    def fill_add_info(dl, ufio, contr, end):
+    def fill_add_info(dl, client, contr, end):
         """get add_info datamodel"""
         sqlend = end
         if not isinstance(end, str):
@@ -930,10 +930,10 @@ class PrepareDocument(base_pd):
         #############################
         # get fio
         # ---------------------------
-        ufiomdl = WD.models("ufio")
-        dl["telephone"] = ufiomdl.data_by_id(ufio, ufiomdl.index_of_col("phone"))
-        dl["birthdate"] = ufiomdl.data_by_id(ufio, ufiomdl.index_of_col("ufiobirth")).toString("dd.MM.yyyy")
-        dl["snils"] = ufiomdl.data_by_id(ufio, ufiomdl.index_of_col("snils"))
+        clientmdl = WD.models("client")
+        dl["telephone"] = clientmdl.data_by_id(client, clientmdl.index_of_col("phone"))
+        dl["birthdate"] = clientmdl.data_by_id(client, clientmdl.index_of_col("clientbirth")).toString("dd.MM.yyyy")
+        dl["snils"] = clientmdl.data_by_id(client, clientmdl.index_of_col("snils"))
 
         #############################
         # model add_info
@@ -951,7 +951,7 @@ class PrepareDocument(base_pd):
         #############################
         # fio 2
         # ---------------------------
-        dl["fio"] = ufiomdl.data_by_id(ufio, ufiomdl.index_of_col("ufio"), 0, "ufio_id")
+        dl["fio"] = clientmdl.data_by_id(client, clientmdl.index_of_col("client"), 0, "client_id")
         dl["fio2"] = dl["fio"]
         dl["fiocrop"] = PrepareDocument.cropFIO(dl["fio"])
         dl["fiocrop2"] = dl["fiocrop"]

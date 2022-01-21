@@ -53,11 +53,11 @@ class Worker(QObject):
 
 
 @add_method(Worker)
-def _get_money_in_month(ufio_id, vdate):
+def _get_money_in_month(client_id, vdate):
     # TODO: if isVisible()
     # servform_id = self.servform_id
     res = []
-    if ufio_id and vdate:  # and servform_id
+    if client_id and vdate:  # and servform_id
         month = vdate.month()
         year = vdate.year()
         _, endday = calendar.monthrange(year, month)
@@ -66,13 +66,13 @@ def _get_money_in_month(ufio_id, vdate):
         sql = """
             call contract_pay_inmonth(?, ?, ?)
         """
-        # .format(ufio_id, start.toString(SQL_DATE_FORMAT), end.toString(SQL_DATE_FORMAT))  # , servform_id
+        # .format(client_id, start.toString(SQL_DATE_FORMAT), end.toString(SQL_DATE_FORMAT))  # , servform_id
         #############################
         # get data and store it in self._get_money_in_month
         # ---------------------------
         qry = QSqlQuery(SD.get_db)
         qry.prepare(sql)
-        qry.addBindValue(ufio_id)
+        qry.addBindValue(client_id)
         qry.addBindValue(start.toString(SQL_DATE_FORMAT))
         qry.addBindValue(end.toString(SQL_DATE_FORMAT))
         ok = qry.exec_()
@@ -84,7 +84,7 @@ def _get_money_in_month(ufio_id, vdate):
                     d[qry.record().fieldName(i)] = qry.value(i)
                 res.append(d)
             if not res:
-                res.append({"to_pay": 0, "perc": 0, "uslnum": 0, "ufio_id": ufio_id, "servform_id": 0, "contracts": 0,
+                res.append({"to_pay": 0, "perc": 0, "uslnum": 0, "client_id": client_id, "servform_id": 0, "contracts": 0,
                             "contracts_id": 0, "startdate": 0, "enddate": 0, "vdate_m": start.month(),
                             "vdate_y": start.year()})
         else:
@@ -98,7 +98,7 @@ class infoQDockWidget(QDockWidget):
 
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.ufio_id = 0
+        self.client_id = 0
         self.servform_id = 0
         self.vdate: QDate = QDate.currentDate()
         self._latest_money_in_month = []
@@ -116,17 +116,17 @@ class infoQDockWidget(QDockWidget):
         self.worker.resultReady.connect(self.latest_money_in_month, Qt.QueuedConnection)
         self.lqueue = LifoQueue()
         self.worker.queue = self.lqueue
-        self.to_send = [self.ufio_id, self.vdate]
+        self.to_send = [self.client_id, self.vdate]
         self.outdated = False
 
-    # def get_money_current_month(self, model, ufio_id):
+    # def get_money_current_month(self, model, client_id):
     #     if self.vdate:
     #         vdate = self.vdate
     #     else:
     #         vdate = QDate.currentDate()
     #     pass
     #
-    # def get_money(self, ufio_id, vdate):
+    # def get_money(self, client_id, vdate):
     #     pass
 
     def get_money_in_month(self):
@@ -136,7 +136,7 @@ class infoQDockWidget(QDockWidget):
                 self.vdate = QDate.currentDate()
             with QMutexLocker(self.worker.results_lock):
                 self.to_send.clear()
-                self.to_send.append(self.ufio_id)
+                self.to_send.append(self.client_id)
                 self.to_send.append(self.vdate)
             self.thread_operate.emit("", self.to_send)
             self.outdated = False
@@ -166,9 +166,9 @@ class infoQDockWidget(QDockWidget):
         return self._latest_money_in_month
 
     @Slot(int)
-    def update_ufio_id(self, ufio_id: int):
-        if self.ufio_id != ufio_id:
-            self.ufio_id = ufio_id
+    def update_client_id(self, client_id: int):
+        if self.client_id != client_id:
+            self.client_id = client_id
             Qtimer_runner(self.get_money_in_month, 300, "get_money_in_month")
 
     @Slot(QDate)
@@ -204,7 +204,7 @@ class infoQDockWidget(QDockWidget):
             cbxsf: myQComboBox = ui.cbx_1_servform
             for i, data in enumerate(data_array):
                 if i == 0:
-                    ui.qle_last_fio.setText(WD.get_data_from_model_name("ufio", "ufio", data["ufio_id"]))
+                    ui.qle_last_fio.setText(WD.get_data_from_model_name("client", "client", data["client_id"]))
                     ui.qle_last_fio.setCursorPosition(0)
                     ui.qle_topay.setText("{0:0.2f}".format((data["to_pay"])))
                     try:

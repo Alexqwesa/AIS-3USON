@@ -42,32 +42,32 @@ BEGIN
     grant select on kcson._information_schema_columns to info;
     grant select on kcson._active_dep to info;
 
-    grant select on kcson._bm_dep_has_ufio to info;
-    grant select on kcson._bm_dep_has_ufio_other_year to info;
-    grant select on kcson._bm_dep_has_ufio_year to info;
-    grant select on kcson._categ_list_ufio to info;
+    grant select on kcson._bm_dep_has_client to info;
+    grant select on kcson._bm_dep_has_client_other_year to info;
+    grant select on kcson._bm_dep_has_client_year to info;
+    grant select on kcson._categ_list_client to info;
     grant select on kcson._contr_has_main to info;
     grant select on kcson._contr_has_serv_predv to info;
     grant select on kcson._contracts to info;
     grant select on kcson._contracts_has_serv to info;
     grant select on kcson._dep_has_contracts to info;
     grant select on kcson._dep_has_main to info;
-    grant select on kcson._dep_has_new_ufio to info;
+    grant select on kcson._dep_has_new_client to info;
     grant select on kcson._dep_has_ripso to info;
-    grant select on kcson._dep_has_ufio to info;
-    grant select on kcson._dep_has_ufio_blocked_in_year to info;
-    grant select on kcson._dep_has_ufio_by_ripso to info;
-    grant select on kcson._dep_has_ufio_contracts to info;
-    grant select on kcson._dep_has_ufio_count_2month to info;
-    grant select on kcson._dep_has_ufio_count_main_year to info;
-    grant select on kcson._dep_has_ufio_count_month to info;
-    grant select on kcson._dep_has_ufio_ended to info;
-    grant select on kcson._dep_has_ufio_ending to info;
-    grant select on kcson._dep_has_ufio_ripso to info;
-    grant select on kcson._dep_has_ufio_ripso_or_contracts to info;
-    grant select on kcson._dep_has_ufio_year to info;
+    grant select on kcson._dep_has_client to info;
+    grant select on kcson._dep_has_client_blocked_in_year to info;
+    grant select on kcson._dep_has_client_by_ripso to info;
+    grant select on kcson._dep_has_client_contracts to info;
+    grant select on kcson._dep_has_client_count_2month to info;
+    grant select on kcson._dep_has_client_count_main_year to info;
+    grant select on kcson._dep_has_client_count_month to info;
+    grant select on kcson._dep_has_client_ended to info;
+    grant select on kcson._dep_has_client_ending to info;
+    grant select on kcson._dep_has_client_ripso to info;
+    grant select on kcson._dep_has_client_ripso_or_contracts to info;
+    grant select on kcson._dep_has_client_year to info;
     grant select on kcson._dep_has_worker to info;
-    grant select on kcson._g_categ_list_ufio_for_dep_for_year to info;
+    grant select on kcson._g_categ_list_client_for_dep_for_year to info;
     grant select on kcson._g_serv_list_for_dep_for_year to info;
     grant select on kcson._g_serv_total_you to info;
     grant select on kcson._main__months to info;
@@ -82,12 +82,12 @@ BEGIN
     grant select on kcson._main_serv_name_static to info;
     grant select on kcson._serv_activ to info;
     grant select on kcson._serv_total to info;
-    grant select on kcson._ufio to info;
-    grant select on kcson._ufio_has_category_for_last_ufio to info;
-    grant select on kcson._ufio_has_contracts to info; # TODO: delete this
-    grant select on kcson._ufio_has_invalid_contracts to info;
-    grant select on kcson._ufio_has_main to info;
-    grant select on kcson._ufio_has_valid_contracts to info;
+    grant select on kcson._client to info;
+    grant select on kcson._client_has_category_for_last_client to info;
+    grant select on kcson._client_has_contracts to info; # TODO: delete this
+    grant select on kcson._client_has_invalid_contracts to info;
+    grant select on kcson._client_has_main to info;
+    grant select on kcson._client_has_valid_contracts to info;
     grant select on kcson._user_has_main to info;
     grant select on kcson._user_has_main_limit30 to info;
     grant select on kcson._user_has_main_today to info;
@@ -108,8 +108,8 @@ BEGIN
     grant select on kcson.dep_has_main to info;
     grant select on kcson.dep_has_ripso to info;
     grant select on kcson.dep_has_serv to info;
-    grant select on kcson.dep_has_ufio_by_contr to info;
-    grant select on kcson.dep_has_ufio_by_ripso to info;
+    grant select on kcson.dep_has_client_by_contr to info;
+    grant select on kcson.dep_has_client_by_ripso to info;
     grant select on kcson.dep_has_worker to info;
     grant select on kcson.dep_total_serv to info;
     grant select on kcson.dep_total_supserv1 to info;
@@ -156,21 +156,21 @@ BEGIN
     grant select on kcson.tables_checksums to info;
     grant select on kcson.test to info;
     grant select on kcson.total_cprice_in_month to info;
-    grant select on kcson.ufio to info;
-    grant select on kcson.ufio_has_category to info;
+    grant select on kcson.client to info;
+    grant select on kcson.client_has_category to info;
     grant select on kcson.ugroup to info;
-    grant select on kcson.ugroup_has_ufio to info;
+    grant select on kcson.ugroup_has_client to info;
     grant select on kcson.ui_select_fiolist to info;
     grant select on kcson.upd_by to info;
-    -- grant select on kcson.updatable_2__dep_has_ufio to info;
+    -- grant select on kcson.updatable_2__dep_has_client to info;
     -- grant select on kcson.updatable__dep_has_contracts to info;
     -- grant select on kcson.updatable__dep_has_main to info;
-    -- grant select on kcson.updatable__dep_has_ufio to info;
+    -- grant select on kcson.updatable__dep_has_client to info;
     -- grant select on kcson.updatable__user_has_main to info;
     -- grant select on kcson.updatable_contracts to info;
     -- grant select on kcson.updatable_contracts_has_serv to info;
     -- grant select on kcson.updatable_main to info;
-    -- grant select on kcson.updatable_ufio to info;
+    -- grant select on kcson.updatable_client to info;
     grant select on kcson.user_has_serv to info;
     grant select on kcson.worker to info;
     grant select on kcson.worker_has_dep to info;
@@ -211,12 +211,12 @@ BEGIN
     # ---------------------------
     grant worker to specialist;
     grant reporter to specialist;
-    grant select on kcson._dep_has_ufio_more to info;
+    grant select on kcson._dep_has_client_more to info;
     grant select on kcson._contr_has_add_info to specialist;
     grant select on kcson._dep_has_add_info to specialist;
-    grant select on kcson._ufio_has_add_info to specialist;
+    grant select on kcson._client_has_add_info to specialist;
     grant select on kcson.add_info to specialist;
-    grant select on kcson.add_info_for_ufio to specialist;
+    grant select on kcson.add_info_for_client to specialist;
 
     grant select on kcson.updatable__contr_has_add_info to specialist;
     grant select on kcson.updatable__dep_has_add_info to specialist;
@@ -232,18 +232,18 @@ BEGIN
     # grant perm. to trusted_specialist role
     # ---------------------------
     grant specialist to trusted_specialist;
-    grant select,update,insert on kcson.updatable_2__dep_has_ufio TO trusted_specialist;
+    grant select,update,insert on kcson.updatable_2__dep_has_client TO trusted_specialist;
     grant select,update,insert on kcson.updatable__contr_has_add_info TO trusted_specialist;
     grant select,update,insert on kcson.updatable__dep_has_add_info TO trusted_specialist;
     grant select,update,insert on kcson.updatable__dep_has_contracts TO trusted_specialist;
     grant select,update,insert on kcson.updatable__dep_has_main TO trusted_specialist;
-    grant select,update,insert on kcson.updatable__dep_has_ufio TO trusted_specialist;
+    grant select,update,insert on kcson.updatable__dep_has_client TO trusted_specialist;
     grant select,update,insert on kcson.updatable__user_has_main TO trusted_specialist;
     grant select,update,insert on kcson.updatable_add_info TO trusted_specialist;
     grant select,update,insert on kcson.updatable_contracts TO trusted_specialist;
     grant select,update,insert on kcson.updatable_contracts_has_serv TO trusted_specialist;
     grant select,update,insert on kcson.updatable_main TO trusted_specialist;
-    grant select,update,insert on kcson.updatable_ufio TO trusted_specialist;
+    grant select,update,insert on kcson.updatable_client TO trusted_specialist;
 
 
 
@@ -253,13 +253,13 @@ BEGIN
 
 
     grant select,update,insert on kcson._contracts_has_serv TO trusted_specialist;
-    grant select,update,insert on kcson.ufio_has_category TO trusted_specialist;
+    grant select,update,insert on kcson.client_has_category TO trusted_specialist;
     #############################
     # grant perm. to manager role
     # ---------------------------
     grant trusted_specialist to manager;
     grant select,insert on kcson.category TO manager;
-    grant select,insert,delete on kcson._dhw_has_ufio TO manager;
+    grant select,insert,delete on kcson._dhw_has_client TO manager;
    
 
     #############################
@@ -542,7 +542,7 @@ delimiter $$
 create procedure kcson.contract_pay_inmonth( IN UID INT, IN STARTDATE DATE, IN ENDDATE DATE)
 sql security definer
 BEGIN
-	IF EXISTS (SELECT 1 FROM `main` where ufio_id = UID and vdate BETWEEN STARTDATE AND ENDDATE)
+	IF EXISTS (SELECT 1 FROM `main` where client_id = UID and vdate BETWEEN STARTDATE AND ENDDATE)
 	THEN
 		
 	        with ai as (
@@ -553,7 +553,7 @@ BEGIN
 	                JOIN
 	            contracts c ON pd.contracts_id = c.id
 	        WHERE
-	            c.ufio_id = UID AND pddate <= ENDDATE
+	            c.client_id = UID AND pddate <= ENDDATE
 	        ORDER BY pddate DESC
 	        LIMIT 1
 	                )
@@ -562,7 +562,7 @@ BEGIN
 	        SUM(((`f`.`perc` * `f`.`uslnum`) * `f`.`price`)) AS to_pay,
 	        f.perc,
 	        `f`.`uslnum` as uslnum,
-	        f.ufio_id,
+	        f.client_id,
 	        f.servform_id,
 	        f.contracts,
 	        f.contracts_id,       
@@ -575,7 +575,7 @@ BEGIN
 	            `m`.`id` AS `id`,
 	                `m`.`contracts_id` AS `contracts_id`,
 	                `m`.`dep_id` AS `dep_id`,
-	                `m`.`ufio_id` AS `ufio_id`,
+	                `m`.`client_id` AS `client_id`,
 	                `m`.`serv_id` AS `serv_id`,
 	                `m`.`vdate` AS `vdate`,
 	                `m`.`uslnum` AS `uslnum`,
@@ -594,9 +594,9 @@ BEGIN
 	        JOIN `contracts` `c` ON ((`m`.`contracts_id` = `c`.`id`)))
 	        JOIN `ripso` `r` ON ((`c`.`ripso_id` = `r`.`id`)))) `f`
 	    WHERE
-	        ufio_id = UID 
+	        client_id = UID
 	            AND vdate BETWEEN STARTDATE AND ENDDATE
-	    GROUP BY ufio_id, vdate_m , vdate_y, servform_id, perc, f.contracts_id;
+	    GROUP BY client_id, vdate_m , vdate_y, servform_id, perc, f.contracts_id;
 	    # and servform_id = 
 	  
 	else 
@@ -610,7 +610,7 @@ BEGIN
 			join contracts c on
 				pd.contracts_id = c.id
 			where
-				c.ufio_id = UID
+				c.client_id = UID
 				and pddate <= ENDDATE
 			order by
 				pddate desc
@@ -624,7 +624,7 @@ BEGIN
 		                        `ai`) AS `perc`,
 	        0 AS `price`,
 			0 as uslnum,
-			ufio_id,
+			client_id,
 			servform_id,
 			contracts,
 			c.id as contracts_id,
@@ -635,7 +635,7 @@ BEGIN
 		from
 			contracts c JOIN `ripso` `r` ON ((`c`.`ripso_id` = `r`.`id`))
 		where
-			c.ufio_id = UID
+			c.client_id = UID
 			and 
 			c.startdate <= ENDDATE and
 			c.enddate >= STARTDATE;

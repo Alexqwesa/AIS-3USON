@@ -37,7 +37,7 @@ def _SD_fill_dict():
     #     time.sleep(0.3)
     # QApplication.instance().processEvents()
     with SD.key_lock:
-        for mname in ["dep", "ufio", "worker", "contracts", "_serv_activ"]:
+        for mname in ["dep", "client", "worker", "contracts", "_serv_activ"]:
             model = WD.models(mname)
             col_name = mname + "_id"
             for i in range(model.rowCount()):
@@ -59,11 +59,11 @@ class _safe_share_data(QObject):
     lock = QRecursiveMutex()
     lock__db_connections = QRecursiveMutex()
     # TODO: use several locks
-    last_ufio_changed: Signal = Signal(int)
+    last_client_changed: Signal = Signal(int)
     last_contr_changed: Signal = Signal(int)
     last_dep_changed: Signal = Signal(int)
     last_tab_changed: Signal = Signal(str)
-    last_ufio_filter_changed: Signal = Signal(int)
+    last_client_filter_changed: Signal = Signal(int)
     server_changed: Signal = Signal(str)
     # port_changed: Signal = Signal(int)
     user_changed: Signal = Signal(str)
@@ -118,10 +118,10 @@ class _safe_share_data(QObject):
         # sql config
         # ---------------------------
         self._dbconnected = False
-        self.__last_ufio = None
+        self.__last_client = None
         self.__last_contr = None
         self.__last_dep = 0
-        self.__last_ufio_filter = None
+        self.__last_client_filter = None
         self.__last_year = QDate.currentDate().year()
         self.__last_tab = None
         self.__activate_signals = False
@@ -172,7 +172,7 @@ class _safe_share_data(QObject):
         if not self.preinited_models:
             self.preinited_models = True
             from logic.data_worker import WD
-            for mname in ["dep", "ufio", "contracts", "worker", "_serv_activ"]:
+            for mname in ["dep", "client", "contracts", "worker", "_serv_activ"]:
                 _ = WD.models(mname)
             # return _SD_fill_dict()
             self.thread = threading.Thread(None, _SD_fill_dict, "init_thread")
@@ -387,21 +387,21 @@ class _safe_share_data(QObject):
         return self.__user
 
     #############################
-    # set/get last_ufio
+    # set/get last_client
     # ---------------------------
-    def set_last_ufio(self, var):
+    def set_last_client(self, var):
         if var is None:
             var = -1
         with QMutexLocker(self.lock):
-            self.__last_ufio = var
+            self.__last_client = var
             # self.lock.release()
-            ret = SD.line_query("select set_last_ufio(%s) " % var)
-        self.last_ufio_changed.emit(var)
+            ret = SD.line_query("select set_last_client(%s) " % var)
+        self.last_client_changed.emit(var)
         return ret
 
     @property
-    def last_ufio(self):
-        return self.__last_ufio
+    def last_client(self):
+        return self.__last_client
 
     #############################
     # set/get last_dep
@@ -467,19 +467,19 @@ class _safe_share_data(QObject):
         return self.__last_tab
 
     #############################
-    # set/get last_ufio_filter
+    # set/get last_client_filter
     # ---------------------------
-    def set_last_ufio_filter(self, var):
+    def set_last_client_filter(self, var):
         if var is None:
             var = 0
         with QMutexLocker(self.lock):
-            self.__last_ufio_filter = var
+            self.__last_client_filter = var
             # self.lock.release()
-            self.last_ufio_filter_changed.emit(var)
+            self.last_client_filter_changed.emit(var)
 
     @property
-    def last_ufio_filter(self):
-        return self.__last_ufio_filter
+    def last_client_filter(self):
+        return self.__last_client_filter
 
     #############################
     # set/get last_contr
@@ -817,8 +817,8 @@ class _safe_share_data(QObject):
             # self.set_last_dep()
             # self.line_query("call GET_PRIVILEGES()", 0, db)
             self.QSqlAllTables = db.tables(QSql.AllTables)
-            self.set_last_ufio(self.line_query("select get_last_ufio() ", 0, db))
-            # self.set_last_ufio_filter(self.line_query("select get_last_ufio_filter() ", 0, db))
+            self.set_last_client(self.line_query("select get_last_client() ", 0, db))
+            # self.set_last_client_filter(self.line_query("select get_last_client_filter() ", 0, db))
             sc = str(self.line_query("call GET_VER()", 0, db))
             if sc is None:
                 sc = "0"
@@ -991,13 +991,13 @@ class _ui_data(QObject):
     @property
     def dock_pinfo_uid(self):
         if self.main_window:
-            return self.main_window.ui.dock_people_info.ufio_id
+            return self.main_window.ui.dock_people_info.client_id
         return 0
 
     @dock_pinfo_uid.setter
     def dock_pinfo_uid(self, uid):
         if self.main_window:
-            self.main_window.ui.dock_people_info.update_ufio_id(uid)
+            self.main_window.ui.dock_people_info.update_client_id(uid)
 
     def threads_quit(self):
         for thd in self.qthreads:

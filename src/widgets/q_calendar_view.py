@@ -36,7 +36,7 @@ class QCalendarView(_myQCalendar):
         #############################
         # current state
         # ---------------------------
-        self.cur_ufio_id = 0
+        self.cur_client_id = 0
         self.cur_serv_id = 0
         self.cur_dep_has_worker_id = 0
         self.cur_worker_id = 0
@@ -191,17 +191,17 @@ class QCalendarView(_myQCalendar):
         self.updateCells()
 
     @Slot(int, str)
-    def set_flt_ufio(self, val, get_val_from_model_name):
+    def set_flt_client(self, val, get_val_from_model_name):
         with QMutexLocker(self.lock):
             # if self.set_first_filter_model(val, get_val_from_model_name):
-            self.cur_ufio_id = val  # WD.get_data_from_model_name(get_val_from_model_name, "id", val)
+            self.cur_client_id = val  # WD.get_data_from_model_name(get_val_from_model_name, "id", val)
             _ = self.current_full_filter  # just update
         self.updateCells()
         # if self.init_model():
-        #     flt = self.get_filter_by("ufio_id")
+        #     flt = self.get_filter_by("client_id")
         #     if flt_str != flt.currentFilterRegularExpression():
         #         flt.setFilterFixedString(flt_str)
-        #         debug("flt_ufio_id - %s", flt_str)
+        #         debug("flt_client_id - %s", flt_str)
         #         self.updateCells()
 
     def paintCell(self, painter: QPainter, rect: QRect, date: QDate):
@@ -269,7 +269,7 @@ class QCalendarView(_myQCalendar):
             with QMutexLocker(self.locks("current_full_filter")):
                 # model = self.super_model()  # all except real model and last filter
                 cff = "__none__"
-                cff += "{}|{}|{}".format(self.cur_ufio_id, self.cur_worker_id, self.cur_serv_id)
+                cff += "{}|{}|{}".format(self.cur_client_id, self.cur_worker_id, self.cur_serv_id)
                 # debug("current_full_filter = %s", cff)
                 self._cur_filter_full = cff
                 return cff
@@ -319,7 +319,7 @@ class QCalendarView(_myQCalendar):
             # with QMutexLocker(self.cache_lock):
             self.super_model().setFilter(self.last_filter_str)  # 43
             self.invalidation_needed.emit()  # TODO: only invalidate if first cache entry is old > 5 min
-            header = "ufio_id,worker_id,serv_id,uslnum,vdate".split(",")
+            header = "client_id,worker_id,serv_id,uslnum,vdate".split(",")
             if self.super_model().filter() != FALSE_STR:
                 with QMutexLocker(self.locks("current_full_filter")):
                     # cff = self._cur_filter_full
@@ -328,7 +328,7 @@ class QCalendarView(_myQCalendar):
                     if not self.cache_inited:
                         ct = self.cached[self.date_center.toString(SQL_DATE_FORMAT)]
                         self.ct_uslnum = ct.header.index("uslnum")
-                        self.ct_ufio_id = ct.header.index("ufio_id")
+                        self.ct_client_id = ct.header.index("client_id")
                         self.ct_worker_id = ct.header.index("worker_id")
                         self.ct_serv_id = ct.header.index("serv_id")
                         self.ct_vdate = ct.header.index("vdate")
@@ -348,7 +348,7 @@ class QCalendarView(_myQCalendar):
         with QMutexLocker(self.lock):
             if not self.cache_start:
                 return
-            cur_ufio_id = self.cur_ufio_id
+            cur_client_id = self.cur_client_id
             cur_worker_id = self.cur_worker_id
             cur_serv_id = self.cur_serv_id
             cur_serv_id_list = self.cur_serv_id_list
@@ -364,15 +364,15 @@ class QCalendarView(_myQCalendar):
                 ct: TableByRowsWHeader = self.cached[self.date_center.toString(SQL_DATE_FORMAT)]  # check date here
             except KeyError:
                 return
-            all_ufio = not cur_ufio_id
+            all_client = not cur_client_id
             all_wrkr = not cur_worker_id
             all_serv = not cur_serv_id
             if self.cache_inited:
-                uslnum, ufio_id, worker_id, serv_id, vdate = self.ct_uslnum, self.ct_ufio_id, \
+                uslnum, client_id, worker_id, serv_id, vdate = self.ct_uslnum, self.ct_client_id, \
                                                              self.ct_worker_id, self.ct_serv_id, self.ct_vdate
             else:
                 uslnum = ct.header.index("uslnum")
-                ufio_id = ct.header.index("ufio_id")
+                client_id = ct.header.index("client_id")
                 worker_id = ct.header.index("worker_id")
                 serv_id = ct.header.index("serv_id")
                 vdate = ct.header.index("vdate")
@@ -381,7 +381,7 @@ class QCalendarView(_myQCalendar):
                 for x in ct
                 if
                 (x[vdate] == date) and
-                (all_ufio or x[ufio_id] == cur_ufio_id) and
+                (all_client or x[client_id] == cur_client_id) and
                 (all_wrkr or x[worker_id] == cur_worker_id) and
                 (all_serv or x[serv_id] in cur_serv_id_list)
             ])
@@ -615,7 +615,7 @@ class myQCalendar(QCalendarView):  # QCalendarParalled
     add: Signal = Signal(QDate)
     inwork: Signal = Signal(bool)
     inwork_total: Signal = Signal(int)
-    signal_cur_ufio_left_serv: Signal = Signal(int)
+    signal_cur_client_left_serv: Signal = Signal(int)
     inwork_status: Signal = Signal(str)
     can_start: Signal = Signal(bool)
 
@@ -658,7 +658,7 @@ class myQCalendar(QCalendarView):  # QCalendarParalled
         self.qa_save_inwork.setShortcut(QKeySequence(self.tr("Ctrl+S", "Save selected for add of services")))
         self.qa_save_inwork.triggered.connect(self.save_changes)
         self.addAction(self.qa_save_inwork)
-        self._cur_ufio_left_serv = 0
+        self._cur_client_left_serv = 0
         self._first_date = -1
         self._first_status = [0, ""]
         self._last_status = [0, ""]
@@ -916,25 +916,25 @@ class myQCalendar(QCalendarView):  # QCalendarParalled
             self.table.model().index(1, 1))  # first row and col - is a headers
         last_date = self.date_by_index(
             self.table.model().index(6, 7))
-        # if (self.cur_ufio_id, self.cur_serv_id, first_date) != (self.last_ufio_id, self.last_serv_id, self._first_date):
-        #     self.last_ufio_id= self.cur_serv_id
+        # if (self.cur_client_id, self.cur_serv_id, first_date) != (self.last_client_id, self.last_serv_id, self._first_date):
+        #     self.last_client_id= self.cur_serv_id
         #     self.last_serv_id= self.cur_serv_id
         #     self._first_date = first_date
         from logic.data_worker import WD
-        self._first_status = WD.get_status_for(self.cur_ufio_id, self.cur_serv_id, first_date)
-        self._last_status = WD.get_status_for(self.cur_ufio_id, self.cur_serv_id, last_date)
+        self._first_status = WD.get_status_for(self.cur_client_id, self.cur_serv_id, first_date)
+        self._last_status = WD.get_status_for(self.cur_client_id, self.cur_serv_id, last_date)
         sleft_1, ret_status = self._first_status
         sleft_2, ret_status2 = self._last_status
         #############################
         # emit status
         # ---------------------------
         if ret_status == ret_status2:
-            self.signal_cur_ufio_left_serv.emit(sleft_1 - total)
+            self.signal_cur_client_left_serv.emit(sleft_1 - total)
             self.inwork_status.emit(ret_status)
         else:
             self.inwork_status.emit(ret_status + " | " + ret_status2)
-            sleft_, ret_status = WD.get_status_for(self.cur_ufio_id, self.cur_serv_id, self.selectedDate())
-            self.signal_cur_ufio_left_serv.emit(sleft_ - total)
+            sleft_, ret_status = WD.get_status_for(self.cur_client_id, self.cur_serv_id, self.selectedDate())
+            self.signal_cur_client_left_serv.emit(sleft_ - total)
 
     @Slot(int, str)
     def set_flt_serv_model(self, val, get_val_from_model_name):
@@ -942,8 +942,8 @@ class myQCalendar(QCalendarView):  # QCalendarParalled
         self.emit_inwork_total()
 
     @Slot(int, str)
-    def set_flt_ufio(self, val, get_val_from_model_name):
-        super().set_flt_ufio(val, get_val_from_model_name)
+    def set_flt_client(self, val, get_val_from_model_name):
+        super().set_flt_client(val, get_val_from_model_name)
         self.emit_inwork_total()
 
     @Slot(int, str)
@@ -999,7 +999,7 @@ class myQCalendar(QCalendarView):  # QCalendarParalled
         qry_data = [
             0,
             dep,
-            self.cur_ufio_id,
+            self.cur_client_id,
             self.cur_serv_id,
             vdate,
             serv,
@@ -1056,7 +1056,7 @@ class myQCalendar(QCalendarView):  # QCalendarParalled
     def set_input_state(self, state):
         """ check: can input state be changed and send signal if yes"""
         if state:
-            if self.cur_ufio_id and self.cur_dep_has_worker_id and self.cur_serv_id \
+            if self.cur_client_id and self.cur_dep_has_worker_id and self.cur_serv_id \
                     and "," not in self.cur_serv_id:
                 self.__input_state = True
             else:

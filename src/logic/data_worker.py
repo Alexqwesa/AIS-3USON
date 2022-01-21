@@ -35,7 +35,7 @@ class _data_worker(QObject):
     # new_model_ready: Signal = Signal(str)
     contracts_id_changed: Signal = Signal(str, str)
     serv_id_changed: Signal = Signal(str, str)
-    ufio_id_changed: Signal = Signal(str, str)
+    client_id_changed: Signal = Signal(str, str)
     signals = {}
     __instance = None
 
@@ -260,13 +260,13 @@ class _data_worker(QObject):
         mname = tname[len(prefix):]
         return self.models(mname, use_relations=use_relations)
 
-    def get_status_for(self, ufio, serv, vdate) -> [int, str]:
+    def get_status_for(self, client, serv, vdate) -> [int, str]:
         tr = self.tr
-        if not ufio:
+        if not client:
             return 0, tr("укажите получателя СУ")
         if not serv:
             return 0, tr("укажите услугу")
-        contr = get_contract(ufio, vdate)
+        contr = get_contract(client, vdate)
         if contr > 0:
             #############################
             # get services by contract
@@ -348,7 +348,7 @@ class _data_worker(QObject):
         """
 
         :param: qry_data = (0 - contracts_id,
-                1 - dep_id, 2 - ufio_id, 3 - serv_id,
+                1 - dep_id, 2 - client_id, 3 - serv_id,
                 4 - vdate, 5 - uslnum, 6 - dep_has_worker_id, 7 - note[, 8 - worker_id]):
         :return: ret, msg
         """
@@ -390,12 +390,12 @@ class _data_worker(QObject):
 WD = _data_worker()
 
 
-def get_contract_sql(ufio, vdate, dep=None):
+def get_contract_sql(client, vdate, dep=None):
     if not dep:
         dep = SD.last_dep
     qry = QSqlQuery(SD.get_db)
     qry.prepare("select GET_CONTR (?, ?, ?) as contr")
-    qry.addBindValue(ufio)
+    qry.addBindValue(client)
     qry.addBindValue(vdate)
     qry.addBindValue(dep)
     ret = qry.exec_()
@@ -406,7 +406,7 @@ def get_contract_sql(ufio, vdate, dep=None):
         return -1
 
 
-def get_contract(ufio, vdate, dep=None):
+def get_contract(client, vdate, dep=None):
     if not dep:
         dep = SD.last_dep
     #############################
@@ -420,7 +420,7 @@ def get_contract(ufio, vdate, dep=None):
     #############################
     # get data from model
     # ---------------------------
-    crows_ = cmodel.rows_by_id(ufio, "ufio_id")
+    crows_ = cmodel.rows_by_id(client, "client_id")
     crows = [r for r in crows_ if
              not r.siblingAtColumn(blocked).data(Qt.EditRole) and
              r.siblingAtColumn(cend).data(Qt.EditRole) >= vdate >= r.siblingAtColumn(cstart).data(Qt.EditRole)]
@@ -428,12 +428,12 @@ def get_contract(ufio, vdate, dep=None):
     # return contract number
     # ---------------------------
     if len(crows) == 0:
-        critical('Нет договора в этот период для этого человека в этом отделении %s - %s - %s', ufio, vdate, dep)
+        critical('Нет договора в этот период для этого человека в этом отделении %s - %s - %s', client, vdate, dep)
         return 0
     elif len(crows) == 1:
         return crows[0].siblingAtColumn(0).data(Qt.EditRole)
     else:
-        critical("Несколько договоров в этот период для этого человека в этом отделении %s - %s - %s", ufio, vdate, dep)
+        critical("Несколько договоров в этот период для этого человека в этом отделении %s - %s - %s", client, vdate, dep)
         return -1
 
 
@@ -441,7 +441,7 @@ def get_contract(ufio, vdate, dep=None):
 def insert_main_table(arg):
     """insert into main
         :param: arg = (0 - contracts_id,
-                1 - dep_id, 2 - ufio_id, 3 - serv_id,
+                1 - dep_id, 2 - client_id, 3 - serv_id,
                 4 - vdate, 5 - uslnum, 6 - dep_has_worker_id, 7 - note[, 8 - worker_id]):
         :return: ret, rid, last_error, add_msg """
     #############################
@@ -458,7 +458,7 @@ def insert_main_table(arg):
         pass
     qry = QSqlQuery(SD.get_db)
     qry.prepare("""insert into updatable_main (
-               contracts_id, dep_id, ufio_id, serv_id,
+               contracts_id, dep_id, client_id, serv_id,
                vdate, uslnum, dep_has_worker_id, note) 
                VALUES(?, ?, ?, ?, ?, ?, ?, ?)""")  # , worker_id
     for val in arg:

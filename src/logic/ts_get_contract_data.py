@@ -51,20 +51,20 @@ def calc_perc_for_contract(contract_id, pddate):
     # ---------------------------
     # from models.ts_models import tsSqlTableModel
     contracts_model = WD.models("contracts")
-    ufio_id = contracts_model.data_by_id(
+    client_id = contracts_model.data_by_id(
         contract_id,
-        contracts_model.tsFieldNames.index("ufio_id")
+        contracts_model.tsFieldNames.index("client_id")
     )
     ripso_id = contracts_model.data_by_id(
         contract_id,
         contracts_model.tsFieldNames.index("ripso_id")
     )
-    # ivov = WD.get_rows_from_model_name("ufio_has_category", ufio_id, id_field="ufio_id")
-    uhc = WD.models("ufio_has_category")
+    # ivov = WD.get_rows_from_model_name("client_has_category", client_id, id_field="client_id")
+    uhc = WD.models("client_has_category")
     ivov = uhc.data_by_id(
-        ufio_id,
+        client_id,
         contracts_model.tsFieldNames.index("ripso_id"),
-        id_field="ufio_id",
+        id_field="client_id",
         id1=5,
         id_field1="category_id"
     )
@@ -114,20 +114,20 @@ def perc_for(index: QModelIndex):
     # ---------------------------
     # from models.ts_models import tsSqlTableModel
     contracts_model = WD.models("contracts")
-    ufio_id = contracts_model.data_by_id(
+    client_id = contracts_model.data_by_id(
         contract_id,
-        contracts_model.tsFieldNames.index("ufio_id")
+        contracts_model.tsFieldNames.index("client_id")
     )
     ripso_id = contracts_model.data_by_id(
         contract_id,
         contracts_model.tsFieldNames.index("ripso_id")
     )
-    # ivov = WD.get_rows_from_model_name("ufio_has_category", ufio_id, id_field0="ufio_id")
-    uhc = WD.models("ufio_has_category")
+    # ivov = WD.get_rows_from_model_name("client_has_category", client_id, id_field0="client_id")
+    uhc = WD.models("client_has_category")
     ivov = uhc.data_by_id(
-        ufio_id,
+        client_id,
         contracts_model.tsFieldNames.index("ripso_id"),
-        id_field="ufio_id",
+        id_field="client_id",
         id1=5,
         id_field1="category_id"
     )

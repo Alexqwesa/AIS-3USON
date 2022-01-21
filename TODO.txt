@@ -16,7 +16,7 @@
  - shadow model for each model? (in case of select update)
  - priority of model select, in names?
  - F3 - new row with total of current tableview
- - maybe use list instead combobox for contracts of ufio
+ - maybe use list instead combobox for contracts of client
  - DepQComboBox on_showEvent show first filtered value
  - on set_where - create new model in async, store 10 last models, mark widgets update_in_progress
  - on data change select one day, then switch to month

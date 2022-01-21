@@ -31,9 +31,9 @@ class tsQTableViewDockInfo(QTableView):
             col = None
             if hasattr(self, "super_model"):
                 if self.super_model():
-                    if "ufio_id" in self.super_model().tsFieldNames:
-                        col = self.super_model().tsFieldNames.index("ufio_id")
-                    if "ufio" in self.super_model().tsFieldNames and "snils" in self.super_model().tsFieldNames:
+                    if "client_id" in self.super_model().tsFieldNames:
+                        col = self.super_model().tsFieldNames.index("client_id")
+                    if "client" in self.super_model().tsFieldNames and "snils" in self.super_model().tsFieldNames:
                         col = self.super_model().tsFieldNames.index("id")
                     if col is not None:
                         selection: QItemSelectionModel = self.selectionModel()
@@ -470,14 +470,14 @@ class add_info_QTableView(myQTableView):
         if self.model():
             if id0:
                 from logic.data_worker import WD
-                val = WD.get_data_from_model_name("ufio", "ufio", id0)
+                val = WD.get_data_from_model_name("client", "client", id0)
                 dic = {"curFIO": val}
                 qry_str = """
                     SELECT psp, address
                     from 
                     add_info ai
                     join  contracts c on ai.contracts_id = c.id
-                    where c.ufio_id = {}
+                    where c.client_id = {}
                     order by pddate desc
                     limit 1
                     """.format(id0)

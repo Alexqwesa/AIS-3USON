@@ -310,7 +310,7 @@ class tsItemDelegate(tsPureItemDelegate):
                         # don't allow change some fields after save
                         # ---------------------------
                         if self.cmodel.row_id(self.pcindex.row())[:3] != "new_":
-                            if self.cname in ["serv_id", "dep_id", "contracts_id", "ufio_id"]:
+                            if self.cname in ["serv_id", "dep_id", "contracts_id", "client_id"]:
                                 return
                         #############################
                         # only show workers from department
@@ -321,15 +321,15 @@ class tsItemDelegate(tsPureItemDelegate):
                     if self.cmodel.info.cut_name == "add_info":
                         if self.cname == "contracts_id":
                             #############################
-                            # show only contracts with same ufio
+                            # show only contracts with same client
                             # ---------------------------
-                            if "_by_ufio_id" in self.parent().objectName() or "_where_ufio_id" in self.parent().objectName():
+                            if "_by_client_id" in self.parent().objectName() or "_where_client_id" in self.parent().objectName():
                                 if not self.add_info_contracts:
                                     self.add_info_contracts = tsQsfpModel_no_new(self, "private_contracts", "_contracts")
                                 # editor.setModelColumn(self.add_info_contracts.super_model().tsFieldNames.index("contracts"))
                                 self.add_info_contracts.setFilterKeyColumn(
-                                    self.add_info_contracts.super_model().tsFieldNames.index("ufio_id"))
+                                    self.add_info_contracts.super_model().tsFieldNames.index("client_id"))
                                 self.add_info_contracts.setFilterRegularExpression(
-                                    "^" + str(self.parent().super_model().default_values["ufio_id"]) + "$")
+                                    "^" + str(self.parent().super_model().default_values["client_id"]) + "$")
                                 editor.setModel(self.add_info_contracts)
         return editor

@@ -205,7 +205,7 @@ class MyAppConnect(QtWidgets.QMainWindow):
         self.tab_client = clstab_client(self)
         self.tab_fio_dep = clstab_fio_dep(self)
         self.tab_client_contr = clstab_client_contr(self)
-        self.tab_ufio = clstab_ufio(self)
+        self.tab_client = clstab_client(self)
         self.tab_total = clstab_total(self)
         self.tab_admin_1 = clstab_admin(self)
         self.tab_journal = clstab_journal(self)
@@ -225,7 +225,7 @@ class MyAppConnect(QtWidgets.QMainWindow):
         qa_dock_people_info_icon = qta.icon('mdi.information-outline')
         people_profile = qta.icon('ei.address-book')
         worker_list = qta.icon('mdi.account')
-        ui.btn_goto_ufio.setIcon(people_profile)
+        ui.btn_goto_client.setIcon(people_profile)
         ui.btn_goto_worker.setIcon(worker_list)
         ui.qa_dock_people_info.setIcon(qa_dock_people_info_icon)
         ui.action_undo.setIcon(
@@ -434,17 +434,17 @@ class MyAppMenu(MyAppConnect):
 
     @Slot()
     def on_qa_load_all_models_triggered(self):
-        all_models = ['dep', '_dep_has_ufio', 'contracts', 'stub_model', '_contr_has_serv',
-                      '_ufio_has_add_info',
-                      'ufio_has_category', 'ufio', '_dep_has_ufio_by_ripso', 'dep_has_worker', 'worker', 'ripso',
-                      '_g_categ_list_ufio_for_dep_for_year', 'ui_select_fiolist', '_serv_activ', '_dep_has_main',
+        all_models = ['dep', '_dep_has_client', 'contracts', 'stub_model', '_contr_has_serv',
+                      '_client_has_add_info',
+                      'client_has_category', 'client', '_dep_has_client_by_ripso', 'dep_has_worker', 'worker', 'ripso',
+                      '_g_categ_list_client_for_dep_for_year', 'ui_select_fiolist', '_serv_activ', '_dep_has_main',
                       'user_has_serv', 'serv', 'ripso_has_serv', 'dep_has_ripso', 'setting', 'notifies', 'holiday']
         for m in all_models:
             _ = WD.models(m)
 
     @Slot()
     def on_qa_menu_pd_triggered(self):
-        PrepareDocument.print_doc(SD.last_ufio, QDate.currentDate().month(), SD.last_year, SD.last_dep,
+        PrepareDocument.print_doc(SD.last_client, QDate.currentDate().month(), SD.last_year, SD.last_dep,
                                   str(SD.last_contr),
                                   "соглашениеПД", QDate.currentDate())
 
@@ -453,19 +453,19 @@ class MyAppMenu(MyAppConnect):
         month, ok = QInputDialog.getInt(self, "", self.tr(f"Выберите месяц {SD.last_year} года"),
                                         QDate.currentDate().month(), 1, 12, 1)
         if ok:
-            PrepareDocument.print_doc(SD.last_ufio, month, SD.last_year, SD.last_dep, "__all__", "акт")
+            PrepareDocument.print_doc(SD.last_client, month, SD.last_year, SD.last_dep, "__all__", "акт")
 
     @Slot()
     def on_qa_invoice_triggered(self):
         month, ok = QInputDialog.getInt(self, "", self.tr(f"Выберите месяц {SD.last_year} года"),
                                         QDate.currentDate().month(), 1, 12, 1)
         if ok:
-            PrepareDocument.print_doc(SD.last_ufio, month, SD.last_year, SD.last_dep, "__all__", "квитанция")
+            PrepareDocument.print_doc(SD.last_client, month, SD.last_year, SD.last_dep, "__all__", "квитанция")
 
     @Slot()
     def on_qa_contract_triggered(self):
         if SD.last_contr:
-            PrepareDocument.print_doc(SD.last_ufio, 13, SD.last_year, SD.last_dep, str(SD.last_contr), "договор")
+            PrepareDocument.print_doc(SD.last_client, 13, SD.last_year, SD.last_dep, str(SD.last_contr), "договор")
         else:
             QMessageBox.warning(UI.main_window,
                                 self.tr("Не выбран договор!"),
@@ -475,7 +475,7 @@ class MyAppMenu(MyAppConnect):
     @Slot()
     def on_qa_predv_contract_triggered(self):
         if SD.last_contr:
-            PrepareDocument.print_doc(SD.last_ufio, 13, SD.last_year, SD.last_dep, str(SD.last_contr),
+            PrepareDocument.print_doc(SD.last_client, 13, SD.last_year, SD.last_dep, str(SD.last_contr),
                                       "предварительный расчет оплаты")
         else:
             QMessageBox.warning(UI.main_window,
@@ -485,7 +485,7 @@ class MyAppMenu(MyAppConnect):
 
     @Slot()
     def on_qa_request_triggered(self):
-        PrepareDocument.print_doc(SD.last_ufio, 13, SD.last_year, SD.last_dep, str(SD.last_contr), "заявление",
+        PrepareDocument.print_doc(SD.last_client, 13, SD.last_year, SD.last_dep, str(SD.last_contr), "заявление",
                                   QDate.currentDate())
 
     @Slot()
@@ -507,7 +507,7 @@ class MyAppMenu(MyAppConnect):
         ui = self.ui
         tab = ui.tabMain.set_active_tab_by_name("tab_client")
         tab.findChild(myQTabWidget).set_active_tab_by_name("tab_people_main")
-        cbox: myQComboBox = ui.cbx_1__dep_has_ufio
+        cbox: myQComboBox = ui.cbx_1__dep_has_client
         cbox.setCurrentIndex(0)
 
     @Slot()
@@ -517,10 +517,10 @@ class MyAppMenu(MyAppConnect):
         tab.findChild(myQTabWidget).set_active_tab_by_name("tab_people_of_dep")
 
     @Slot()
-    def on_qa_tab__dep_has_ufio_more_triggered(self):
+    def on_qa_tab__dep_has_client_more_triggered(self):
         ui = self.ui
         tab = ui.tabMain.set_active_tab_by_name("tab_fio_dep")
-        tab.findChild(myQTabWidget).set_active_tab_by_name("tab__dep_has_ufio_more")
+        tab.findChild(myQTabWidget).set_active_tab_by_name("tab__dep_has_client_more")
 
     @Slot()
     def on_qa_tab_journal_triggered(self):
@@ -590,7 +590,7 @@ class MyAppMenu(MyAppConnect):
         self.set_current_font(+1)
 
     @Slot()
-    def on_qa_add_ufio_triggered(self):
+    def on_qa_add_client_triggered(self):
         pass
 
     @Slot()
@@ -651,10 +651,10 @@ class MyApp(MyAppMenu):  # , Ui_MainWindow
 
     def test_worker(self):
         pass
-        # function_replacer("widgets.custumQWidgets", "myQCalendar", "set_flt_ufio")
+        # function_replacer("widgets.custumQWidgets", "myQCalendar", "set_flt_client")
         # function_replacer("widgets.custumQWidgets", "myQCalendar", "add_new_date")
         function_replacer("widgets.custumQWidgets", "myQCalendar", "paintCell")
-        function_replacer("models.ts_models", "clstab_client_contr", "on_cbx_1__dep_has_ufio_currentIndexChanged")
+        function_replacer("models.ts_models", "clstab_client_contr", "on_cbx_1__dep_has_client_currentIndexChanged")
         function_replacer("main_pyqt_frontend", "myApp", "on_action_curDep_triggered")
         # function_replacer("widgets.custumQWidgets", "tsQsfpModel_no_new", "filterAcceptsRow")
         # res, ok = QInputDialog.getText(self, "", self.tr("Введите имя виджет"), QLineEdit.Normal,
@@ -752,7 +752,7 @@ class MyApp(MyAppMenu):  # , Ui_MainWindow
 
     def on_btn_upd_fio_list(self):
         ui = self.ui
-        mdl = ui.table__dep_has_ufio__by_ufio.model()
+        mdl = ui.table__dep_has_client__by_client.model()
         if isinstance(mdl, tsQsfpModel):
             mdl.setFilterFixedString("")
         mdl.super_model().select()

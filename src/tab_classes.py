@@ -141,8 +141,8 @@ class clstab_pcat(QOBase):
     @Slot(bool)
     def on_tab_pcat_widgetVisibilityChanged(self, state):
         ui = self.ui
-        cbox: myQComboBox = ui.cbx_1__dep_has_ufio
-        table: myQTableView = ui.table_ufio_has_category__by_ufio_id
+        cbox: myQComboBox = ui.cbx_1__dep_has_client
+        table: myQTableView = ui.table_client_has_category__by_client_id
         table.set_first_filter_exact(cbox.currentText())
 
 
@@ -282,30 +282,30 @@ class clstab_fio_dep(QOBase):
             ui.label_fio_filter.setText(tr("Быстрый фильтр:"))
 
     @Slot()
-    def on_btn_goto_ufio_from_list_clicked(self):
+    def on_btn_goto_client_from_list_clicked(self):
         ui = self.ui
         tabs: myQTabWidget = ui.tabMain
-        table: myQTableView = ui.table__dep_has_ufio__by_ufio
+        table: myQTableView = ui.table__dep_has_client__by_client
         indexes = table.selectedIndexes()
         if len(indexes) == 1:
             uid = indexes[0].siblingAtColumn(0).data(Qt.EditRole)
             if uid:
                 tabs.set_active_tab_by_name("tab_client")
-                cbxs: myQComboBox = ui.cbx_1__dep_has_ufio
+                cbxs: myQComboBox = ui.cbx_1__dep_has_client
                 cbxs.set_current_index_id(uid)
 
     @Slot()
     def on_btn_goto_serv_from_list_clicked(self):
         ui = self.ui
         tabs: myQTabWidget = ui.tabMain
-        table: myQTableView = ui.table__dep_has_ufio__by_ufio
+        table: myQTableView = ui.table__dep_has_client__by_client
         indexes = table.selectedIndexes()
         if len(indexes) == 1:
             uid = indexes[0].siblingAtColumn(0).data(Qt.EditRole)
             if uid:
                 tabs.set_active_tab_by_name("tab_add_serv")
-                cbxs: myQComboBox = ui.cbx_1__dep_has_ufio__3
-                cbxd: myQComboBox = ui.cbx_1__dep_has_ufio__2
+                cbxs: myQComboBox = ui.cbx_1__dep_has_client__3
+                cbxd: myQComboBox = ui.cbx_1__dep_has_client__2
                 cbxs.set_current_index_id(uid)
                 cbxd.set_current_index_id(uid)
 
@@ -338,7 +338,7 @@ class clstab_client_contr(QOBase):
         if (not self.__init) and SD._dbconnected:
             ui = self.ui
             self.__init = True
-            cbx_contracts = ui.cbx_1_contracts__by_ufio_id
+            cbx_contracts = ui.cbx_1_contracts__by_client_id
             #############################
             # get inited model
             # ---------------------------
@@ -369,13 +369,13 @@ class clstab_client_contr(QOBase):
             dm.addMapping(ui.qle_contracts2, mdl.record().indexOf("contracts2"))
 
     # @Slot(int)
-    # def on_cbx_1__dep_has_ufio_currentIndexChanged(self, ind):
+    # def on_cbx_1__dep_has_client_currentIndexChanged(self, ind):
     #     ui = self.ui
-    #     uid = ui.cbx_1__dep_has_ufio.current_id()
-    #     if uid and uid != SD.last_ufio:
+    #     uid = ui.cbx_1__dep_has_client.current_id()
+    #     if uid and uid != SD.last_client:
     #         pass
-    #         SD.set_last_ufio(uid)
-    #         # WD.ufio_id_changed.emit("ufio_id", str(uid))
+    #         SD.set_last_client(uid)
+    #         # WD.client_id_changed.emit("client_id", str(uid))
     #         cbx: myQComboBox =cbx_contracts
     #         cbx.super_model().select()
     #         # TODO: set default contract
@@ -384,18 +384,18 @@ class clstab_client_contr(QOBase):
 #############################
 # Main Client Tab
 # ---------------------------
-class clstab_ufio(QOBase):
+class clstab_client(QOBase):
     def __init__(self, parent):
         super().__init__(parent)
 
     @Slot(str)
-    def on_qle_table_ufio_filter_textChanged(self, text: str):
+    def on_qle_table_client_filter_textChanged(self, text: str):
         ui = self.ui
         tr = self.tr
         if text:
-            ui.label_ufio.setText(tr("Используется фильтр:"))
+            ui.label_client.setText(tr("Используется фильтр:"))
         else:
-            ui.label_ufio.setText(tr("Быстрый фильтр:"))
+            ui.label_client.setText(tr("Быстрый фильтр:"))
 
 
 #############################
@@ -416,7 +416,7 @@ class clstab_client(QOBase):
             self.__init = True
             tr = self.tr
             ui = self.ui
-            fdm: tsQDataWidgetMapper = ui.cbx_1__dep_has_ufio.dm
+            fdm: tsQDataWidgetMapper = ui.cbx_1__dep_has_client.dm
             self.dm_set.add(fdm)
             meta_init = False
             try:
@@ -427,14 +427,14 @@ class clstab_client(QOBase):
             if not meta_init:
                 self.__init = False
                 return
-            fdm.addMapping(ui.qle_FIO, mdl.record().indexOf("ufio"))
+            fdm.addMapping(ui.qle_FIO, mdl.record().indexOf("client"))
             fdm.addMapping(ui.sp_ESRN, mdl.record().indexOf("ESRN"))
             fdm.addMapping(ui.qle_SNILS, mdl.record().indexOf("snils"))
-            fdm.addMapping(ui.dateEdit_birth, mdl.record().indexOf("ufiobirth"))
-            fdm.addMapping(ui.dateEdit_death, mdl.record().indexOf("ufioDeath"))
+            fdm.addMapping(ui.dateEdit_birth, mdl.record().indexOf("clientbirth"))
+            fdm.addMapping(ui.dateEdit_death, mdl.record().indexOf("clientDeath"))
             fdm.addMapping(ui.lineEdit_phone, mdl.record().indexOf("phone"))
             fdm.addMapping(ui.pte_note, mdl.record().indexOf("prim"))
-            table_view_main_by_dep: myQTableView = ui.table_main__where_ufio_id__by_dep_id
+            table_view_main_by_dep: myQTableView = ui.table_main__where_client_id__by_dep_id
             table_view_main_by_dep.init_model(True)
             table_view_main_by_dep.set_first_filter_exact(SD.last_dep)  # TODO: need complex department support here
 
@@ -443,12 +443,12 @@ class clstab_client(QOBase):
         ui = self.ui
         tabs: myQTabWidget = ui.tabMain
         for fiodata in self.dm_set:
-            if "ufio" in fiodata.super_model().tsFieldNames:
+            if "client" in fiodata.super_model().tsFieldNames:
                 tabs.set_active_tab_by_name("tab_add_serv")
                 uid = fiodata.current_id()
                 if uid:
-                    cbxs: myQComboBox = ui.cbx_1__dep_has_ufio__3
-                    cbxd: myQComboBox = ui.cbx_1__dep_has_ufio__2
+                    cbxs: myQComboBox = ui.cbx_1__dep_has_client__3
+                    cbxd: myQComboBox = ui.cbx_1__dep_has_client__2
                     cbxs.set_current_index_id(uid)
                     cbxd.set_current_index_id(uid)
 
@@ -459,10 +459,10 @@ class clstab_client(QOBase):
     @Slot(bool)
     def on_tab_client_widgetVisibilityChanged(self, state):
         self._init()
-        table: myQTableView = self.ui.table__ufio_has_add_info__where_ufio_id__by_contracts_id
+        table: myQTableView = self.ui.table__client_has_add_info__where_client_id__by_contracts_id
         table.init_model_filter()
         table.hideColumn(0)
-        table1: myQTableView = self.ui.table__ufio_has_add_info__where_ufio_id__by_ufio_id
+        table1: myQTableView = self.ui.table__client_has_add_info__where_client_id__by_client_id
         table1.init_model_filter()
         table1.hideColumn(0)
 
@@ -473,7 +473,7 @@ class clstab_services(QOBase):
     # ---------------------------
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.ui.comboFIO = self.ui.cbx_1__dep_has_ufio__2
+        self.ui.comboFIO = self.ui.cbx_1__dep_has_client__2
         self.ui.comboW = self.ui.cbx_1__dep_has_worker
         # self.ui.comboW2 = self.ui.
         self.ui.comboServ = self.ui.cbx_1__serv_activ__dis_total
@@ -508,7 +508,7 @@ class clstab_services(QOBase):
         self.set_qle_serv_left()
 
     @Slot(int)
-    def on_cbx_1__dep_has_ufio__2_currentIndexChanged(self, ind):
+    def on_cbx_1__dep_has_client__2_currentIndexChanged(self, ind):
         # comboFio
         self.set_qle_serv_left()
         # self.upd_info_docker_for_tab(ind)
@@ -525,13 +525,13 @@ class clstab_services(QOBase):
         # collect data
         # ---------------------------
         ui = self.ui
-        ufio = get_cbox_data(ui.comboFIO)
+        client = get_cbox_data(ui.comboFIO)
         serv = get_cbox_data(ui.comboServ)
         vdate = ui.qle_date.date()
         #############################
         # display status for data
         # ---------------------------
-        sleft, ret_status = WD.get_status_for(ufio, serv, vdate)
+        sleft, ret_status = WD.get_status_for(client, serv, vdate)
         fio = get_cbox_data(ui.comboFIO, 1)
         ret_status = ret_status + " - (" + str(fio) + ")"
         ui.qle_serv_left.setText(ret_status)
@@ -559,9 +559,9 @@ class clstab_services(QOBase):
         if self.main_model:
             model = self.main_model
             # view = active tab table ?
-            ufio = get_cbox_data(ui.comboFIO)
+            client = get_cbox_data(ui.comboFIO)
             vdate = ui.qle_date.date()
-            contract = get_contract(ufio, vdate, SD.last_dep)
+            contract = get_contract(client, vdate, SD.last_dep)
             amount = ui.qleAmount.value()
             if amount <= 0:  # TODO: more checks
                 msg = self.tr("Услуга не добавлена, введите колличество услуг")
@@ -582,12 +582,12 @@ class clstab_services(QOBase):
                     "dep_has_worker_id": get_cbox_data(ui.comboW),
                     "note": ui.qleNote.text(),
                     "uslnum": amount,
-                    "ufio_id": ufio
+                    "client_id": client
                 }
-                SD.start_edit(None, model, model.row_id(model.special_row), "ufio_id")
+                SD.start_edit(None, model, model.row_id(model.special_row), "client_id")
                 ce = model.insert_row(rec)
                 ret = True
-                # SD.journal.pending_edit = cellEdit(None, model, model.row_id(model.special_row), "ufio_id")
+                # SD.journal.pending_edit = cellEdit(None, model, model.row_id(model.special_row), "client_id")
                 # ret, add_msg = WD.ins_main(qry_data)
                 if ui.chk_autosave.checkState():
                     ret = ce.save()
@@ -642,14 +642,14 @@ class clstab_services(QOBase):
         tabs_adm.set_active_tab_by_name("tab_workers")
 
     @Slot()
-    def on_btn_goto_ufio_clicked(self):
+    def on_btn_goto_client_clicked(self):
         ui = self.ui
         tabs: myQTabWidget = ui.tabMain
-        cbxs: myQComboBox = ui.cbx_1__dep_has_ufio__2
+        cbxs: myQComboBox = ui.cbx_1__dep_has_client__2
         uid = cbxs.current_id()
         if uid:
             tabs.set_active_tab_by_name("tab_client")
-            cbxs: myQComboBox = ui.cbx_1__dep_has_ufio
+            cbxs: myQComboBox = ui.cbx_1__dep_has_client
             cbxs.set_current_index_id(uid)
 
 
@@ -668,7 +668,7 @@ class clstab_table_serv(QOBase):
         table.setModel(self.model)
         # self.table_sel_model = table.selectionModel()
         self.table._selectionChanged.connect(self.update_last_select_cell)
-        self.cbx_contracts: myQComboBox = ui.cbx_1_contracts__by_ufio_id__2
+        self.cbx_contracts: myQComboBox = ui.cbx_1_contracts__by_client_id__2
         self.cbx_contracts.set_val_after_filter = 1
 
     @Slot(QItemSelection, QItemSelection)
@@ -739,28 +739,28 @@ class clstab_table_serv(QOBase):
                     return
 
     @Slot()
-    def on_btn_goto_ufio_2_clicked(self):
+    def on_btn_goto_client_2_clicked(self):
         ui = self.ui
         tabs: myQTabWidget = ui.tabMain
-        cbxs: myQComboBox = ui.cbx_1__dep_has_ufio__4
-        ufio_id = cbxs.current_id()
-        if ufio_id:
+        cbxs: myQComboBox = ui.cbx_1__dep_has_client__4
+        client_id = cbxs.current_id()
+        if client_id:
             tabs.set_active_tab_by_name("tab_client")
-            cbxs: myQComboBox = ui.cbx_1__dep_has_ufio
-            cbxs.set_current_index_id(ufio_id)
+            cbxs: myQComboBox = ui.cbx_1__dep_has_client
+            cbxs.set_current_index_id(client_id)
             cbxs_contr: myQComboBox = self.cbx_contracts
             contracts_id = cbxs_contr.current_id()
             if contracts_id:
                 tabs.set_active_tab_by_name("tab_client_contr")
-                cbxs_contr: myQComboBox = ui.cbx_1_contracts__by_ufio_id
+                cbxs_contr: myQComboBox = ui.cbx_1_contracts__by_client_id
                 cbxs_contr.set_current_index_id(contracts_id)
 
     @Slot(int)
-    def on_cbx_1__dep_has_ufio__4_currentIndexChanged(self, ind):
+    def on_cbx_1__dep_has_client__4_currentIndexChanged(self, ind):
         ui = self.ui
-        uid = ui.cbx_1__dep_has_ufio__4.current_id()
-        if uid and uid != SD.last_ufio:
-            SD.set_last_ufio(uid)
+        uid = ui.cbx_1__dep_has_client__4.current_id()
+        if uid and uid != SD.last_client:
+            SD.set_last_client(uid)
 
 
 class clstab_total(QOBase):
