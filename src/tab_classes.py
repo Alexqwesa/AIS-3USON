@@ -290,7 +290,7 @@ class clstab_fio_dep(QOBase):
         if len(indexes) == 1:
             uid = indexes[0].siblingAtColumn(0).data(Qt.EditRole)
             if uid:
-                tabs.set_active_tab_by_name("tab_client")
+                tabs.set_active_tab_by_name("tab_clients")
                 cbxs: myQComboBox = ui.cbx_1__dep_has_client
                 cbxs.set_current_index_id(uid)
 
@@ -314,7 +314,7 @@ class clstab_client_contr(QOBase):
     def __init__(self, parent):
         super().__init__(parent)
         ui = self.ui
-        self.me: myQWidget = ui.tab_client
+        self.me: myQWidget = ui.tab_clients
         # self.dbconnect = False
         self.__init = False
 
@@ -401,11 +401,11 @@ class clstab_client(QOBase):
 #############################
 # Main Client Tab
 # ---------------------------
-class clstab_client(QOBase):
+class clstab_clients(QOBase):
     def __init__(self, parent):
         super().__init__(parent)
         ui = self.ui
-        self.me: myQWidget = ui.tab_client
+        self.me: myQWidget = ui.tab_clients
         #############################
         # custom init
         # ---------------------------
@@ -457,7 +457,7 @@ class clstab_client(QOBase):
     # ---------------------------
     # noinspection PyArgumentList
     @Slot(bool)
-    def on_tab_client_widgetVisibilityChanged(self, state):
+    def on_tab_clients_widgetVisibilityChanged(self, state):
         self._init()
         table: myQTableView = self.ui.table__client_has_add_info__where_client_id__by_contracts_id
         table.init_model_filter()
@@ -648,7 +648,7 @@ class clstab_services(QOBase):
         cbxs: myQComboBox = ui.cbx_1__dep_has_client__2
         uid = cbxs.current_id()
         if uid:
-            tabs.set_active_tab_by_name("tab_client")
+            tabs.set_active_tab_by_name("tab_clients")
             cbxs: myQComboBox = ui.cbx_1__dep_has_client
             cbxs.set_current_index_id(uid)
 
@@ -676,7 +676,7 @@ class clstab_table_serv(QOBase):
         debug(this)
 
     @Slot(bool)
-    def on_tab_client_widgetVisibilityChanged(self, state):
+    def on_tab_clients_widgetVisibilityChanged(self, state):
         self._init()
 
     def _init(self):
@@ -745,7 +745,7 @@ class clstab_table_serv(QOBase):
         cbxs: myQComboBox = ui.cbx_1__dep_has_client__4
         client_id = cbxs.current_id()
         if client_id:
-            tabs.set_active_tab_by_name("tab_client")
+            tabs.set_active_tab_by_name("tab_clients")
             cbxs: myQComboBox = ui.cbx_1__dep_has_client
             cbxs.set_current_index_id(client_id)
             cbxs_contr: myQComboBox = self.cbx_contracts

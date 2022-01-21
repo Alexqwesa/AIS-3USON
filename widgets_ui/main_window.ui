@@ -1753,7 +1753,7 @@ p, li { white-space: pre-wrap; }
           </item>
          </layout>
         </widget>
-        <widget class="myQWidget" name="tab_client">
+        <widget class="myQWidget" name="tab_clients">
          <attribute name="title">
           <string>Все люди в организации</string>
          </attribute>
@@ -1796,7 +1796,7 @@ p, li { white-space: pre-wrap; }
           <item>
            <layout class="QGridLayout" name="gridLayout_2">
             <item row="1" column="0">
-             <widget class="myQTabWidget" name="tabs_client">
+             <widget class="myQTabWidget" name="tabs_client2">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -7964,7 +7964,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>table__dep_has_main__where_vdate__by_vdate_by_you</tabstop>
   <tabstop>table__dep_has_main__where_vdate__by_vdate_by_serv_id</tabstop>
   <tabstop>table__client_has_valid_contracts__by_client</tabstop>
-  <tabstop>tabs_client</tabstop>
+  <tabstop>tabs_client2</tabstop>
   <tabstop>btn_upd_fio_list</tabstop>
   <tabstop>pushButton_2</tabstop>
   <tabstop>table__dep_has_client_by_ripso__by_client</tabstop>
@@ -8059,7 +8059,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>cbx_1__dep_has_client</tabstop>
   <tabstop>btn_next</tabstop>
   <tabstop>cbx_1_ui_select_fiolist__2</tabstop>
-  <tabstop>tabs_client</tabstop>
+  <tabstop>tabs_client2</tabstop>
   <tabstop>dateEdit_death</tabstop>
   <tabstop>lineEdit_phone</tabstop>
   <tabstop>dateEdit_birth</tabstop>

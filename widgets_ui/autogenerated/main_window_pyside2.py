@@ -1324,18 +1324,18 @@ class Ui_MainWindow(object):
         self.gridLayout_37.addWidget(self.qle_fio_filter, 1, 1, 1, 1)
 
         self.tabMain.addTab(self.tab_fio_dep, "")
-        self.tab_client = myQWidget()
-        self.tab_client.setObjectName(u"tab_client")
-        self.verticalLayout_2 = QVBoxLayout(self.tab_client)
+        self.tab_clients = myQWidget()
+        self.tab_clients.setObjectName(u"tab_clients")
+        self.verticalLayout_2 = QVBoxLayout(self.tab_clients)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.gridLayout_9 = QGridLayout()
         self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.qle_table_client_filter = myQLineEdit(self.tab_client)
+        self.qle_table_client_filter = myQLineEdit(self.tab_clients)
         self.qle_table_client_filter.setObjectName(u"qle_table_client_filter")
 
         self.gridLayout_9.addWidget(self.qle_table_client_filter, 0, 1, 1, 1)
 
-        self.label_client = QLabel(self.tab_client)
+        self.label_client = QLabel(self.tab_clients)
         self.label_client.setObjectName(u"label_client")
 
         self.gridLayout_9.addWidget(self.label_client, 0, 0, 1, 1)
@@ -1345,12 +1345,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11 = QHBoxLayout()
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.pushButton_7 = QPushButton(self.tab_client)
+        self.pushButton_7 = QPushButton(self.tab_clients)
         self.pushButton_7.setObjectName(u"pushButton_7")
 
         self.horizontalLayout_11.addWidget(self.pushButton_7)
 
-        self.pushButton_15 = QPushButton(self.tab_client)
+        self.pushButton_15 = QPushButton(self.tab_clients)
         self.pushButton_15.setObjectName(u"pushButton_15")
 
         self.horizontalLayout_11.addWidget(self.pushButton_15)
@@ -1360,8 +1360,8 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.tabs_client = myQTabWidget(self.tab_client)
-        self.tabs_client.setObjectName(u"tabs_client")
+        self.tabs_client2 = myQTabWidget(self.tab_clients)
+        self.tabs_client2.setObjectName(u"tabs_client2")
         self.tab_35 = myQWidget()
         self.tab_35.setObjectName(u"tab_35")
         self.verticalLayout_35 = QVBoxLayout(self.tab_35)
@@ -1371,7 +1371,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_35.addWidget(self.table_client__by_client)
 
-        self.tabs_client.addTab(self.tab_35, "")
+        self.tabs_client2.addTab(self.tab_35, "")
         self.tab_15 = myQWidget()
         self.tab_15.setObjectName(u"tab_15")
         self.verticalLayout_9 = QVBoxLayout(self.tab_15)
@@ -1386,7 +1386,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_9.addLayout(self.gridLayout_6)
 
-        self.tabs_client.addTab(self.tab_15, "")
+        self.tabs_client2.addTab(self.tab_15, "")
         self.tab = myQWidget()
         self.tab.setObjectName(u"tab")
         self.horizontalLayout_8 = QHBoxLayout(self.tab)
@@ -1396,7 +1396,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8.addWidget(self.table__dep_has_client_by_ripso__by_client)
 
-        self.tabs_client.addTab(self.tab, "")
+        self.tabs_client2.addTab(self.tab, "")
         self.tab_36 = myQWidget()
         self.tab_36.setObjectName(u"tab_36")
         self.gridLayout_98 = QGridLayout(self.tab_36)
@@ -1406,14 +1406,14 @@ class Ui_MainWindow(object):
 
         self.gridLayout_98.addWidget(self.table__client_has_invalid_contracts__by_client, 1, 0, 1, 1)
 
-        self.tabs_client.addTab(self.tab_36, "")
+        self.tabs_client2.addTab(self.tab_36, "")
 
-        self.gridLayout_2.addWidget(self.tabs_client, 1, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.tabs_client2, 1, 0, 1, 1)
 
 
         self.verticalLayout_2.addLayout(self.gridLayout_2)
 
-        self.tabMain.addTab(self.tab_client, "")
+        self.tabMain.addTab(self.tab_clients, "")
         self.tab_client = myQWidget()
         self.tab_client.setObjectName(u"tab_client")
         self.verticalLayout_30 = QVBoxLayout(self.tab_client)
@@ -5266,8 +5266,8 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.table__dep_has_main__where_vdate__by_vdate_by_worker_id, self.table__dep_has_main__where_vdate__by_vdate_by_you)
         QWidget.setTabOrder(self.table__dep_has_main__where_vdate__by_vdate_by_you, self.table__dep_has_main__where_vdate__by_vdate_by_serv_id)
         QWidget.setTabOrder(self.table__dep_has_main__where_vdate__by_vdate_by_serv_id, self.table__client_has_valid_contracts__by_client)
-        QWidget.setTabOrder(self.table__client_has_valid_contracts__by_client, self.tabs_client)
-        QWidget.setTabOrder(self.tabs_client, self.btn_upd_fio_list)
+        QWidget.setTabOrder(self.table__client_has_valid_contracts__by_client, self.tabs_client2)
+        QWidget.setTabOrder(self.tabs_client2, self.btn_upd_fio_list)
         QWidget.setTabOrder(self.btn_upd_fio_list, self.pushButton_2)
         QWidget.setTabOrder(self.pushButton_2, self.table__dep_has_client_by_ripso__by_client)
         QWidget.setTabOrder(self.table__dep_has_client_by_ripso__by_client, self.qle_FIO)
@@ -5361,8 +5361,8 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.btn_prev, self.cbx_1__dep_has_client)
         QWidget.setTabOrder(self.cbx_1__dep_has_client, self.btn_next)
         QWidget.setTabOrder(self.btn_next, self.cbx_1_ui_select_fiolist__2)
-        QWidget.setTabOrder(self.cbx_1_ui_select_fiolist__2, self.tabs_client)
-        QWidget.setTabOrder(self.tabs_client, self.dateEdit_death)
+        QWidget.setTabOrder(self.cbx_1_ui_select_fiolist__2, self.tabs_client2)
+        QWidget.setTabOrder(self.tabs_client2, self.dateEdit_death)
         QWidget.setTabOrder(self.dateEdit_death, self.lineEdit_phone)
         QWidget.setTabOrder(self.lineEdit_phone, self.dateEdit_birth)
         QWidget.setTabOrder(self.dateEdit_birth, self.qle_SNILS)
@@ -5803,7 +5803,7 @@ class Ui_MainWindow(object):
         self.pb_start_serv_add.setDefault(False)
         self.tab_user_has_main.setCurrentIndex(5)
         self.tabs_fio_dep.setCurrentIndex(1)
-        self.tabs_client.setCurrentIndex(0)
+        self.tabs_client2.setCurrentIndex(0)
         self.tabs_client.setCurrentIndex(2)
         self.tab_sub_client.setCurrentIndex(0)
         self.tabs_total.setCurrentIndex(0)
@@ -6091,11 +6091,11 @@ class Ui_MainWindow(object):
         self.label_client.setText(QCoreApplication.translate("MainWindow", u"\u0411\u044b\u0441\u0442\u0440\u044b\u0439 &\u0444\u0438\u043b\u044c\u0442\u0440:", None))
         self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0435\u0440\u0435\u0439\u0442\u0438 \u043a \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0435", None))
         self.pushButton_15.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043d\u043e\u0432\u044b\u0439 \u0434\u043e\u0433\u043e\u0432\u043e\u0440 \u0434\u043b\u044f \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0433\u043e \u0447\u0435\u043b\u043e\u0432\u0435\u043a\u0430", None))
-        self.tabs_client.setTabText(self.tabs_client.indexOf(self.tab_35), QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0435 \u043e\u0431\u0440\u0430\u0449\u0430\u0432\u0448\u0438\u0435\u0441\u044f", None))
-        self.tabs_client.setTabText(self.tabs_client.indexOf(self.tab_15), QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0435 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u0435\u043c\u044b\u0435", None))
-        self.tabs_client.setTabText(self.tabs_client.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0434\u0445\u043e\u0434\u044f\u0442 \u043f\u043e \u0420\u0418\u041f\u0421\u041e", None))
-        self.tabs_client.setTabText(self.tabs_client.indexOf(self.tab_36), QCoreApplication.translate("MainWindow", u"\u0417\u0430\u043a\u043e\u043d\u0447\u0438\u043b\u0441\u044f \u0434\u043e\u0433\u043e\u0432\u043e\u0440", None))
-        self.tabMain.setTabText(self.tabMain.indexOf(self.tab_client), QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0435 \u043b\u044e\u0434\u0438 \u0432 \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u0438", None))
+        self.tabs_client2.setTabText(self.tabs_client2.indexOf(self.tab_35), QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0435 \u043e\u0431\u0440\u0430\u0449\u0430\u0432\u0448\u0438\u0435\u0441\u044f", None))
+        self.tabs_client2.setTabText(self.tabs_client2.indexOf(self.tab_15), QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0435 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u0435\u043c\u044b\u0435", None))
+        self.tabs_client2.setTabText(self.tabs_client2.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0434\u0445\u043e\u0434\u044f\u0442 \u043f\u043e \u0420\u0418\u041f\u0421\u041e", None))
+        self.tabs_client2.setTabText(self.tabs_client2.indexOf(self.tab_36), QCoreApplication.translate("MainWindow", u"\u0417\u0430\u043a\u043e\u043d\u0447\u0438\u043b\u0441\u044f \u0434\u043e\u0433\u043e\u0432\u043e\u0440", None))
+        self.tabMain.setTabText(self.tabMain.indexOf(self.tab_clients), QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0435 \u043b\u044e\u0434\u0438 \u0432 \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u0438", None))
 #if QT_CONFIG(tooltip)
         self.btn_goto_serv_add.setToolTip(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0441\u0442\u0438 \u0443\u0441\u043b\u0443\u0433\u0438 \u043d\u0430 \u044d\u0442\u043e\u0433\u043e \u0447\u0435\u043b\u043e\u0432\u0435\u043a\u0430", None))
 #endif // QT_CONFIG(tooltip)
