@@ -705,7 +705,7 @@ def paste_planned(view: tsQTableView):
     #############################
     # checks model inited
     # ---------------------------
-    COLLS = 8
+    COLLS = 7
     CHECKBOXUNSET = "  "
     from logic.data_worker import WD
     model: tsSqlTableModel = view.super_model()
@@ -745,10 +745,14 @@ def paste_planned(view: tsQTableView):
     services = []
     skipped = 0
     for crow in crows:
+        if crow == "":
+            continue
         cells = crow.split("\t")
-        if len(cells) < COLLS:
+        if cells[0] == "":  # workaround for different cases
+            cells = cells[1:]
+        if len(cells) != COLLS:
             return
-        if cells[3] == CHECKBOXUNSET or cells[4] == CHECKBOXUNSET:
+        if cells[2] == CHECKBOXUNSET or cells[3] == CHECKBOXUNSET:
             skipped += 1
             continue
         #############################
@@ -756,13 +760,13 @@ def paste_planned(view: tsQTableView):
         # ---------------------------
         planned = 0
         try:
-            planned = int(cells[5].strip())
+            planned = int(cells[4].strip())
         except:
             skipped += 1
             continue
         filled = 0
         try:
-            filled = int(cells[7].strip())
+            filled = int(cells[6].strip())
         except ValueError:
             pass
         #############################
@@ -772,7 +776,7 @@ def paste_planned(view: tsQTableView):
             {
                 "planned": planned,
                 "filled": filled,
-                "serv_id": cells[2].strip(),
+                "serv_id": cells[1].strip(),
                 "contracts_id": contracts_id
             }
         )
@@ -792,16 +796,20 @@ def paste_planned(view: tsQTableView):
     # add rows
     # ---------------------------
     col = model.index_of_col("contracts_id")  # just any column
-    for s in services:
-        model.default_values = s
-        contracts_id = model.default_values["contracts_id"]
-        model.default_values["contracts_id"] = 0
-        index = model.index(model.special_row, col)
-        SD.start_edit(view, model, model.row_id(index.row()), "contracts_id")
-        # ce = model.insert_row(s)  # use this for speed + manual commitAll()
-        model.setData(index, contracts_id, Qt.EditRole)
-    #############################
-    # restore default_values
-    # ---------------------------
-    model.default_values = old_defaults
+    try:
+        view.setUpdatesEnabled(False)
+        for s in services:
+            model.default_values = s
+            contracts_id = model.default_values["contracts_id"]
+            model.default_values["contracts_id"] = 0
+            index = model.index(model.special_row, col)
+            SD.start_edit(view, model, model.row_id(index.row()), "contracts_id")
+            # ce = model.insert_row(s)  # use this for speed + manual commitAll()
+            model.setData(index, contracts_id, Qt.EditRole)
+    finally:
+        view.setUpdatesEnabled(True)
+        #############################
+        # restore default_values
+        # ---------------------------
+        model.default_values = old_defaults
     return True
