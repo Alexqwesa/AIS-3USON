@@ -135,16 +135,10 @@ BEGIN
     grant select on kcson.notifies to info;
     grant select on kcson.payment to info;
     grant select on kcson.pcat to info;
-    grant select on kcson.permiss to info;
-    grant select on kcson.rdata to info;
-    grant select on kcson.rdep to info;
     grant select on kcson.ripso to info;
     grant select on kcson.ripso_has_serv to info;
     grant select on kcson.rname to info;
     grant select on kcson.role to info;
-    grant select on kcson.role_has_permiss to info;
-    grant select on kcson.rperiod to info;
-    grant select on kcson.rperiodsofrname to info;
     grant select on kcson.serv to info;
     grant select on kcson.servform to info;
     grant select on kcson.servofripso to info;
@@ -303,7 +297,7 @@ BEGIN
     grant select,update,insert,delete on kcson.holiday to part_admin;
     grant select,update,insert,delete on kcson.ui_select_fiolist to part_admin;
 
-    grant select kcson.user_change to part_admin;
+    grant select,insert on kcson.user_change to part_admin;
 
     #############################
     # grant perm. to admin role
