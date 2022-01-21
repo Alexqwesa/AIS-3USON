@@ -49,7 +49,7 @@ class QCalendarView(_myQCalendar):
         self.cache_start = False
         self.lock: QMutex = QRecursiveMutex()
         self.cache_lock: QMutex = QRecursiveMutex()
-        self.uslnum_col = 0
+        self.quantity_col = 0
         #############################
         # inner state setup
         # ---------------------------
@@ -145,7 +145,7 @@ class QCalendarView(_myQCalendar):
                     #     self._inited = True
                     # self.init_model_filter()
                     WD.inited_models[model_name] = mdl
-                    self.uslnum_col = self.super_model().index_of_col("uslnum")
+                    self.quantity_col = self.super_model().index_of_col("quantity")
                     self.super_model().selected.connect(self.invalidate_cache)
                     self.super_model().fetch_all()
                     #############################
@@ -319,7 +319,7 @@ class QCalendarView(_myQCalendar):
             # with QMutexLocker(self.cache_lock):
             self.super_model().setFilter(self.last_filter_str)  # 43
             self.invalidation_needed.emit()  # TODO: only invalidate if first cache entry is old > 5 min
-            header = "client_id,worker_id,serv_id,uslnum,vdate".split(",")
+            header = "client_id,worker_id,serv_id,quantity,vdate".split(",")
             if self.super_model().filter() != FALSE_STR:
                 with QMutexLocker(self.locks("current_full_filter")):
                     # cff = self._cur_filter_full
@@ -327,7 +327,7 @@ class QCalendarView(_myQCalendar):
                         header)
                     if not self.cache_inited:
                         ct = self.cached[self.date_center.toString(SQL_DATE_FORMAT)]
-                        self.ct_uslnum = ct.header.index("uslnum")
+                        self.ct_quantity = ct.header.index("quantity")
                         self.ct_client_id = ct.header.index("client_id")
                         self.ct_worker_id = ct.header.index("worker_id")
                         self.ct_serv_id = ct.header.index("serv_id")
@@ -368,16 +368,16 @@ class QCalendarView(_myQCalendar):
             all_wrkr = not cur_worker_id
             all_serv = not cur_serv_id
             if self.cache_inited:
-                uslnum, client_id, worker_id, serv_id, vdate = self.ct_uslnum, self.ct_client_id, \
+                quantity, client_id, worker_id, serv_id, vdate = self.ct_quantity, self.ct_client_id, \
                                                              self.ct_worker_id, self.ct_serv_id, self.ct_vdate
             else:
-                uslnum = ct.header.index("uslnum")
+                quantity = ct.header.index("quantity")
                 client_id = ct.header.index("client_id")
                 worker_id = ct.header.index("worker_id")
                 serv_id = ct.header.index("serv_id")
                 vdate = ct.header.index("vdate")
             snum = sum([
-                x[uslnum]
+                x[quantity]
                 for x in ct
                 if
                 (x[vdate] == date) and

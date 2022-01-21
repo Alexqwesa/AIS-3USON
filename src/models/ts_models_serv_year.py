@@ -308,7 +308,7 @@ class GroupedMainData(tsSqlTableModelWithColors):  # QSqlRelTableModelExtWithMet
                "dep_id": SD.last_dep, "contracts_id": self._contract_id}
         # SD.commit_edit(self.gmdata, old_dat, value, rec)
         model.set_new_rec_autofill_raw(**rec)
-        return model.setData(self.model.index(model.special_row, model.index_of_col("uslnum")),
+        return model.setData(self.model.index(model.special_row, model.index_of_col("quantity")),
                              value,
                              Qt.EditRole)
 
@@ -327,8 +327,8 @@ class GroupedMainData(tsSqlTableModelWithColors):  # QSqlRelTableModelExtWithMet
             if idx:
                 self._CE_add_main
             else:
-                index_uslnum = idx.siblingAtColumn(tymodel.index_of_col("uslnum"))
-                tymodel.setData(index_uslnum, value, Qt.EditRole)
+                index_quantity = idx.siblingAtColumn(tymodel.index_of_col("quantity"))
+                tymodel.setData(index_quantity, value, Qt.EditRole)
 
     def data_month(self, month, serv_id, dep_has_worker_id="all"):
         """ Count services in month filtered by dep_has_worker_id """

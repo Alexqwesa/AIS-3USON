@@ -559,9 +559,9 @@ BEGIN
 	                )
 	
 	    SELECT 
-	        SUM(((`f`.`perc` * `f`.`uslnum`) * `f`.`price`)) AS to_pay,
+	        SUM(((`f`.`perc` * `f`.`quantity`) * `f`.`price`)) AS to_pay,
 	        f.perc,
-	        `f`.`uslnum` as uslnum,
+	        `f`.`quantity` as quantity,
 	        f.client_id,
 	        f.servform_id,
 	        f.contracts,
@@ -578,7 +578,7 @@ BEGIN
 	                `m`.`client_id` AS `client_id`,
 	                `m`.`serv_id` AS `serv_id`,
 	                `m`.`vdate` AS `vdate`,
-	                `m`.`uslnum` AS `uslnum`,
+	                `m`.`quantity` AS `quantity`,
 	                c.contracts,
 	                c.startdate,
 	                c.enddate,
@@ -623,7 +623,7 @@ BEGIN
 		                    FROM
 		                        `ai`) AS `perc`,
 	        0 AS `price`,
-			0 as uslnum,
+			0 as quantity,
 			client_id,
 			servform_id,
 			contracts,

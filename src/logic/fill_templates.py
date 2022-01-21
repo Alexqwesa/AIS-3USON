@@ -456,14 +456,14 @@ class PrepareDocument(base_pd):
                           "_main_cprice.client_id = {} and vdate between '{}' and '{}' ".format(
                               client, sqlstart, sqlend),  # dep,  and main_cprice.dep_id = {1}
                           False)
-        header = ["contracts_id", "dep_id", "tnum", "serv", "serv_text", "uslnum", "price", "to_pay", "servform_id",
+        header = ["contracts_id", "dep_id", "tnum", "serv", "serv_text", "quantity", "price", "to_pay", "servform_id",
                   "serv_id",
                   "sub_serv", "vdate"]  #
         table = mserv.read_into_2darray(header)
         # to_pay = Decimal(0)
         header[1] = "full_price"
         for row in table:
-            row[header.index("full_price")] = row[header.index("uslnum")] * row[header.index("price")]
+            row[header.index("full_price")] = row[header.index("quantity")] * row[header.index("price")]
             # to_pay = to_pay + Decimal(header.index("full_price"))
         table.header[1] = "full_price"
         return table
@@ -477,18 +477,18 @@ class PrepareDocument(base_pd):
                           "_contr_has_serv_predv",
                           "_contr_has_serv_predv.contracts_id = {} and `year` = {} ".format(contr, year),
                           False)
-        header = ["contracts_id", "full_price", "tnum", "serv", "serv_text", "uslnum", "price", "to_pay",
+        header = ["contracts_id", "full_price", "tnum", "serv", "serv_text", "quantity", "price", "to_pay",
                   "servform_id",
                   "serv_id",
                   "sub_serv", "vdate"]  #
         table = mserv.read_into_2darray(header)
         # header = ["contracts_id", "dep_id", "tnum",
-        #           "serv_text", "uslnum", "price", "to_pay", "servform_id", "serv_id",
+        #           "serv_text", "quantity", "price", "to_pay", "servform_id", "serv_id",
         #           "sub_serv", "vdate"]  #
         # to_pay = Decimal(0)
         # header[1] = "full_price"
         # for row in table:
-        #     row[header.index("full_price")] = row[header.index("uslnum")] * row[header.index("price")]
+        #     row[header.index("full_price")] = row[header.index("quantity")] * row[header.index("price")]
         #     # to_pay = to_pay + Decimal(header.index("full_price"))
         # table.header[1] = "full_price"
         return table
@@ -646,7 +646,7 @@ class PrepareDocument(base_pd):
                 #############################
                 # prepare subtable
                 # ---------------------------
-                # table.remove_duplicate_with_sum(["uslnum", "full_price", "to_pay"],
+                # table.remove_duplicate_with_sum(["quantity", "full_price", "to_pay"],
                 #                                 ["contracts_id", "servform_id", "sub_serv", "vdate"])
                 header = table.header
                 if do_document in ("акт", "квитанция"):
@@ -729,7 +729,7 @@ class PrepareDocument(base_pd):
     def order_table(table, cur_contr, count_total_price=False):
         """
 
-        header = ["contracts_id", "full_price", "tnum", "serv", "serv_text", "uslnum", "price", "to_pay", "servform_id",
+        header = ["contracts_id", "full_price", "tnum", "serv", "serv_text", "quantity", "price", "to_pay", "servform_id",
          "serv_id", "sub_serv"]  #
 
         :param count_total_price:
@@ -750,7 +750,7 @@ class PrepareDocument(base_pd):
         cur_table.sort(
             key=itemgetter(
                 header.index("tnum")), reverse=True)
-        cur_table.remove_duplicate_with_sum(["uslnum", "full_price", "to_pay"],
+        cur_table.remove_duplicate_with_sum(["quantity", "full_price", "to_pay"],
                                             ["contracts_id", "servform_id", "sub_serv", "vdate"])
         #############################
         # prepare total table
@@ -777,7 +777,7 @@ class PrepareDocument(base_pd):
                         r.serv_id = ttrow.serv_id
                         if ttrow.year != SD.last_year:
                             r.serv = ttrow.serv + " " + str(ttrow.year)
-                        r.uslnum = "X"
+                        r.quantity = "X"
                         r.price = "X"
                         r.to_pay = "X"
                         r.full_price = "X"
@@ -799,7 +799,7 @@ class PrepareDocument(base_pd):
                         # price, to_pay, full_price is always right
                         # if ttrow.year != SD.last_year:
                         #     r.serv = ttrow.serv + " " + str(ttrow.year)
-                        r.uslnum = row.uslnum
+                        r.quantity = row.quantity
                         r.price = row.price
                         r.to_pay = row.to_pay
                         r.full_price = row.full_price
@@ -823,10 +823,10 @@ class PrepareDocument(base_pd):
         # ---------------------------
         res_table1 = []
         res_table_only_num = []
-        res_table_only_num_header = ["tnum", "serv_text", "uslnum", "price", "full_price"]
+        res_table_only_num_header = ["tnum", "serv_text", "quantity", "price", "full_price"]
         for x in res_table:
             if used_serv_id is None or x[res_table.header.index("serv_id")] in used_serv_id:
-                col3 = x[res_table.header.index("uslnum")]
+                col3 = x[res_table.header.index("quantity")]
                 col4 = x[res_table.header.index("price")]
                 col5 = x[res_table.header.index("full_price")]
                 try:
@@ -849,7 +849,7 @@ class PrepareDocument(base_pd):
         # res_table1 = [
         #     [x[res_table.header.index("tnum")],
         #      x[res_table.header.index("serv_text")].replace("___", ", "),
-        #      int(x[res_table.header.index("uslnum")]),
+        #      int(x[res_table.header.index("quantity")]),
         #      "{0:0.2f}".format(x[res_table.header.index("price")]).replace(".", ","),
         #      "{0:0.2f}".format(x[res_table.header.index("full_price")]).replace(".", ",")
         #
@@ -857,13 +857,13 @@ class PrepareDocument(base_pd):
         #############################
         # add total row
         # ---------------------------
-        uslnum_col = res_table_only_num_header.index("uslnum")
+        quantity_col = res_table_only_num_header.index("quantity")
         full_price_col = res_table_only_num_header.index("full_price")
         res_table1.append(
             [
                 "",
                 "Итого",
-                sum([int(x[uslnum_col]) for x in res_table_only_num]),
+                sum([int(x[quantity_col]) for x in res_table_only_num]),
                 "X",
                 "{0:0.2f}".format(
                     sum([x[full_price_col] for x in res_table_only_num])
@@ -871,7 +871,7 @@ class PrepareDocument(base_pd):
             ]
         )
         res_table2 = TableByRowsWHeader(res_table1)
-        res_table2.header = "tnum,serv_text,uslnum,price,full_price".split(",")
+        res_table2.header = "tnum,serv_text,quantity,price,full_price".split(",")
         #############################
         # round numbers
         # ---------------------------
@@ -1003,12 +1003,12 @@ class PrepareDocument(base_pd):
         for i, r in enumerate(table):
             with table(i) as row:
                 try:
-                    serv_tot_price = row.uslnum * row.price
+                    serv_tot_price = row.quantity * row.price
                     full_price += serv_tot_price
                     to_pay += (serv_tot_price * float(dl["___proc"]))
                 except TypeError:
                     try:
-                        serv_tot_price = row.uslnum * float(row.price.replace(",", "."))
+                        serv_tot_price = row.quantity * float(row.price.replace(",", "."))
                         full_price += serv_tot_price
                         to_pay += (serv_tot_price * float(dl["___proc"]))
                     except (ValueError, TypeError):

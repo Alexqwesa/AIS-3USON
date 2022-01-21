@@ -23,7 +23,7 @@ class _data_worker_SQL_CODE:
         sql_query["_g_serv_total_dep"] = """
             with m as (
             select
-                serv_id, client_id, uslnum, {0} as start_vdate, {1} as end_vdate
+                serv_id, client_id, quantity, {0} as start_vdate, {1} as end_vdate
             from
                 _dep_has_main
             where
@@ -32,7 +32,7 @@ class _data_worker_SQL_CODE:
             select
                 m.serv_id as serv_id,
                 client_id,
-                sum(m.uslnum) as uslnum,
+                sum(m.quantity) as quantity,
                 count(m.client_id) as records
             from
                 m
@@ -52,7 +52,7 @@ class _data_worker_SQL_CODE:
         sql_query["_g_serv_total_dep_with_worker"] = """
             with m as (
             select
-                serv_id, client_id, worker_id, dep_has_worker_id, uslnum,  {0} as start_vdate, {1} as end_vdate
+                serv_id, client_id, worker_id, dep_has_worker_id, quantity,  {0} as start_vdate, {1} as end_vdate
             from
                 _dep_has_main
             where
@@ -61,7 +61,7 @@ class _data_worker_SQL_CODE:
             select
                 m.serv_id as serv_id,
                 client_id, worker_id, dep_has_worker_id, 
-                sum(m.uslnum) as uslnum,
+                sum(m.quantity) as quantity,
                 count(m.client_id) as records
             from
                 m
@@ -88,7 +88,7 @@ class _data_worker_SQL_CODE:
                                                    QDate(1950, 1, 31).toString(SQL_DATE_FORMAT),
                                                    "_call_export_dep")
         sql_query["_call_export_dep"] = """
-            call CREATE_PIVOT("_main_serv_name_ripso_static", "client_id, worker_id, ripso_id", "serv", "uslnum", 
+            call CREATE_PIVOT("_main_serv_name_ripso_static", "client_id, worker_id, ripso_id", "serv", "quantity", 
             "where vdate between '{0}' and '{1}' ", "" , "", "{2}");
 
             """  # last - WITH ROLLUP
@@ -99,7 +99,7 @@ class _data_worker_SQL_CODE:
                                                       QDate(1950, 1, 31).toString(SQL_DATE_FORMAT),
                                                       "_call_workers_total")
         sql_query["_call_workers_total"] = """
-            call CREATE_PIVOT("_main_serv_name_static", "worker_id, client_id", "serv", "uslnum", 
+            call CREATE_PIVOT("_main_serv_name_static", "worker_id, client_id", "serv", "quantity", 
             "where vdate between '{0}' and '{1}' ", "" , " WITH ROLLUP ", "{2}");
 
             """  # last - WITH ROLLUP
@@ -113,7 +113,7 @@ class _data_worker_SQL_CODE:
             select
                 `uhc`.`category_id` as `category_id`,
                 `m`.`client_id` as `client_id`,
-                sum(`m`.`uslnum`) as `SUM(uslnum)`
+                sum(`m`.`quantity`) as `SUM(quantity)`
             from
                 (`_dep_has_main` `m`
             join `client_has_category` `uhc` on
@@ -133,7 +133,7 @@ class _data_worker_SQL_CODE:
                                                               QDate(1950, 1, 31).toString(SQL_DATE_FORMAT),
                                                               "_call_categ_list_client_total")
         sql_query["_call_categ_list_client_total"] = """
-            call CREATE_PIVOT("_categ_list_client", "category_id", "serv", "uslnum", 
+            call CREATE_PIVOT("_categ_list_client", "category_id", "serv", "quantity", 
             "where vdate between '{0}' and '{1}' ", "" , " WITH ROLLUP ", "{2}");
 
             """
@@ -145,7 +145,7 @@ class _data_worker_SQL_CODE:
                                                              "_g_dep_serv_client_statistic")
         sql_query["_g_dep_serv_client_statistic"] = """SELECT 
             `m`.`serv_id` AS `serv_id`,
-            SUM(`m`.`uslnum`) AS `uslnum`,
+            SUM(`m`.`quantity`) AS `quantity`,
             client_id,
             COUNT(`m`.`client_id`) AS `records`
         FROM
@@ -164,7 +164,7 @@ class _data_worker_SQL_CODE:
         sql_query["_g_serv_total_you"] = """
     SELECT 
         `m`.`serv_id` AS `serv_id`,
-        SUM(`m`.`uslnum`) AS `uslnum`,
+        SUM(`m`.`quantity`) AS `quantity`,
         `m`.`client_id` as client_id,
                 
             (
@@ -202,21 +202,21 @@ class _data_worker_SQL_CODE:
     """
 
         #############################
-        # _g_category_total_uslnum_client
+        # _g_category_total_quantity_client
         # ---------------------------
-        sql_query_stub_data["_g_category_total_uslnum_client"] = (QDate(1950, 1, 1).toString(SQL_DATE_FORMAT),
+        sql_query_stub_data["_g_category_total_quantity_client"] = (QDate(1950, 1, 1).toString(SQL_DATE_FORMAT),
                                                                 QDate(1950, 1, 31).toString(SQL_DATE_FORMAT),
-                                                                "_g_category_total_uslnum_client")
-        sql_query["_g_category_total_uslnum_client"] = """
+                                                                "_g_category_total_quantity_client")
+        sql_query["_g_category_total_quantity_client"] = """
 SELECT 
     t.category_id AS `category_id`,
     COUNT(t.`client_id`) AS `client_id`,
-    SUM(t.`uslnum`) AS `uslnum`
+    SUM(t.`quantity`) AS `quantity`
 FROM
     (SELECT 
         `uhc`.`category_id` AS `category_id`,
             `m`.`client_id`,
-            SUM(`m`.`uslnum`) AS `uslnum`
+            SUM(`m`.`quantity`) AS `quantity`
     FROM
         (`main` `m`
     JOIN `client_has_category` `uhc` ON ((`m`.`client_id` = `uhc`.`client_id`)))
@@ -240,12 +240,12 @@ GROUP BY t.`category_id`
 SELECT 
     COALESCE(`t`.`category_id`, 'Прочие') AS `category_id`,
     `t`.`client_id`,
-    SUM(`t`.`uslnum`) AS `SUM(uslnum)`
+    SUM(`t`.`quantity`) AS `SUM(quantity)`
 FROM
     (SELECT 
         `uhc`.`category_id` AS `category_id`,
             `m`.`client_id` AS `client_id`,
-            SUM(`m`.`uslnum`) AS `uslnum`
+            SUM(`m`.`quantity`) AS `quantity`
     FROM
         (`main` `m`
     LEFT JOIN `client_has_category` `uhc` ON ((`m`.`client_id` = `uhc`.`client_id`)))

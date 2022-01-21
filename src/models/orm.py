@@ -77,7 +77,7 @@ main = Table("main", metadata,
              Column("dep_id", Integer),
              Column("worker_id", Integer),
              Column("serv_id", Integer),
-             Column("uslnum", Integer),
+             Column("quantity", Integer),
              Column("vdate", Date),
              Column("note", String))
 
@@ -88,7 +88,7 @@ updatable_main = Table("updatable_main", metadata,
                        Column("dep_id", Integer),
                        Column("worker_id", Integer),
                        Column("serv_id", Integer),
-                       Column("uslnum", Integer),
+                       Column("quantity", Integer),
                        Column("vdate", Date),
                        Column("note", String))
 

@@ -383,7 +383,7 @@ class MainCheck(Check):
                                       main.c.contracts_id == drow.at["contracts_id"],
                                       main.c.serv_id == drow.at["serv_id"],
                                       main.c.worker_id == drow.at["worker_id"],
-                                      main.c.uslnum == drow.at["uslnum"],
+                                      main.c.quantity == drow.at["quantity"],
                                       main.c.dep_id == drow.at["dep_id"],
                                       between(main.c.vdate, start, end)
 
@@ -406,7 +406,7 @@ class MainCheck(Check):
                                                  contracts_id=drow.at["contracts_id"],
                                                  serv_id=drow.at["serv_id"],
                                                  worker_id=drow.at["worker_id"],
-                                                 uslnum=drow.at["uslnum"],
+                                                 quantity=drow.at["quantity"],
                                                  dep_id=drow.at["dep_id"],
                                                  vdate=pydat)
             result = SD.connection.execute(ins)  # .returning(updatable_main.c.id)

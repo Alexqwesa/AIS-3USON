@@ -344,8 +344,8 @@ class QSqlRelTableModelSelectStatus(QSqlRelTableModel_extended, QSqlRelationalTa
             "dep": tr("Отделение     "),
             "contracts": tr("Договор    "),
             "contracts2": tr("Нов. договор(для внутр. использ.)"),
-            "uslnum": tr("Кол-во услуг"),
-            "SUM(uslnum)": tr("Услуг всего"),
+            "quantity": tr("Кол-во услуг"),
+            "SUM(quantity)": tr("Услуг всего"),
             "category_id": tr("Категория человека"),
             "note": tr("Примечание"),
             "prim": tr("Примечание "),
@@ -413,7 +413,7 @@ class QSqlRelTableModelSelectStatus(QSqlRelTableModel_extended, QSqlRelationalTa
             "setting": tr("Свойства"),
             "value": tr("Значение"),
             "blocked": tr("Запись заблокирована"),
-            "prev_uslnum": tr("Предыдущее кол-во услуг")
+            "prev_quantity": tr("Предыдущее кол-во услуг")
 
         }
         #############################

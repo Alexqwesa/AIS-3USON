@@ -349,7 +349,7 @@ class _data_worker(QObject):
 
         :param: qry_data = (0 - contracts_id,
                 1 - dep_id, 2 - client_id, 3 - serv_id,
-                4 - vdate, 5 - uslnum, 6 - dep_has_worker_id, 7 - note[, 8 - worker_id]):
+                4 - vdate, 5 - quantity, 6 - dep_has_worker_id, 7 - note[, 8 - worker_id]):
         :return: ret, msg
         """
         amount = qry_data[5]
@@ -442,7 +442,7 @@ def insert_main_table(arg):
     """insert into main
         :param: arg = (0 - contracts_id,
                 1 - dep_id, 2 - client_id, 3 - serv_id,
-                4 - vdate, 5 - uslnum, 6 - dep_has_worker_id, 7 - note[, 8 - worker_id]):
+                4 - vdate, 5 - quantity, 6 - dep_has_worker_id, 7 - note[, 8 - worker_id]):
         :return: ret, rid, last_error, add_msg """
     #############################
     # check holiday
@@ -459,7 +459,7 @@ def insert_main_table(arg):
     qry = QSqlQuery(SD.get_db)
     qry.prepare("""insert into updatable_main (
                contracts_id, dep_id, client_id, serv_id,
-               vdate, uslnum, dep_has_worker_id, note) 
+               vdate, quantity, dep_has_worker_id, note) 
                VALUES(?, ?, ?, ?, ?, ?, ?, ?)""")  # , worker_id
     for val in arg:
         qry.addBindValue(val)

@@ -196,7 +196,7 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50001 CREATE VIEW `_categ_list_client` AS SELECT
  1 AS `category_id`,
  1 AS `client_id`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `vdate`,
  1 AS `serv`*/;
 SET character_set_client = @saved_cs_client;
@@ -249,7 +249,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -258,7 +258,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -275,7 +275,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `tnum`,
  1 AS `serv`,
  1 AS `serv_text`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `price`,
  1 AS `to_pay`,
  1 AS `servform_id`,
@@ -418,7 +418,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -427,7 +427,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -581,7 +581,7 @@ DROP TABLE IF EXISTS `_dep_has_client_count_2month`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `_dep_has_client_count_2month` AS SELECT
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -608,7 +608,7 @@ DROP TABLE IF EXISTS `_dep_has_client_count_main_year`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `_dep_has_client_count_main_year` AS SELECT
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -635,7 +635,7 @@ DROP TABLE IF EXISTS `_dep_has_client_count_month`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `_dep_has_client_count_month` AS SELECT
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -898,7 +898,7 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50001 CREATE VIEW `_g_categ_list_client_for_dep_for_year` AS SELECT
  1 AS `category_id`,
  1 AS `client_id`,
- 1 AS `SUM(uslnum)`*/;
+ 1 AS `SUM(quantity)`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -912,7 +912,7 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50001 CREATE VIEW `_g_serv_list_for_dep_for_year` AS SELECT 
  1 AS `category_id`,
  1 AS `count(client_id)`,
- 1 AS `SUM(uslnum)`*/;
+ 1 AS `SUM(quantity)`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -925,7 +925,7 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `_g_serv_total_you` AS SELECT 
  1 AS `serv_id`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `client_id_count`,
  1 AS `client_id`,
  1 AS `records`*/;
@@ -996,7 +996,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -1005,7 +1005,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`,
+ 1 AS `prev_quantity`,
  1 AS `perc`,
  1 AS `price`,
  1 AS `price2`,
@@ -1036,7 +1036,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -1045,7 +1045,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`,
+ 1 AS `prev_quantity`,
  1 AS `perc`,
  1 AS `price`,
  1 AS `price2`,
@@ -1072,7 +1072,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -1081,7 +1081,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1101,7 +1101,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -1110,7 +1110,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1159,7 +1159,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -1168,7 +1168,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1190,7 +1190,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -1199,7 +1199,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1221,7 +1221,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -1230,7 +1230,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1251,7 +1251,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -1260,7 +1260,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1464,7 +1464,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -1473,7 +1473,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1521,7 +1521,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -1530,7 +1530,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1550,7 +1550,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -1559,7 +1559,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1579,7 +1579,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -1588,7 +1588,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1621,7 +1621,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -1630,7 +1630,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1792,7 +1792,7 @@ CREATE TABLE `api_key_insert_main` (
   `serv_id` int unsigned NOT NULL,
   `dep_has_worker_id` int unsigned NOT NULL DEFAULT '0',
   `vdate` date NOT NULL COMMENT 'дата оказания услуги',
-  `uslnum` int DEFAULT '0' COMMENT 'Количество услуг',
+  `quantity` int DEFAULT '0' COMMENT 'Количество услуг',
   `note` varchar(255) DEFAULT NULL,
   `create` datetime DEFAULT CURRENT_TIMESTAMP,
   `uuid` varchar(36) NOT NULL,
@@ -1821,7 +1821,7 @@ DELIMITER ;;
 		set new.check_api_key=new.dep_has_worker_id;
 	else
 		set new.check_api_key='error: wrong dep_has_worker_id';
-		set new.uslnum = 0;
+		set new.quantity = 0;
 	end if;
 
 	END */;;
@@ -2229,7 +2229,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -2238,7 +2238,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -2462,7 +2462,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_id`,
  1 AS `serv_id`,
  1 AS `worker_id`,
- 1 AS `SUM(uslnum)`,
+ 1 AS `SUM(quantity)`,
  1 AS `MONTH(vdate)`,
  1 AS `YEAR(vdate)`*/;
 SET character_set_client = @saved_cs_client;
@@ -2480,7 +2480,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_id`,
  1 AS `sub_serv`,
  1 AS `worker_id`,
- 1 AS `SUM(uslnum)`,
+ 1 AS `SUM(quantity)`,
  1 AS `mnth1`,
  1 AS `year1`*/;
 SET character_set_client = @saved_cs_client;
@@ -2821,7 +2821,7 @@ CREATE TABLE `main` (
   `dep_has_worker_id` int unsigned NOT NULL DEFAULT '0',
   `worker_id` int unsigned NOT NULL,
   `vdate` date NOT NULL COMMENT 'дата оказания услуги',
-  `uslnum` int DEFAULT '0' COMMENT 'Количество услуг',
+  `quantity` int DEFAULT '0' COMMENT 'Количество услуг',
   `note` varchar(255) DEFAULT NULL,
   `create` datetime DEFAULT CURRENT_TIMESTAMP,
   `ts` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -2830,7 +2830,7 @@ CREATE TABLE `main` (
   `reported` tinyint DEFAULT '0',
   `wdate` datetime DEFAULT NULL COMMENT 'дата ввода услуги',
   `overdid` tinyint DEFAULT '0',
-  `prev_uslnum` int(11) unsigned zerofill DEFAULT '00000000000',
+  `prev_quantity` int(11) unsigned zerofill DEFAULT '00000000000',
   PRIMARY KEY (`id`),
   KEY `fk_main2_serv1_idx` (`serv_id`),
   KEY `fk_main2_dep1_idx` (`dep_id`),
@@ -2862,7 +2862,7 @@ DELIMITER ;;
 set ovdid = (select 1  from  contracts_has_serv where
   contracts_id = new.contracts_id  and
   serv_id =  new.serv_id and
-  planned  < filled +  new.uslnum);
+  planned  < filled +  new.quantity);
   
 	if ovdid = 1 then
 		SET	 NEW.overdid = True;
@@ -2873,7 +2873,7 @@ set ovdid = (select 1  from  contracts_has_serv where
 		set new.worker_id = (select worker_id from dep_has_worker where id = new.dep_has_worker_id );
     end if;
     
-	SET NEW.prev_uslnum=0;
+	SET NEW.prev_quantity=0;
 	SET  NEW.cr_by = get_wID();
 	SET  NEW.upd_by = get_wID();
 END */;;
@@ -2895,8 +2895,8 @@ DELIMITER ;;
 
 	INSERT INTO  contracts_has_serv (filled, contracts_id, serv_id)
 	values
-	(new.uslnum, new.contracts_id, new.serv_id)
-	ON DUPLICATE KEY UPDATE  filled = filled  + new.uslnum;
+	(new.quantity, new.contracts_id, new.serv_id)
+	ON DUPLICATE KEY UPDATE  filled = filled  + new.quantity;
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2923,7 +2923,7 @@ DELIMITER ;;
 set ovdid = (select 1  from  contracts_has_serv where
   contracts_id = new.contracts_id  and
   serv_id =  new.serv_id and
-  planned  < filled +  new.uslnum);
+  planned  < filled +  new.quantity);
 
 	if ovdid = 1 then
 		SET	 NEW.overdid = True;
@@ -2937,8 +2937,8 @@ set ovdid = (select 1  from  contracts_has_serv where
     end if;
     
     
-    if NEW.prev_uslnum != old.uslnum then
-		SET NEW.prev_uslnum=old.uslnum;
+    if NEW.prev_quantity != old.quantity then
+		SET NEW.prev_quantity=old.quantity;
     end if;
     
 	SET NEW.upd_by=get_wID();
@@ -2959,7 +2959,7 @@ DELIMITER ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `main_AFTER_UPDATE` AFTER UPDATE ON `main` FOR EACH ROW BEGIN
 
-	UPDATE contracts_has_serv set filled=filled+new.uslnum-old.uslnum
+	UPDATE contracts_has_serv set filled=filled+new.quantity-old.quantity
 		where contracts_id=new.contracts_id and serv_id=new.serv_id;
 END */;;
 DELIMITER ;
@@ -2977,7 +2977,7 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `main_AFTER_DELETE` AFTER DELETE ON `main` FOR EACH ROW BEGIN
-	UPDATE contracts_has_serv set filled=filled-old.uslnum
+	UPDATE contracts_has_serv set filled=filled-old.quantity
 		where contracts_id=old.contracts_id and serv_id=old.serv_id;
 END */;;
 DELIMITER ;
@@ -3003,7 +3003,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -3012,7 +3012,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`,
+ 1 AS `prev_quantity`,
  1 AS `perc`,
  1 AS `price`,
  1 AS `price2`,
@@ -3055,7 +3055,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -3064,7 +3064,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -3400,7 +3400,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -3409,7 +3409,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -3889,7 +3889,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -3898,7 +3898,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -3944,7 +3944,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -3953,7 +3953,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4057,7 +4057,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -4066,7 +4066,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4171,7 +4171,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `dep_has_worker_id`,
  1 AS `worker_id`,
  1 AS `vdate`,
- 1 AS `uslnum`,
+ 1 AS `quantity`,
  1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
@@ -4180,7 +4180,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `reported`,
  1 AS `wdate`,
  1 AS `overdid`,
- 1 AS `prev_uslnum`*/;
+ 1 AS `prev_quantity`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4827,9 +4827,9 @@ begin
 	                )
 	
 	    SELECT 
-	        SUM(((`f`.`perc` * `f`.`uslnum`) * `f`.`price`)) AS to_pay,
+	        SUM(((`f`.`perc` * `f`.`quantity`) * `f`.`price`)) AS to_pay,
 	        f.perc,
-	        `f`.`uslnum` as uslnum,
+	        `f`.`quantity` as quantity,
 	        f.client_id,
 	        f.servform_id,
 	        f.contracts,
@@ -4846,7 +4846,7 @@ begin
 	                `m`.`client_id` AS `client_id`,
 	                `m`.`serv_id` AS `serv_id`,
 	                `m`.`vdate` AS `vdate`,
-	                `m`.`uslnum` AS `uslnum`,
+	                `m`.`quantity` AS `quantity`,
 	                c.contracts,
 	                c.startdate,
 	                c.enddate,
@@ -4891,7 +4891,7 @@ begin
 		                    FROM
 		                        `ai`) AS `perc`,
 	        0 AS `price`,
-			0 as uslnum,
+			0 as quantity,
 			client_id,
 			servform_id,
 			contracts,
@@ -5133,12 +5133,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `dep_serv_total`()
     DETERMINISTIC
 BEGIN
 	call CREATE_PIVOT("
-	(select tnum, s.id, client_id, serv_id , uslnum
+	(select tnum, s.id, client_id, serv_id , quantity
 	from main_NZ m inner join serv s on m.serv_id=s.id
 	where dep_id = GET_DEP(GET_wID())
 	)  main1",
 
-	 "client_id", "tnum", "uslnum" , "" , "");
+	 "client_id", "tnum", "quantity" , "" , "");
      
 END ;;
 DELIMITER ;
@@ -5844,12 +5844,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `serv_dep_total`()
     DETERMINISTIC
 BEGIN
 	call CREATE_PIVOT("
-	(select serv_tnum, s.id, client_id, serv_id , uslnum
+	(select serv_tnum, s.id, client_id, serv_id , quantity
 	from main_NZ m inner join serv s on m.serv_id=s.id
 	where dep_id = GET_DEP(GET_wID())
 	)  main1",
 
-	 "client_id", "serv_tnum", "uslnum" , "" , "");
+	 "client_id", "serv_tnum", "quantity" , "" , "");
      
 END ;;
 DELIMITER ;
@@ -6174,7 +6174,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_categ_list_client` AS select `uhc`.`category_id` AS `category_id`,`m`.`client_id` AS `client_id`,`m`.`uslnum` AS `uslnum`,`m`.`vdate` AS `vdate`,`s`.`tnum` AS `serv` from ((`main` `m` join `client_has_category` `uhc` on((`m`.`client_id` = `uhc`.`client_id`))) join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) where (`m`.`dep_id` in (select `_active_dep_static`.`id` from `_active_dep_static`) and (coalesce(`uhc`.`archive`,0) = 0)) */;
+/*!50001 VIEW `_categ_list_client` AS select `uhc`.`category_id` AS `category_id`,`m`.`client_id` AS `client_id`,`m`.`quantity` AS `quantity`,`m`.`vdate` AS `vdate`,`s`.`tnum` AS `serv` from ((`main` `m` join `client_has_category` `uhc` on((`m`.`client_id` = `uhc`.`client_id`))) join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) where (`m`.`dep_id` in (select `_active_dep_static`.`id` from `_active_dep_static`) and (coalesce(`uhc`.`archive`,0) = 0)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6210,7 +6210,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_contr_has_main` AS select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from (`main` `m` join `contracts` `c` on((`m`.`contracts_id` = `c`.`id`))) */;
+/*!50001 VIEW `_contr_has_main` AS select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`quantity` AS `quantity`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_quantity` AS `prev_quantity` from (`main` `m` join `contracts` `c` on((`m`.`contracts_id` = `c`.`id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6228,7 +6228,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_contr_has_serv_predv` AS select `f`.`contracts_id` AS `contracts_id`,(`f`.`uslnum` * `f`.`price`) AS `full_price`,`f`.`tnum` AS `tnum`,`f`.`serv` AS `serv`,`f`.`serv_text` AS `serv_text`,`f`.`uslnum` AS `uslnum`,`f`.`price` AS `price`,((`f`.`uslnum` * `f`.`price`) * `f`.`perc`) AS `to_pay`,`f`.`servform_id` AS `servform_id`,`f`.`serv_id` AS `serv_id`,`f`.`sub_serv` AS `sub_serv`,`f`.`vdate` AS `vdate`,`f`.`dep_id` AS `dep_id`,`f`.`perc` AS `perc`,`f`.`year` AS `year` from (select `s`.`year` AS `year`,`khs`.`contracts_id` AS `contracts_id`,`s`.`tnum` AS `tnum`,`s`.`serv_text` AS `serv_text`,`s`.`serv` AS `serv`,if((round((`khs`.`planned` / `r`.`months`),0) = 0),ceiling((`khs`.`planned` / `r`.`months`)),round((`khs`.`planned` / `r`.`months`),0)) AS `uslnum`,`s`.`price` AS `price`,`r`.`servform_id` AS `servform_id`,`khs`.`serv_id` AS `serv_id`,`s`.`sub_serv` AS `sub_serv`,`c`.`startdate` AS `vdate`,`c`.`dep_id` AS `dep_id`,(select `pd`.`perc` from `add_info` `pd` where ((`pd`.`pddate` <= `c`.`startdate`) and (`pd`.`contracts_id` = `khs`.`contracts_id`)) order by `pd`.`pddate` desc limit 1) AS `perc` from ((((`_contracts_has_serv` `khs` join `contracts` `c` on((`c`.`id` = `khs`.`contracts_id`))) join `serv` `s` on((`s`.`id` = `khs`.`serv_id`))) join `ripso` `r` on((`r`.`id` = `c`.`ripso_id`))) join `servform` `sf` on((`r`.`servform_id` = `sf`.`id`)))) `f` */;
+/*!50001 VIEW `_contr_has_serv_predv` AS select `f`.`contracts_id` AS `contracts_id`,(`f`.`quantity` * `f`.`price`) AS `full_price`,`f`.`tnum` AS `tnum`,`f`.`serv` AS `serv`,`f`.`serv_text` AS `serv_text`,`f`.`quantity` AS `quantity`,`f`.`price` AS `price`,((`f`.`quantity` * `f`.`price`) * `f`.`perc`) AS `to_pay`,`f`.`servform_id` AS `servform_id`,`f`.`serv_id` AS `serv_id`,`f`.`sub_serv` AS `sub_serv`,`f`.`vdate` AS `vdate`,`f`.`dep_id` AS `dep_id`,`f`.`perc` AS `perc`,`f`.`year` AS `year` from (select `s`.`year` AS `year`,`khs`.`contracts_id` AS `contracts_id`,`s`.`tnum` AS `tnum`,`s`.`serv_text` AS `serv_text`,`s`.`serv` AS `serv`,if((round((`khs`.`planned` / `r`.`months`),0) = 0),ceiling((`khs`.`planned` / `r`.`months`)),round((`khs`.`planned` / `r`.`months`),0)) AS `quantity`,`s`.`price` AS `price`,`r`.`servform_id` AS `servform_id`,`khs`.`serv_id` AS `serv_id`,`s`.`sub_serv` AS `sub_serv`,`c`.`startdate` AS `vdate`,`c`.`dep_id` AS `dep_id`,(select `pd`.`perc` from `add_info` `pd` where ((`pd`.`pddate` <= `c`.`startdate`) and (`pd`.`contracts_id` = `khs`.`contracts_id`)) order by `pd`.`pddate` desc limit 1) AS `perc` from ((((`_contracts_has_serv` `khs` join `contracts` `c` on((`c`.`id` = `khs`.`contracts_id`))) join `serv` `s` on((`s`.`id` = `khs`.`serv_id`))) join `ripso` `r` on((`r`.`id` = `c`.`ripso_id`))) join `servform` `sf` on((`r`.`servform_id` = `sf`.`id`)))) `f` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6318,7 +6318,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 VIEW `_dep_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6444,7 +6444,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client_count_2month` AS select sum(`m`.`uslnum`) AS `uslnum`,`u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `dep_has_main` `m` on((`m`.`client_id` = `u`.`id`))) where (year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) and (month(`m`.`vdate`) in (month(curdate()),(month(curdate()) - 1)))) group by `u`.`id` */;
+/*!50001 VIEW `_dep_has_client_count_2month` AS select sum(`m`.`quantity`) AS `quantity`,`u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `dep_has_main` `m` on((`m`.`client_id` = `u`.`id`))) where (year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) and (month(`m`.`vdate`) in (month(curdate()),(month(curdate()) - 1)))) group by `u`.`id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6462,7 +6462,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client_count_main_year` AS select sum(`m`.`uslnum`) AS `uslnum`,`u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `dep_has_main` `m` on((`m`.`client_id` = `u`.`id`))) where year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) group by `u`.`id` */;
+/*!50001 VIEW `_dep_has_client_count_main_year` AS select sum(`m`.`quantity`) AS `quantity`,`u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `dep_has_main` `m` on((`m`.`client_id` = `u`.`id`))) where year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) group by `u`.`id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6480,7 +6480,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client_count_month` AS select sum(`m`.`uslnum`) AS `uslnum`,`u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `dep_has_main` `m` on((`m`.`client_id` = `u`.`id`))) where (year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) and (month(`m`.`vdate`) = month(curdate()))) group by `u`.`id` */;
+/*!50001 VIEW `_dep_has_client_count_month` AS select sum(`m`.`quantity`) AS `quantity`,`u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `dep_has_main` `m` on((`m`.`client_id` = `u`.`id`))) where (year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) and (month(`m`.`vdate`) = month(curdate()))) group by `u`.`id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6660,7 +6660,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_g_categ_list_client_for_dep_for_year` AS select `uhc`.`category_id` AS `category_id`,`m`.`client_id` AS `client_id`,sum(`m`.`uslnum`) AS `SUM(uslnum)` from (`main` `m` join `client_has_category` `uhc` on((`m`.`client_id` = `uhc`.`client_id`))) where (`m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) and (coalesce(`uhc`.`archive`,0) = 0) and (coalesce(year(`uhc`.`create`),0) = `GET_YEAR`(`GET_WID`()))) group by `uhc`.`category_id`,`m`.`client_id` */;
+/*!50001 VIEW `_g_categ_list_client_for_dep_for_year` AS select `uhc`.`category_id` AS `category_id`,`m`.`client_id` AS `client_id`,sum(`m`.`quantity`) AS `SUM(quantity)` from (`main` `m` join `client_has_category` `uhc` on((`m`.`client_id` = `uhc`.`client_id`))) where (`m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) and (coalesce(`uhc`.`archive`,0) = 0) and (coalesce(year(`uhc`.`create`),0) = `GET_YEAR`(`GET_WID`()))) group by `uhc`.`category_id`,`m`.`client_id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6678,7 +6678,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_g_serv_list_for_dep_for_year` AS select `t`.`category_id` AS `category_id`,count(`t`.`client_id`) AS `count(client_id)`,sum(`t`.`uslnum`) AS `SUM(uslnum)` from (select `uhc`.`category_id` AS `category_id`,`m`.`client_id` AS `client_id`,sum(`m`.`uslnum`) AS `uslnum` from (`main` `m` left join `client_has_category` `uhc` on((`m`.`client_id` = `uhc`.`client_id`))) where (`m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) and (coalesce(`uhc`.`archive`,0) = 0) and (coalesce(year(`uhc`.`get_date`),0) <= `GET_YEAR`(`GET_WID`()))) group by `uhc`.`category_id`,`m`.`client_id`) `t` group by `t`.`category_id` */;
+/*!50001 VIEW `_g_serv_list_for_dep_for_year` AS select `t`.`category_id` AS `category_id`,count(`t`.`client_id`) AS `count(client_id)`,sum(`t`.`quantity`) AS `SUM(quantity)` from (select `uhc`.`category_id` AS `category_id`,`m`.`client_id` AS `client_id`,sum(`m`.`quantity`) AS `quantity` from (`main` `m` left join `client_has_category` `uhc` on((`m`.`client_id` = `uhc`.`client_id`))) where (`m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) and (coalesce(`uhc`.`archive`,0) = 0) and (coalesce(year(`uhc`.`get_date`),0) <= `GET_YEAR`(`GET_WID`()))) group by `uhc`.`category_id`,`m`.`client_id`) `t` group by `t`.`category_id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6696,7 +6696,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_g_serv_total_you` AS select `m`.`serv_id` AS `serv_id`,sum(`m`.`uslnum`) AS `uslnum`,(select count(0) from (select `mfd`.`client_id` AS `client_id` from `_main_for_dep` `mfd` where (`mfd`.`serv_id` = `mfd`.`serv_id`) group by `mfd`.`client_id`) `t`) AS `client_id_count`,`m`.`client_id` AS `client_id`,count(`m`.`client_id`) AS `records` from `_main_for_dep` `m` group by `m`.`serv_id`,`m`.`client_id` order by `m`.`serv_id` */;
+/*!50001 VIEW `_g_serv_total_you` AS select `m`.`serv_id` AS `serv_id`,sum(`m`.`quantity`) AS `quantity`,(select count(0) from (select `mfd`.`client_id` AS `client_id` from `_main_for_dep` `mfd` where (`mfd`.`serv_id` = `mfd`.`serv_id`) group by `mfd`.`client_id`) `t`) AS `client_id_count`,`m`.`client_id` AS `client_id`,count(`m`.`client_id`) AS `records` from `_main_for_dep` `m` group by `m`.`serv_id`,`m`.`client_id` order by `m`.`serv_id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6732,7 +6732,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_main__months` AS with `m1` as (select `main`.`client_id` AS `client_id`,`main`.`dep_id` AS `dep_id`,`main`.`contracts_id` AS `contracts_id`,`main`.`serv_id` AS `serv_id`,month(`main`.`vdate`) AS `month1`,year(`main`.`vdate`) AS `year1`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`uslnum` AS `uslnum` from `main`) select `m1`.`serv_id` AS `serv_id`,`m1`.`dep_id` AS `dep_id`,`m1`.`contracts_id` AS `contracts_id`,`m1`.`year1` AS `year1`,`m1`.`dep_has_worker_id` AS `dep_has_worker_id`,sum((case when (`m1`.`month1` = 1) then `m1`.`uslnum` else 0 end)) AS `month1`,sum((case when (`m1`.`month1` = 2) then `m1`.`uslnum` else 0 end)) AS `month2`,sum((case when (`m1`.`month1` = 3) then `m1`.`uslnum` else 0 end)) AS `month3`,sum((case when (`m1`.`month1` = 4) then `m1`.`uslnum` else 0 end)) AS `month4`,sum((case when (`m1`.`month1` = 5) then `m1`.`uslnum` else 0 end)) AS `month5`,sum((case when (`m1`.`month1` = 6) then `m1`.`uslnum` else 0 end)) AS `month6`,sum((case when (`m1`.`month1` = 7) then `m1`.`uslnum` else 0 end)) AS `month7`,sum((case when (`m1`.`month1` = 8) then `m1`.`uslnum` else 0 end)) AS `month8`,sum((case when (`m1`.`month1` = 9) then `m1`.`uslnum` else 0 end)) AS `month9`,sum((case when (`m1`.`month1` = 10) then `m1`.`uslnum` else 0 end)) AS `month10`,sum((case when (`m1`.`month1` = 11) then `m1`.`uslnum` else 0 end)) AS `month11`,sum((case when (`m1`.`month1` = 12) then `m1`.`uslnum` else 0 end)) AS `month12` from `m1` group by `m1`.`dep_id`,`m1`.`contracts_id`,`m1`.`serv_id`,`m1`.`dep_has_worker_id` */;
+/*!50001 VIEW `_main__months` AS with `m1` as (select `main`.`client_id` AS `client_id`,`main`.`dep_id` AS `dep_id`,`main`.`contracts_id` AS `contracts_id`,`main`.`serv_id` AS `serv_id`,month(`main`.`vdate`) AS `month1`,year(`main`.`vdate`) AS `year1`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`quantity` AS `quantity` from `main`) select `m1`.`serv_id` AS `serv_id`,`m1`.`dep_id` AS `dep_id`,`m1`.`contracts_id` AS `contracts_id`,`m1`.`year1` AS `year1`,`m1`.`dep_has_worker_id` AS `dep_has_worker_id`,sum((case when (`m1`.`month1` = 1) then `m1`.`quantity` else 0 end)) AS `month1`,sum((case when (`m1`.`month1` = 2) then `m1`.`quantity` else 0 end)) AS `month2`,sum((case when (`m1`.`month1` = 3) then `m1`.`quantity` else 0 end)) AS `month3`,sum((case when (`m1`.`month1` = 4) then `m1`.`quantity` else 0 end)) AS `month4`,sum((case when (`m1`.`month1` = 5) then `m1`.`quantity` else 0 end)) AS `month5`,sum((case when (`m1`.`month1` = 6) then `m1`.`quantity` else 0 end)) AS `month6`,sum((case when (`m1`.`month1` = 7) then `m1`.`quantity` else 0 end)) AS `month7`,sum((case when (`m1`.`month1` = 8) then `m1`.`quantity` else 0 end)) AS `month8`,sum((case when (`m1`.`month1` = 9) then `m1`.`quantity` else 0 end)) AS `month9`,sum((case when (`m1`.`month1` = 10) then `m1`.`quantity` else 0 end)) AS `month10`,sum((case when (`m1`.`month1` = 11) then `m1`.`quantity` else 0 end)) AS `month11`,sum((case when (`m1`.`month1` = 12) then `m1`.`quantity` else 0 end)) AS `month12` from `m1` group by `m1`.`dep_id`,`m1`.`contracts_id`,`m1`.`serv_id`,`m1`.`dep_has_worker_id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6750,7 +6750,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_main_cprice` AS select `f`.`id` AS `id`,`f`.`contracts_id` AS `contracts_id`,`f`.`dep_id` AS `dep_id`,`f`.`client_id` AS `client_id`,`f`.`serv_id` AS `serv_id`,`f`.`dep_has_worker_id` AS `dep_has_worker_id`,`f`.`worker_id` AS `worker_id`,`f`.`vdate` AS `vdate`,`f`.`uslnum` AS `uslnum`,`f`.`note` AS `note`,`f`.`create` AS `create`,`f`.`ts` AS `ts`,`f`.`cr_by` AS `cr_by`,`f`.`upd_by` AS `upd_by`,`f`.`reported` AS `reported`,`f`.`wdate` AS `wdate`,`f`.`overdid` AS `overdid`,`f`.`prev_uslnum` AS `prev_uslnum`,`f`.`perc` AS `perc`,`f`.`price` AS `price`,`f`.`price2` AS `price2`,`f`.`price3` AS `price3`,`f`.`servform_id` AS `servform_id`,`f`.`tnum` AS `tnum`,`f`.`serv` AS `serv`,`f`.`serv_text` AS `serv_text`,`f`.`sub_serv` AS `sub_serv`,((`f`.`perc` * `f`.`uslnum`) * `f`.`price`) AS `to_pay`,((`f`.`perc` * `f`.`uslnum`) * `f`.`price2`) AS `to_pay2` from (select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum`,(select `pd`.`perc` from `add_info` `pd` where ((`pd`.`pddate` <= `m`.`vdate`) and (`pd`.`contracts_id` = `m`.`contracts_id`)) order by `pd`.`pddate` desc limit 1) AS `perc`,`s`.`price` AS `price`,`s`.`price2` AS `price2`,`s`.`price3` AS `price3`,`r`.`servform_id` AS `servform_id`,`s`.`tnum` AS `tnum`,`s`.`serv` AS `serv`,`s`.`serv_text` AS `serv_text`,`s`.`sub_serv` AS `sub_serv` from (((`main` `m` join `serv` `s` on((`m`.`serv_id` = `s`.`id`))) join `contracts` `c` on((`m`.`contracts_id` = `c`.`id`))) left join `ripso` `r` on((`c`.`ripso_id` = `r`.`id`)))) `f` */;
+/*!50001 VIEW `_main_cprice` AS select `f`.`id` AS `id`,`f`.`contracts_id` AS `contracts_id`,`f`.`dep_id` AS `dep_id`,`f`.`client_id` AS `client_id`,`f`.`serv_id` AS `serv_id`,`f`.`dep_has_worker_id` AS `dep_has_worker_id`,`f`.`worker_id` AS `worker_id`,`f`.`vdate` AS `vdate`,`f`.`quantity` AS `quantity`,`f`.`note` AS `note`,`f`.`create` AS `create`,`f`.`ts` AS `ts`,`f`.`cr_by` AS `cr_by`,`f`.`upd_by` AS `upd_by`,`f`.`reported` AS `reported`,`f`.`wdate` AS `wdate`,`f`.`overdid` AS `overdid`,`f`.`prev_quantity` AS `prev_quantity`,`f`.`perc` AS `perc`,`f`.`price` AS `price`,`f`.`price2` AS `price2`,`f`.`price3` AS `price3`,`f`.`servform_id` AS `servform_id`,`f`.`tnum` AS `tnum`,`f`.`serv` AS `serv`,`f`.`serv_text` AS `serv_text`,`f`.`sub_serv` AS `sub_serv`,((`f`.`perc` * `f`.`quantity`) * `f`.`price`) AS `to_pay`,((`f`.`perc` * `f`.`quantity`) * `f`.`price2`) AS `to_pay2` from (select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`quantity` AS `quantity`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_quantity` AS `prev_quantity`,(select `pd`.`perc` from `add_info` `pd` where ((`pd`.`pddate` <= `m`.`vdate`) and (`pd`.`contracts_id` = `m`.`contracts_id`)) order by `pd`.`pddate` desc limit 1) AS `perc`,`s`.`price` AS `price`,`s`.`price2` AS `price2`,`s`.`price3` AS `price3`,`r`.`servform_id` AS `servform_id`,`s`.`tnum` AS `tnum`,`s`.`serv` AS `serv`,`s`.`serv_text` AS `serv_text`,`s`.`sub_serv` AS `sub_serv` from (((`main` `m` join `serv` `s` on((`m`.`serv_id` = `s`.`id`))) join `contracts` `c` on((`m`.`contracts_id` = `c`.`id`))) left join `ripso` `r` on((`c`.`ripso_id` = `r`.`id`)))) `f` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6768,7 +6768,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_main_cprice_for_contracts` AS select `f`.`id` AS `id`,`f`.`contracts_id` AS `contracts_id`,`f`.`dep_id` AS `dep_id`,`f`.`client_id` AS `client_id`,`f`.`serv_id` AS `serv_id`,`f`.`dep_has_worker_id` AS `dep_has_worker_id`,`f`.`worker_id` AS `worker_id`,`f`.`vdate` AS `vdate`,`f`.`uslnum` AS `uslnum`,`f`.`note` AS `note`,`f`.`create` AS `create`,`f`.`ts` AS `ts`,`f`.`cr_by` AS `cr_by`,`f`.`upd_by` AS `upd_by`,`f`.`reported` AS `reported`,`f`.`wdate` AS `wdate`,`f`.`overdid` AS `overdid`,`f`.`prev_uslnum` AS `prev_uslnum`,`f`.`perc` AS `perc`,`f`.`price` AS `price`,`f`.`price2` AS `price2`,`f`.`price3` AS `price3`,`f`.`servform_id` AS `servform_id`,((`f`.`perc` * `f`.`uslnum`) * `f`.`price`) AS `to_pay`,((`f`.`perc` * `f`.`uslnum`) * `f`.`price2`) AS `to_pay2` from (select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum`,(select `pd`.`perc` from `add_info` `pd` where ((`pd`.`pddate` <= `m`.`vdate`) and (`pd`.`contracts_id` = `m`.`contracts_id`)) order by `pd`.`pddate` desc limit 1) AS `perc`,`s`.`price` AS `price`,`s`.`price2` AS `price2`,`s`.`price3` AS `price3`,`r`.`servform_id` AS `servform_id` from (((`main` `m` join `serv` `s` on((`m`.`serv_id` = `s`.`id`))) join (select `contracts`.`id` AS `id`,`contracts`.`contracts` AS `contracts`,`contracts`.`contracts2` AS `contracts2`,`contracts`.`client_id` AS `client_id`,`contracts`.`dep_id` AS `dep_id`,`contracts`.`ripso_id` AS `ripso_id`,`contracts`.`blocked` AS `blocked`,`contracts`.`startdate` AS `startdate`,`contracts`.`enddate` AS `enddate`,`contracts`.`ippsuNum` AS `ippsuNum`,`contracts`.`note` AS `note`,`contracts`.`create` AS `create`,`contracts`.`ts` AS `ts`,`contracts`.`cr_by` AS `cr_by`,`contracts`.`upd_by` AS `upd_by`,`contracts`.`to_recheck` AS `to_recheck`,`contracts`.`check_date` AS `check_date`,`contracts`.`pyc_prim` AS `pyc_prim` from `contracts` where (`contracts`.`id` = `get_last_contr`())) `c` on((`m`.`contracts_id` = `c`.`id`))) left join `ripso` `r` on((`c`.`ripso_id` = `r`.`id`)))) `f` */;
+/*!50001 VIEW `_main_cprice_for_contracts` AS select `f`.`id` AS `id`,`f`.`contracts_id` AS `contracts_id`,`f`.`dep_id` AS `dep_id`,`f`.`client_id` AS `client_id`,`f`.`serv_id` AS `serv_id`,`f`.`dep_has_worker_id` AS `dep_has_worker_id`,`f`.`worker_id` AS `worker_id`,`f`.`vdate` AS `vdate`,`f`.`quantity` AS `quantity`,`f`.`note` AS `note`,`f`.`create` AS `create`,`f`.`ts` AS `ts`,`f`.`cr_by` AS `cr_by`,`f`.`upd_by` AS `upd_by`,`f`.`reported` AS `reported`,`f`.`wdate` AS `wdate`,`f`.`overdid` AS `overdid`,`f`.`prev_quantity` AS `prev_quantity`,`f`.`perc` AS `perc`,`f`.`price` AS `price`,`f`.`price2` AS `price2`,`f`.`price3` AS `price3`,`f`.`servform_id` AS `servform_id`,((`f`.`perc` * `f`.`quantity`) * `f`.`price`) AS `to_pay`,((`f`.`perc` * `f`.`quantity`) * `f`.`price2`) AS `to_pay2` from (select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`quantity` AS `quantity`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_quantity` AS `prev_quantity`,(select `pd`.`perc` from `add_info` `pd` where ((`pd`.`pddate` <= `m`.`vdate`) and (`pd`.`contracts_id` = `m`.`contracts_id`)) order by `pd`.`pddate` desc limit 1) AS `perc`,`s`.`price` AS `price`,`s`.`price2` AS `price2`,`s`.`price3` AS `price3`,`r`.`servform_id` AS `servform_id` from (((`main` `m` join `serv` `s` on((`m`.`serv_id` = `s`.`id`))) join (select `contracts`.`id` AS `id`,`contracts`.`contracts` AS `contracts`,`contracts`.`contracts2` AS `contracts2`,`contracts`.`client_id` AS `client_id`,`contracts`.`dep_id` AS `dep_id`,`contracts`.`ripso_id` AS `ripso_id`,`contracts`.`blocked` AS `blocked`,`contracts`.`startdate` AS `startdate`,`contracts`.`enddate` AS `enddate`,`contracts`.`ippsuNum` AS `ippsuNum`,`contracts`.`note` AS `note`,`contracts`.`create` AS `create`,`contracts`.`ts` AS `ts`,`contracts`.`cr_by` AS `cr_by`,`contracts`.`upd_by` AS `upd_by`,`contracts`.`to_recheck` AS `to_recheck`,`contracts`.`check_date` AS `check_date`,`contracts`.`pyc_prim` AS `pyc_prim` from `contracts` where (`contracts`.`id` = `get_last_contr`())) `c` on((`m`.`contracts_id` = `c`.`id`))) left join `ripso` `r` on((`c`.`ripso_id` = `r`.`id`)))) `f` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6786,7 +6786,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_main_for_dep` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 VIEW `_main_for_dep` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6804,7 +6804,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_main_for_you` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where (`main`.`worker_id` = `GET_WID`()) */;
+/*!50001 VIEW `_main_for_you` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where (`main`.`worker_id` = `GET_WID`()) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6822,7 +6822,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_main_months` AS with `m1` as (select `main`.`client_id` AS `client_id`,`main`.`dep_id` AS `dep_id`,`main`.`contracts_id` AS `contracts_id`,`main`.`serv_id` AS `serv_id`,month(`main`.`vdate`) AS `month1`,year(`main`.`vdate`) AS `year1`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`uslnum` AS `uslnum` from `main`) select `m1`.`serv_id` AS `serv_id`,`m1`.`dep_id` AS `dep_id`,`m1`.`contracts_id` AS `contracts_id`,`m1`.`year1` AS `year1`,`m1`.`dep_has_worker_id` AS `dep_has_worker_id`,sum((case when (`m1`.`month1` = 1) then `m1`.`uslnum` else 0 end)) AS `month1`,sum((case when (`m1`.`month1` = 2) then `m1`.`uslnum` else 0 end)) AS `month2`,sum((case when (`m1`.`month1` = 3) then `m1`.`uslnum` else 0 end)) AS `month3`,sum((case when (`m1`.`month1` = 4) then `m1`.`uslnum` else 0 end)) AS `month4`,sum((case when (`m1`.`month1` = 5) then `m1`.`uslnum` else 0 end)) AS `month5`,sum((case when (`m1`.`month1` = 6) then `m1`.`uslnum` else 0 end)) AS `month6`,sum((case when (`m1`.`month1` = 7) then `m1`.`uslnum` else 0 end)) AS `month7`,sum((case when (`m1`.`month1` = 8) then `m1`.`uslnum` else 0 end)) AS `month8`,sum((case when (`m1`.`month1` = 9) then `m1`.`uslnum` else 0 end)) AS `month9`,sum((case when (`m1`.`month1` = 10) then `m1`.`uslnum` else 0 end)) AS `month10`,sum((case when (`m1`.`month1` = 11) then `m1`.`uslnum` else 0 end)) AS `month11`,sum((case when (`m1`.`month1` = 12) then `m1`.`uslnum` else 0 end)) AS `month12` from `m1` group by `m1`.`dep_id`,`m1`.`contracts_id`,`m1`.`serv_id`,`m1`.`dep_has_worker_id` */;
+/*!50001 VIEW `_main_months` AS with `m1` as (select `main`.`client_id` AS `client_id`,`main`.`dep_id` AS `dep_id`,`main`.`contracts_id` AS `contracts_id`,`main`.`serv_id` AS `serv_id`,month(`main`.`vdate`) AS `month1`,year(`main`.`vdate`) AS `year1`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`quantity` AS `quantity` from `main`) select `m1`.`serv_id` AS `serv_id`,`m1`.`dep_id` AS `dep_id`,`m1`.`contracts_id` AS `contracts_id`,`m1`.`year1` AS `year1`,`m1`.`dep_has_worker_id` AS `dep_has_worker_id`,sum((case when (`m1`.`month1` = 1) then `m1`.`quantity` else 0 end)) AS `month1`,sum((case when (`m1`.`month1` = 2) then `m1`.`quantity` else 0 end)) AS `month2`,sum((case when (`m1`.`month1` = 3) then `m1`.`quantity` else 0 end)) AS `month3`,sum((case when (`m1`.`month1` = 4) then `m1`.`quantity` else 0 end)) AS `month4`,sum((case when (`m1`.`month1` = 5) then `m1`.`quantity` else 0 end)) AS `month5`,sum((case when (`m1`.`month1` = 6) then `m1`.`quantity` else 0 end)) AS `month6`,sum((case when (`m1`.`month1` = 7) then `m1`.`quantity` else 0 end)) AS `month7`,sum((case when (`m1`.`month1` = 8) then `m1`.`quantity` else 0 end)) AS `month8`,sum((case when (`m1`.`month1` = 9) then `m1`.`quantity` else 0 end)) AS `month9`,sum((case when (`m1`.`month1` = 10) then `m1`.`quantity` else 0 end)) AS `month10`,sum((case when (`m1`.`month1` = 11) then `m1`.`quantity` else 0 end)) AS `month11`,sum((case when (`m1`.`month1` = 12) then `m1`.`quantity` else 0 end)) AS `month12` from `m1` group by `m1`.`dep_id`,`m1`.`contracts_id`,`m1`.`serv_id`,`m1`.`dep_has_worker_id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6840,7 +6840,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_main_serv_name` AS select `s`.`tnum` AS `serv`,`m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from (`main` `m` join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) where `m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 VIEW `_main_serv_name` AS select `s`.`tnum` AS `serv`,`m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`quantity` AS `quantity`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_quantity` AS `prev_quantity` from (`main` `m` join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) where `m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6858,7 +6858,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_main_serv_name_ripso` AS select `s`.`tnum` AS `serv`,`c`.`ripso_id` AS `ripso_id`,`m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from ((`main` `m` join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) join `contracts` `c` on((`c`.`id` = `m`.`contracts_id`))) where `m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 VIEW `_main_serv_name_ripso` AS select `s`.`tnum` AS `serv`,`c`.`ripso_id` AS `ripso_id`,`m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`quantity` AS `quantity`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_quantity` AS `prev_quantity` from ((`main` `m` join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) join `contracts` `c` on((`c`.`id` = `m`.`contracts_id`))) where `m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6876,7 +6876,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_main_serv_name_ripso_static` AS select `s`.`tnum` AS `serv`,`c`.`ripso_id` AS `ripso_id`,`m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from ((`main` `m` join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) join `contracts` `c` on((`c`.`id` = `m`.`contracts_id`))) where `m`.`dep_id` in (select `_active_dep_static`.`id` from `_active_dep_static`) */;
+/*!50001 VIEW `_main_serv_name_ripso_static` AS select `s`.`tnum` AS `serv`,`c`.`ripso_id` AS `ripso_id`,`m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`quantity` AS `quantity`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_quantity` AS `prev_quantity` from ((`main` `m` join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) join `contracts` `c` on((`c`.`id` = `m`.`contracts_id`))) where `m`.`dep_id` in (select `_active_dep_static`.`id` from `_active_dep_static`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6894,7 +6894,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_main_serv_name_static` AS select `s`.`tnum` AS `serv`,`m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from (`main` `m` join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) where `m`.`dep_id` in (select `_active_dep_static`.`id` from `_active_dep_static`) */;
+/*!50001 VIEW `_main_serv_name_static` AS select `s`.`tnum` AS `serv`,`m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`quantity` AS `quantity`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_quantity` AS `prev_quantity` from (`main` `m` join `serv` `s` on((`s`.`id` = `m`.`serv_id`))) where `m`.`dep_id` in (select `_active_dep_static`.`id` from `_active_dep_static`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7038,7 +7038,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_client_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where (`main`.`client_id` = `get_last_client`()) */;
+/*!50001 VIEW `_client_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where (`main`.`client_id` = `get_last_client`()) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7074,7 +7074,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_user_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where ((`main`.`cr_by` = `GET_WID`()) or (`main`.`upd_by` = `GET_WID`())) order by `main`.`ts` desc */;
+/*!50001 VIEW `_user_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where ((`main`.`cr_by` = `GET_WID`()) or (`main`.`upd_by` = `GET_WID`())) order by `main`.`ts` desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7092,7 +7092,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_user_has_main_limit30` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where ((`main`.`cr_by` = `GET_WID`()) or (`main`.`upd_by` = `GET_WID`())) order by `main`.`id` desc limit 30 */;
+/*!50001 VIEW `_user_has_main_limit30` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where ((`main`.`cr_by` = `GET_WID`()) or (`main`.`upd_by` = `GET_WID`())) order by `main`.`id` desc limit 30 */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7110,7 +7110,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_user_has_main_today` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where (((`main`.`cr_by` = `GET_WID`()) or (`main`.`upd_by` = `GET_WID`())) and (`main`.`ts` = curdate())) order by `main`.`ts` desc */;
+/*!50001 VIEW `_user_has_main_today` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where (((`main`.`cr_by` = `GET_WID`()) or (`main`.`upd_by` = `GET_WID`())) and (`main`.`ts` = curdate())) order by `main`.`ts` desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7146,7 +7146,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_worker_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where (`main`.`worker_id` = `GET_WID`()) */;
+/*!50001 VIEW `_worker_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where (`main`.`worker_id` = `GET_WID`()) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7254,7 +7254,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `dep_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 VIEW `dep_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7326,7 +7326,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `dep_total_serv` AS select `main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`serv_id` AS `serv_id`,`main`.`worker_id` AS `worker_id`,sum(`main`.`uslnum`) AS `SUM(uslnum)`,month(`main`.`vdate`) AS `MONTH(vdate)`,year(`main`.`vdate`) AS `YEAR(vdate)` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) group by `main`.`contracts_id`,`main`.`dep_id`,`main`.`serv_id`,`main`.`worker_id`,month(`main`.`vdate`),year(`main`.`vdate`) */;
+/*!50001 VIEW `dep_total_serv` AS select `main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`serv_id` AS `serv_id`,`main`.`worker_id` AS `worker_id`,sum(`main`.`quantity`) AS `SUM(quantity)`,month(`main`.`vdate`) AS `MONTH(vdate)`,year(`main`.`vdate`) AS `YEAR(vdate)` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) group by `main`.`contracts_id`,`main`.`dep_id`,`main`.`serv_id`,`main`.`worker_id`,month(`main`.`vdate`),year(`main`.`vdate`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7344,7 +7344,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `dep_total_supserv1` AS select `m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`s`.`sub_serv` AS `sub_serv`,`m`.`worker_id` AS `worker_id`,sum(`m`.`uslnum`) AS `SUM(uslnum)`,`m`.`mnth1` AS `mnth1`,`m`.`year1` AS `year1` from (`serv` `s` left join (select `main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`serv_id` AS `serv_id`,`main`.`worker_id` AS `worker_id`,sum(`main`.`uslnum`) AS `uslnum`,month(`main`.`vdate`) AS `mnth1`,year(`main`.`vdate`) AS `year1` from `main` group by `main`.`contracts_id`,`main`.`dep_id`,`main`.`serv_id`,`main`.`worker_id`,month(`main`.`vdate`),year(`main`.`vdate`)) `m` on((`m`.`serv_id` = `s`.`id`))) group by `m`.`contracts_id`,`m`.`dep_id`,`s`.`sub_serv`,`m`.`worker_id`,`m`.`mnth1`,`m`.`year1` */;
+/*!50001 VIEW `dep_total_supserv1` AS select `m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`s`.`sub_serv` AS `sub_serv`,`m`.`worker_id` AS `worker_id`,sum(`m`.`quantity`) AS `SUM(quantity)`,`m`.`mnth1` AS `mnth1`,`m`.`year1` AS `year1` from (`serv` `s` left join (select `main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`serv_id` AS `serv_id`,`main`.`worker_id` AS `worker_id`,sum(`main`.`quantity`) AS `quantity`,month(`main`.`vdate`) AS `mnth1`,year(`main`.`vdate`) AS `year1` from `main` group by `main`.`contracts_id`,`main`.`dep_id`,`main`.`serv_id`,`main`.`worker_id`,month(`main`.`vdate`),year(`main`.`vdate`)) `m` on((`m`.`serv_id` = `s`.`id`))) group by `m`.`contracts_id`,`m`.`dep_id`,`s`.`sub_serv`,`m`.`worker_id`,`m`.`mnth1`,`m`.`year1` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7416,7 +7416,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `main_cprice` AS select `f`.`id` AS `id`,`f`.`contracts_id` AS `contracts_id`,`f`.`dep_id` AS `dep_id`,`f`.`client_id` AS `client_id`,`f`.`serv_id` AS `serv_id`,`f`.`dep_has_worker_id` AS `dep_has_worker_id`,`f`.`worker_id` AS `worker_id`,`f`.`vdate` AS `vdate`,`f`.`uslnum` AS `uslnum`,`f`.`note` AS `note`,`f`.`create` AS `create`,`f`.`ts` AS `ts`,`f`.`cr_by` AS `cr_by`,`f`.`upd_by` AS `upd_by`,`f`.`reported` AS `reported`,`f`.`wdate` AS `wdate`,`f`.`overdid` AS `overdid`,`f`.`prev_uslnum` AS `prev_uslnum`,`f`.`perc` AS `perc`,`f`.`price` AS `price`,`f`.`price2` AS `price2`,`f`.`price3` AS `price3`,`f`.`servform_id` AS `servform_id`,((`f`.`perc` * `f`.`uslnum`) * `f`.`price`) AS `to_pay`,((`f`.`perc` * `f`.`uslnum`) * `f`.`price2`) AS `to_pay2` from (select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum`,(select `pd`.`perc` from `add_info` `pd` where ((`pd`.`pddate` <= `m`.`vdate`) and (`pd`.`contracts_id` = `m`.`contracts_id`)) order by `pd`.`pddate` desc limit 1) AS `perc`,`s`.`price` AS `price`,`s`.`price2` AS `price2`,`s`.`price3` AS `price3`,`r`.`servform_id` AS `servform_id` from (((`main` `m` join `serv` `s` on((`m`.`serv_id` = `s`.`id`))) join `contracts` `c` on((`m`.`contracts_id` = `c`.`id`))) left join `ripso` `r` on((`c`.`ripso_id` = `r`.`id`)))) `f` */;
+/*!50001 VIEW `main_cprice` AS select `f`.`id` AS `id`,`f`.`contracts_id` AS `contracts_id`,`f`.`dep_id` AS `dep_id`,`f`.`client_id` AS `client_id`,`f`.`serv_id` AS `serv_id`,`f`.`dep_has_worker_id` AS `dep_has_worker_id`,`f`.`worker_id` AS `worker_id`,`f`.`vdate` AS `vdate`,`f`.`quantity` AS `quantity`,`f`.`note` AS `note`,`f`.`create` AS `create`,`f`.`ts` AS `ts`,`f`.`cr_by` AS `cr_by`,`f`.`upd_by` AS `upd_by`,`f`.`reported` AS `reported`,`f`.`wdate` AS `wdate`,`f`.`overdid` AS `overdid`,`f`.`prev_quantity` AS `prev_quantity`,`f`.`perc` AS `perc`,`f`.`price` AS `price`,`f`.`price2` AS `price2`,`f`.`price3` AS `price3`,`f`.`servform_id` AS `servform_id`,((`f`.`perc` * `f`.`quantity`) * `f`.`price`) AS `to_pay`,((`f`.`perc` * `f`.`quantity`) * `f`.`price2`) AS `to_pay2` from (select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`quantity` AS `quantity`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_quantity` AS `prev_quantity`,(select `pd`.`perc` from `add_info` `pd` where ((`pd`.`pddate` <= `m`.`vdate`) and (`pd`.`contracts_id` = `m`.`contracts_id`)) order by `pd`.`pddate` desc limit 1) AS `perc`,`s`.`price` AS `price`,`s`.`price2` AS `price2`,`s`.`price3` AS `price3`,`r`.`servform_id` AS `servform_id` from (((`main` `m` join `serv` `s` on((`m`.`serv_id` = `s`.`id`))) join `contracts` `c` on((`m`.`contracts_id` = `c`.`id`))) left join `ripso` `r` on((`c`.`ripso_id` = `r`.`id`)))) `f` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7434,7 +7434,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `main_nz` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where (`main`.`uslnum` > 0) */;
+/*!50001 VIEW `main_nz` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where (`main`.`quantity` > 0) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7524,7 +7524,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `servofyear` AS select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`uslnum` AS `uslnum`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_uslnum` AS `prev_uslnum` from `main` `m` where (year(`m`.`vdate`) = year(curdate())) */;
+/*!50001 VIEW `servofyear` AS select `m`.`id` AS `id`,`m`.`contracts_id` AS `contracts_id`,`m`.`dep_id` AS `dep_id`,`m`.`client_id` AS `client_id`,`m`.`serv_id` AS `serv_id`,`m`.`dep_has_worker_id` AS `dep_has_worker_id`,`m`.`worker_id` AS `worker_id`,`m`.`vdate` AS `vdate`,`m`.`quantity` AS `quantity`,`m`.`note` AS `note`,`m`.`create` AS `create`,`m`.`ts` AS `ts`,`m`.`cr_by` AS `cr_by`,`m`.`upd_by` AS `upd_by`,`m`.`reported` AS `reported`,`m`.`wdate` AS `wdate`,`m`.`overdid` AS `overdid`,`m`.`prev_quantity` AS `prev_quantity` from `main` `m` where (year(`m`.`vdate`) = year(curdate())) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7668,7 +7668,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `updatable__dep_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 VIEW `updatable__dep_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7704,7 +7704,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `updatable__user_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where ((`main`.`cr_by` = `GET_WID`()) or (`main`.`upd_by` = `GET_WID`())) order by `main`.`ts` desc */;
+/*!50001 VIEW `updatable__user_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where ((`main`.`cr_by` = `GET_WID`()) or (`main`.`upd_by` = `GET_WID`())) order by `main`.`ts` desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7776,7 +7776,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `updatable_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` */;
+/*!50001 VIEW `updatable_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7812,7 +7812,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `user_has_serv` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`uslnum` AS `uslnum`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_uslnum` AS `prev_uslnum` from `main` where (`main`.`cr_by` = `GET_wID`()) */;
+/*!50001 VIEW `user_has_serv` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where (`main`.`cr_by` = `GET_wID`()) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;

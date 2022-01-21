@@ -84,7 +84,7 @@ def _get_money_in_month(client_id, vdate):
                     d[qry.record().fieldName(i)] = qry.value(i)
                 res.append(d)
             if not res:
-                res.append({"to_pay": 0, "perc": 0, "uslnum": 0, "client_id": client_id, "servform_id": 0, "contracts": 0,
+                res.append({"to_pay": 0, "perc": 0, "quantity": 0, "client_id": client_id, "servform_id": 0, "contracts": 0,
                             "contracts_id": 0, "startdate": 0, "enddate": 0, "vdate_m": start.month(),
                             "vdate_y": start.year()})
         else:
@@ -217,7 +217,7 @@ class infoQDockWidget(QDockWidget):
                     except:
                         ui.qle_contract.setText("{}".format(data["contracts"]))
                     ui.qle_contract.setCursorPosition(0)
-                    ui.qle_serv_total.setText("{}".format((data["uslnum"])))
+                    ui.qle_serv_total.setText("{}".format((data["quantity"])))
                     cbxsf.set_current_index_id(data["servform_id"])
                     cbxsf.lineEdit().setCursorPosition(0)
                     ui.qle_month.setText(
@@ -236,7 +236,7 @@ class infoQDockWidget(QDockWidget):
                                                 ))
                     except:
                         ui.qle_contract.setText("{}".format(data["contracts"]))
-                    ui.qle_serv_total.setText(ui.qle_serv_total.text() + " | " + "{}".format((data["uslnum"])))
+                    ui.qle_serv_total.setText(ui.qle_serv_total.text() + " | " + "{}".format((data["quantity"])))
                     if cbxsf.currentIndex() != data["servform_id"]:
                         cbxsf.clear()
                     ui.qle_month.setText(ui.qle_month.text() + " | " +

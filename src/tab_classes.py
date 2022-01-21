@@ -581,7 +581,7 @@ class clstab_services(QOBase):
                     "vdate": vdate,
                     "dep_has_worker_id": get_cbox_data(ui.comboW),
                     "note": ui.qleNote.text(),
-                    "uslnum": amount,
+                    "quantity": amount,
                     "client_id": client
                 }
                 SD.start_edit(None, model, model.row_id(model.special_row), "client_id")
