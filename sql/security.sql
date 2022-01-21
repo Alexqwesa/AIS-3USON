@@ -13,7 +13,7 @@ select * from kcson.role;
 drop procedure IF EXISTS INIT_SECURITY;
 delimiter $$
 create procedure INIT_SECURITY()
-    SQL SECURITY DEFINER
+SQL SECURITY DEFINER
 BEGIN
 
     #############################

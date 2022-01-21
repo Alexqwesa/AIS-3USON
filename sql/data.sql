@@ -2328,11 +2328,11 @@ INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%навыка
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%нахождении работы по гибкому графику%', 'interview.png', 'Содействие в нахождении работы по гибкому графику', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%полиса обязательного медицинского страхования%', 'medical-checkup.png', 'Содействие в получении полиса ОМС', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('% для помещения в стационарную организацию социального обслуживания%', 'checklist.png', 'Содействие для помещения в стационар', 0);
-INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%в восстановлении утраченного% жилья, наследства%', 'document-home.png', 'Содействие в восстановлении утраченного жилья, наследства', 0);
+INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%в восстановлении утраченного% жилья, наследства%', 'document-home.png', 'Содействие по вопросам жилья, наследства', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%помощи в получении юридических услуг%', 'verdict.png', '', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%помощи в защите прав и законных%', 'law.png', 'Оказание помощи в защите прав и законных интересов', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%по вопросам социально-средовой реабилитации%', 'consultant.png', 'Консультирование по соц.-средовой реабилитации', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%навыкам% поведения в быту и общественных местах%', 'conversation.png', '', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%санаторно-курортного лечения или оздоровительного отдыха%', 'vacation.png', '', 0);
-INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%по вопросам самообслуживания и социально-бытовой адаптации%', 'self-service.png', 'Консультирование по самообслуживанию и соц. быт. адаптации', 0);
-INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%Обучение навыкам поведения в быту и общественных местах%', 'conversation.png', 'Обучение навыкам поведения в быту и общественных местах', 0);
+INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%по вопросам самообслуживания и социально-бытовой адаптации%', 'self-service.png', 'Консультации по самообслуживанию и соц.-быт. адаптации', 0);
+INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%Обучение навыкам поведения в быту и общественных местах%', 'conversation.png', 'Обучение навыкам поведения в быту и общ. местах', 0);
