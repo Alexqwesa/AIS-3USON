@@ -4345,11 +4345,11 @@ BEGIN
             and startdate <= vdate  and enddate  >= vdate and (blocked=0 or blocked is null ) and client_id=idfio);
 	elseif cc = 0 then 
 		set rr = CONCAT ('Нет договора в этот период для этого человека в этом отделении' , idfio , vdate, idep);
-		SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = cc;
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = rr;
 		return 0;
 	else
 		set rr = CONCAT ("Несколько договоров в этот период для этого человека в этом отделении",idfio , vdate, idep );
-		SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT  = cc;
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT  = rr;
 		return -1;
 	end if;
 END ;;
