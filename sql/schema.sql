@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
 --
--- Host: localhost    Database: kcson
+-- Host: 127.0.0.1    Database: kcson
 -- ------------------------------------------------------
 -- Server version	8.0.20
 
@@ -202,6 +202,198 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `_client`
+--
+
+DROP TABLE IF EXISTS `_client`;
+/*!50001 DROP VIEW IF EXISTS `_client`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `_client` AS SELECT 
+ 1 AS `id`,
+ 1 AS `client`,
+ 1 AS `client_short`,
+ 1 AS `clientDeath`,
+ 1 AS `clientbirth`,
+ 1 AS `ESRN`,
+ 1 AS `prim`,
+ 1 AS `phone`,
+ 1 AS `snils`,
+ 1 AS `curator`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`,
+ 1 AS `cr_dep_id`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `_client_has_add_info`
+--
+
+DROP TABLE IF EXISTS `_client_has_add_info`;
+/*!50001 DROP VIEW IF EXISTS `_client_has_add_info`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `_client_has_add_info` AS SELECT 
+ 1 AS `client_id`,
+ 1 AS `pddate`,
+ 1 AS `contracts_id`,
+ 1 AS `predv_money`,
+ 1 AS `curFIO`,
+ 1 AS `psp`,
+ 1 AS `address`,
+ 1 AS `sdd`,
+ 1 AS `sdd_date`,
+ 1 AS `perc`,
+ 1 AS `not_standart_contract`,
+ 1 AS `not_standart_act`,
+ 1 AS `prim`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`,
+ 1 AS `repr_FIO`,
+ 1 AS `repr_addr`,
+ 1 AS `repr_psp`,
+ 1 AS `work_livemin`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `_client_has_category_for_last_client`
+--
+
+DROP TABLE IF EXISTS `_client_has_category_for_last_client`;
+/*!50001 DROP VIEW IF EXISTS `_client_has_category_for_last_client`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `_client_has_category_for_last_client` AS SELECT 
+ 1 AS `client_id`,
+ 1 AS `category_id`,
+ 1 AS `get_date`,
+ 1 AS `archive`,
+ 1 AS `prim`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `_client_has_contracts`
+--
+
+DROP TABLE IF EXISTS `_client_has_contracts`;
+/*!50001 DROP VIEW IF EXISTS `_client_has_contracts`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `_client_has_contracts` AS SELECT 
+ 1 AS `id`,
+ 1 AS `contracts`,
+ 1 AS `contracts2`,
+ 1 AS `client_id`,
+ 1 AS `dep_id`,
+ 1 AS `ripso_id`,
+ 1 AS `blocked`,
+ 1 AS `startdate`,
+ 1 AS `enddate`,
+ 1 AS `ippsuNum`,
+ 1 AS `note`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`,
+ 1 AS `to_recheck`,
+ 1 AS `check_date`,
+ 1 AS `pyc_prim`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `_client_has_invalid_contracts`
+--
+
+DROP TABLE IF EXISTS `_client_has_invalid_contracts`;
+/*!50001 DROP VIEW IF EXISTS `_client_has_invalid_contracts`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `_client_has_invalid_contracts` AS SELECT 
+ 1 AS `client`,
+ 1 AS `id`,
+ 1 AS `contracts`,
+ 1 AS `client_id`,
+ 1 AS `dep_id`,
+ 1 AS `ripso_id`,
+ 1 AS `blocked`,
+ 1 AS `startdate`,
+ 1 AS `enddate`,
+ 1 AS `ippsuNum`,
+ 1 AS `note`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`,
+ 1 AS `to_recheck`,
+ 1 AS `check_date`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `_client_has_main`
+--
+
+DROP TABLE IF EXISTS `_client_has_main`;
+/*!50001 DROP VIEW IF EXISTS `_client_has_main`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `_client_has_main` AS SELECT 
+ 1 AS `id`,
+ 1 AS `contracts_id`,
+ 1 AS `dep_id`,
+ 1 AS `client_id`,
+ 1 AS `serv_id`,
+ 1 AS `dep_has_worker_id`,
+ 1 AS `worker_id`,
+ 1 AS `vdate`,
+ 1 AS `quantity`,
+ 1 AS `note`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`,
+ 1 AS `reported`,
+ 1 AS `wdate`,
+ 1 AS `overdid`,
+ 1 AS `prev_quantity`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `_client_has_valid_contracts`
+--
+
+DROP TABLE IF EXISTS `_client_has_valid_contracts`;
+/*!50001 DROP VIEW IF EXISTS `_client_has_valid_contracts`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `_client_has_valid_contracts` AS SELECT 
+ 1 AS `client`,
+ 1 AS `id`,
+ 1 AS `contracts`,
+ 1 AS `client_id`,
+ 1 AS `dep_id`,
+ 1 AS `ripso_id`,
+ 1 AS `blocked`,
+ 1 AS `startdate`,
+ 1 AS `enddate`,
+ 1 AS `ippsuNum`,
+ 1 AS `note`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`,
+ 1 AS `to_recheck`,
+ 1 AS `check_date`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `_contr_has_add_info`
 --
 
@@ -369,104 +561,6 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `repr_addr`,
  1 AS `repr_psp`,
  1 AS `work_livemin`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `_dep_has_contracts`
---
-
-DROP TABLE IF EXISTS `_dep_has_contracts`;
-/*!50001 DROP VIEW IF EXISTS `_dep_has_contracts`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_contracts` AS SELECT 
- 1 AS `client`,
- 1 AS `id`,
- 1 AS `contracts`,
- 1 AS `contracts2`,
- 1 AS `client_id`,
- 1 AS `dep_id`,
- 1 AS `ripso_id`,
- 1 AS `blocked`,
- 1 AS `startdate`,
- 1 AS `enddate`,
- 1 AS `ippsuNum`,
- 1 AS `note`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `to_recheck`,
- 1 AS `check_date`,
- 1 AS `pyc_prim`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `_dep_has_main`
---
-
-DROP TABLE IF EXISTS `_dep_has_main`;
-/*!50001 DROP VIEW IF EXISTS `_dep_has_main`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_main` AS SELECT 
- 1 AS `id`,
- 1 AS `contracts_id`,
- 1 AS `dep_id`,
- 1 AS `client_id`,
- 1 AS `serv_id`,
- 1 AS `dep_has_worker_id`,
- 1 AS `worker_id`,
- 1 AS `vdate`,
- 1 AS `quantity`,
- 1 AS `note`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `reported`,
- 1 AS `wdate`,
- 1 AS `overdid`,
- 1 AS `prev_quantity`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `_dep_has_new_client`
---
-
-DROP TABLE IF EXISTS `_dep_has_new_client`;
-/*!50001 DROP VIEW IF EXISTS `_dep_has_new_client`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_new_client` AS SELECT
- 1 AS `id`,
- 1 AS `client`,
- 1 AS `client_short`,
- 1 AS `clientDeath`,
- 1 AS `clientbirth`,
- 1 AS `ESRN`,
- 1 AS `prim`,
- 1 AS `phone`,
- 1 AS `snils`,
- 1 AS `curator`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `cr_dep_id`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `_dep_has_ripso`
---
-
-DROP TABLE IF EXISTS `_dep_has_ripso`;
-/*!50001 DROP VIEW IF EXISTS `_dep_has_ripso`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_ripso` AS SELECT 
- 1 AS `ripso_id`,
- 1 AS `ripso`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -831,6 +925,104 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `cr_by`,
  1 AS `upd_by`,
  1 AS `cr_dep_id`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `_dep_has_contracts`
+--
+
+DROP TABLE IF EXISTS `_dep_has_contracts`;
+/*!50001 DROP VIEW IF EXISTS `_dep_has_contracts`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `_dep_has_contracts` AS SELECT 
+ 1 AS `client`,
+ 1 AS `id`,
+ 1 AS `contracts`,
+ 1 AS `contracts2`,
+ 1 AS `client_id`,
+ 1 AS `dep_id`,
+ 1 AS `ripso_id`,
+ 1 AS `blocked`,
+ 1 AS `startdate`,
+ 1 AS `enddate`,
+ 1 AS `ippsuNum`,
+ 1 AS `note`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`,
+ 1 AS `to_recheck`,
+ 1 AS `check_date`,
+ 1 AS `pyc_prim`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `_dep_has_main`
+--
+
+DROP TABLE IF EXISTS `_dep_has_main`;
+/*!50001 DROP VIEW IF EXISTS `_dep_has_main`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `_dep_has_main` AS SELECT 
+ 1 AS `id`,
+ 1 AS `contracts_id`,
+ 1 AS `dep_id`,
+ 1 AS `client_id`,
+ 1 AS `serv_id`,
+ 1 AS `dep_has_worker_id`,
+ 1 AS `worker_id`,
+ 1 AS `vdate`,
+ 1 AS `quantity`,
+ 1 AS `note`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`,
+ 1 AS `reported`,
+ 1 AS `wdate`,
+ 1 AS `overdid`,
+ 1 AS `prev_quantity`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `_dep_has_new_client`
+--
+
+DROP TABLE IF EXISTS `_dep_has_new_client`;
+/*!50001 DROP VIEW IF EXISTS `_dep_has_new_client`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `_dep_has_new_client` AS SELECT 
+ 1 AS `id`,
+ 1 AS `client`,
+ 1 AS `client_short`,
+ 1 AS `clientDeath`,
+ 1 AS `clientbirth`,
+ 1 AS `ESRN`,
+ 1 AS `prim`,
+ 1 AS `phone`,
+ 1 AS `snils`,
+ 1 AS `curator`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`,
+ 1 AS `cr_dep_id`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `_dep_has_ripso`
+--
+
+DROP TABLE IF EXISTS `_dep_has_ripso`;
+/*!50001 DROP VIEW IF EXISTS `_dep_has_ripso`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `_dep_has_ripso` AS SELECT 
+ 1 AS `ripso_id`,
+ 1 AS `ripso`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1313,198 +1505,6 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `_client`
---
-
-DROP TABLE IF EXISTS `_client`;
-/*!50001 DROP VIEW IF EXISTS `_client`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_client` AS SELECT
- 1 AS `id`,
- 1 AS `client`,
- 1 AS `client_short`,
- 1 AS `clientDeath`,
- 1 AS `clientbirth`,
- 1 AS `ESRN`,
- 1 AS `prim`,
- 1 AS `phone`,
- 1 AS `snils`,
- 1 AS `curator`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `cr_dep_id`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `_client_has_add_info`
---
-
-DROP TABLE IF EXISTS `_client_has_add_info`;
-/*!50001 DROP VIEW IF EXISTS `_client_has_add_info`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_client_has_add_info` AS SELECT
- 1 AS `client_id`,
- 1 AS `pddate`,
- 1 AS `contracts_id`,
- 1 AS `predv_money`,
- 1 AS `curFIO`,
- 1 AS `psp`,
- 1 AS `address`,
- 1 AS `sdd`,
- 1 AS `sdd_date`,
- 1 AS `perc`,
- 1 AS `not_standart_contract`,
- 1 AS `not_standart_act`,
- 1 AS `prim`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `repr_FIO`,
- 1 AS `repr_addr`,
- 1 AS `repr_psp`,
- 1 AS `work_livemin`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `_client_has_category_for_last_client`
---
-
-DROP TABLE IF EXISTS `_client_has_category_for_last_client`;
-/*!50001 DROP VIEW IF EXISTS `_client_has_category_for_last_client`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_client_has_category_for_last_client` AS SELECT
- 1 AS `client_id`,
- 1 AS `category_id`,
- 1 AS `get_date`,
- 1 AS `archive`,
- 1 AS `prim`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `_client_has_contracts`
---
-
-DROP TABLE IF EXISTS `_client_has_contracts`;
-/*!50001 DROP VIEW IF EXISTS `_client_has_contracts`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_client_has_contracts` AS SELECT
- 1 AS `id`,
- 1 AS `contracts`,
- 1 AS `contracts2`,
- 1 AS `client_id`,
- 1 AS `dep_id`,
- 1 AS `ripso_id`,
- 1 AS `blocked`,
- 1 AS `startdate`,
- 1 AS `enddate`,
- 1 AS `ippsuNum`,
- 1 AS `note`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `to_recheck`,
- 1 AS `check_date`,
- 1 AS `pyc_prim`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `_client_has_invalid_contracts`
---
-
-DROP TABLE IF EXISTS `_client_has_invalid_contracts`;
-/*!50001 DROP VIEW IF EXISTS `_client_has_invalid_contracts`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_client_has_invalid_contracts` AS SELECT
- 1 AS `client`,
- 1 AS `id`,
- 1 AS `contracts`,
- 1 AS `client_id`,
- 1 AS `dep_id`,
- 1 AS `ripso_id`,
- 1 AS `blocked`,
- 1 AS `startdate`,
- 1 AS `enddate`,
- 1 AS `ippsuNum`,
- 1 AS `note`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `to_recheck`,
- 1 AS `check_date`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `_client_has_main`
---
-
-DROP TABLE IF EXISTS `_client_has_main`;
-/*!50001 DROP VIEW IF EXISTS `_client_has_main`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_client_has_main` AS SELECT
- 1 AS `id`,
- 1 AS `contracts_id`,
- 1 AS `dep_id`,
- 1 AS `client_id`,
- 1 AS `serv_id`,
- 1 AS `dep_has_worker_id`,
- 1 AS `worker_id`,
- 1 AS `vdate`,
- 1 AS `quantity`,
- 1 AS `note`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `reported`,
- 1 AS `wdate`,
- 1 AS `overdid`,
- 1 AS `prev_quantity`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `_client_has_valid_contracts`
---
-
-DROP TABLE IF EXISTS `_client_has_valid_contracts`;
-/*!50001 DROP VIEW IF EXISTS `_client_has_valid_contracts`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_client_has_valid_contracts` AS SELECT
- 1 AS `client`,
- 1 AS `id`,
- 1 AS `contracts`,
- 1 AS `client_id`,
- 1 AS `dep_id`,
- 1 AS `ripso_id`,
- 1 AS `blocked`,
- 1 AS `startdate`,
- 1 AS `enddate`,
- 1 AS `ippsuNum`,
- 1 AS `note`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `to_recheck`,
- 1 AS `check_date`*/;
-SET character_set_client = @saved_cs_client;
-
---
 -- Temporary view structure for view `_user_has_main`
 --
 
@@ -1718,7 +1718,7 @@ DELIMITER ;;
     if ripso > 0 then
 		insert into contracts_has_serv (serv_id, contracts_id, planned, archive)
 			select serv_id, new.contracts_id, planned,0 from ripso_has_serv where ripso_id=ripso;
-		# By default ippsu had all services - worker can change it later
+		# By default ippsu had all services of ripso - worker can change it later
     end if;
 END */;;
 DELIMITER ;
@@ -1891,6 +1891,156 @@ CREATE TABLE `category` (
   UNIQUE KEY `category_UNIQUE` (`category`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `client`
+--
+
+DROP TABLE IF EXISTS `client`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `client` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `client` varchar(255) NOT NULL,
+  `client_short` varchar(150) DEFAULT NULL,
+  `clientDeath` date DEFAULT NULL,
+  `clientbirth` date DEFAULT NULL,
+  `ESRN` bigint DEFAULT NULL,
+  `prim` varchar(255) DEFAULT NULL,
+  `phone` varchar(45) DEFAULT NULL,
+  `snils` varchar(14) DEFAULT NULL,
+  `curator` varchar(45) DEFAULT NULL,
+  `create` datetime DEFAULT CURRENT_TIMESTAMP,
+  `ts` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `cr_by` int DEFAULT NULL,
+  `upd_by` int DEFAULT NULL,
+  `cr_dep_id` int unsigned DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `client_UNIQUE` (`client`)
+) ENGINE=InnoDB AUTO_INCREMENT=1447 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_BEFORE_INSERT` BEFORE INSERT ON `client` FOR EACH ROW BEGIN
+
+    set new.client=trim(new.client);
+	SET  NEW.cr_by = get_wID();
+	SET  NEW.upd_by = get_wID();
+    SET  NEW.cr_dep_id = GET_DEP(GET_wID());
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_AFTER_INSERT` AFTER INSERT ON `client` FOR EACH ROW BEGIN
+
+	
+	
+	
+	
+    
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_BEFORE_UPDATE` BEFORE UPDATE ON `client` FOR EACH ROW BEGIN
+    set new.client=trim(new.client);
+	SET  NEW.upd_by = get_wID();
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Table structure for table `client_has_category`
+--
+
+DROP TABLE IF EXISTS `client_has_category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `client_has_category` (
+  `client_id` int unsigned NOT NULL,
+  `category_id` int unsigned NOT NULL,
+  `get_date` date DEFAULT '2018-01-01',
+  `archive` tinyint DEFAULT '0',
+  `prim` varchar(255) DEFAULT NULL,
+  `create` datetime DEFAULT CURRENT_TIMESTAMP,
+  `ts` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `cr_by` int DEFAULT NULL,
+  `upd_by` int DEFAULT NULL,
+  `stop_date` date DEFAULT '9999-01-01',
+  PRIMARY KEY (`client_id`,`category_id`),
+  KEY `fk_client_has_category_category1_idx` (`category_id`),
+  KEY `fk_client_has_category_client1_idx` (`client_id`),
+  CONSTRAINT `fk_client_has_category_client1` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_has_category_BEFORE_INSERT` BEFORE INSERT ON `client_has_category` FOR EACH ROW BEGIN
+	SET  NEW.upd_by = get_wID();
+	SET  NEW.cr_by = get_wID();
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_has_category_BEFORE_UPDATE` BEFORE UPDATE ON `client_has_category` FOR EACH ROW BEGIN
+
+	SET  NEW.upd_by = get_wID();
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `complex_dep`
@@ -2191,7 +2341,7 @@ CREATE TABLE `dep` (
   `complex_dep_id` int unsigned DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `dep_UNIQUE` (`dep`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Departments';
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Departments';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -2211,6 +2361,58 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Temporary view structure for view `dep_has_client_by_contr`
+--
+
+DROP TABLE IF EXISTS `dep_has_client_by_contr`;
+/*!50001 DROP VIEW IF EXISTS `dep_has_client_by_contr`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `dep_has_client_by_contr` AS SELECT 
+ 1 AS `id`,
+ 1 AS `client`,
+ 1 AS `client_short`,
+ 1 AS `clientDeath`,
+ 1 AS `clientbirth`,
+ 1 AS `ESRN`,
+ 1 AS `prim`,
+ 1 AS `phone`,
+ 1 AS `snils`,
+ 1 AS `curator`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`,
+ 1 AS `cr_dep_id`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `dep_has_client_by_ripso`
+--
+
+DROP TABLE IF EXISTS `dep_has_client_by_ripso`;
+/*!50001 DROP VIEW IF EXISTS `dep_has_client_by_ripso`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `dep_has_client_by_ripso` AS SELECT 
+ 1 AS `id`,
+ 1 AS `client`,
+ 1 AS `client_short`,
+ 1 AS `clientDeath`,
+ 1 AS `clientbirth`,
+ 1 AS `ESRN`,
+ 1 AS `prim`,
+ 1 AS `phone`,
+ 1 AS `snils`,
+ 1 AS `curator`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`,
+ 1 AS `cr_dep_id`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Temporary view structure for view `dep_has_main`
@@ -2283,58 +2485,6 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `dep_has_client_by_contr`
---
-
-DROP TABLE IF EXISTS `dep_has_client_by_contr`;
-/*!50001 DROP VIEW IF EXISTS `dep_has_client_by_contr`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `dep_has_client_by_contr` AS SELECT
- 1 AS `id`,
- 1 AS `client`,
- 1 AS `client_short`,
- 1 AS `clientDeath`,
- 1 AS `clientbirth`,
- 1 AS `ESRN`,
- 1 AS `prim`,
- 1 AS `phone`,
- 1 AS `snils`,
- 1 AS `curator`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `cr_dep_id`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `dep_has_client_by_ripso`
---
-
-DROP TABLE IF EXISTS `dep_has_client_by_ripso`;
-/*!50001 DROP VIEW IF EXISTS `dep_has_client_by_ripso`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `dep_has_client_by_ripso` AS SELECT
- 1 AS `id`,
- 1 AS `client`,
- 1 AS `client_short`,
- 1 AS `clientDeath`,
- 1 AS `clientbirth`,
- 1 AS `ESRN`,
- 1 AS `prim`,
- 1 AS `phone`,
- 1 AS `snils`,
- 1 AS `curator`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `cr_dep_id`*/;
-SET character_set_client = @saved_cs_client;
-
---
 -- Table structure for table `dep_has_worker`
 --
 
@@ -2393,8 +2543,10 @@ DELIMITER ;;
 		limit 1);
 	
 	if  crole is null then
-		set new.role_id = 1; -- throw error?
-	elseif ( crole = 7 or crole = 8 ) then  -- admin and part admin
+		set new.role_id = 1;
+		-- throw error?
+	elseif ( crole = 7 or crole = 8 ) then
+	    -- admin and part admin
 		set crole = crole;
 	elseif (new.role_id > crole) then
 		set new.role_id = crole - 1;
@@ -2434,8 +2586,10 @@ DELIMITER ;;
 			limit 1);
 		
 		if  crole is null then
-			set new.role_id = 1; -- throw error?
-		elseif ( crole = 7 or crole = 8 ) then  -- admin and part admin
+			set new.role_id = 1;
+			-- throw error?
+		elseif ( crole = 7 or crole = 8 ) then
+		    -- admin and part admin
 			set crole = crole;
 		elseif (new.role_id > crole) then
 			set new.role_id = crole - 1;
@@ -2846,7 +3000,7 @@ CREATE TABLE `main` (
   CONSTRAINT `fk_main2_dep` FOREIGN KEY (`dep_id`) REFERENCES `dep` (`id`),
   CONSTRAINT `fk_main2_serv1` FOREIGN KEY (`serv_id`) REFERENCES `serv` (`id`),
   CONSTRAINT `worker` FOREIGN KEY (`worker_id`) REFERENCES `worker` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=175266 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='main table';
+) ENGINE=InnoDB AUTO_INCREMENT=175268 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='main table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -2858,17 +3012,22 @@ CREATE TABLE `main` (
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `main_BEFORE_INSERT` BEFORE INSERT ON `main` FOR EACH ROW BEGIN
-  declare ovdid boolean default 0;
-set ovdid = (select 1  from  contracts_has_serv where
-  contracts_id = new.contracts_id  and
-  serv_id =  new.serv_id and
-  planned  < filled +  new.quantity);
+  declare ovdid int default 0;
+  declare planned int default 0;
+  declare filled int default 0;
+ 
+ 
+select s.planned - s.filled - new.quantity, s.planned , s.filled  into  ovdid, planned , filled   from  contracts_has_serv s where
+  s.contracts_id = new.contracts_id  and
+  s.serv_id =  new.serv_id ;
   
-	if ovdid = 1 then
-		SET	 NEW.overdid = True;
-	else
-		SET	 NEW.overdid = False;
+	if (ovdid < 0) then
+		set @last_message_text = CONCAT ( "ошибка: эта услуга переполнена, осталось ", planned - filled, " услуг" );
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = @last_message_text;
 	end if;
+
+
     if coalesce(New.worker_id, 0) = 0 then
 		set new.worker_id = (select worker_id from dep_has_worker where id = new.dep_has_worker_id );
     end if;
@@ -2913,24 +3072,28 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `main_BEFORE_UPDATE` BEFORE UPDATE ON `main` FOR EACH ROW BEGIN
-  declare ovdid boolean default 0;
+
+  declare ovdid int default 0;
+  declare planned int default 0;
+  declare filled int default 0;
   declare wid int default 0;
    set new.serv_id=old.serv_id,
    new.contracts_id=old.contracts_id,
    new.client_id=old.client_id,
    new.dep_id=old.dep_id;
-  
-set ovdid = (select 1  from  contracts_has_serv where
-  contracts_id = new.contracts_id  and
-  serv_id =  new.serv_id and
-  planned  < filled +  new.quantity);
 
-	if ovdid = 1 then
-		SET	 NEW.overdid = True;
-	else
-		SET	 NEW.overdid = False;
+
+select s.planned - s.filled - new.quantity + old.quantity, s.planned , s.filled  into  ovdid, planned , filled   from  contracts_has_serv s where
+  s.contracts_id = new.contracts_id  and
+  s.serv_id =  new.serv_id ;
+  
+	if (ovdid < 0) then
+		set @last_message_text = CONCAT ( "ошибка: эта услуга переполнена, осталось ", planned - filled, " услуг" );
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = @last_message_text;
 	end if;
-    
+
+
 	set wid = (select worker_id from dep_has_worker where id = new.dep_has_worker_id );
     if coalesce(New.worker_id, 0) <> wid   then
 		set new.worker_id = wid;
@@ -3533,156 +3696,6 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
--- Table structure for table `client`
---
-
-DROP TABLE IF EXISTS `client`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `client` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `client` varchar(255) NOT NULL,
-  `client_short` varchar(150) DEFAULT NULL,
-  `clientDeath` date DEFAULT NULL,
-  `clientbirth` date DEFAULT NULL,
-  `ESRN` bigint DEFAULT NULL,
-  `prim` varchar(255) DEFAULT NULL,
-  `phone` varchar(45) DEFAULT NULL,
-  `snils` varchar(14) DEFAULT NULL,
-  `curator` varchar(45) DEFAULT NULL,
-  `create` datetime DEFAULT CURRENT_TIMESTAMP,
-  `ts` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `cr_by` int DEFAULT NULL,
-  `upd_by` int DEFAULT NULL,
-  `cr_dep_id` int unsigned DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `client_UNIQUE` (`client`)
-) ENGINE=InnoDB AUTO_INCREMENT=1447 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_BEFORE_INSERT` BEFORE INSERT ON `client` FOR EACH ROW BEGIN
-
-    set new.client=trim(new.client);
-	SET  NEW.cr_by = get_wID();
-	SET  NEW.upd_by = get_wID();
-    SET  NEW.cr_dep_id = GET_DEP(GET_wID());
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_AFTER_INSERT` AFTER INSERT ON `client` FOR EACH ROW BEGIN
-
-	#if new.id > 2 then
-	#	insert into contracts (client_id,dep_id,blocked,startdate,enddate)
-	#		values (new.id, GET_DEP(GET_wID()),1,date(now()),date(now()));
-	#	# stub contract to assign fio to department
-    #end if;
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_BEFORE_UPDATE` BEFORE UPDATE ON `client` FOR EACH ROW BEGIN
-    set new.client=trim(new.client);
-	SET  NEW.upd_by = get_wID();
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-
---
--- Table structure for table `client_has_category`
---
-
-DROP TABLE IF EXISTS `client_has_category`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `client_has_category` (
-  `client_id` int unsigned NOT NULL,
-  `category_id` int unsigned NOT NULL,
-  `get_date` date DEFAULT '2018-01-01',
-  `archive` tinyint DEFAULT '0',
-  `prim` varchar(255) DEFAULT NULL,
-  `create` datetime DEFAULT CURRENT_TIMESTAMP,
-  `ts` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `cr_by` int DEFAULT NULL,
-  `upd_by` int DEFAULT NULL,
-  `stop_date` date DEFAULT '9999-01-01',
-  PRIMARY KEY (`client_id`,`category_id`),
-  KEY `fk_client_has_category_category1_idx` (`category_id`),
-  KEY `fk_client_has_category_client1_idx` (`client_id`),
-  CONSTRAINT `fk_client_has_category_client1` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_has_category_BEFORE_INSERT` BEFORE INSERT ON `client_has_category` FOR EACH ROW BEGIN
-	SET  NEW.upd_by = get_wID();
-	SET  NEW.cr_by = get_wID();
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_has_category_BEFORE_UPDATE` BEFORE UPDATE ON `client_has_category` FOR EACH ROW BEGIN
-
-	SET  NEW.upd_by = get_wID();
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-
---
 -- Table structure for table `ugroup`
 --
 
@@ -3844,6 +3857,32 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `updatable__dep_has_client`
+--
+
+DROP TABLE IF EXISTS `updatable__dep_has_client`;
+/*!50001 DROP VIEW IF EXISTS `updatable__dep_has_client`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `updatable__dep_has_client` AS SELECT 
+ 1 AS `id`,
+ 1 AS `client`,
+ 1 AS `client_short`,
+ 1 AS `clientDeath`,
+ 1 AS `clientbirth`,
+ 1 AS `ESRN`,
+ 1 AS `prim`,
+ 1 AS `phone`,
+ 1 AS `snils`,
+ 1 AS `curator`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`,
+ 1 AS `cr_dep_id`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `updatable__dep_has_contracts`
 --
 
@@ -3899,32 +3938,6 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `wdate`,
  1 AS `overdid`,
  1 AS `prev_quantity`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `updatable__dep_has_client`
---
-
-DROP TABLE IF EXISTS `updatable__dep_has_client`;
-/*!50001 DROP VIEW IF EXISTS `updatable__dep_has_client`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `updatable__dep_has_client` AS SELECT
- 1 AS `id`,
- 1 AS `client`,
- 1 AS `client_short`,
- 1 AS `clientDeath`,
- 1 AS `clientbirth`,
- 1 AS `ESRN`,
- 1 AS `prim`,
- 1 AS `phone`,
- 1 AS `snils`,
- 1 AS `curator`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `cr_dep_id`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -3985,6 +3998,32 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `repr_addr`,
  1 AS `repr_psp`,
  1 AS `work_livemin`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `updatable_client`
+--
+
+DROP TABLE IF EXISTS `updatable_client`;
+/*!50001 DROP VIEW IF EXISTS `updatable_client`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `updatable_client` AS SELECT 
+ 1 AS `id`,
+ 1 AS `client`,
+ 1 AS `client_short`,
+ 1 AS `clientDeath`,
+ 1 AS `clientbirth`,
+ 1 AS `ESRN`,
+ 1 AS `prim`,
+ 1 AS `phone`,
+ 1 AS `snils`,
+ 1 AS `curator`,
+ 1 AS `create`,
+ 1 AS `ts`,
+ 1 AS `cr_by`,
+ 1 AS `upd_by`,
+ 1 AS `cr_dep_id`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4067,32 +4106,6 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `wdate`,
  1 AS `overdid`,
  1 AS `prev_quantity`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `updatable_client`
---
-
-DROP TABLE IF EXISTS `updatable_client`;
-/*!50001 DROP VIEW IF EXISTS `updatable_client`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `updatable_client` AS SELECT
- 1 AS `id`,
- 1 AS `client`,
- 1 AS `client_short`,
- 1 AS `clientDeath`,
- 1 AS `clientbirth`,
- 1 AS `ESRN`,
- 1 AS `prim`,
- 1 AS `phone`,
- 1 AS `snils`,
- 1 AS `curator`,
- 1 AS `create`,
- 1 AS `ts`,
- 1 AS `cr_by`,
- 1 AS `upd_by`,
- 1 AS `cr_dep_id`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4303,11 +4316,11 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `DROP_ROLES`() RETURNS int
     SQL SECURITY INVOKER
 BEGIN
 
-	# select CURRENT_ROLE() , user(), current_user(); 
+	# select CURRENT_ROLE() , user(), current_user();
 
 	set role info;
 
-	# select CURRENT_ROLE() , user(), current_user(); 
+	# select CURRENT_ROLE() , user(), current_user();
 
 	return 1;
 
@@ -4375,7 +4388,7 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `GET_DEP`(
     SQL SECURITY INVOKER
     COMMENT 'get default department '
 BEGIN
-	#declare wrkID int (0);
+	
 	declare dep_id int (0);
 	set dep_id = (select last_dep from worker_settings  where id=wrkID);
 	
@@ -4409,33 +4422,6 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `get_last_contr` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `get_last_contr`() RETURNS int
-    READS SQL DATA
-    DETERMINISTIC
-    COMMENT 'check overdid return serv left \n    no existence check!!!'
-BEGIN
-	#if @worker_settings_not_upd then
-	#	return @contr 
-	#else
-		#set @contr = (select last_client from worker_settings where id = GET_WID());
-	return (select last_contr from worker_settings where id = GET_WID());
-    #end if
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP FUNCTION IF EXISTS `get_last_client` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -4451,12 +4437,39 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `get_last_client`() RETURNS int
     DETERMINISTIC
     COMMENT 'check overdid return serv left \n    no existence check!!!'
 BEGIN
-	#if @worker_settings_not_upd then
-	#	return @contr 
-	#else
-		#set @contr = (select last_client from worker_settings where id = GET_WID());
+	
+	
+	
+		
 	return (select last_client from worker_settings where id = GET_WID());
-    #end if
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `get_last_contr` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_last_contr`() RETURNS int
+    READS SQL DATA
+    DETERMINISTIC
+    COMMENT 'check overdid return serv left \n    no existence check!!!'
+BEGIN
+	
+	
+	
+		
+	return (select last_contr from worker_settings where id = GET_WID());
+    
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4504,7 +4517,7 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `GET_YEAR`(
     COMMENT 'get current year '
 BEGIN
 	declare var int (0);
-	#set @wrkID  = (select id from worker w where w.user=user());
+	
 	set var = (select last_year from worker_settings  where id=wrkID);
 	
 	if var > 0 then 
@@ -4648,6 +4661,30 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `set_last_client` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `set_last_client`(client int) RETURNS int
+    DETERMINISTIC
+    COMMENT 'check overdid return serv left \n    no existence check!!!'
+BEGIN
+
+	update worker_settings set last_client=client where id = GET_WID();
+    return 1;
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP FUNCTION IF EXISTS `set_last_contr` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -4690,32 +4727,8 @@ BEGIN
 		set ret = get_dep(GET_WID()) ;
 		update worker_settings set last_dep=get_dep(GET_WID()) where id = GET_WID();
     end if;
-	#update worker_settings set last_dep=dep where id = GET_WID();
+	
     return ret;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `set_last_client` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `set_last_client`(client int) RETURNS int
-    DETERMINISTIC
-    COMMENT 'check overdid return serv left \n    no existence check!!!'
-BEGIN
-
-	update worker_settings set last_client=client where id = GET_WID();
-    return 1;
-    #end if
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4805,11 +4818,10 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `contract_pay_inmonth`(IN UID INT, IN STARTDATE DATE, IN ENDDATE DATE)
-begin
-	
+CREATE DEFINER=`root`@`localhost` PROCEDURE `contract_pay_inmonth`( IN UID INT, IN STARTDATE DATE, IN ENDDATE DATE)
+BEGIN
 	IF EXISTS (SELECT 1 FROM `main` where client_id = UID and vdate BETWEEN STARTDATE AND ENDDATE)
 	THEN
 		
@@ -4865,7 +4877,7 @@ begin
 	        client_id = UID
 	            AND vdate BETWEEN STARTDATE AND ENDDATE
 	    GROUP BY client_id, vdate_m , vdate_y, servform_id, perc, f.contracts_id;
-	    # and servform_id = 
+	    
 	  
 	else 
 	
@@ -4979,7 +4991,7 @@ BEGIN
     SET SESSION group_concat_max_len = 50000;   -- just in case
     
     #############################
-    # prepare subquery  @cc4 
+    # prepare subquery  @cc4
     # ---------------------------
     SET @subq = CONCAT('SELECT DISTINCT ', pivot_col, ' AS val ',
                     ' FROM ', tbl_qry, ' ', where_clause, ' ORDER BY 1');
@@ -4990,9 +5002,9 @@ BEGIN
     end if;
     SET @cc2 = REPLACE(@cc1, '&p', pivot_col);
     SET @cc3 = REPLACE(@cc2, '&t', tally_col);
-    -- select @cc2, @cc3;
+    
     SET @qval = CONCAT("'\"', val, '\"'");
-    -- select @qval;
+    
     SET @cc4 = REPLACE(@cc3, '&v', @qval);
     # select @cc4;
 
@@ -5024,12 +5036,12 @@ BEGIN
 		set base_col = SPLIT_STR(base_cols,",",i) ;
 		set base_cols_grouping = CONCAT(base_cols_grouping,  ", " , "IF(GROUPING(", base_col, "), 'Total', ", base_col, ") AS ", base_col); 
     END WHILE;
-#SELECT base_cols_grouping;
+    #SELECT base_cols_grouping;
     -- 3rd: Construct the query and perform it
     
     #############################
-    # delete old table 
-    # ---------------------------        
+    # delete old table
+    # ---------------------------
 SET @stmt11 = CONCAT( ' drop temporary table   IF EXISTS ', temp_table_name);
     PREPARE _sql FROM @stmt11;
     EXECUTE _sql;                     -- The resulting pivot table ouput
@@ -5041,7 +5053,7 @@ SET @stmt11 = CONCAT( ' drop temporary table   IF EXISTS kcson_tmp.', temp_table
     
     #############################
     # create temporary table
-    # ---------------------------   
+    # ---------------------------
     SET @stmt2 = CONCAT(
             ' create temporary table ', temp_table_name, ' SELECT ',
                 base_cols_grouping, ',\n',
@@ -5053,19 +5065,19 @@ SET @stmt11 = CONCAT( ' drop temporary table   IF EXISTS kcson_tmp.', temp_table
             ' \n ', w_rollup,
             ' \n ', order_by
         );
-#SELECT @stmt2;                    -- The statement that generates the result
+    #SELECT @stmt2;                    -- The statement that generates the result
 
 
     #############################
     # debug
-    # ---------------------------  
+    # ---------------------------
     if debug then
 	    SELECT @stmt2; 
     end if; 
     #############################
     # create copy of temporary table
-    # ---------------------------  
-    -- copy in schema with select right   
+    # ---------------------------
+    -- copy in schema with select right
     PREPARE _sql FROM @stmt2;
     EXECUTE _sql;                     -- The resulting pivot table ouput
     DEALLOCATE PREPARE _sql;
@@ -5087,7 +5099,7 @@ SET @stmt11 = CONCAT( ' drop temporary table   IF EXISTS kcson_tmp.', temp_table
    
     #############################
     # select temporary table
-    # ---------------------------  
+    # ---------------------------
 SET @stmt3 = CONCAT( ' SELECT * from ', temp_table_name);
     PREPARE _sql FROM @stmt3;
     EXECUTE _sql;                     -- The resulting pivot table ouput
@@ -5154,14 +5166,14 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `DROP_ROLES`()
     SQL SECURITY INVOKER
 BEGIN
-	# select CURRENT_ROLE() , user(), current_user(); 
+	# select CURRENT_ROLE() , user(), current_user();
 	set role info;
-	# select CURRENT_ROLE() , user(), current_user(); 
+	# select CURRENT_ROLE() , user(), current_user();
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -5184,7 +5196,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_DEPS`(
     SQL SECURITY INVOKER
     COMMENT 'get  departments '
 BEGIN
-	#set @wrkID  = (select id from worker w where w.user=user());
+	
 	select distinct dep_id from dep_has_worker  where worker_id=wrkID and (archive=0 or archive is null);
 END ;;
 DELIMITER ;
@@ -5200,7 +5212,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_PRIVILEGES`()
 BEGIN
@@ -5291,7 +5303,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `INIT_SECURITY`()
 BEGIN
@@ -5415,16 +5427,10 @@ BEGIN
     grant select on kcson.notifies to info;
     grant select on kcson.payment to info;
     grant select on kcson.pcat to info;
-    grant select on kcson.permiss to info;
-    grant select on kcson.rdata to info;
-    grant select on kcson.rdep to info;
     grant select on kcson.ripso to info;
     grant select on kcson.ripso_has_serv to info;
     grant select on kcson.rname to info;
     grant select on kcson.role to info;
-    grant select on kcson.role_has_permiss to info;
-    grant select on kcson.rperiod to info;
-    grant select on kcson.rperiodsofrname to info;
     grant select on kcson.serv to info;
     grant select on kcson.servform to info;
     grant select on kcson.servofripso to info;
@@ -5442,21 +5448,21 @@ BEGIN
     grant select on kcson.ugroup_has_client to info;
     grant select on kcson.ui_select_fiolist to info;
     grant select on kcson.upd_by to info;
-    -- grant select on kcson.updatable_2__dep_has_client to info;
-    -- grant select on kcson.updatable__dep_has_contracts to info;
-    -- grant select on kcson.updatable__dep_has_main to info;
-    -- grant select on kcson.updatable__dep_has_client to info;
-    -- grant select on kcson.updatable__user_has_main to info;
-    -- grant select on kcson.updatable_contracts to info;
-    -- grant select on kcson.updatable_contracts_has_serv to info;
-    -- grant select on kcson.updatable_main to info;
-    -- grant select on kcson.updatable_client to info;
+    
+    
+    
+    
+    
+    
+    
+    
+    
     grant select on kcson.user_has_serv to info;
     grant select on kcson.worker to info;
     grant select on kcson.worker_has_dep to info;
     grant select on kcson.worker_settings to info;
     grant select on kcson._dep_has_workers to info;
-    -- grant select on kcson._apikey_has_contracts to info;
+    
    
     #############################
     # grant perm. to web_info
@@ -5608,7 +5614,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `KILL_USER_SESSION`()
 BEGIN
   
     DECLARE uid int default 0;
-  DECLARE name VARCHAR(64) DEFAULT ''; #32?
+  DECLARE name VARCHAR(64) DEFAULT ''; 
   DECLARE done INT DEFAULT FALSE;
   DECLARE kill_i CURSOR FOR  
 		SELECT t.id, t.user FROM information_schema.processlist t where t.user = SUBSTRING_INDEX(user(),'@',1);
@@ -5712,27 +5718,27 @@ this_proc:BEGIN
     DECLARE crole int;
     DECLARE wrole int;
     DECLARE old_login CHAR(16);
-   
+
 	DECLARE CONTINUE HANDLER FOR NOT FOUND SET @done = 1;
-    	-- select 'start ';
-    
+    	
+
     set `_HOST` = '@\'%\'';
    -- get role of current user
    	SET cuser := SUBSTRING_INDEX(user(),'@',1);
-    set crole := (select dhw.role_id  from dep_has_worker dhw inner join  worker w  on 
-		w.id = dhw.worker_id 
+    set crole := (select dhw.role_id  from dep_has_worker dhw inner join  worker w  on
+		w.id = dhw.worker_id
 		where w.`user` = cuser and (dhw.role_id  in  (6, 7, 8) )
-		order by dhw.role_id desc 
+		order by dhw.role_id desc
 		limit 1);
 	-- select crole;
 
    -- get role of user whom we trying to change here
     set wrole := (select dhw.role_id  from dep_has_worker dhw
-		where dhw.id = wID 
-		order by dhw.role_id desc 
+		where dhw.id = wID
+		order by dhw.role_id desc
 		limit 1);
 	-- select wrole;
-   
+
     -- check privileges
     if (  crole is null ) then
     	select 'rejected: current user role is null';
@@ -5747,23 +5753,23 @@ this_proc:BEGIN
     else
     	select 'rejected: unknown';
     	LEAVE this_proc;
-    end if; 
-    
+    end if;
+
    	-- remove old login
-   set old_login := (select w.`user` from dep_has_worker dhw inner join  worker w  on 
-		w.id = dhw.worker_id 
+   set old_login := (select w.`user` from dep_has_worker dhw inner join  worker w  on
+		w.id = dhw.worker_id
 		where dhw.id = wId
 		limit 1);
-   if ( old_login is not null ) then 
+   if ( old_login is not null ) then
 		SET @`sql` := CONCAT('DROP USER IF EXISTS ', old_login, `_HOST`);
 		PREPARE `stmt` FROM @`sql`;
 		EXECUTE `stmt`;
    end if;
-    
+
   -- create new login
     SET `p_Name` := CONCAT('\'', REPLACE(TRIM(`p_Name`), CHAR(39), CONCAT(CHAR(92), CHAR(39))), '\'');
     set `p_Passw` := CONCAT('\'', REPLACE(`p_Passw`, CHAR(39), CONCAT(CHAR(92), CHAR(39))), '\'');
-   
+
     SET @`sql` := CONCAT('DROP USER IF EXISTS ', `p_Name`, `_HOST`);
     PREPARE `stmt` FROM @`sql`;
     EXECUTE `stmt`;
@@ -5774,10 +5780,10 @@ this_proc:BEGIN
     PREPARE `stmt` FROM @`sql`;
     EXECUTE `stmt`;
     DEALLOCATE PREPARE `stmt`;
-   
+
    insert into user_change(old_login, new_login)
    	values(old_login, p_Name);
-   
+
     FLUSH PRIVILEGES;
     select "finished" ;
 END ;;
@@ -5794,7 +5800,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `RESET_PRIVILEGES`()
     SQL SECURITY INVOKER
@@ -5865,7 +5871,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SET_DEP_`(`depId` INT)
     MODIFIES SQL DATA
@@ -5875,7 +5881,7 @@ begin
 	declare res int default 0;
 
 	  declare uid int default 0;
-	  DECLARE name VARCHAR(64) DEFAULT ''; #32?
+	  DECLARE name VARCHAR(64) DEFAULT ''; 
 	  declare done int default false;
   
  	  DECLARE kill_i CURSOR for
@@ -5886,8 +5892,8 @@ begin
 	set  wrkID=get_WID();
 	
 	set res = (select dep_id from dep_has_worker  where worker_id=wrkID and dep_id=depId);
-	#set cursor_n = (select w.`user` from worker  where w.id=wrkID);
--- 	select 1;
+	
+
 	if res > 0 then 
 	    SET @queryStringRP = CONCAT('REVOKE ALL on *.* FROM  "', SUBSTRING_INDEX(user(),'@',1), '";  ' );
 -- 	   select  @queryStringRP;
@@ -6000,7 +6006,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `show_cols_root`(IN tname TEXT)
     READS SQL DATA
@@ -6180,6 +6186,132 @@ DELIMITER ;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `_client`
+--
+
+/*!50001 DROP VIEW IF EXISTS `_client`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `_client` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `_client_has_add_info`
+--
+
+/*!50001 DROP VIEW IF EXISTS `_client_has_add_info`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `_client_has_add_info` AS select `u`.`id` AS `client_id`,`a`.`pddate` AS `pddate`,`a`.`contracts_id` AS `contracts_id`,`a`.`predv_money` AS `predv_money`,`a`.`curFIO` AS `curFIO`,`a`.`psp` AS `psp`,`a`.`address` AS `address`,`a`.`sdd` AS `sdd`,`a`.`sdd_date` AS `sdd_date`,`a`.`perc` AS `perc`,`a`.`not_standart_contract` AS `not_standart_contract`,`a`.`not_standart_act` AS `not_standart_act`,`a`.`prim` AS `prim`,`a`.`create` AS `create`,`a`.`ts` AS `ts`,`a`.`cr_by` AS `cr_by`,`a`.`upd_by` AS `upd_by`,`a`.`repr_FIO` AS `repr_FIO`,`a`.`repr_addr` AS `repr_addr`,`a`.`repr_psp` AS `repr_psp`,`a`.`work_livemin` AS `work_livemin` from ((`add_info` `a` join `contracts` `c` on((`c`.`id` = `a`.`contracts_id`))) join `client` `u` on((`c`.`client_id` = `u`.`id`))) order by `a`.`pddate` desc */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `_client_has_category_for_last_client`
+--
+
+/*!50001 DROP VIEW IF EXISTS `_client_has_category_for_last_client`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `_client_has_category_for_last_client` AS select `uhc`.`client_id` AS `client_id`,`uhc`.`category_id` AS `category_id`,`uhc`.`get_date` AS `get_date`,`uhc`.`archive` AS `archive`,`uhc`.`prim` AS `prim`,`uhc`.`create` AS `create`,`uhc`.`ts` AS `ts`,`uhc`.`cr_by` AS `cr_by`,`uhc`.`upd_by` AS `upd_by` from `client_has_category` `uhc` where (`uhc`.`client_id` = `get_last_client`()) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `_client_has_contracts`
+--
+
+/*!50001 DROP VIEW IF EXISTS `_client_has_contracts`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `_client_has_contracts` AS select `c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`contracts2` AS `contracts2`,`c`.`client_id` AS `client_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date`,`c`.`pyc_prim` AS `pyc_prim` from `contracts` `c` order by `c`.`blocked` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `_client_has_invalid_contracts`
+--
+
+/*!50001 DROP VIEW IF EXISTS `_client_has_invalid_contracts`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `_client_has_invalid_contracts` AS select `u`.`client` AS `client`,`c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`client_id` AS `client_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where (`c`.`enddate` < curdate()) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `_client_has_main`
+--
+
+/*!50001 DROP VIEW IF EXISTS `_client_has_main`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `_client_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where (`main`.`client_id` = `get_last_client`()) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `_client_has_valid_contracts`
+--
+
+/*!50001 DROP VIEW IF EXISTS `_client_has_valid_contracts`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `_client_has_valid_contracts` AS select `u`.`client` AS `client`,`c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`client_id` AS `client_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where (`c`.`enddate` > curdate()) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `_contr_has_add_info`
 --
 
@@ -6283,78 +6415,6 @@ DELIMITER ;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_add_info` AS select `ai`.`pddate` AS `pddate`,`ai`.`contracts_id` AS `contracts_id`,`ai`.`predv_money` AS `predv_money`,`ai`.`curFIO` AS `curFIO`,`ai`.`psp` AS `psp`,`ai`.`address` AS `address`,`ai`.`sdd` AS `sdd`,`ai`.`sdd_date` AS `sdd_date`,`ai`.`perc` AS `perc`,`ai`.`not_standart_contract` AS `not_standart_contract`,`ai`.`not_standart_act` AS `not_standart_act`,`ai`.`prim` AS `prim`,`ai`.`create` AS `create`,`ai`.`ts` AS `ts`,`ai`.`cr_by` AS `cr_by`,`ai`.`upd_by` AS `upd_by`,`ai`.`repr_FIO` AS `repr_FIO`,`ai`.`repr_addr` AS `repr_addr`,`ai`.`repr_psp` AS `repr_psp`,`ai`.`work_livemin` AS `work_livemin` from (`add_info` `ai` join `contracts` `c` on((`c`.`id` = `ai`.`contracts_id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `_dep_has_contracts`
---
-
-/*!50001 DROP VIEW IF EXISTS `_dep_has_contracts`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_contracts` AS select `u`.`client` AS `client`,`c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`contracts2` AS `contracts2`,`c`.`client_id` AS `client_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date`,`c`.`pyc_prim` AS `pyc_prim` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `_dep_has_main`
---
-
-/*!50001 DROP VIEW IF EXISTS `_dep_has_main`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `_dep_has_new_client`
---
-
-/*!50001 DROP VIEW IF EXISTS `_dep_has_new_client`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_new_client` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `client` `u` where `u`.`id` in (select `u1`.`id` from (`client` `u1` left join `contracts` `c` on((`c`.`client_id` = `u1`.`id`))) where `u1`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `_dep_has_ripso`
---
-
-/*!50001 DROP VIEW IF EXISTS `_dep_has_ripso`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_ripso` AS select `dhr`.`ripso_id` AS `ripso_id`,`r`.`ripso` AS `ripso` from (`dep_has_ripso` `dhr` join `ripso` `r` on((`dhr`.`ripso_id` = `r`.`id`))) where `dhr`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6589,6 +6649,78 @@ DELIMITER ;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `_dep_has_client_year` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` where `client`.`id` in (select `c`.`client_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where ((`rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) or `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) and ((year(`c`.`startdate`) = `GET_YEAR`(`GET_wID`())) or (year(`c`.`startdate`) = `GET_YEAR`(`GET_wID`()))))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `_dep_has_contracts`
+--
+
+/*!50001 DROP VIEW IF EXISTS `_dep_has_contracts`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `_dep_has_contracts` AS select `u`.`client` AS `client`,`c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`contracts2` AS `contracts2`,`c`.`client_id` AS `client_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date`,`c`.`pyc_prim` AS `pyc_prim` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `_dep_has_main`
+--
+
+/*!50001 DROP VIEW IF EXISTS `_dep_has_main`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `_dep_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `_dep_has_new_client`
+--
+
+/*!50001 DROP VIEW IF EXISTS `_dep_has_new_client`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `_dep_has_new_client` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `client` `u` where `u`.`id` in (select `u1`.`id` from (`client` `u1` left join `contracts` `c` on((`c`.`client_id` = `u1`.`id`))) where `u1`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `_dep_has_ripso`
+--
+
+/*!50001 DROP VIEW IF EXISTS `_dep_has_ripso`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `_dep_has_ripso` AS select `dhr`.`ripso_id` AS `ripso_id`,`r`.`ripso` AS `ripso` from (`dep_has_ripso` `dhr` join `ripso` `r` on((`dhr`.`ripso_id` = `r`.`id`))) where `dhr`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6936,132 +7068,6 @@ DELIMITER ;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `_client`
---
-
-/*!50001 DROP VIEW IF EXISTS `_client`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_client` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `_client_has_add_info`
---
-
-/*!50001 DROP VIEW IF EXISTS `_client_has_add_info`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_client_has_add_info` AS select `u`.`id` AS `client_id`,`a`.`pddate` AS `pddate`,`a`.`contracts_id` AS `contracts_id`,`a`.`predv_money` AS `predv_money`,`a`.`curFIO` AS `curFIO`,`a`.`psp` AS `psp`,`a`.`address` AS `address`,`a`.`sdd` AS `sdd`,`a`.`sdd_date` AS `sdd_date`,`a`.`perc` AS `perc`,`a`.`not_standart_contract` AS `not_standart_contract`,`a`.`not_standart_act` AS `not_standart_act`,`a`.`prim` AS `prim`,`a`.`create` AS `create`,`a`.`ts` AS `ts`,`a`.`cr_by` AS `cr_by`,`a`.`upd_by` AS `upd_by`,`a`.`repr_FIO` AS `repr_FIO`,`a`.`repr_addr` AS `repr_addr`,`a`.`repr_psp` AS `repr_psp`,`a`.`work_livemin` AS `work_livemin` from ((`add_info` `a` join `contracts` `c` on((`c`.`id` = `a`.`contracts_id`))) join `client` `u` on((`c`.`client_id` = `u`.`id`))) order by `a`.`pddate` desc */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `_client_has_category_for_last_client`
---
-
-/*!50001 DROP VIEW IF EXISTS `_client_has_category_for_last_client`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_client_has_category_for_last_client` AS select `uhc`.`client_id` AS `client_id`,`uhc`.`category_id` AS `category_id`,`uhc`.`get_date` AS `get_date`,`uhc`.`archive` AS `archive`,`uhc`.`prim` AS `prim`,`uhc`.`create` AS `create`,`uhc`.`ts` AS `ts`,`uhc`.`cr_by` AS `cr_by`,`uhc`.`upd_by` AS `upd_by` from `client_has_category` `uhc` where (`uhc`.`client_id` = `get_last_client`()) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `_client_has_contracts`
---
-
-/*!50001 DROP VIEW IF EXISTS `_client_has_contracts`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_client_has_contracts` AS select `c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`contracts2` AS `contracts2`,`c`.`client_id` AS `client_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date`,`c`.`pyc_prim` AS `pyc_prim` from `contracts` `c` order by `c`.`blocked` */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `_client_has_invalid_contracts`
---
-
-/*!50001 DROP VIEW IF EXISTS `_client_has_invalid_contracts`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_client_has_invalid_contracts` AS select `u`.`client` AS `client`,`c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`client_id` AS `client_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where (`c`.`enddate` < curdate()) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `_client_has_main`
---
-
-/*!50001 DROP VIEW IF EXISTS `_client_has_main`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_client_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where (`main`.`client_id` = `get_last_client`()) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `_client_has_valid_contracts`
---
-
-/*!50001 DROP VIEW IF EXISTS `_client_has_valid_contracts`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_client_has_valid_contracts` AS select `u`.`client` AS `client`,`c`.`id` AS `id`,`c`.`contracts` AS `contracts`,`c`.`client_id` AS `client_id`,`c`.`dep_id` AS `dep_id`,`c`.`ripso_id` AS `ripso_id`,`c`.`blocked` AS `blocked`,`c`.`startdate` AS `startdate`,`c`.`enddate` AS `enddate`,`c`.`ippsuNum` AS `ippsuNum`,`c`.`note` AS `note`,`c`.`create` AS `create`,`c`.`ts` AS `ts`,`c`.`cr_by` AS `cr_by`,`c`.`upd_by` AS `upd_by`,`c`.`to_recheck` AS `to_recheck`,`c`.`check_date` AS `check_date` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where (`c`.`enddate` > curdate()) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `_user_has_main`
 --
 
@@ -7242,42 +7248,6 @@ DELIMITER ;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `dep_has_main`
---
-
-/*!50001 DROP VIEW IF EXISTS `dep_has_main`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `dep_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `dep_has_serv`
---
-
-/*!50001 DROP VIEW IF EXISTS `dep_has_serv`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `dep_has_serv` AS select `s`.`id` AS `id`,`s`.`tnum` AS `tnum`,`s`.`serv` AS `serv`,`s`.`year` AS `year`,`s`.`sub_serv` AS `sub_serv`,`s`.`sub_serv_str` AS `sub_serv_str`,`s`.`price` AS `price`,`s`.`price2` AS `price2`,`s`.`price3` AS `price3`,`s`.`archive` AS `archive`,`s`.`total` AS `total`,`s`.`acronym` AS `acronym`,`s`.`workload` AS `workload`,`s`.`content` AS `content` from ((`serv` `s` join `ripso_has_serv` `rhs` on((`rhs`.`serv_id` = `s`.`id`))) join `dep_has_ripso` `dhr` on((`rhs`.`ripso_id` = `dhr`.`ripso_id`))) where `dhr`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `dep_has_client_by_contr`
 --
 
@@ -7309,6 +7279,42 @@ DELIMITER ;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `dep_has_client_by_ripso` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` where `client`.`id` in (select `c`.`client_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where `rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `dep_has_main`
+--
+
+/*!50001 DROP VIEW IF EXISTS `dep_has_main`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `dep_has_main` AS select `main`.`id` AS `id`,`main`.`contracts_id` AS `contracts_id`,`main`.`dep_id` AS `dep_id`,`main`.`client_id` AS `client_id`,`main`.`serv_id` AS `serv_id`,`main`.`dep_has_worker_id` AS `dep_has_worker_id`,`main`.`worker_id` AS `worker_id`,`main`.`vdate` AS `vdate`,`main`.`quantity` AS `quantity`,`main`.`note` AS `note`,`main`.`create` AS `create`,`main`.`ts` AS `ts`,`main`.`cr_by` AS `cr_by`,`main`.`upd_by` AS `upd_by`,`main`.`reported` AS `reported`,`main`.`wdate` AS `wdate`,`main`.`overdid` AS `overdid`,`main`.`prev_quantity` AS `prev_quantity` from `main` where `main`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `dep_has_serv`
+--
+
+/*!50001 DROP VIEW IF EXISTS `dep_has_serv`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `dep_has_serv` AS select `s`.`id` AS `id`,`s`.`tnum` AS `tnum`,`s`.`serv` AS `serv`,`s`.`year` AS `year`,`s`.`sub_serv` AS `sub_serv`,`s`.`sub_serv_str` AS `sub_serv_str`,`s`.`price` AS `price`,`s`.`price2` AS `price2`,`s`.`price3` AS `price3`,`s`.`archive` AS `archive`,`s`.`total` AS `total`,`s`.`acronym` AS `acronym`,`s`.`workload` AS `workload`,`s`.`content` AS `content` from ((`serv` `s` join `ripso_has_serv` `rhs` on((`rhs`.`serv_id` = `s`.`id`))) join `dep_has_ripso` `dhr` on((`rhs`.`ripso_id` = `dhr`.`ripso_id`))) where `dhr`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7638,6 +7644,24 @@ DELIMITER ;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `updatable__dep_has_client`
+--
+
+/*!50001 DROP VIEW IF EXISTS `updatable__dep_has_client`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `updatable__dep_has_client` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `updatable__dep_has_contracts`
 --
 
@@ -7674,24 +7698,6 @@ DELIMITER ;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `updatable__dep_has_client`
---
-
-/*!50001 DROP VIEW IF EXISTS `updatable__dep_has_client`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `updatable__dep_has_client` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `updatable__user_has_main`
 --
 
@@ -7723,6 +7729,24 @@ DELIMITER ;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `updatable_add_info` AS select `add_info`.`pddate` AS `pddate`,`add_info`.`contracts_id` AS `contracts_id`,`add_info`.`predv_money` AS `predv_money`,`add_info`.`curFIO` AS `curFIO`,`add_info`.`psp` AS `psp`,`add_info`.`address` AS `address`,`add_info`.`sdd` AS `sdd`,`add_info`.`sdd_date` AS `sdd_date`,`add_info`.`perc` AS `perc`,`add_info`.`not_standart_contract` AS `not_standart_contract`,`add_info`.`not_standart_act` AS `not_standart_act`,`add_info`.`prim` AS `prim`,`add_info`.`create` AS `create`,`add_info`.`ts` AS `ts`,`add_info`.`cr_by` AS `cr_by`,`add_info`.`upd_by` AS `upd_by`,`add_info`.`repr_FIO` AS `repr_FIO`,`add_info`.`repr_addr` AS `repr_addr`,`add_info`.`repr_psp` AS `repr_psp`,`add_info`.`work_livemin` AS `work_livemin` from `add_info` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `updatable_client`
+--
+
+/*!50001 DROP VIEW IF EXISTS `updatable_client`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `updatable_client` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7782,24 +7806,6 @@ DELIMITER ;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `updatable_client`
---
-
-/*!50001 DROP VIEW IF EXISTS `updatable_client`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `updatable_client` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `user_has_serv`
 --
 
@@ -7844,4 +7850,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-19 18:50:34
+-- Dump completed on 2022-01-22 21:36:55
