@@ -176,7 +176,7 @@ class tsQTableView(tsQTableViewDockInfo):
     def mousePressEvent(self, ev: QMouseEvent):
         ret = super().mousePressEvent(ev)
         try:
-            if ev.button() == Qt.LeftButton:
+            if ev.button() == Qt.RightButton:
                 mdl = self.model()
                 debug("=====clicked on table %s =====", self.objectName())
                 # index=self.selectionModel().selectedIndexes()[0]
