@@ -156,22 +156,12 @@ BEGIN
     grant select on kcson.ugroup_has_client to info;
     grant select on kcson.ui_select_fiolist to info;
     grant select on kcson.upd_by to info;
-    -- grant select on kcson.updatable_2__dep_has_client to info;
-    -- grant select on kcson.updatable__dep_has_contracts to info;
-    -- grant select on kcson.updatable__dep_has_main to info;
-    -- grant select on kcson.updatable__dep_has_client to info;
-    -- grant select on kcson.updatable__user_has_main to info;
-    -- grant select on kcson.updatable_contracts to info;
-    -- grant select on kcson.updatable_contracts_has_serv to info;
-    -- grant select on kcson.updatable_main to info;
-    -- grant select on kcson.updatable_client to info;
     grant select on kcson.user_has_serv to info;
     grant select on kcson.worker to info;
     grant select on kcson.worker_has_dep to info;
     grant select on kcson.worker_settings to info;
     grant select on kcson._dep_has_workers to info;
-    -- grant select on kcson._apikey_has_contracts to info;
-   
+
     #############################
     # grant perm. to web_info
     # ---------------------------
@@ -726,8 +716,6 @@ DELIMITER ;
 
 call INIT_SECURITY();
 
---
---
 -- show processlist;
 -- show GRANTS for info;
 -- show GRANTS for specialist;
