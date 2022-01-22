@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: kcson
+-- Host: localhost    Database: kcson
 -- ------------------------------------------------------
 -- Server version	8.0.20
 
@@ -115,7 +115,7 @@ DROP TABLE IF EXISTS `_bm_dep_has_client`;
 /*!50001 DROP VIEW IF EXISTS `_bm_dep_has_client`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_bm_dep_has_client` AS SELECT
+/*!50001 CREATE VIEW `_bm_dep_has_client` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -141,7 +141,7 @@ DROP TABLE IF EXISTS `_bm_dep_has_client_other_year`;
 /*!50001 DROP VIEW IF EXISTS `_bm_dep_has_client_other_year`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_bm_dep_has_client_other_year` AS SELECT
+/*!50001 CREATE VIEW `_bm_dep_has_client_other_year` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -167,7 +167,7 @@ DROP TABLE IF EXISTS `_bm_dep_has_client_year`;
 /*!50001 DROP VIEW IF EXISTS `_bm_dep_has_client_year`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_bm_dep_has_client_year` AS SELECT
+/*!50001 CREATE VIEW `_bm_dep_has_client_year` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -193,7 +193,7 @@ DROP TABLE IF EXISTS `_categ_list_client`;
 /*!50001 DROP VIEW IF EXISTS `_categ_list_client`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_categ_list_client` AS SELECT
+/*!50001 CREATE VIEW `_categ_list_client` AS SELECT 
  1 AS `category_id`,
  1 AS `client_id`,
  1 AS `quantity`,
@@ -571,7 +571,7 @@ DROP TABLE IF EXISTS `_dep_has_client`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -597,7 +597,7 @@ DROP TABLE IF EXISTS `_dep_has_client_blocked_in_year`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_blocked_in_year`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_blocked_in_year` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_blocked_in_year` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -623,7 +623,7 @@ DROP TABLE IF EXISTS `_dep_has_client_by_ripso`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_by_ripso`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_by_ripso` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_by_ripso` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -648,7 +648,7 @@ DROP TABLE IF EXISTS `_dep_has_client_contracts`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_contracts`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_contracts` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_contracts` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -674,7 +674,7 @@ DROP TABLE IF EXISTS `_dep_has_client_count_2month`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_count_2month`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_count_2month` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_count_2month` AS SELECT 
  1 AS `quantity`,
  1 AS `id`,
  1 AS `client`,
@@ -701,7 +701,7 @@ DROP TABLE IF EXISTS `_dep_has_client_count_main_year`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_count_main_year`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_count_main_year` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_count_main_year` AS SELECT 
  1 AS `quantity`,
  1 AS `id`,
  1 AS `client`,
@@ -728,7 +728,7 @@ DROP TABLE IF EXISTS `_dep_has_client_count_month`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_count_month`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_count_month` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_count_month` AS SELECT 
  1 AS `quantity`,
  1 AS `id`,
  1 AS `client`,
@@ -755,7 +755,7 @@ DROP TABLE IF EXISTS `_dep_has_client_ended`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_ended`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_ended` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_ended` AS SELECT 
  1 AS `client`,
  1 AS `id`,
  1 AS `contracts`,
@@ -783,7 +783,7 @@ DROP TABLE IF EXISTS `_dep_has_client_ending`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_ending`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_ending` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_ending` AS SELECT 
  1 AS `client`,
  1 AS `id`,
  1 AS `contracts`,
@@ -811,7 +811,7 @@ DROP TABLE IF EXISTS `_dep_has_client_more`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_more`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_more` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_more` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -857,7 +857,7 @@ DROP TABLE IF EXISTS `_dep_has_client_ripso`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_ripso`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_ripso` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_ripso` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -883,7 +883,7 @@ DROP TABLE IF EXISTS `_dep_has_client_ripso_or_contracts`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_ripso_or_contracts`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_ripso_or_contracts` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_ripso_or_contracts` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -909,7 +909,7 @@ DROP TABLE IF EXISTS `_dep_has_client_year`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_year`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_year` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_year` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -1073,7 +1073,7 @@ DROP TABLE IF EXISTS `_dhw_has_client`;
 /*!50001 DROP VIEW IF EXISTS `_dhw_has_client`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dhw_has_client` AS SELECT
+/*!50001 CREATE VIEW `_dhw_has_client` AS SELECT 
  1 AS `dhw_id`,
  1 AS `client_id`,
  1 AS `prim`*/;
@@ -1087,7 +1087,7 @@ DROP TABLE IF EXISTS `_g_categ_list_client_for_dep_for_year`;
 /*!50001 DROP VIEW IF EXISTS `_g_categ_list_client_for_dep_for_year`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_g_categ_list_client_for_dep_for_year` AS SELECT
+/*!50001 CREATE VIEW `_g_categ_list_client_for_dep_for_year` AS SELECT 
  1 AS `category_id`,
  1 AS `client_id`,
  1 AS `SUM(quantity)`*/;
@@ -1753,7 +1753,7 @@ DROP TABLE IF EXISTS `add_info_for_client`;
 /*!50001 DROP VIEW IF EXISTS `add_info_for_client`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `add_info_for_client` AS SELECT
+/*!50001 CREATE VIEW `add_info_for_client` AS SELECT 
  1 AS `client_id`,
  1 AS `pddate`,
  1 AS `contracts_id`,
@@ -2333,7 +2333,7 @@ DROP TABLE IF EXISTS `dep`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `dep` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `dep` varchar(45) NOT NULL,
+  `dep` varchar(145) NOT NULL,
   `dep_full_name` varchar(255) DEFAULT NULL,
   `dep_puname` varchar(255) DEFAULT NULL,
   `note` varchar(255) DEFAULT NULL,
@@ -3776,7 +3776,7 @@ DROP TABLE IF EXISTS `updatable_2__dep_has_client`;
 /*!50001 DROP VIEW IF EXISTS `updatable_2__dep_has_client`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `updatable_2__dep_has_client` AS SELECT
+/*!50001 CREATE VIEW `updatable_2__dep_has_client` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -4877,7 +4877,7 @@ BEGIN
 	        client_id = UID
 	            AND vdate BETWEEN STARTDATE AND ENDDATE
 	    GROUP BY client_id, vdate_m , vdate_y, servform_id, perc, f.contracts_id;
-	    
+
 	  
 	else 
 	
@@ -5171,9 +5171,9 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `DROP_ROLES`()
     SQL SECURITY INVOKER
 BEGIN
-	# select CURRENT_ROLE() , user(), current_user();
+	# select CURRENT_ROLE() , user(), current_user(); 
 	set role info;
-	# select CURRENT_ROLE() , user(), current_user();
+	# select CURRENT_ROLE() , user(), current_user(); 
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -5448,28 +5448,18 @@ BEGIN
     grant select on kcson.ugroup_has_client to info;
     grant select on kcson.ui_select_fiolist to info;
     grant select on kcson.upd_by to info;
-    
-    
-    
-    
-    
-    
-    
-    
-    
     grant select on kcson.user_has_serv to info;
     grant select on kcson.worker to info;
     grant select on kcson.worker_has_dep to info;
     grant select on kcson.worker_settings to info;
     grant select on kcson._dep_has_workers to info;
-    
-   
+
     #############################
     # grant perm. to web_info
     # ---------------------------
    	GRANT Select ON kcson.`_apikey_has_contracts` TO 'web_info'@'%';
-   	# todo: make procedure for insert
-   	GRANT insert ON kcson.`api_key_insert_main` TO 'web_info'@'%';
+   	GRANT insert,update ON kcson.`api_key_insert_main` TO 'web_info'@'%';
+   	GRANT select ON kcson.`api_key_insert_main` TO 'web_info'@'%'; -- maybe use procedure instead of this?
    	GRANT Select ON kcson.`_api_key_planned` TO 'web_info'@'%';
    	GRANT Select ON kcson.`_api_key_services` TO 'web_info'@'%';
 
@@ -5588,6 +5578,8 @@ BEGIN
     grant select,update,insert,delete on kcson.complex_dep_has_dep to part_admin;
     grant select,update,insert,delete on kcson.holiday to part_admin;
     grant select,update,insert,delete on kcson.ui_select_fiolist to part_admin;
+
+    grant select,insert on kcson.user_change to part_admin;
 
     #############################
     # grant perm. to admin role
@@ -5720,7 +5712,7 @@ this_proc:BEGIN
     DECLARE old_login CHAR(16);
 
 	DECLARE CONTINUE HANDLER FOR NOT FOUND SET @done = 1;
-    	
+
 
     set `_HOST` = '@\'%\'';
    -- get role of current user
@@ -5881,7 +5873,7 @@ begin
 	declare res int default 0;
 
 	  declare uid int default 0;
-	  DECLARE name VARCHAR(64) DEFAULT ''; 
+	  DECLARE name VARCHAR(64) DEFAULT ''; #32?
 	  declare done int default false;
   
  	  DECLARE kill_i CURSOR for
@@ -5892,8 +5884,8 @@ begin
 	set  wrkID=get_WID();
 	
 	set res = (select dep_id from dep_has_worker  where worker_id=wrkID and dep_id=depId);
-	
-
+	#set cursor_n = (select w.`user` from worker  where w.id=wrkID);
+-- 	select 1;
 	if res > 0 then 
 	    SET @queryStringRP = CONCAT('REVOKE ALL on *.* FROM  "', SUBSTRING_INDEX(user(),'@',1), '";  ' );
 -- 	   select  @queryStringRP;
@@ -7850,4 +7842,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-22 21:36:55
+-- Dump completed on 2022-01-22 22:54:25
