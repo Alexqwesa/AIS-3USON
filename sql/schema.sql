@@ -115,7 +115,7 @@ DROP TABLE IF EXISTS `_bm_dep_has_client`;
 /*!50001 DROP VIEW IF EXISTS `_bm_dep_has_client`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_bm_dep_has_client` AS SELECT
+/*!50001 CREATE VIEW `_bm_dep_has_client` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -141,7 +141,7 @@ DROP TABLE IF EXISTS `_bm_dep_has_client_other_year`;
 /*!50001 DROP VIEW IF EXISTS `_bm_dep_has_client_other_year`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_bm_dep_has_client_other_year` AS SELECT
+/*!50001 CREATE VIEW `_bm_dep_has_client_other_year` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -167,7 +167,7 @@ DROP TABLE IF EXISTS `_bm_dep_has_client_year`;
 /*!50001 DROP VIEW IF EXISTS `_bm_dep_has_client_year`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_bm_dep_has_client_year` AS SELECT
+/*!50001 CREATE VIEW `_bm_dep_has_client_year` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -193,7 +193,7 @@ DROP TABLE IF EXISTS `_categ_list_client`;
 /*!50001 DROP VIEW IF EXISTS `_categ_list_client`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_categ_list_client` AS SELECT
+/*!50001 CREATE VIEW `_categ_list_client` AS SELECT 
  1 AS `category_id`,
  1 AS `client_id`,
  1 AS `quantity`,
@@ -571,7 +571,7 @@ DROP TABLE IF EXISTS `_dep_has_client`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -597,7 +597,7 @@ DROP TABLE IF EXISTS `_dep_has_client_blocked_in_year`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_blocked_in_year`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_blocked_in_year` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_blocked_in_year` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -623,7 +623,7 @@ DROP TABLE IF EXISTS `_dep_has_client_by_ripso`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_by_ripso`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_by_ripso` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_by_ripso` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -648,7 +648,7 @@ DROP TABLE IF EXISTS `_dep_has_client_contracts`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_contracts`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_contracts` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_contracts` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -674,7 +674,7 @@ DROP TABLE IF EXISTS `_dep_has_client_count_2month`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_count_2month`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_count_2month` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_count_2month` AS SELECT 
  1 AS `quantity`,
  1 AS `id`,
  1 AS `client`,
@@ -701,7 +701,7 @@ DROP TABLE IF EXISTS `_dep_has_client_count_main_year`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_count_main_year`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_count_main_year` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_count_main_year` AS SELECT 
  1 AS `quantity`,
  1 AS `id`,
  1 AS `client`,
@@ -728,7 +728,7 @@ DROP TABLE IF EXISTS `_dep_has_client_count_month`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_count_month`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_count_month` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_count_month` AS SELECT 
  1 AS `quantity`,
  1 AS `id`,
  1 AS `client`,
@@ -755,7 +755,7 @@ DROP TABLE IF EXISTS `_dep_has_client_ended`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_ended`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_ended` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_ended` AS SELECT 
  1 AS `client`,
  1 AS `id`,
  1 AS `contracts`,
@@ -783,7 +783,7 @@ DROP TABLE IF EXISTS `_dep_has_client_ending`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_ending`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_ending` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_ending` AS SELECT 
  1 AS `client`,
  1 AS `id`,
  1 AS `contracts`,
@@ -811,7 +811,7 @@ DROP TABLE IF EXISTS `_dep_has_client_more`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_more`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_more` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_more` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -857,7 +857,7 @@ DROP TABLE IF EXISTS `_dep_has_client_ripso`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_ripso`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_ripso` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_ripso` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -883,7 +883,7 @@ DROP TABLE IF EXISTS `_dep_has_client_ripso_or_contracts`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_ripso_or_contracts`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_ripso_or_contracts` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_ripso_or_contracts` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -909,7 +909,7 @@ DROP TABLE IF EXISTS `_dep_has_client_year`;
 /*!50001 DROP VIEW IF EXISTS `_dep_has_client_year`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dep_has_client_year` AS SELECT
+/*!50001 CREATE VIEW `_dep_has_client_year` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -1073,7 +1073,7 @@ DROP TABLE IF EXISTS `_dhw_has_client`;
 /*!50001 DROP VIEW IF EXISTS `_dhw_has_client`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_dhw_has_client` AS SELECT
+/*!50001 CREATE VIEW `_dhw_has_client` AS SELECT 
  1 AS `dhw_id`,
  1 AS `client_id`,
  1 AS `prim`*/;
@@ -1087,7 +1087,7 @@ DROP TABLE IF EXISTS `_g_categ_list_client_for_dep_for_year`;
 /*!50001 DROP VIEW IF EXISTS `_g_categ_list_client_for_dep_for_year`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `_g_categ_list_client_for_dep_for_year` AS SELECT
+/*!50001 CREATE VIEW `_g_categ_list_client_for_dep_for_year` AS SELECT 
  1 AS `category_id`,
  1 AS `client_id`,
  1 AS `SUM(quantity)`*/;
@@ -1753,7 +1753,7 @@ DROP TABLE IF EXISTS `add_info_for_client`;
 /*!50001 DROP VIEW IF EXISTS `add_info_for_client`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `add_info_for_client` AS SELECT
+/*!50001 CREATE VIEW `add_info_for_client` AS SELECT 
  1 AS `client_id`,
  1 AS `pddate`,
  1 AS `contracts_id`,
@@ -2333,7 +2333,7 @@ DROP TABLE IF EXISTS `dep`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `dep` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `dep` varchar(45) NOT NULL,
+  `dep` varchar(145) NOT NULL,
   `dep_full_name` varchar(255) DEFAULT NULL,
   `dep_puname` varchar(255) DEFAULT NULL,
   `note` varchar(255) DEFAULT NULL,
@@ -3776,7 +3776,7 @@ DROP TABLE IF EXISTS `updatable_2__dep_has_client`;
 /*!50001 DROP VIEW IF EXISTS `updatable_2__dep_has_client`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `updatable_2__dep_has_client` AS SELECT
+/*!50001 CREATE VIEW `updatable_2__dep_has_client` AS SELECT 
  1 AS `id`,
  1 AS `client`,
  1 AS `client_short`,
@@ -4301,35 +4301,6 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `DROP_ROLES` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `DROP_ROLES`() RETURNS int
-    DETERMINISTIC
-    SQL SECURITY INVOKER
-BEGIN
-
-	# select CURRENT_ROLE() , user(), current_user();
-
-	set role info;
-
-	# select CURRENT_ROLE() , user(), current_user();
-
-	return 1;
-
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP FUNCTION IF EXISTS `GET_CONTR` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -4537,6 +4508,45 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `IS_ADMIN` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `IS_ADMIN`() RETURNS int
+    DETERMINISTIC
+begin
+	DECLARE CONTINUE HANDLER FOR NOT FOUND return 0;
+
+if (STRCMP( 'root' , SUBSTRING_INDEX(user(),'@',1)) = 0) then
+	return 1;
+end if;
+
+   -- get role of current user
+    set @is_admin = (select true from dep_has_worker dhw inner join  worker w  on
+		w.id = dhw.worker_id
+		where w.`user` = SUBSTRING_INDEX(user(),'@',1)
+		and (dhw.role_id  in  (7, 8) )
+		order by dhw.role_id desc
+		limit 1);
+	
+	if COALESCE( @is_admin, False)  then
+		return 1;
+	else
+		return 0;
+	end if;
+		
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP FUNCTION IF EXISTS `IS_CUR_DEP` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -4610,6 +4620,45 @@ BEGIN
 		return (select depID_par in (select dep_id from complex_dep_has_dep where complexDep = complex_dep_id
         ));
     end if;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `IS_SPECIALIST` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `IS_SPECIALIST`() RETURNS int
+    DETERMINISTIC
+begin
+	
+	DECLARE CONTINUE HANDLER FOR NOT FOUND return 0;
+
+if (STRCMP( 'root' , SUBSTRING_INDEX(user(),'@',1)) = 0) then
+	return 1;
+end if;
+
+   -- get role of current user
+    set @is_spe = (select true from dep_has_worker dhw inner join  worker w  on
+		w.id = dhw.worker_id
+		where w.`user` = SUBSTRING_INDEX(user(),'@',1)
+		and (dhw.role_id  in  (4, 5, 6, 7, 8) )
+		order by dhw.role_id desc
+		limit 1);
+	
+	if COALESCE( @is_spe, False)  then
+		return 1;
+	else
+		return 0;
+	end if;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4877,7 +4926,7 @@ BEGIN
 	        client_id = UID
 	            AND vdate BETWEEN STARTDATE AND ENDDATE
 	    GROUP BY client_id, vdate_m , vdate_y, servform_id, perc, f.contracts_id;
-	    
+
 	  
 	else 
 	
@@ -5158,7 +5207,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `DROP_ROLES` */;
+/*!50003 DROP PROCEDURE IF EXISTS `GET_DEPS_TABLE` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -5168,33 +5217,11 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `DROP_ROLES`()
-    SQL SECURITY INVOKER
-BEGIN
-	# select CURRENT_ROLE() , user(), current_user();
-	set role info;
-	# select CURRENT_ROLE() , user(), current_user();
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `GET_DEPS` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_DEPS`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_DEPS_TABLE`(
  `wrkID` INT )
     READS SQL DATA
     SQL SECURITY INVOKER
-    COMMENT 'get  departments '
+    COMMENT 'get  departments - to get list before login '
 BEGIN
 	
 	select distinct dep_id from dep_has_worker  where worker_id=wrkID and (archive=0 or archive is null);
@@ -5289,7 +5316,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_VER`()
     DETERMINISTIC
     COMMENT 'return sql version, change if tables changed'
-select 88 ;;
+select 90 ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5448,28 +5475,18 @@ BEGIN
     grant select on kcson.ugroup_has_client to info;
     grant select on kcson.ui_select_fiolist to info;
     grant select on kcson.upd_by to info;
-    
-    
-    
-    
-    
-    
-    
-    
-    
     grant select on kcson.user_has_serv to info;
     grant select on kcson.worker to info;
     grant select on kcson.worker_has_dep to info;
     grant select on kcson.worker_settings to info;
     grant select on kcson._dep_has_workers to info;
-    
-   
+
     #############################
     # grant perm. to web_info
     # ---------------------------
    	GRANT Select ON kcson.`_apikey_has_contracts` TO 'web_info'@'%';
-   	# todo: make procedure for insert
-   	GRANT insert ON kcson.`api_key_insert_main` TO 'web_info'@'%';
+   	GRANT insert,update ON kcson.`api_key_insert_main` TO 'web_info'@'%';
+   	GRANT select ON kcson.`api_key_insert_main` TO 'web_info'@'%'; -- maybe use procedure instead of this?
    	GRANT Select ON kcson.`_api_key_planned` TO 'web_info'@'%';
    	GRANT Select ON kcson.`_api_key_services` TO 'web_info'@'%';
 
@@ -5589,6 +5606,8 @@ BEGIN
     grant select,update,insert,delete on kcson.holiday to part_admin;
     grant select,update,insert,delete on kcson.ui_select_fiolist to part_admin;
 
+    grant select,insert on kcson.user_change to part_admin;
+
     #############################
     # grant perm. to admin role
     # ---------------------------
@@ -5613,12 +5632,19 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `KILL_USER_SESSION`()
 BEGIN
   
-    DECLARE uid int default 0;
+  DECLARE uid int default 0;
   DECLARE name VARCHAR(64) DEFAULT ''; 
   DECLARE done INT DEFAULT FALSE;
-  DECLARE kill_i CURSOR FOR  
-		SELECT t.id, t.user FROM information_schema.processlist t where t.user = SUBSTRING_INDEX(user(),'@',1);
+  DECLARE kill_i CURSOR for
+  	SELECT t.id, t.user FROM information_schema.processlist t where t.user = SUBSTRING_INDEX(user(),'@',1);
+
   DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+   
+	select IS_ADMIN() into @allow;
+	if (@allow = 0) then
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT =  'Ошибка: у вас нет доступа!';
+	end if;
+ 
   OPEN kill_i;
   kill_loop: LOOP
     FETCH kill_i INTO uid, name;
@@ -5720,7 +5746,7 @@ this_proc:BEGIN
     DECLARE old_login CHAR(16);
 
 	DECLARE CONTINUE HANDLER FOR NOT FOUND SET @done = 1;
-    	
+    	-- select 'start ';
 
     set `_HOST` = '@\'%\'';
    -- get role of current user
@@ -5812,6 +5838,14 @@ BEGIN
 	select distinct w.`user`, 'info' from  kcson.dep_has_worker dhw join  kcson.`role` r on r.id = dhw.role_id join  kcson.worker w on dhw.worker_id = w.id
 	where  w.`user` <> "" and w.`user` <> "root" ;
   DECLARE CONTINUE handler FOR NOT FOUND SET done = TRUE;
+ 
+    
+	select IS_ADMIN() into @allow;
+	if (@allow = 0) then
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT =  'Ошибка: у вас нет доступа!';
+	end if;
+ 
+ 
   OPEN cursor_i;
   read_loop: LOOP
     FETCH cursor_i INTO cursor_n, cursor_rol;
@@ -5881,7 +5915,7 @@ begin
 	declare res int default 0;
 
 	  declare uid int default 0;
-	  DECLARE name VARCHAR(64) DEFAULT ''; 
+	  DECLARE name VARCHAR(64) DEFAULT '';
 	  declare done int default false;
   
  	  DECLARE kill_i CURSOR for
@@ -5892,7 +5926,7 @@ begin
 	set  wrkID=get_WID();
 	
 	set res = (select dep_id from dep_has_worker  where worker_id=wrkID and dep_id=depId);
-	
+
 
 	if res > 0 then 
 	    SET @queryStringRP = CONCAT('REVOKE ALL on *.* FROM  "', SUBSTRING_INDEX(user(),'@',1), '";  ' );
@@ -7850,4 +7884,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-22 21:36:55
+-- Dump completed on 2022-01-23 19:01:05
