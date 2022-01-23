@@ -8,6 +8,78 @@ select * from kcson.role;
 
 
 #############################
+# routine IS_SPECIALIST
+# ---------------------------
+drop procedure IF EXISTS IS_SPECIALIST;
+delimiter $$
+CREATE FUNCTION kcson.IS_SPECIALIST()
+RETURNS INT
+sql security definer
+DETERMINISTIC
+begin
+
+	DECLARE CONTINUE HANDLER FOR NOT FOUND return 0;
+
+if (STRCMP( 'root' , SUBSTRING_INDEX(user(),'@',1)) = 0) then
+	return 1;
+end if;
+
+   -- get role of current user
+    set @is_spe = (select true from dep_has_worker dhw inner join  worker w  on
+		w.id = dhw.worker_id
+		where w.`user` = SUBSTRING_INDEX(user(),'@',1)
+		and (dhw.role_id  in  (4, 5, 6, 7, 8) )
+		order by dhw.role_id desc
+		limit 1);
+
+	if COALESCE( @is_spe, False)  then
+		return 1;
+	else
+		return 0;
+	end if;
+END;
+$$
+delimiter ;
+
+#############################
+# routine IS_ADMIN
+# ---------------------------
+drop procedure IF EXISTS IS_ADMIN;
+delimiter $$
+CREATE
+DEFINER=`root`@`localhost`
+FUNCTION IS_ADMIN()
+RETURNS INT
+sql security definer
+DETERMINISTIC
+begin
+	DECLARE CONTINUE HANDLER FOR NOT FOUND return 0;
+
+    if (STRCMP( 'root' , SUBSTRING_INDEX(user(),'@',1)) = 0) then
+        return 1;
+    end if;
+
+   -- get role of current user
+    set @is_admin = (select true from dep_has_worker dhw inner join  worker w  on
+		w.id = dhw.worker_id
+		where w.`user` = SUBSTRING_INDEX(user(),'@',1)
+		and (dhw.role_id  in  (7, 8) )
+		order by dhw.role_id desc
+		limit 1);
+
+	if COALESCE( @is_admin, False)  then
+		return 1;
+	else
+		return 0;
+	end if;
+
+END;
+$$
+delimiter ;
+
+
+
+#############################
 # routine GET_PRIVILEGES
 # ---------------------------
 drop procedure IF EXISTS INIT_SECURITY;
