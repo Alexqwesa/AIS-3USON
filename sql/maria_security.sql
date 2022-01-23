@@ -8,6 +8,78 @@ select * from kcson.role;
 
 
 #############################
+# routine IS_SPECIALIST
+# ---------------------------
+drop procedure IF EXISTS IS_SPECIALIST;
+delimiter $$
+CREATE FUNCTION kcson.IS_SPECIALIST()
+RETURNS INT
+sql security definer
+DETERMINISTIC
+begin
+
+	DECLARE CONTINUE HANDLER FOR NOT FOUND return 0;
+
+if (STRCMP( 'root' , SUBSTRING_INDEX(user(),'@',1)) = 0) then
+	return 1;
+end if;
+
+   -- get role of current user
+    set @is_spe = (select true from dep_has_worker dhw inner join  worker w  on
+		w.id = dhw.worker_id
+		where w.`user` = SUBSTRING_INDEX(user(),'@',1)
+		and (dhw.role_id  in  (4, 5, 6, 7, 8) )
+		order by dhw.role_id desc
+		limit 1);
+
+	if COALESCE( @is_spe, False)  then
+		return 1;
+	else
+		return 0;
+	end if;
+END;
+$$
+delimiter ;
+
+#############################
+# routine IS_ADMIN
+# ---------------------------
+drop procedure IF EXISTS IS_ADMIN;
+delimiter $$
+CREATE
+DEFINER=`root`@`localhost`
+FUNCTION IS_ADMIN()
+RETURNS INT
+sql security definer
+DETERMINISTIC
+begin
+	DECLARE CONTINUE HANDLER FOR NOT FOUND return 0;
+
+    if (STRCMP( 'root' , SUBSTRING_INDEX(user(),'@',1)) = 0) then
+        return 1;
+    end if;
+
+   -- get role of current user
+    set @is_admin = (select true from dep_has_worker dhw inner join  worker w  on
+		w.id = dhw.worker_id
+		where w.`user` = SUBSTRING_INDEX(user(),'@',1)
+		and (dhw.role_id  in  (7, 8) )
+		order by dhw.role_id desc
+		limit 1);
+
+	if COALESCE( @is_admin, False)  then
+		return 1;
+	else
+		return 0;
+	end if;
+
+END;
+$$
+delimiter ;
+
+
+
+#############################
 # routine GET_PRIVILEGES
 # ---------------------------
 drop procedure IF EXISTS INIT_SECURITY;
@@ -156,22 +228,12 @@ BEGIN
     grant select on kcson.ugroup_has_client to info;
     grant select on kcson.ui_select_fiolist to info;
     grant select on kcson.upd_by to info;
-    -- grant select on kcson.updatable_2__dep_has_client to info;
-    -- grant select on kcson.updatable__dep_has_contracts to info;
-    -- grant select on kcson.updatable__dep_has_main to info;
-    -- grant select on kcson.updatable__dep_has_client to info;
-    -- grant select on kcson.updatable__user_has_main to info;
-    -- grant select on kcson.updatable_contracts to info;
-    -- grant select on kcson.updatable_contracts_has_serv to info;
-    -- grant select on kcson.updatable_main to info;
-    -- grant select on kcson.updatable_client to info;
     grant select on kcson.user_has_serv to info;
     grant select on kcson.worker to info;
     grant select on kcson.worker_has_dep to info;
     grant select on kcson.worker_settings to info;
     grant select on kcson._dep_has_workers to info;
-    -- grant select on kcson._apikey_has_contracts to info;
-   
+
     #############################
     # grant perm. to web_info
     # ---------------------------
@@ -726,8 +788,6 @@ DELIMITER ;
 
 call INIT_SECURITY();
 
---
---
 -- show processlist;
 -- show GRANTS for info;
 -- show GRANTS for specialist;

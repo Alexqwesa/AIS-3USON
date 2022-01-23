@@ -40,8 +40,8 @@ INSERT INTO kcson.client_has_category (client_id, category_id, get_date, archive
 INSERT INTO kcson.client_has_category (client_id, category_id, get_date, archive, prim, `create`, ts, cr_by, upd_by, stop_date) VALUES(2, 10, '2018-01-01', 0, NULL, '2020-08-07 18:42:42', '2020-08-07 18:42:42', 1, 1, '9999-01-01');
 
 
--- INSERT INTO kcson.dep (id, dep, dep_full_name, dep_puname, note, archive, complex_dep_id) VALUES(1, 'Не указано', 'Не указано', NULL, NULL, 0, 0);
--- INSERT INTO kcson.dep (id, dep, dep_full_name, dep_puname, note, archive, complex_dep_id) VALUES(2, 'Не указано2', 'Не указано отделение2', NULL, NULL, 0, 0);
+INSERT INTO kcson.dep (id, dep, dep_full_name, dep_puname, note, archive, complex_dep_id) VALUES(1, 'Не указано', 'Не указано', NULL, NULL, 0, 0);
+INSERT INTO kcson.dep (id, dep, dep_full_name, dep_puname, note, archive, complex_dep_id) VALUES(2, 'Не указано2', 'Не указано отделение2', NULL, NULL, 0, 0);
 INSERT INTO kcson.dep (id, dep, dep_full_name, dep_puname, note, archive, complex_dep_id) VALUES(3, 'Все отделения организации', 'Все отделения организации', NULL, NULL, 0, 1);
 INSERT INTO kcson.dep (id, dep, dep_full_name, dep_puname, note, archive, complex_dep_id) VALUES(4, 'СОСМОДЫ', 'СОСМОДЫ', NULL, NULL, 0, 2);
 INSERT INTO kcson.dep (id, dep, dep_full_name, dep_puname, note, archive, complex_dep_id) VALUES(5, 'Полустационарные отделения', 'Полустационарные отделения', NULL, NULL, 0, 3);

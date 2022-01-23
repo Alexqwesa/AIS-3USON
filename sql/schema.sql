@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
 --
--- Host: localhost    Database: kcson
+-- Host: 127.0.0.1    Database: kcson
 -- ------------------------------------------------------
 -- Server version	8.0.20
 
@@ -4301,35 +4301,6 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `DROP_ROLES` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `DROP_ROLES`() RETURNS int
-    DETERMINISTIC
-    SQL SECURITY INVOKER
-BEGIN
-
-	# select CURRENT_ROLE() , user(), current_user();
-
-	set role info;
-
-	# select CURRENT_ROLE() , user(), current_user();
-
-	return 1;
-
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP FUNCTION IF EXISTS `GET_CONTR` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -4537,6 +4508,45 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `IS_ADMIN` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `IS_ADMIN`() RETURNS int
+    DETERMINISTIC
+begin
+	DECLARE CONTINUE HANDLER FOR NOT FOUND return 0;
+
+if (STRCMP( 'root' , SUBSTRING_INDEX(user(),'@',1)) = 0) then
+	return 1;
+end if;
+
+   -- get role of current user
+    set @is_admin = (select true from dep_has_worker dhw inner join  worker w  on
+		w.id = dhw.worker_id
+		where w.`user` = SUBSTRING_INDEX(user(),'@',1)
+		and (dhw.role_id  in  (7, 8) )
+		order by dhw.role_id desc
+		limit 1);
+	
+	if COALESCE( @is_admin, False)  then
+		return 1;
+	else
+		return 0;
+	end if;
+		
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP FUNCTION IF EXISTS `IS_CUR_DEP` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -4610,6 +4620,45 @@ BEGIN
 		return (select depID_par in (select dep_id from complex_dep_has_dep where complexDep = complex_dep_id
         ));
     end if;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `IS_SPECIALIST` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `IS_SPECIALIST`() RETURNS int
+    DETERMINISTIC
+begin
+	
+	DECLARE CONTINUE HANDLER FOR NOT FOUND return 0;
+
+if (STRCMP( 'root' , SUBSTRING_INDEX(user(),'@',1)) = 0) then
+	return 1;
+end if;
+
+   -- get role of current user
+    set @is_spe = (select true from dep_has_worker dhw inner join  worker w  on
+		w.id = dhw.worker_id
+		where w.`user` = SUBSTRING_INDEX(user(),'@',1)
+		and (dhw.role_id  in  (4, 5, 6, 7, 8) )
+		order by dhw.role_id desc
+		limit 1);
+	
+	if COALESCE( @is_spe, False)  then
+		return 1;
+	else
+		return 0;
+	end if;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -5158,7 +5207,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `DROP_ROLES` */;
+/*!50003 DROP PROCEDURE IF EXISTS `GET_DEPS_TABLE` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -5168,33 +5217,11 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `DROP_ROLES`()
-    SQL SECURITY INVOKER
-BEGIN
-	# select CURRENT_ROLE() , user(), current_user(); 
-	set role info;
-	# select CURRENT_ROLE() , user(), current_user(); 
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `GET_DEPS` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_DEPS`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_DEPS_TABLE`(
  `wrkID` INT )
     READS SQL DATA
     SQL SECURITY INVOKER
-    COMMENT 'get  departments '
+    COMMENT 'get  departments - to get list before login '
 BEGIN
 	
 	select distinct dep_id from dep_has_worker  where worker_id=wrkID and (archive=0 or archive is null);
@@ -5289,7 +5316,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_VER`()
     DETERMINISTIC
     COMMENT 'return sql version, change if tables changed'
-select 88 ;;
+select 90 ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5605,12 +5632,19 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `KILL_USER_SESSION`()
 BEGIN
   
-    DECLARE uid int default 0;
+  DECLARE uid int default 0;
   DECLARE name VARCHAR(64) DEFAULT ''; 
   DECLARE done INT DEFAULT FALSE;
-  DECLARE kill_i CURSOR FOR  
-		SELECT t.id, t.user FROM information_schema.processlist t where t.user = SUBSTRING_INDEX(user(),'@',1);
+  DECLARE kill_i CURSOR for
+  	SELECT t.id, t.user FROM information_schema.processlist t where t.user = SUBSTRING_INDEX(user(),'@',1);
+
   DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+   
+	select IS_ADMIN() into @allow;
+	if (@allow = 0) then
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT =  'Ошибка: у вас нет доступа!';
+	end if;
+ 
   OPEN kill_i;
   kill_loop: LOOP
     FETCH kill_i INTO uid, name;
@@ -5712,7 +5746,7 @@ this_proc:BEGIN
     DECLARE old_login CHAR(16);
 
 	DECLARE CONTINUE HANDLER FOR NOT FOUND SET @done = 1;
-
+    	-- select 'start ';
 
     set `_HOST` = '@\'%\'';
    -- get role of current user
@@ -5804,6 +5838,14 @@ BEGIN
 	select distinct w.`user`, 'info' from  kcson.dep_has_worker dhw join  kcson.`role` r on r.id = dhw.role_id join  kcson.worker w on dhw.worker_id = w.id
 	where  w.`user` <> "" and w.`user` <> "root" ;
   DECLARE CONTINUE handler FOR NOT FOUND SET done = TRUE;
+ 
+    
+	select IS_ADMIN() into @allow;
+	if (@allow = 0) then
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT =  'Ошибка: у вас нет доступа!';
+	end if;
+ 
+ 
   OPEN cursor_i;
   read_loop: LOOP
     FETCH cursor_i INTO cursor_n, cursor_rol;
@@ -5873,7 +5915,7 @@ begin
 	declare res int default 0;
 
 	  declare uid int default 0;
-	  DECLARE name VARCHAR(64) DEFAULT ''; #32?
+	  DECLARE name VARCHAR(64) DEFAULT '';
 	  declare done int default false;
   
  	  DECLARE kill_i CURSOR for
@@ -5884,8 +5926,8 @@ begin
 	set  wrkID=get_WID();
 	
 	set res = (select dep_id from dep_has_worker  where worker_id=wrkID and dep_id=depId);
-	#set cursor_n = (select w.`user` from worker  where w.id=wrkID);
--- 	select 1;
+
+
 	if res > 0 then 
 	    SET @queryStringRP = CONCAT('REVOKE ALL on *.* FROM  "', SUBSTRING_INDEX(user(),'@',1), '";  ' );
 -- 	   select  @queryStringRP;
@@ -7842,4 +7884,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-22 22:54:25
+-- Dump completed on 2022-01-23 19:01:05
