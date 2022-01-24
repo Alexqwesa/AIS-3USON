@@ -314,7 +314,7 @@ class clstab_client_contr(QOBase):
     def __init__(self, parent):
         super().__init__(parent)
         ui = self.ui
-        self.me: myQWidget = ui.tab_clients
+        self.me: myQWidget = ui.tab_client_contr
         # self.dbconnect = False
         self.__init = False
 
@@ -405,7 +405,7 @@ class clstab_clients(QOBase):
     def __init__(self, parent):
         super().__init__(parent)
         ui = self.ui
-        self.me: myQWidget = ui.tab_clients
+        self.me: myQWidget = ui.tab_client
         #############################
         # custom init
         # ---------------------------
