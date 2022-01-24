@@ -8805,9 +8805,9 @@ p, li { white-space: pre-wrap; }
   </connection>
   <connection>
    <sender>cbx_1__dep_has_client</sender>
-   <signal>currentIndexChanged(QString)</signal>
+   <signal>currentIndexChanged_model(int,QString)</signal>
    <receiver>table_client_has_category__by_client_id</receiver>
-   <slot>set_first_filter_exact(QString)</slot>
+   <slot>set_first_filter_model(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>89</x>
@@ -9477,9 +9477,9 @@ p, li { white-space: pre-wrap; }
   </connection>
   <connection>
    <sender>cbx_1__dep_has_client</sender>
-   <signal>currentIndexChanged(QString)</signal>
+   <signal>currentIndexChanged_model(int,QString)</signal>
    <receiver>cbx_1_contracts__by_client_id</receiver>
-   <slot>set_first_filter_exact(QString)</slot>
+   <slot>set_first_filter_model(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>89</x>
@@ -9653,9 +9653,9 @@ p, li { white-space: pre-wrap; }
   </connection>
   <connection>
    <sender>cbx_1__dep_has_client__4</sender>
-   <signal>currentIndexChanged(QString)</signal>
+   <signal>currentIndexChanged_model(int, QString)</signal>
    <receiver>cbx_1_contracts__by_client_id__2</receiver>
-   <slot>set_first_filter_exact(QString)</slot>
+   <slot>set_first_filter_model(int,QString)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>92</x>
