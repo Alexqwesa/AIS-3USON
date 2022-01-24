@@ -367,6 +367,8 @@ class clstab_client_contr(QOBase):
             dm.addMapping(ui.chk_to_recheck, mdl.record().indexOf("to_recheck"))
             dm.addMapping(ui.dte_check_date, mdl.record().indexOf("check_date"))
             dm.addMapping(ui.qle_contracts2, mdl.record().indexOf("contracts2"))
+            dm.model().beginResetModel()
+            dm.model().endResetModel()
 
     # @Slot(int)
     # def on_cbx_1__dep_has_client_currentIndexChanged(self, ind):
@@ -437,6 +439,8 @@ class clstab_clients(QOBase):
             table_view_main_by_dep: myQTableView = ui.table_main__where_client_id__by_dep_id
             table_view_main_by_dep.init_model(True)
             table_view_main_by_dep.set_first_filter_exact(SD.last_dep)  # TODO: need complex department support here
+            fdm.model().beginResetModel()
+            fdm.model().endResetModel()
 
     @Slot()
     def on_btn_goto_serv_add_clicked(self):
@@ -457,7 +461,7 @@ class clstab_clients(QOBase):
     # ---------------------------
     # noinspection PyArgumentList
     @Slot(bool)
-    def on_tab_clients_widgetVisibilityChanged(self, state):
+    def on_tab_client_widgetVisibilityChanged(self, state):
         self._init()
         table: myQTableView = self.ui.table__client_has_add_info__where_client_id__by_contracts_id
         table.init_model_filter()
