@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: kcson
+-- Host: localhost    Database: kcson
 -- ------------------------------------------------------
 -- Server version	8.0.20
 
@@ -3435,6 +3435,7 @@ CREATE TABLE `serv` (
   `price2` decimal(10,2) DEFAULT NULL,
   `price3` decimal(10,2) DEFAULT NULL,
   `archive` tinyint DEFAULT '0',
+  `replacedby` int DEFAULT '0' COMMENT 'id of service which replaced this service than it was archivated',
   `total` tinyint DEFAULT '0',
   `acronym` varchar(45) DEFAULT NULL,
   `workload` int DEFAULT NULL,
@@ -4694,8 +4695,7 @@ BEGIN
 		# call GET_PRIVILEGES();
 		# TODO: set role for invoker
 		# set role info;
-		# call DROP_ROLES;
-		
+
 
 	
 		#update worker_has_dep set active=0 where(worker_id=wrkID);
@@ -5173,7 +5173,9 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `debug_msg`(msg VARCHAR(255))
 BEGIN
+
     select concat('** ', msg) AS '** DEBUG:';
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -5201,6 +5203,30 @@ BEGIN
 
 	 "client_id", "tnum", "quantity" , "" , "");
      
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GET_DEPS` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_DEPS`(
+ `wrkID` INT )
+    READS SQL DATA
+    SQL SECURITY INVOKER
+    COMMENT 'get  departments '
+BEGIN
+	
+	select distinct dep_id from dep_has_worker  where worker_id=wrkID and (archive=0 or archive is null);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -5316,7 +5342,11 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_VER`()
     DETERMINISTIC
     COMMENT 'return sql version, change if tables changed'
-select 90 ;;
+begin
+
+select 90;
+
+end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5945,8 +5975,7 @@ begin
 		# call GET_PRIVILEGES();
 		# TODO: set role for invoker
 		# set role info;
-		# call DROP_ROLES;
-		
+
      	SET @queryStringRP = CONCAT('grant execute, usage  on kcson.* to  "', SUBSTRING_INDEX(user(),'@',1), '";  ' );
 		PREPARE stmt FROM @queryStringRP;
 		EXECUTE stmt;
@@ -6051,6 +6080,86 @@ begin
     execute stmt;
     DEALLOCATE PREPARE stmt;
 end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UPDATE_ALL_IPPSU` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_ALL_IPPSU`()
+BEGIN
+
+
+
+	select IS_ADMIN() into @allow;
+
+	if (@allow = 0) then
+
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT =  'Ошибка: у вас нет доступа!';
+
+	end if;
+
+
+
+	update `contracts_has_serv`  chs
+
+		INNER JOIN serv s ON s.id = chs.serv_id
+
+		INNER JOIN contracts c ON c.id = `chs`.`contracts_id`
+
+		SET serv_id = replacedby
+
+	where replacedby > 0 and  `c`.`blocked` = false  ;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UPDATE_RIPSO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_RIPSO`()
+BEGIN
+
+    
+
+	select IS_ADMIN() into @allow;
+
+	if (@allow = 0) then
+
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT =  'Ошибка: у вас нет доступа!';
+
+	end if;
+
+ 
+
+	update ripso_has_serv  
+
+		INNER JOIN serv ON id = serv_id
+
+		SET serv_id = replacedby
+
+	where replacedby > 0;
+
+END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -7884,4 +7993,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-23 19:01:05
+-- Dump completed on 2022-01-24 18:12:27

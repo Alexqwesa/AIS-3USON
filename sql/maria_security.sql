@@ -476,21 +476,6 @@ delimiter ;
 
 
 
-#############################
-# routine DROP_ROLES
-# ---------------------------
-drop procedure IF EXISTS DROP_ROLES;
-delimiter $$
-create procedure DROP_ROLES()
-    SQL SECURITY invoker
-BEGIN
-	# select CURRENT_ROLE() , user(), current_user(); 
-	set role info;
-	# select CURRENT_ROLE() , user(), current_user(); 
-END $$
-delimiter ;
-
-
 
 
 
@@ -537,8 +522,7 @@ begin
 		# call GET_PRIVILEGES();
 		# TODO: set role for invoker
 		# set role info;
-		# call DROP_ROLES;
-		
+
      	SET @queryStringRP = CONCAT('grant execute, usage  on kcson.* to  "', SUBSTRING_INDEX(user(),'@',1), '";  ' );
 		PREPARE stmt FROM @queryStringRP;
 		EXECUTE stmt;
