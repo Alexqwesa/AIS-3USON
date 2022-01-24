@@ -35,7 +35,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1308, 760)
+        MainWindow.resize(1672, 760)
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -4434,12 +4434,36 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.gridLayout_23 = QGridLayout()
         self.gridLayout_23.setObjectName(u"gridLayout_23")
-        self.table_serv = myQTableView(self.tab_serv)
-        self.table_serv.setObjectName(u"table_serv")
-        self.table_serv.setAlternatingRowColors(True)
-        self.table_serv.setSortingEnabled(True)
+        self.label_serv_year = QLabel(self.tab_serv)
+        self.label_serv_year.setObjectName(u"label_serv_year")
+        sizePolicy24 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Preferred)
+        sizePolicy24.setHorizontalStretch(0)
+        sizePolicy24.setVerticalStretch(0)
+        sizePolicy24.setHeightForWidth(self.label_serv_year.sizePolicy().hasHeightForWidth())
+        self.label_serv_year.setSizePolicy(sizePolicy24)
 
-        self.gridLayout_23.addWidget(self.table_serv, 0, 0, 1, 1)
+        self.gridLayout_23.addWidget(self.label_serv_year, 0, 0, 1, 1)
+
+        self.btn_add_services_for_new_year = QPushButton(self.tab_serv)
+        self.btn_add_services_for_new_year.setObjectName(u"btn_add_services_for_new_year")
+
+        self.gridLayout_23.addWidget(self.btn_add_services_for_new_year, 0, 3, 1, 1)
+
+        self.table_serv__by_year = myQTableView(self.tab_serv)
+        self.table_serv__by_year.setObjectName(u"table_serv__by_year")
+        self.table_serv__by_year.setAlternatingRowColors(True)
+        self.table_serv__by_year.setSortingEnabled(True)
+
+        self.gridLayout_23.addWidget(self.table_serv__by_year, 1, 0, 1, 4)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_23.addItem(self.horizontalSpacer_4, 0, 2, 1, 1)
+
+        self.cbx_4_serv__year = myQComboBox(self.tab_serv)
+        self.cbx_4_serv__year.setObjectName(u"cbx_4_serv__year")
+
+        self.gridLayout_23.addWidget(self.cbx_4_serv__year, 0, 1, 1, 1)
 
 
         self.horizontalLayout_2.addLayout(self.gridLayout_23)
@@ -4663,11 +4687,11 @@ class Ui_MainWindow(object):
         self.splitter_6.setOrientation(Qt.Horizontal)
         self.widget_15 = QWidget(self.splitter_6)
         self.widget_15.setObjectName(u"widget_15")
-        sizePolicy24 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        sizePolicy24.setHorizontalStretch(1)
-        sizePolicy24.setVerticalStretch(1)
-        sizePolicy24.setHeightForWidth(self.widget_15.sizePolicy().hasHeightForWidth())
-        self.widget_15.setSizePolicy(sizePolicy24)
+        sizePolicy25 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy25.setHorizontalStretch(1)
+        sizePolicy25.setVerticalStretch(1)
+        sizePolicy25.setHeightForWidth(self.widget_15.sizePolicy().hasHeightForWidth())
+        self.widget_15.setSizePolicy(sizePolicy25)
         self.gridLayout_111 = QGridLayout(self.widget_15)
         self.gridLayout_111.setObjectName(u"gridLayout_111")
         self.label_15 = QLabel(self.widget_15)
@@ -4677,22 +4701,22 @@ class Ui_MainWindow(object):
 
         self.table_dep = wsQTableView(self.widget_15)
         self.table_dep.setObjectName(u"table_dep")
-        sizePolicy25 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy25.setHorizontalStretch(2)
-        sizePolicy25.setVerticalStretch(0)
-        sizePolicy25.setHeightForWidth(self.table_dep.sizePolicy().hasHeightForWidth())
-        self.table_dep.setSizePolicy(sizePolicy25)
+        sizePolicy26 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy26.setHorizontalStretch(2)
+        sizePolicy26.setVerticalStretch(0)
+        sizePolicy26.setHeightForWidth(self.table_dep.sizePolicy().hasHeightForWidth())
+        self.table_dep.setSizePolicy(sizePolicy26)
 
         self.gridLayout_111.addWidget(self.table_dep, 1, 0, 1, 1)
 
         self.splitter_6.addWidget(self.widget_15)
         self.widget_18 = QWidget(self.splitter_6)
         self.widget_18.setObjectName(u"widget_18")
-        sizePolicy26 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        sizePolicy26.setHorizontalStretch(2)
-        sizePolicy26.setVerticalStretch(2)
-        sizePolicy26.setHeightForWidth(self.widget_18.sizePolicy().hasHeightForWidth())
-        self.widget_18.setSizePolicy(sizePolicy26)
+        sizePolicy27 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy27.setHorizontalStretch(2)
+        sizePolicy27.setVerticalStretch(2)
+        sizePolicy27.setHeightForWidth(self.widget_18.sizePolicy().hasHeightForWidth())
+        self.widget_18.setSizePolicy(sizePolicy27)
         self.gridLayout_117 = QGridLayout(self.widget_18)
         self.gridLayout_117.setObjectName(u"gridLayout_117")
         self.splitter_5 = QSplitter(self.widget_18)
@@ -4700,11 +4724,11 @@ class Ui_MainWindow(object):
         self.splitter_5.setOrientation(Qt.Vertical)
         self.widget_13 = QWidget(self.splitter_5)
         self.widget_13.setObjectName(u"widget_13")
-        sizePolicy27 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy27.setHorizontalStretch(1)
-        sizePolicy27.setVerticalStretch(1)
-        sizePolicy27.setHeightForWidth(self.widget_13.sizePolicy().hasHeightForWidth())
-        self.widget_13.setSizePolicy(sizePolicy27)
+        sizePolicy28 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy28.setHorizontalStretch(1)
+        sizePolicy28.setVerticalStretch(1)
+        sizePolicy28.setHeightForWidth(self.widget_13.sizePolicy().hasHeightForWidth())
+        self.widget_13.setSizePolicy(sizePolicy28)
         self.gridLayout_115 = QGridLayout(self.widget_13)
         self.gridLayout_115.setObjectName(u"gridLayout_115")
         self.label_16 = QLabel(self.widget_13)
@@ -4714,22 +4738,22 @@ class Ui_MainWindow(object):
 
         self.table_dep_has_ripso__by_dep_id = myQTableView(self.widget_13)
         self.table_dep_has_ripso__by_dep_id.setObjectName(u"table_dep_has_ripso__by_dep_id")
-        sizePolicy28 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy28.setHorizontalStretch(1)
-        sizePolicy28.setVerticalStretch(1)
-        sizePolicy28.setHeightForWidth(self.table_dep_has_ripso__by_dep_id.sizePolicy().hasHeightForWidth())
-        self.table_dep_has_ripso__by_dep_id.setSizePolicy(sizePolicy28)
+        sizePolicy29 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy29.setHorizontalStretch(1)
+        sizePolicy29.setVerticalStretch(1)
+        sizePolicy29.setHeightForWidth(self.table_dep_has_ripso__by_dep_id.sizePolicy().hasHeightForWidth())
+        self.table_dep_has_ripso__by_dep_id.setSizePolicy(sizePolicy29)
 
         self.gridLayout_115.addWidget(self.table_dep_has_ripso__by_dep_id, 1, 0, 1, 1)
 
         self.splitter_5.addWidget(self.widget_13)
         self.widget_17 = QWidget(self.splitter_5)
         self.widget_17.setObjectName(u"widget_17")
-        sizePolicy29 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy29.setHorizontalStretch(0)
-        sizePolicy29.setVerticalStretch(2)
-        sizePolicy29.setHeightForWidth(self.widget_17.sizePolicy().hasHeightForWidth())
-        self.widget_17.setSizePolicy(sizePolicy29)
+        sizePolicy30 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy30.setHorizontalStretch(0)
+        sizePolicy30.setVerticalStretch(2)
+        sizePolicy30.setHeightForWidth(self.widget_17.sizePolicy().hasHeightForWidth())
+        self.widget_17.setSizePolicy(sizePolicy30)
         self.gridLayout_116 = QGridLayout(self.widget_17)
         self.gridLayout_116.setObjectName(u"gridLayout_116")
         self.label_17 = QLabel(self.widget_17)
@@ -4739,11 +4763,11 @@ class Ui_MainWindow(object):
 
         self.table_dep_has_worker__by_dep_id = myQTableView(self.widget_17)
         self.table_dep_has_worker__by_dep_id.setObjectName(u"table_dep_has_worker__by_dep_id")
-        sizePolicy30 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy30.setHorizontalStretch(1)
-        sizePolicy30.setVerticalStretch(4)
-        sizePolicy30.setHeightForWidth(self.table_dep_has_worker__by_dep_id.sizePolicy().hasHeightForWidth())
-        self.table_dep_has_worker__by_dep_id.setSizePolicy(sizePolicy30)
+        sizePolicy31 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy31.setHorizontalStretch(1)
+        sizePolicy31.setVerticalStretch(4)
+        sizePolicy31.setHeightForWidth(self.table_dep_has_worker__by_dep_id.sizePolicy().hasHeightForWidth())
+        self.table_dep_has_worker__by_dep_id.setSizePolicy(sizePolicy31)
 
         self.gridLayout_116.addWidget(self.table_dep_has_worker__by_dep_id, 1, 0, 1, 1)
 
@@ -4854,7 +4878,7 @@ class Ui_MainWindow(object):
         self.table.setGeometry(QRect(60, 170, 871, 401))
         self.gridLayoutWidget = QWidget(self.tab_26)
         self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
-        self.gridLayoutWidget.setGeometry(QRect(270, 60, 250, 80))
+        self.gridLayoutWidget.setGeometry(QRect(270, 60, 251, 80))
         self.gridLayout_16 = QGridLayout(self.gridLayoutWidget)
         self.gridLayout_16.setObjectName(u"gridLayout_16")
         self.pushButton_5 = QPushButton(self.gridLayoutWidget)
@@ -5083,7 +5107,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1308, 21))
+        self.menubar.setGeometry(QRect(0, 0, 1672, 36))
         self.menu = QMenu(self.menubar)
         self.menu.setObjectName(u"menu")
         self.menu_2 = QMenu(self.menubar)
@@ -5113,11 +5137,11 @@ class Ui_MainWindow(object):
         MainWindow.addToolBar(Qt.TopToolBarArea, self.toolBar_2)
         self.dock_people_info = infoQDockWidget(MainWindow)
         self.dock_people_info.setObjectName(u"dock_people_info")
-        sizePolicy31 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy31.setHorizontalStretch(1)
-        sizePolicy31.setVerticalStretch(1)
-        sizePolicy31.setHeightForWidth(self.dock_people_info.sizePolicy().hasHeightForWidth())
-        self.dock_people_info.setSizePolicy(sizePolicy31)
+        sizePolicy32 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy32.setHorizontalStretch(1)
+        sizePolicy32.setVerticalStretch(1)
+        sizePolicy32.setHeightForWidth(self.dock_people_info.sizePolicy().hasHeightForWidth())
+        self.dock_people_info.setSizePolicy(sizePolicy32)
         self.dock_people_info.setBaseSize(QSize(300, 0))
         self.dockWidgetContents = QWidget()
         self.dockWidgetContents.setObjectName(u"dockWidgetContents")
@@ -5520,8 +5544,8 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.DO_NOT_USE_149, self.DO_NOT_USE_154)
         QWidget.setTabOrder(self.DO_NOT_USE_154, self.DO_NOT_USE_156)
         QWidget.setTabOrder(self.DO_NOT_USE_156, self.tabWidget_10)
-        QWidget.setTabOrder(self.tabWidget_10, self.table_serv)
-        QWidget.setTabOrder(self.table_serv, self.table_dep_has_worker__by_worker_id__3)
+        QWidget.setTabOrder(self.tabWidget_10, self.table_serv__by_year)
+        QWidget.setTabOrder(self.table_serv__by_year, self.table_dep_has_worker__by_worker_id__3)
         QWidget.setTabOrder(self.table_dep_has_worker__by_worker_id__3, self.lineEdit_pass)
         QWidget.setTabOrder(self.lineEdit_pass, self.qle_fio_log_pass)
         QWidget.setTabOrder(self.qle_fio_log_pass, self.table_live_min)
@@ -5795,7 +5819,7 @@ class Ui_MainWindow(object):
         self.table_dep.selectionChanged1.connect(self.table_dep_has_ripso__by_dep_id.filter_by_selection_of)
         self.table_dep.selectionChanged1.connect(self.table_dep_has_worker__by_dep_id.filter_by_selection_of)
 
-        self.tabMain.setCurrentIndex(3)
+        self.tabMain.setCurrentIndex(5)
         self.tabs_add_serv.setCurrentIndex(0)
         self.tab__main_for_dep_by.setCurrentIndex(1)
         self.pb_start_serv_add.setDefault(False)
@@ -5827,7 +5851,7 @@ class Ui_MainWindow(object):
         self.DO_NOT_USE_157.setCurrentIndex(0)
         self.DO_NOT_USE_144.setCurrentIndex(0)
         self.tabWidget_10.setCurrentIndex(0)
-        self.tabs_admin.setCurrentIndex(2)
+        self.tabs_admin.setCurrentIndex(0)
         self.DO_NOT_USE_170.setCurrentIndex(0)
 
 
@@ -6003,33 +6027,34 @@ class Ui_MainWindow(object):
         self.textEdit_2.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                          </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-"
-                        "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                "
-                        "           </p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Noto Sans'; font-size:11pt; font-weight:600;\">\u0412\u043a\u043b\u0430\u0434\u043a\u0430: \u0412\u0432\u043e\u0434                          \u0443\u0441\u043b\u0443\u0433 \u041d\u0430 \u0432\u0435\u0441\u044c \u043c\u0435\u0441\u044f\u0446</span>                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\u0414\u0430\u043d\u043d\u0430\u044f \u0432\u043a\u043b\u0430\u0434\u043a\u0430 <span style=\" font-family:'Noto Sans'; font-size:11pt;\">\u043f\u043e\u0437\u0432\u043e\u043b\u044f\u0435\u0442 \u0431\u044b\u0441\u0442\u0440\u043e \u0432\u0432\u043e\u0434\u0438\u0442\u044c \u0443\u0441\u043b\u0443\u0433\u0438 \u043d\u0430 \u043c\u0435\u0441\u044f\u0446 \u0441                          \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043c"
-                        "\u044b\u0448\u0438.</span>                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u044b \u0442\u0440\u0438 \u0441\u043f\u043e\u0441\u043e\u0431\u0430 \u0432\u0432\u043e\u0434\u0430 \u0443\u0441\u043b\u0443\u0433:<span style=\" font-family:'Noto Sans'; font-size:11pt;\"> \u0449\u0435\u043b\u0447\u043a\u043e\u043c \u041b\u041a\u041c (\u043b\u0435\u0432\u043e\u0439 \u043a\u043d\u043e\u043f\u043a\u0438 \u043c\u044b\u0448\u0438) \u043f\u043e \u0434\u0430\u0442\u0435,                          \u043f\u0440\u043e\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u0435\u043c \u043d\u0430\u0436\u0430\u0442\u043e\u0439 \u043c\u044b\u0448\u0438 \u043f\u043e \u043d\u0443\u0436\u043d\u044b\u043c \u0434\u0430\u0442\u0430\u043c, \u0438"
-                        " \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043a\u043e\u043b\u0435\u0441\u0438\u043a\u0430 \u043c\u044b\u0448\u0438. </span>                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0424\u0418\u041e \u043f\u043e\u043b\u0443\u0447\u0430\u0442\u0435\u043b\u044f \u0421\u0423, \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u0430, \u0443\u0441\u043b\u0443\u0433\u0443 \u0438                          \u043a\u043e\u043b\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0443\u0441\u043b\u0443\u0433 \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0431\u0443\u0434\u0443\u0442 \u0432\u0432\u0435\u0434\u0435\u043d\u044b \u0437\u0430 \u043e\u0434\u043d\u043e \u043d\u0430\u0436\u0430\u0442\u0438\u0435/\u043f\u0440\u043e"
-                        "\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u0435. \u041a\u043e\u043b\u0435\u0441\u0438\u043a\u043e \u043c\u044b\u0448\u0438 \u0432\u0441\u0435\u0433\u0434\u0430                          \u043f\u0440\u0438\u0431\u0430\u0432\u043b\u044f\u0435\u0442/\u043e\u0442\u043d\u0438\u043c\u0430\u0435\u0442 \u043f\u043e 1 \u0443\u0441\u043b\u0443\u0433\u0435.                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\u041d\u0415 \u0417\u0410\u0411\u0423\u0414\u042c\u0422\u0415 \u0421\u041e\u0425\u0420\u0410\u041d\u0418\u0422\u042c \u0423\u0421\u041b\u0423\u0413\u0418!                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Noto Sans'; font-s"
-                        "ize:11pt;\"> </span>                          </p></body></html>", None))
+"</style></head><body style=\" font-family:'Noto Sans'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                          </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p"
+                        " style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-inde"
+                        "nt:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">\u0412\u043a\u043b\u0430\u0434\u043a\u0430: \u0412"
+                        "\u0432\u043e\u0434                          \u0443\u0441\u043b\u0443\u0433 \u041d\u0430 \u0432\u0435\u0441\u044c \u043c\u0435\u0441\u044f\u0446</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">\u0414\u0430\u043d\u043d\u0430\u044f \u0432\u043a\u043b\u0430\u0434\u043a\u0430 </span>\u043f\u043e\u0437\u0432\u043e\u043b\u044f\u0435\u0442 \u0431\u044b\u0441\u0442\u0440\u043e \u0432\u0432\u043e\u0434\u0438\u0442\u044c \u0443\u0441\u043b\u0443\u0433\u0438 \u043d\u0430 \u043c\u0435\u0441\u044f\u0446 \u0441                          \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043c\u044b\u0448\u0438.<span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin"
+                        "-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u044b \u0442\u0440\u0438 \u0441\u043f\u043e\u0441\u043e\u0431\u0430 \u0432\u0432\u043e\u0434\u0430 \u0443\u0441\u043b\u0443\u0433:</span> \u0449\u0435\u043b\u0447\u043a\u043e\u043c \u041b\u041a\u041c (\u043b\u0435\u0432\u043e\u0439 \u043a\u043d\u043e\u043f\u043a\u0438 \u043c\u044b\u0448\u0438) \u043f\u043e \u0434\u0430\u0442\u0435,                          \u043f\u0440\u043e\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u0435\u043c \u043d\u0430\u0436\u0430\u0442\u043e\u0439 \u043c\u044b\u0448\u0438 \u043f\u043e \u043d\u0443\u0436\u043d\u044b\u043c \u0434\u0430\u0442\u0430\u043c, \u0438 \u0441 \u043f\u043e\u043c\u043e\u0449\u044c"
+                        "\u044e \u043a\u043e\u043b\u0435\u0441\u0438\u043a\u0430 \u043c\u044b\u0448\u0438. <span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0424\u0418\u041e \u043f\u043e\u043b\u0443\u0447\u0430\u0442\u0435\u043b\u044f \u0421\u0423, \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u0430, \u0443\u0441\u043b\u0443\u0433\u0443 \u0438                          \u043a\u043e\u043b\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0443\u0441\u043b\u0443\u0433 \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0431\u0443"
+                        "\u0434\u0443\u0442 \u0432\u0432\u0435\u0434\u0435\u043d\u044b \u0437\u0430 \u043e\u0434\u043d\u043e \u043d\u0430\u0436\u0430\u0442\u0438\u0435/\u043f\u0440\u043e\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u0435. \u041a\u043e\u043b\u0435\u0441\u0438\u043a\u043e \u043c\u044b\u0448\u0438 \u0432\u0441\u0435\u0433\u0434\u0430                          \u043f\u0440\u0438\u0431\u0430\u0432\u043b\u044f\u0435\u0442/\u043e\u0442\u043d\u0438\u043c\u0430\u0435\u0442 \u043f\u043e 1 \u0443\u0441\u043b\u0443\u0433\u0435.                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">\u041d\u0415 \u0417\u0410\u0411\u0423\u0414\u042c\u0422"
+                        "\u0415 \u0421\u041e\u0425\u0420\u0410\u041d\u0418\u0422\u042c \u0423\u0421\u041b\u0423\u0413\u0418!                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> <span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                          </span></p></body></html>", None))
         self.tab_user_has_main.setTabText(self.tab_user_has_main.indexOf(self.tab_8), QCoreApplication.translate("MainWindow", u"\u0421\u043f\u0440\u0430\u0432\u043a\u0430", None))
         self.tabs_add_serv.setTabText(self.tabs_add_serv.indexOf(self.tab_add_serv_by_month), QCoreApplication.translate("MainWindow", u"\u041d\u0430 \u0432\u0435\u0441\u044c \u043c\u0435\u0441\u044f\u0446", None))
         self.groupBox_5.setTitle(QCoreApplication.translate("MainWindow", u"1) \u0412\u044b\u0431\u0438\u0440\u0438\u0442\u0435 \u0438\u043b\u0438 \u0441\u043e\u0437\u0434\u0430\u0439\u0442\u0435 \u0433\u0440\u0443\u043f\u043f\u0443 \u043b\u044e\u0434\u0435\u0439", None))
@@ -6321,6 +6346,13 @@ class Ui_MainWindow(object):
         self.tabs_total.setTabText(self.tabs_total.indexOf(self.tab_20), QCoreApplication.translate("MainWindow", u"\u041a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438 \u0443\u0441\u043b\u0443\u0433 \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u044f", None))
         self.tabs_total.setTabText(self.tabs_total.indexOf(self.tab_13), QCoreApplication.translate("MainWindow", u"\u0421\u0432\u043e\u0434\u043d\u044b\u0435 \u043e\u0442\u0447\u0435\u0442\u044b", None))
         self.tabMain.setTabText(self.tabMain.indexOf(self.tab_total), QCoreApplication.translate("MainWindow", u"\u0418\u0442\u043e\u0433\u0438", None))
+        self.label_serv_year.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u043a\u0430\u0437\u0430\u043d\u044b \u0443\u0441\u043b\u0443\u0433\u0438 \u0432 \u0433\u043e\u0434\u0443:", None))
+#if QT_CONFIG(tooltip)
+        self.btn_add_services_for_new_year.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0441\u043f\u0438\u0441\u043e\u043a \u0443\u0441\u043b\u0443\u0433:</span></p><p><br/></p><p>\u0418\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0439\u0442\u0435 \u043a\u0430\u0436\u0434\u044b\u0439 \u0440\u0430\u0437 \u043a\u043e\u0433\u0434\u0430 \u0432\u044b\u0445\u043e\u0434\u0438\u0442 \u043d\u043e\u0432\u044b\u0439(\u043e\u0431\u043d\u043e\u0432\u043b\u044f\u0435\u0442\u0441\u044f) \u043f\u0435\u0440\u0435\u0447\u0435\u043d\u044c \u0443\u0441\u043b\u0443\u0433.</p><p>\u0414\u0430\u043d\u043d\u0430\u044f \u043a\u043d\u043e\u043f\u043a\u0430 \u0441\u043e\u0437\u0434\u0430\u0435\u0442 \u043f\u0435\u0440\u0435\u0447\u0435\u043d\u044c \u0443\u0441\u043b\u0443\u0433 \u043d\u0430 \u0433\u043e\u0434 \u0438\u0437 \u043f\u0435\u0440\u0435\u0447\u043d\u044f \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0435\u0433\u043e \u0433\u043e\u0434\u0430,</p><p>\u043f\u0440\u0438 \u044d\u0442\u043e\u043c, \u043f\u0440\u0435\u0434"
+                        "\u044b\u0434\u0443\u044e\u0449\u0438\u0439 \u043f\u0435\u0440\u0435\u0447\u0435\u043d\u044c \u0430\u0440\u0445\u0438\u0432\u0438\u0440\u0443\u0435\u0442\u0441\u044f(\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0438 \u043d\u0435 \u0441\u043c\u043e\u0433\u0443\u0442 \u0432\u0432\u0435\u0441\u0442\u0438 \u0443\u0441\u043b\u0443\u0433\u0438 \u043f\u0440\u0435\u0434\u044b\u0434\u0443\u0449\u0435\u0433\u043e \u043f\u0435\u0440\u0435\u0447\u043d\u044f). </p><p><span style=\" font-weight:600;\">\u0412\u043d\u0438\u043c\u0430\u043d\u0438\u0435!</span> \u0421\u043f\u0438\u0441\u043a\u0438 \u0443\u0441\u043b\u0443\u0433 \u0432 \u0440\u0438\u043f\u0441\u043e \u0438 \u0441\u043f\u0438\u0441\u043a\u0438 \u0443\u0441\u043b\u0443\u0433 \u043f\u043e\u043b\u043e\u0436\u0435\u043d\u043d\u044b\u0445 \u043f\u043e \u0434\u043e\u0433\u043e\u0432\u043e\u0440\u0443 \u0431\u0443\u0434\u0443\u0442 \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u044b! \u041d\u043e \u0443\u0436\u0435 \u0432\u0432\u0435\u0434\u0435"
+                        "\u043d\u043d\u044b\u0435 \u0443\u0441\u043b\u0443\u0433\u0438 \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u044b \u041d\u0415 \u0431\u0443\u0434\u0443\u0442. </p><p><br/></p><p>\u041f\u0440\u0438\u043c\u0435\u0447\u0430\u043d\u0438\u0435: \u0435\u0441\u043b\u0438 \u0432\u044b \u043c\u0435\u043d\u044f\u0435\u0442\u0435 \u0441\u043f\u0438\u0441\u043e\u043a \u0432 \u0441\u0435\u0440\u0435\u0434\u0438\u043d\u0435 \u0433\u043e\u0434\u0430(\u043d\u0430\u043f\u0440\u0438\u043c\u0435\u0440 \u0438\u0437\u043c\u0435\u043d\u0438\u043b\u0430\u0441\u044c \u0441\u0442\u043e\u0438\u043c\u043e\u0441\u0442\u044c), \u0442\u043e \u0432 \u043e\u0442\u0447\u0435\u0442\u0430\u0445 \u0434\u0430\u043d\u043d\u044b\u0435 \u0443\u0441\u043b\u0443\u0433\u0438 \u0431\u0443\u0434\u0443\u0442 \u043f\u0435\u0440\u0435\u0447\u0438\u0441\u043b\u0435\u043d\u044b \u0434\u0432\u0430\u0436\u0434\u044b. </p><p><br/></p><p><br/></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.btn_add_services_for_new_year.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442 \u0443\u0441\u043b\u0443\u0433\u0438 \u0434\u043b\u044f \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0435\u0433\u043e \u0433\u043e\u0434\u0430", None))
         self.tabs_admin.setTabText(self.tabs_admin.indexOf(self.tab_serv), QCoreApplication.translate("MainWindow", u"\u041f\u0435\u0440\u0435\u0447\u0435\u043d\u044c \u0443\u0441\u043b\u0443\u0433 \u0438 \u0438\u0445 \u0441\u0442\u043e\u0438\u043c\u043e\u0441\u0442\u044c", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043f\u0438\u0441\u043e\u043a \u0420\u0418\u041f\u0421\u041e \u0443\u0447\u0440\u0435\u0436\u0434\u0435\u043d\u0438\u044f", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043f\u0438\u0441\u043e\u043a \u0443\u0441\u043b\u0443\u0433 \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0433\u043e \u0420\u0418\u041f\u0421\u041e", None))
