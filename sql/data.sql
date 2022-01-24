@@ -1407,7 +1407,7 @@ INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Чтение 
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Отправка% почтовой корреспонденции', 'email.png', 'Отправка почтовой корреспонденции', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%в обеспечении техническими средствами реабилитации%', 'elderly-things.png', 'Содействие в обеспечении тех. средствами реабилитации', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%в оформлении документов и восстановлении%', 'document.png', 'Помощи в оформлении и восстановлении документов', 0);
-INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%для выезда на отдых%', 'bagage.png', 'Помощь в выезде на отдых', 0);
+INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%для выезда на отдых%', 'baggage.png', 'Помощь в выезде на отдых', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%вещей в стирку, химчистку, ремонт%', 'laundry.png', 'Передача вещей, в стирку, хичистку и ремонт', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('%Содействие в обеспечении топливом%', 'firewood.png', 'Обспечение топливом', 0);
 INSERT INTO kcson.serv_images (expr, image, words, archiv) VALUES('Топка печей%', 'furnace.png', 'Топка печей', 0);
