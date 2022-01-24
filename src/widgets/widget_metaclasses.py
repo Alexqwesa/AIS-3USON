@@ -170,6 +170,11 @@ class tsFltModelSetWhere(tsDirtyWidget):
         return newmdl
 
     def init_model_filter(self):
+        """
+        Init chain of filters for tsSqlTableModel.
+
+        It get name of tsSqlTableModel and for each filter call self.add_filter_to_chain.
+        """
         with QMutexLocker(self.locks("init_model_filter")):
             if not self._inited:
                 #############################
@@ -200,13 +205,33 @@ class tsFltModelSetWhere(tsDirtyWidget):
                 #############################
                 # set filters
                 # ---------------------------
-                flts = tname.split("_by_")
-                flts = flts[1:]
-                if len(flts) >= 1:
-                    flts[-1], _, _ = flts[-1].partition("__")
-                    for filter_str in flts:
-                        self.add_filter_to_chain(filter_str)
+                for filter_str in self.info.filters:
+                    self.add_filter_to_chain(filter_str)
+                for uniq in self.info.unique:
+                    self.add_unique_filter(uniq)
             return True
+
+    def add_unique_filter(self, filter) -> tsQsfpModel:
+        """
+        Prepare uniq filter model if needed and set column @filter for filtering
+        """
+        flt_name = self.super_model().objectName() + "__uniq_" + filter
+        #############################
+        # insert QUniqueValuesProxyModel
+        # ---------------------------
+        newmdl = QUniqueValuesProxyModel(self)
+        newmdl.setObjectName(flt_name)
+        mdl = self.filter_model()
+        newmdl.setSourceModel(mdl)
+        self.filters[flt_name] = newmdl
+        self.super_model().selected.connect(newmdl.invalidate)
+        self.setModel(newmdl)
+        #############################
+        # set filter column to col_name
+        # ---------------------------
+        self.helper_set_filter_key_column(newmdl, filter)
+        newmdl.dataChanged.emit(newmdl.index(0, 0), newmdl.index(0, 0))  # maybe call once after all filters?
+        return newmdl
 
     def helper_set_filter_key_column(self, newmdl=None, col_name=None):
         """ Set FilterKeyColumn for proxy model of tsFltModel"""

@@ -179,7 +179,6 @@ class tsQsfpModel_no_new(QSortFilterProxyModel):
         return ind
 
     def rowCount0(self):
-        """Return index of column by column name"""
         if self.super_model().special_row:
             return self.rowCount() - 1
         return self.rowCount()
@@ -356,3 +355,24 @@ class tsQsfpModel(tsQsfpModel_no_new):
             self.invalidateFilter()
         else:
             super().setFilterRegularExpression(pattern)
+
+
+class QUniqueValuesProxyModel(tsQsfpModel):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.uniq_col = "id"
+        self.cols_set = set()
+    @Slot()
+    def invalidate(self):
+        self.cols_set.clear()
+        return super().invalidate()
+
+    def filterAcceptsRow(self, row, source_parent: QModelIndex):
+        smdl: tsQsfpModel = self.sourceModel()
+        dat = smdl.data(smdl.index(row, self.filterKeyColumn(), source_parent), Qt.EditRole)
+        if dat in self.cols_set:
+            return False
+        else:
+            self.cols_set.add(dat)
+            return True
+

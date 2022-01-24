@@ -23,7 +23,6 @@ from global_constants import *
 from dev.auto_reloader import *
 
 
-
 class myQMutexLocker(QMutexLocker):
     """"""
 
@@ -482,7 +481,7 @@ class MNameParser:
         #############################
         # set where
         # ---------------------------
-        self.wheres, _, _ = _parse_right_part_of_name(self.model_name)
+        self.wheres, _, _, _ = _parse_right_part_of_name(self.model_name)
 
     def detect_info(self):  # TODO: don't depend on self.tsFieldNames
         if not self.tsFieldNames:
@@ -611,40 +610,36 @@ class WNameParser:
         #############################
         # parse name
         # ---------------------------
-        _, self.filters, rname = _parse_right_part_of_name(self.model_name)
+        self.wheres, self.filters, self.unique, self.last_part_of_name = _parse_right_part_of_name(self.model_name)
         if "_raw" in self.model:
             self.use_relations = False
-        # if self.prefix != "t_sql_":  # Unused?
-        # _, _, self.id_alias = self.sql_table.rpartition("_has_")
-        # self.id_alias += "_id"
-        #############################
-        # parse other keys TODO: move it into MNameParser
-        # ---------------------------
 
 
 @lru_cache(1000)
 def _parse_right_part_of_name(name):
     """ Get wheres and filters from model name"""
-    name_split = name.split("__")
+    name_split = name.split("__")[1:]
     wheres = []
     filters = []
-    rname = ""
-    name_split = name_split[1:]
+    unique = []
+    real_name = ""
     len_by = len("by_")
     len_where = len("where_")
     for i, key in enumerate(name_split):
-        if "where_" in key[:len_where]:
+        if key.startswith("where_"):
             wheres.append(
                 key[len_where:]
             )
-        elif "by_" in key[:len_by]:
+        elif key.startswith("uniq_"):
+            unique.append(key[len("uniq_"):])
+        elif key.startswith("by_"):
             for flt in key[len_by:].split("_by_"):
                 filters.append(flt)
         else:
             if len(name_split) != i + 1:
                 warning("probably wrong name")
-            rname = key
-    return wheres, filters, rname
+            real_name = key
+    return wheres, filters, unique, real_name
 
 
 def index_by_id(item, model: QSqlTableModel, id_field="id") -> [QModelIndex]:

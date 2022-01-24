@@ -4460,10 +4460,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_23.addItem(self.horizontalSpacer_4, 0, 2, 1, 1)
 
-        self.cbx_4_serv__year = myQComboBox(self.tab_serv)
-        self.cbx_4_serv__year.setObjectName(u"cbx_4_serv__year")
+        self.cbx_4_serv__uniq_year = myQComboBox(self.tab_serv)
+        self.cbx_4_serv__uniq_year.setObjectName(u"cbx_4_serv__uniq_year")
 
-        self.gridLayout_23.addWidget(self.cbx_4_serv__year, 0, 1, 1, 1)
+        self.gridLayout_23.addWidget(self.cbx_4_serv__uniq_year, 0, 1, 1, 1)
 
 
         self.horizontalLayout_2.addLayout(self.gridLayout_23)
@@ -5107,7 +5107,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1672, 36))
+        self.menubar.setGeometry(QRect(0, 0, 1672, 21))
         self.menu = QMenu(self.menubar)
         self.menu.setObjectName(u"menu")
         self.menu_2 = QMenu(self.menubar)
@@ -5818,6 +5818,7 @@ class Ui_MainWindow(object):
         self.cbx_1__dep_has_worker.currentIndexChanged_model.connect(self.table__dep_has_main__where_vdate__by_vdate_by_worker_id.set_second_filter_exact)
         self.table_dep.selectionChanged1.connect(self.table_dep_has_ripso__by_dep_id.filter_by_selection_of)
         self.table_dep.selectionChanged1.connect(self.table_dep_has_worker__by_dep_id.filter_by_selection_of)
+        self.cbx_4_serv__uniq_year.currentTextChanged.connect(self.table_serv__by_year.set_first_filter_exact)
 
         self.tabMain.setCurrentIndex(5)
         self.tabs_add_serv.setCurrentIndex(0)
@@ -6027,34 +6028,33 @@ class Ui_MainWindow(object):
         self.textEdit_2.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Noto Sans'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                          </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p"
-                        " style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-inde"
-                        "nt:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">\u0412\u043a\u043b\u0430\u0434\u043a\u0430: \u0412"
-                        "\u0432\u043e\u0434                          \u0443\u0441\u043b\u0443\u0433 \u041d\u0430 \u0432\u0435\u0441\u044c \u043c\u0435\u0441\u044f\u0446</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">\u0414\u0430\u043d\u043d\u0430\u044f \u0432\u043a\u043b\u0430\u0434\u043a\u0430 </span>\u043f\u043e\u0437\u0432\u043e\u043b\u044f\u0435\u0442 \u0431\u044b\u0441\u0442\u0440\u043e \u0432\u0432\u043e\u0434\u0438\u0442\u044c \u0443\u0441\u043b\u0443\u0433\u0438 \u043d\u0430 \u043c\u0435\u0441\u044f\u0446 \u0441                          \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043c\u044b\u0448\u0438.<span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin"
-                        "-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u044b \u0442\u0440\u0438 \u0441\u043f\u043e\u0441\u043e\u0431\u0430 \u0432\u0432\u043e\u0434\u0430 \u0443\u0441\u043b\u0443\u0433:</span> \u0449\u0435\u043b\u0447\u043a\u043e\u043c \u041b\u041a\u041c (\u043b\u0435\u0432\u043e\u0439 \u043a\u043d\u043e\u043f\u043a\u0438 \u043c\u044b\u0448\u0438) \u043f\u043e \u0434\u0430\u0442\u0435,                          \u043f\u0440\u043e\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u0435\u043c \u043d\u0430\u0436\u0430\u0442\u043e\u0439 \u043c\u044b\u0448\u0438 \u043f\u043e \u043d\u0443\u0436\u043d\u044b\u043c \u0434\u0430\u0442\u0430\u043c, \u0438 \u0441 \u043f\u043e\u043c\u043e\u0449\u044c"
-                        "\u044e \u043a\u043e\u043b\u0435\u0441\u0438\u043a\u0430 \u043c\u044b\u0448\u0438. <span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0424\u0418\u041e \u043f\u043e\u043b\u0443\u0447\u0430\u0442\u0435\u043b\u044f \u0421\u0423, \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u0430, \u0443\u0441\u043b\u0443\u0433\u0443 \u0438                          \u043a\u043e\u043b\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0443\u0441\u043b\u0443\u0433 \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0431\u0443"
-                        "\u0434\u0443\u0442 \u0432\u0432\u0435\u0434\u0435\u043d\u044b \u0437\u0430 \u043e\u0434\u043d\u043e \u043d\u0430\u0436\u0430\u0442\u0438\u0435/\u043f\u0440\u043e\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u0435. \u041a\u043e\u043b\u0435\u0441\u0438\u043a\u043e \u043c\u044b\u0448\u0438 \u0432\u0441\u0435\u0433\u0434\u0430                          \u043f\u0440\u0438\u0431\u0430\u0432\u043b\u044f\u0435\u0442/\u043e\u0442\u043d\u0438\u043c\u0430\u0435\u0442 \u043f\u043e 1 \u0443\u0441\u043b\u0443\u0433\u0435.                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">\u041d\u0415 \u0417\u0410\u0411\u0423\u0414\u042c\u0422"
-                        "\u0415 \u0421\u041e\u0425\u0420\u0410\u041d\u0418\u0422\u042c \u0423\u0421\u041b\u0423\u0413\u0418!                           </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> <span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                          </span></p></body></html>", None))
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                          </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-"
+                        "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                "
+                        "           </p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Noto Sans'; font-size:11pt; font-weight:600;\">\u0412\u043a\u043b\u0430\u0434\u043a\u0430: \u0412\u0432\u043e\u0434                          \u0443\u0441\u043b\u0443\u0433 \u041d\u0430 \u0432\u0435\u0441\u044c \u043c\u0435\u0441\u044f\u0446</span>                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\u0414\u0430\u043d\u043d\u0430\u044f \u0432\u043a\u043b\u0430\u0434\u043a\u0430 <span style=\" font-family:'Noto Sans'; font-size:11pt;\">\u043f\u043e\u0437\u0432\u043e\u043b\u044f\u0435\u0442 \u0431\u044b\u0441\u0442\u0440\u043e \u0432\u0432\u043e\u0434\u0438\u0442\u044c \u0443\u0441\u043b\u0443\u0433\u0438 \u043d\u0430 \u043c\u0435\u0441\u044f\u0446 \u0441                          \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043c"
+                        "\u044b\u0448\u0438.</span>                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u044b \u0442\u0440\u0438 \u0441\u043f\u043e\u0441\u043e\u0431\u0430 \u0432\u0432\u043e\u0434\u0430 \u0443\u0441\u043b\u0443\u0433:<span style=\" font-family:'Noto Sans'; font-size:11pt;\"> \u0449\u0435\u043b\u0447\u043a\u043e\u043c \u041b\u041a\u041c (\u043b\u0435\u0432\u043e\u0439 \u043a\u043d\u043e\u043f\u043a\u0438 \u043c\u044b\u0448\u0438) \u043f\u043e \u0434\u0430\u0442\u0435,                          \u043f\u0440\u043e\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u0435\u043c \u043d\u0430\u0436\u0430\u0442\u043e\u0439 \u043c\u044b\u0448\u0438 \u043f\u043e \u043d\u0443\u0436\u043d\u044b\u043c \u0434\u0430\u0442\u0430\u043c, \u0438"
+                        " \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043a\u043e\u043b\u0435\u0441\u0438\u043a\u0430 \u043c\u044b\u0448\u0438. </span>                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0424\u0418\u041e \u043f\u043e\u043b\u0443\u0447\u0430\u0442\u0435\u043b\u044f \u0421\u0423, \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u0430, \u0443\u0441\u043b\u0443\u0433\u0443 \u0438                          \u043a\u043e\u043b\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0443\u0441\u043b\u0443\u0433 \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0431\u0443\u0434\u0443\u0442 \u0432\u0432\u0435\u0434\u0435\u043d\u044b \u0437\u0430 \u043e\u0434\u043d\u043e \u043d\u0430\u0436\u0430\u0442\u0438\u0435/\u043f\u0440\u043e"
+                        "\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u0435. \u041a\u043e\u043b\u0435\u0441\u0438\u043a\u043e \u043c\u044b\u0448\u0438 \u0432\u0441\u0435\u0433\u0434\u0430                          \u043f\u0440\u0438\u0431\u0430\u0432\u043b\u044f\u0435\u0442/\u043e\u0442\u043d\u0438\u043c\u0430\u0435\u0442 \u043f\u043e 1 \u0443\u0441\u043b\u0443\u0433\u0435.                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\u041d\u0415 \u0417\u0410\u0411\u0423\u0414\u042c\u0422\u0415 \u0421\u041e\u0425\u0420\u0410\u041d\u0418\u0422\u042c \u0423\u0421\u041b\u0423\u0413\u0418!                           </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Noto Sans'; font-s"
+                        "ize:11pt;\"> </span>                          </p></body></html>", None))
         self.tab_user_has_main.setTabText(self.tab_user_has_main.indexOf(self.tab_8), QCoreApplication.translate("MainWindow", u"\u0421\u043f\u0440\u0430\u0432\u043a\u0430", None))
         self.tabs_add_serv.setTabText(self.tabs_add_serv.indexOf(self.tab_add_serv_by_month), QCoreApplication.translate("MainWindow", u"\u041d\u0430 \u0432\u0435\u0441\u044c \u043c\u0435\u0441\u044f\u0446", None))
         self.groupBox_5.setTitle(QCoreApplication.translate("MainWindow", u"1) \u0412\u044b\u0431\u0438\u0440\u0438\u0442\u0435 \u0438\u043b\u0438 \u0441\u043e\u0437\u0434\u0430\u0439\u0442\u0435 \u0433\u0440\u0443\u043f\u043f\u0443 \u043b\u044e\u0434\u0435\u0439", None))

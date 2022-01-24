@@ -2100,6 +2100,7 @@ class tsSqlTableModelSSorted(tsSqlTableModelWithColors):
 
 class tsSqlTableModel(tsSqlTableModelSSorted):
     """3SON custom table model"""
+    pass
 
 
 class bugfix_for_add_info(tsSqlTableModel):
