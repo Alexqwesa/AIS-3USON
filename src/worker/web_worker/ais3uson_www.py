@@ -135,13 +135,13 @@ class MyServer(BaseHTTPRequestHandler):
         # self.process_request()
 
     def do_GET(self):
+        if self.path == "/stat":
+            self.stat()
         # refuse to receive non-json content
         if self.headers.get_content_type() != 'application/json':
             self.send_response(400)
             self.end_headers()
             return
-        elif self.path == "/stat":
-            self.stat()
         elif self.path.startswith("/clients"):
             _, api_key = self.get_auth()
             if api_key:
