@@ -167,7 +167,8 @@ class clstab_workers(QOBase):
             )
             dep_name = index.siblingAtColumn(index.model().index_of_col("dep_id")).data(Qt.DisplayRole)
             try:
-                window = QDialog()
+                window = QDialog(UI.main_window)
+                window.setWindowModality(Qt.WindowModal)
                 window.resize(600, 600)
                 window.setWindowTitle("QR код работника, отделение: " + dep_name)
                 verticalLayout = QVBoxLayout(window)
@@ -180,6 +181,7 @@ class clstab_workers(QOBase):
                 q_img_label = QLabel(parent=window)
                 q_img = QImage(qr_image)
                 q_img_label.setPixmap(QPixmap.fromImage(q_img))
+                q_img_label.setScaledContents(1)  # TODO: check window size on small monitors
                 verticalLayout.addWidget(q_img_label)
                 window.show()
                 window.exec()
