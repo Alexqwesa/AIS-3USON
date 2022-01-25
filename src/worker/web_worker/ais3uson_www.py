@@ -111,7 +111,7 @@ except:
 hostName = "localhost"
 serverPort = 48080
 PASSWORD = "nopassword"
-MYSQLPORT=3306
+MYSQLPORT = 3306
 try:
     with open(r"/etc/ais3uson.key", mode="r") as f:
         PASSWORD = f.readline()
@@ -135,17 +135,96 @@ class MyServer(BaseHTTPRequestHandler):
         # self.process_request()
 
     def do_GET(self):
-        if self.path == "/stat":
+        # refuse to receive non-json content
+        if self.headers.get_content_type() != 'application/json':
+            self.send_response(400)
+            self.end_headers()
+            return
+        elif self.path == "/stat":
             self.stat()
-        elif self.path.startswith("/get"):
-            self.get()
+        elif self.path.startswith("/clients"):
+            _, api_key = self.get_auth()
+            if api_key:
+                message = self.get_sql_data(sql_query="""
+                    select  contract_id, dep_id, client_id, contract, client, dhw_id 
+                    from    _apikey_has_contracts 
+                    where api_key = '%s'
+                """ % self.api_key)
+                # send the message back
+                json_message = json.dumps(message, default=str)
+                self.send_json_header(json_message)
+                self.write(json_message)
+        elif self.path == "/services":
+            _, api_key = self.get_auth()
+            if api_key:
+                message = self.get_sql_data(sql_query="""
+                        select id, tnum, serv_text, total, image, serv_id_list, sub_serv, short_text 
+                        from _api_key_services;
+                    """)
+                # send the message back
+                json_message = json.dumps(message, default=str)
+                self.send_json_header(json_message)
+                self.write(json_message)
+        elif self.path == "/planned":
+            _, api_key = self.get_auth()
+            if api_key:
+                message = self.get_sql_data(sql_query="""
+                        select contract_id,serv_id,planned,filled 
+                        from _api_key_planned 
+                        where api_key = '%s'
+                    """ % self.api_key)
+                # send the message back
+                json_message = json.dumps(message, default=str)
+                self.send_json_header(json_message)
+                self.write(json_message)
         else:
             pass
             # TODO: about + link to app here
         # elif self.path.startswith("/post"):
         #     self.post()
 
-    def json_header(self, content=""):
+    def do_POST(self):
+        # refuse to receive non-json content
+        if self.headers.get_content_type() != 'application/json':
+            self.send_response(400)
+            self.end_headers()
+            return
+        elif self.path == "/add":
+            data, api_key = self.get_auth()
+            if api_key:
+                message = self.put_sql_data(sql_query="""
+                        INSERT INTO kcson.api_key_insert_main
+                        (contracts_id, serv_id, dep_has_worker_id, vdate, quantity, uuid, check_api_key )
+                        VALUES(%(contracts_id)s , %(serv_id)s, %(dep_has_worker_id)s, '%(vdate)s', 1,
+                         '%(uuid)s', '%(check_api_key)s' ); 
+                    """ % data)
+                # send the message back
+                json_message = json.dumps(message, default=str)
+                self.send_json_header(json_message)
+                self.write(json_message)
+
+    def do_DELETE(self):
+        # refuse to receive non-json content
+        if self.headers.get_content_type() != 'application/json':
+            self.send_response(400)
+            self.end_headers()
+            return
+        if self.path == "/delete":
+            data, api_key = self.get_auth()
+            if api_key:
+                message = self.put_sql_data(sql_query="""
+                    UPDATE kcson.api_key_insert_main
+                        SET quantity = 0, 
+                            check_api_key = '%(check_api_key)s', 
+                            dep_has_worker_id =  %(dep_has_worker_id)s
+                        WHERE uuid = '%(uuid)s' 
+                    """ % data)
+                # send the message back
+                json_message = json.dumps(message, default=str)
+                self.send_json_header(json_message)
+                self.write(json_message)
+
+    def send_json_header(self, content=""):
         self.send_response(200)
         # self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Content-type", "application/json")
@@ -160,83 +239,13 @@ class MyServer(BaseHTTPRequestHandler):
     def write(self, msg):
         self.wfile.write(bytes(msg, "utf-8"))
 
-    def do_POST(self):
-        # refuse to receive non-json content
-        if self.headers.get_content_type() != 'application/json':
-            self.send_response(400)
-            self.end_headers()
-            return
-
-        if self.path == "/fio":
-            _, api_key = self.get_auth()
-            if api_key:
-                message = self.get_sql_data(sql_query="""
-                    select * from _apikey_has_contracts where api_key = '%s'
-                """ % self.api_key)
-                # send the message back
-                json_message = json.dumps(message, default=str)
-                self.json_header(json_message)
-                self.write(json_message)
-        elif self.path == "/planned":
-            _, api_key = self.get_auth()
-            if api_key:
-                message = self.get_sql_data(sql_query="""
-                        select contract_id,serv_id,planned,filled from _api_key_planned where api_key = '%s'
-                    """ % self.api_key)
-                # send the message back
-                json_message = json.dumps(message, default=str)
-                self.json_header(json_message)
-                self.write(json_message)
-        elif self.path == "/services":
-            _, api_key = self.get_auth()
-            if api_key:
-                message = self.get_sql_data(sql_query="""
-                        select id, tnum, serv_text, total, image, serv_id_list, sub_serv, short_text from _api_key_services;
-                    """)
-                # send the message back
-                json_message = json.dumps(message, default=str)
-                self.json_header(json_message)
-                self.write(json_message)
-        elif self.path == "/add":
-            data, api_key = self.get_auth()
-            if api_key:
-                message = self.put_sql_data(sql_query="""
-                        INSERT INTO kcson.api_key_insert_main
-                        (contracts_id, serv_id, dep_has_worker_id, vdate, quantity, uuid, check_api_key )
-                        VALUES(%(contracts_id)s , %(serv_id)s, %(dep_has_worker_id)s, '%(vdate)s', 1,
-                         '%(uuid)s', '%(check_api_key)s' ); 
-                    """ % data)
-                # send the message back
-                json_message = json.dumps(message, default=str)
-                self.json_header(json_message)
-                self.write(json_message)
-        elif self.path == "/test":
-            # read the message and convert it into a python dictionary
-            message, api_key = self.get_auth()
-            message['received'] = self.get_sql_data()
-            # send the message back
-            json_message = json.dumps(message, default=str)
-            self.json_header(json_message)
-            self.write(json_message)
-        elif self.path == "/delete":
-            data, api_key = self.get_auth()
-            if api_key:
-                message = self.put_sql_data(sql_query="""
-                    UPDATE kcson.api_key_insert_main
-                        SET quantity = 0, 
-                            check_api_key = '%(check_api_key)s', 
-                            dep_has_worker_id =  %(dep_has_worker_id)s
-                        WHERE uuid = '%(uuid)s' 
-                    """ % data)
-                # send the message back
-                json_message = json.dumps(message, default=str)
-                self.json_header(json_message)
-                self.write(json_message)
-
     def get_auth(self):
         content_len = int(self.headers.get('Content-Length'))
         message = json.loads(self.rfile.read(content_len))
-        self.api_key = message["api_key"]
+        try:
+            self.api_key = self.headers.get("api_key")
+        except KeyError:
+            self.api_key = message["api_key"]
         #############################
         # api_key will be passed to mysql - TODO: make more checks
         # ---------------------------
@@ -248,9 +257,6 @@ class MyServer(BaseHTTPRequestHandler):
                     self.api_key = None
         message['check_api_key'] = self.api_key
         return message, self.api_key
-
-    def get(self):
-        pass
 
     def stat(self):
         self.send_response(200)
@@ -308,6 +314,7 @@ if __name__ == "__main__":
             this_help()
 
     webServer = ThreadingHTTPServer((hostName, serverPort), MyServer)
+    # TODO: use ssl
     # webServer.socket = ssl.wrap_socket(webServer.socket, keyfile='./privkey.pem',certfile='./certificate.pem',
     #                   server_side=True)
     # print("Server started http://%s:%s" % (hostName, serverPort))
