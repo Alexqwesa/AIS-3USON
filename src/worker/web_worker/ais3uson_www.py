@@ -126,11 +126,11 @@ class MyServer(BaseHTTPRequestHandler):
         self.api_key = None
 
     def do_OPTIONS(self):
-        self.send_response(204)
-        # self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-        self.send_header("Access-Control-Allow-Headers", "X-Requested-With")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_response(200, "ok")
+        # self.send_header('Access-Control-Allow-Origin', '*') # already done if DEBUG=True, don't send twice!
+        self.send_header("Access-Control-Allow-Credentials", 'true')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS')
+        self.send_header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, api_key")
         self.end_headers()
         # self.process_request()
 
