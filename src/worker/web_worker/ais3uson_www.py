@@ -240,8 +240,13 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes(msg, "utf-8"))
 
     def get_auth(self):
-        content_len = int(self.headers.get('Content-Length'))
-        message = json.loads(self.rfile.read(content_len))
+        self.api_key = None
+        message = None
+        try:
+            content_len = int(self.headers.get('Content-Length'))
+            message = json.loads(self.rfile.read(content_len))
+        except TypeError:
+            pass
         try:
             self.api_key = self.headers.get("api_key")
         except KeyError:
@@ -255,7 +260,8 @@ class MyServer(BaseHTTPRequestHandler):
             for c in ["'", '"']:
                 if c in self.api_key:
                     self.api_key = None
-        message['check_api_key'] = self.api_key
+        if message:
+            message['check_api_key'] = self.api_key
         return message, self.api_key
 
     def stat(self):
