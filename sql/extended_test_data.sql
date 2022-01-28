@@ -1,10 +1,10 @@
 
 -- Use simple api_key for testing purposes (used in mobile application)
 UPDATE kcson.dep_has_worker
-	SET api_key='123'
+	SET api_key='3.015679841875732e17ef73dc17-7af8-11ec-b7f8-04d9f5c97b0c'
 	WHERE id=1;
 UPDATE kcson.dep_has_worker
-	SET api_key='123'
+	SET api_key='3.015679841875732e17ef73dc17-7af8-11ec-b7f8-04d9f5c97b0c'
 	WHERE id=2;
 
 
