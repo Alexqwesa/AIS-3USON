@@ -1798,9 +1798,9 @@ CREATE TABLE `api_key_insert_main` (
   `uuid` varchar(36) NOT NULL,
   `check_api_key` varchar(100) DEFAULT NULL COMMENT 'If new.check_api_key incorrect - error',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `api_key_insert_main_UN` (`uuid`),
-  KEY `api_key_insert_main_uuid_IDX` (`uuid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='web_info inserts table';
+  UNIQUE KEY `api_key_insert_main_id_IDX` (`id`) USING BTREE,
+  UNIQUE KEY `api_key_insert_main_uuid_IDX` (`uuid`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='inserts table web_info (special user)';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -4695,7 +4695,8 @@ BEGIN
 		# call GET_PRIVILEGES();
 		# TODO: set role for invoker
 		# set role info;
-
+		# call DROP_ROLES;
+		
 
 	
 		#update worker_has_dep set active=0 where(worker_id=wrkID);
@@ -5202,7 +5203,7 @@ BEGIN
 	)  main1",
 
 	 "client_id", "tnum", "quantity" , "" , "");
-     
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
