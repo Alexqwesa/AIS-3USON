@@ -1799,8 +1799,9 @@ CREATE TABLE `api_key_insert_main` (
   `check_api_key` varchar(100) DEFAULT NULL COMMENT 'If new.check_api_key incorrect - error',
   PRIMARY KEY (`id`),
   UNIQUE KEY `api_key_insert_main_UN` (`uuid`),
+  UNIQUE KEY `api_key_insert_main_id_IDX` (`id`) USING BTREE,
   KEY `api_key_insert_main_uuid_IDX` (`uuid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4  COMMENT='web_info inserts table';
+) ENGINE=InnoDB AUTO_INCREMENT=150 DEFAULT CHARSET=utf8mb4  COMMENT='inserts table web_info (special user)';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -4686,16 +4687,21 @@ BEGIN
 	declare wrkID int ;
 	declare res int default 0;
 	set  wrkID=get_WID();
-	
-	set res = (select dep_id from dep_has_worker  where worker_id=wrkID and dep_id=depId);
-	#set cursor_n = (select w.`user` from worker  where w.id=wrkID);
-	
+
+	select IS_ADMIN() into @allow;
+	if (@allow = 1) then
+		set res = (select distinct dep_id from dep_has_worker  where (archive=0 or archive is null));
+	else
+		set res = (select distinct dep_id from dep_has_worker  where worker_id=wrkID and (archive=0 or archive is null));
+	end if;
+
 	if res > 0 then 
 		update worker_settings set last_dep=depId where id = wrkID;
 		# call GET_PRIVILEGES();
 		# TODO: set role for invoker
 		# set role info;
-
+		# call DROP_ROLES;
+		
 
 	
 		#update worker_has_dep set active=0 where(worker_id=wrkID);
@@ -5169,7 +5175,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `debug_msg`(msg VARCHAR(255))
 BEGIN
@@ -5202,7 +5208,7 @@ BEGIN
 	)  main1",
 
 	 "client_id", "tnum", "quantity" , "" , "");
-     
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -5217,16 +5223,20 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_DEPS`(
  `wrkID` INT )
     READS SQL DATA
     SQL SECURITY INVOKER
     COMMENT 'get  departments '
-BEGIN
-	
-	select distinct dep_id from dep_has_worker  where worker_id=wrkID and (archive=0 or archive is null);
+begin
+	select IS_ADMIN() into @allow;
+	if (@allow = 1) then
+		select distinct dep_id from dep_has_worker  where (archive=0 or archive is null);
+	else
+		select distinct dep_id from dep_has_worker  where worker_id=wrkID and (archive=0 or archive is null);
+	end if;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -5951,12 +5961,13 @@ begin
  	  DECLARE kill_i CURSOR for
 	  select t.id, t.user from information_schema.processlist t where t.user = substring_index(user(),'@',1);
 
-
-
 	set  wrkID=get_WID();
-	
-	set res = (select dep_id from dep_has_worker  where worker_id=wrkID and dep_id=depId);
-
+	select IS_ADMIN() into @allow;
+	if (@allow = 1) then
+		set res = (select distinct dep_id from dep_has_worker  where (archive=0 or archive is null));
+	else
+		set res = (select distinct dep_id from dep_has_worker  where worker_id=wrkID and (archive=0 or archive is null));
+	end if;
 
 	if res > 0 then 
 	    SET @queryStringRP = CONCAT('REVOKE ALL on *.* FROM  "', SUBSTRING_INDEX(user(),'@',1), '";  ' );
@@ -7993,4 +8004,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-24 18:12:27
+-- Dump completed on 2022-02-07 12:28:14
