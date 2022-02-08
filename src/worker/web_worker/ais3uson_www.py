@@ -112,13 +112,13 @@ except:
     print("=============================")
     this_help()
 
-hostName = "localhost"
+hostName = "0.0.0.0"  # "localhost"  if this script used with ssh -NR
 serverPort = 48080
 PASSWORD = "nopassword"
 MYSQLPORT = 3306
 try:
     with open(r"/etc/ais3uson.key", mode="r") as f:
-        PASSWORD = f.readline()
+        PASSWORD = f.readline().replace("\n", "")
 except (FileNotFoundError, PermissionError):
     print("Can't load password!!!")
     pass
@@ -141,7 +141,10 @@ class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/stat":
             self.stat()
+            print("stat requested")
+        #############################
         # refuse to receive non-json content
+        # ---------------------------
         if self.headers.get_content_type() != 'application/json':
             self.send_response(400)
             self.end_headers()
