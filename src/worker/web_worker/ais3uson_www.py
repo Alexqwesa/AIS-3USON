@@ -49,23 +49,23 @@ README_linux = """
 # To setup this service:
 
 useradd -r -s /bin/false ais3uson
-# or prohibit login to exist user with  passwd -l 
-# consider to use only key authentication: PasswordAuthentication no  (in /etc/ssh/sshd_conf) 
+# or prohibit login to exist user with:  passwd -l 
+# I strongly recommend:
+# to use only key authentication: PasswordAuthentication no  (in file /etc/ssh/sshd_conf) 
 
 # save script on server to /usr/local/bin
 mkdir -p /usr/local/bin
 cp -a %s /usr/local/bin/
 
-# create file for password and secure it
+# create file for storing password and secure it
 touch /etc/ais3uson.key
 chown ais3uson:ais3uson /etc/ais3uson.key
 chmod 0600 /etc/ais3uson.key
-# write password to this file
+# WRITE PASSWORD FOR USER web_info INTO THIS FILE
 
-# 
-# 
 
-cat < EOF >> /etc/systemd/system/ais3uson_www
+# create systemd service
+cat < EOF >> /etc/systemd/system/ais3uson_www.service
 [Unit]
 Description=Web worker for AIS3USON
 
@@ -84,7 +84,11 @@ WantedBy=multi-user.target
 
 EOF
 
-#enable service 
+# check it works
+chmod a+x /usr/local/bin/ais3uson_www.py
+/usr/local/bin/ais3uson_www.py     # check it works , and then kill it
+
+# enable service 
 systemctl enable ais3uson_www
 systemctl start  ais3uson_www
 systemctl status ais3uson_www
