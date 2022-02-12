@@ -49,8 +49,8 @@ utf8mb4 COLLATE utf8mb4_0900_ai_ci
 # ---------------------------
 regexp = [
     # [
-    # " id,\ serv,\ serv_text,\ tnum,\ `year`,\ sub_serv,\ sub_serv_str,\ price,\ price2,\ price3,\ archive,\ total,\ acronym,\ workload,\ content,\ `create`,\ ts,\ cr_by,\ upd_by\)\ VALUES([^,]*,)\ '([^']*)',\ ",
-    # " id, serv_text, tnum, `year`, sub_serv, sub_serv_str, price, price2, price3,  archive, total, acronym, workload, content, `create`, ts, cr_by, upd_by) VALUES\\1 ",
+    #     "id,\ serv,\ serv_text,\ tnum,\ `year`,\ sub_serv,\ sub_serv_str,\ price,\ price2,\ price3,\ archive,\ replacedby,\ total,\ acronym,\ workload,\ content,\ `create`,\ ts,\ cr_by,\ upd_by\)\ VALUES([^,]*,)\ '([^']*)',\ ",
+    #     "id, serv_text, tnum, `year`, sub_serv, sub_serv_str, price, price2, price3, archive, replacedby, total, acronym, workload, content, `create`, ts, cr_by, upd_by) VALUES\\1 ",
     # ]
 ]
 
@@ -66,7 +66,7 @@ def main(fin, fout):
             line = line.replace("`columns`", "`COLUMNS`")
             for reg in regexp:
                 p = re.compile(reg[0], re.VERBOSE)
-                if reg[0] in line:
+                if reg[1][10:150] in line:
                     line = p.sub(reg[1], line)
             data = data + replacer(line)
     print(data)

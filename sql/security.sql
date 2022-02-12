@@ -10,7 +10,7 @@ select * from kcson.role;
 #############################
 # routine IS_SPECIALIST
 # ---------------------------
-drop procedure IF EXISTS IS_SPECIALIST;
+drop FUNCTION IF EXISTS IS_SPECIALIST;
 delimiter $$
 CREATE FUNCTION kcson.IS_SPECIALIST()
 RETURNS INT
@@ -44,7 +44,7 @@ delimiter ;
 #############################
 # routine IS_ADMIN
 # ---------------------------
-drop procedure IF EXISTS IS_ADMIN;
+drop FUNCTION IF EXISTS IS_ADMIN;
 delimiter $$
 CREATE
 DEFINER=`root`@`localhost`

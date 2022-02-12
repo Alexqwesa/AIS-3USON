@@ -232,8 +232,7 @@ class MyServer(BaseHTTPRequestHandler):
                 self.write(json_message)
 
     def send_json_header(self, content=""):
-        self.send_response(200)
-        # self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_response(200, "ok")
         self.send_header("Content-type", "application/json")
         self.send_header("Content-Length", len(content))
         self.end_headers()

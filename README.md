@@ -25,7 +25,7 @@ An AIS-3USON project contain both Backend(SQL) and desktop Frontend(python+Qt), 
 - Импортировать в БД из папки sql следующие файлы(для **mariaDB** используйте файлы maria_*):
     - schema.sql
     - data.sql
-    - test_data.sql
+    - test_data.sql (для тестов: extended_test_data.sql и extended_test_data_2.sql )
     - security.sql
 - Создать пользователя-администратора(SQL роль part_admin), который займется администрированием базы из настольного приложения(подробнее см. раздел [Использование](#использование))
 
