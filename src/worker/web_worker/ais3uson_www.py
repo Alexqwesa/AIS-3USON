@@ -14,10 +14,13 @@
 # which should be included with this package. The terms are also available at
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
+import os
+import ssl
 import sys
 import json
 import threading
 from http.server import BaseHTTPRequestHandler
+from os import R_OK
 
 DEBUG_MODE = True
 #############################
@@ -58,9 +61,11 @@ mkdir -p /usr/local/bin
 cp -a %s /usr/local/bin/
 
 # create file for storing password and secure it
-touch /etc/ais3uson.key
-chown ais3uson:ais3uson /etc/ais3uson.key
-chmod 0600 /etc/ais3uson.key
+mkdir /etc/ais3uson/
+touch /etc/ais3uson/mysql.key
+chown ais3uson:ais3uson /etc/ais3uson/ -R
+chmod 0700 /etc/ais3uson/ -R
+chmod 0600 /etc/ais3uson/mysql.key
 # WRITE PASSWORD FOR USER web_info INTO THIS FILE
 
 
@@ -117,7 +122,7 @@ serverPort = 48080
 PASSWORD = "nopassword"
 MYSQLPORT = 3306
 try:
-    with open(r"/etc/ais3uson.key", mode="r") as f:
+    with open(r"/etc/ais3uson/mysql.key", mode="r") as f:
         PASSWORD = f.readline().replace("\n", "")
 except (FileNotFoundError, PermissionError):
     print("Can't load password!!!")
@@ -207,6 +212,7 @@ class MyServer(BaseHTTPRequestHandler):
                     """ % data)
                 # send the message back
                 json_message = json.dumps(message, default=str)
+                # json_message = '{"id": 0}'
                 self.send_json_header(json_message)
                 self.write(json_message)
 
@@ -326,10 +332,14 @@ if __name__ == "__main__":
             this_help()
 
     webServer = ThreadingHTTPServer((hostName, serverPort), MyServer)
-    # TODO: use ssl
-    # webServer.socket = ssl.wrap_socket(webServer.socket, keyfile='./privkey.pem',certfile='./certificate.pem',
-    #                   server_side=True)
-    # print("Server started http://%s:%s" % (hostName, serverPort))
+    if os.path.isfile("/etc/ais3uson/privkey.pem") and os.access("/etc/ais3uson/privkey.pem", R_OK):
+        webServer.socket = ssl.wrap_socket(webServer.socket, keyfile='/etc/ais3uson/privkey.pem',
+                                           certfile='/etc/ais3uson/certificate.pem',
+                                           server_side=True)
+        print("Server started https://%s:%s" % (hostName, serverPort))
+    else:
+        print("Server started http://%s:%s" % (hostName, serverPort))
+
 
     try:
         webServer.serve_forever()
