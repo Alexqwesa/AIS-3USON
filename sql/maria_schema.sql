@@ -1801,7 +1801,7 @@ CREATE TABLE `api_key_insert_main` (
   UNIQUE KEY `api_key_insert_main_UN` (`uuid`),
   UNIQUE KEY `api_key_insert_main_id_IDX` (`id`) USING BTREE,
   KEY `api_key_insert_main_uuid_IDX` (`uuid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=150 DEFAULT CHARSET=utf8mb4  COMMENT='inserts table web_info (special user)';
+) ENGINE=InnoDB AUTO_INCREMENT=248 DEFAULT CHARSET=utf8mb4  COMMENT='inserts table web_info (special user)';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1840,6 +1840,27 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `api_key_insert_main_after_insert` AFTER INSERT ON `api_key_insert_main` FOR EACH ROW begin
+	
+	insert into main (contracts_id, dep_id, client_id, serv_id, dep_has_worker_id, vdate, quantity, note)
+	values( new.contracts_id ,new.dep_id, new.client_id, new.serv_id, new.dep_has_worker_id, new.vdate, new.quantity, new.uuid);
+
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `api_key_before_update_main_` BEFORE UPDATE ON `api_key_insert_main` FOR EACH ROW begin 
 	
 	if ( new.check_api_key =  (SELECT api_key from dep_has_worker dhw where dhw.id = old.dep_has_worker_id)) then 
@@ -1851,6 +1872,28 @@ DELIMITER ;;
 	end if;
 	
 end */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `api_key_insert_main_after_update` AFTER UPDATE ON `api_key_insert_main` FOR EACH ROW begin
+	
+	update main
+		set quantity = new.quantity
+		where note = new.uuid;
+
+
+END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -3001,7 +3044,7 @@ CREATE TABLE `main` (
   CONSTRAINT `fk_main2_dep` FOREIGN KEY (`dep_id`) REFERENCES `dep` (`id`),
   CONSTRAINT `fk_main2_serv1` FOREIGN KEY (`serv_id`) REFERENCES `serv` (`id`),
   CONSTRAINT `worker` FOREIGN KEY (`worker_id`) REFERENCES `worker` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=175268 DEFAULT CHARSET=utf8mb4  COMMENT='main table';
+) ENGINE=InnoDB AUTO_INCREMENT=175276 DEFAULT CHARSET=utf8mb4  COMMENT='main table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -5961,6 +6004,8 @@ begin
  	  DECLARE kill_i CURSOR for
 	  select t.id, t.user from information_schema.processlist t where t.user = substring_index(user(),'@',1);
 
+
+
 	set  wrkID=get_WID();
 	select IS_ADMIN() into @allow;
 	if (@allow = 1) then
@@ -8004,4 +8049,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-07 12:28:14
+-- Dump completed on 2022-03-10 17:15:36
