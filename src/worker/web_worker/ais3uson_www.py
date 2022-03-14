@@ -168,7 +168,7 @@ class MyServer(BaseHTTPRequestHandler):
             if api_key:
                 message = self.get_sql_data(sql_query="""
                     select  contract_id, dep_id, client_id, contract, client, dhw_id, 
-                        contract_duration, comment, percent, max_pay 
+                        comment, percent, max_pay 
                     from    _apikey_has_contracts 
                     where api_key = '%s'
                 """ % self.api_key)
