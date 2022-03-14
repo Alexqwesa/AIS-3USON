@@ -132,9 +132,12 @@ except (FileNotFoundError, PermissionError):
 
 def json_dumps(message, default=str):
     for m in message:
+        s = set()
         for k, v in m.items():
             if v == "" or v == "None":
-                m.pop(k, None)
+                s.add(k)
+        for k in s:
+            m.pop(k, None)
     return json.dumps(message, default=default)
 
 
