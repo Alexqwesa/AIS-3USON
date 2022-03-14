@@ -52,6 +52,7 @@ README_linux = """
 # To setup this service:
 
 useradd -r -s /bin/false ais3uson
+groupadd ais3uson
 # or prohibit login to exist user with:  passwd -l 
 # I strongly recommend:
 # to use only key authentication: PasswordAuthentication no  (in file /etc/ssh/sshd_conf) 
@@ -64,8 +65,8 @@ cp -a %s /usr/local/bin/
 mkdir /etc/ais3uson/
 touch /etc/ais3uson/mysql.key
 chown ais3uson:ais3uson /etc/ais3uson/ -R
-chmod 0700 /etc/ais3uson/ -R
-chmod 0600 /etc/ais3uson/mysql.key
+chmod 0700 /etc/ais3uson/
+chmod 0600 /etc/ais3uson/*
 # WRITE PASSWORD FOR USER web_info INTO THIS FILE
 
 
@@ -77,7 +78,7 @@ Description=Web worker for AIS3USON
 [Service]
 Type=simple
 User=ais3uson
-Group=nogroup
+Group=ais3uson
 Restart=on-failure
 Environment=PYTHONUNBUFFERED=1
 ExecStart=/usr/bin/python  /usr/local/bin/ais3uson_www.py 
@@ -166,7 +167,8 @@ class MyServer(BaseHTTPRequestHandler):
             _, api_key = self.get_auth()
             if api_key:
                 message = self.get_sql_data(sql_query="""
-                    select  contract_id, dep_id, client_id, contract, client, dhw_id 
+                    select  contract_id, dep_id, client_id, contract, client, dhw_id, 
+                        contract_duration, comment, percent, max_pay 
                     from    _apikey_has_contracts 
                     where api_key = '%s'
                 """ % self.api_key)
@@ -178,7 +180,8 @@ class MyServer(BaseHTTPRequestHandler):
             _, api_key = self.get_auth()
             if api_key:
                 message = self.get_sql_data(sql_query="""
-                        select id, tnum, serv_text, total, image, serv_id_list, sub_serv, short_text 
+                        select id, tnum, serv_text, total, image, serv_id_list, sub_serv, short_text
+                        , price 
                         from _api_key_services;
                     """)
                 # send the message back
