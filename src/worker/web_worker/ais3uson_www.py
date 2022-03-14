@@ -225,7 +225,7 @@ class MyServer(BaseHTTPRequestHandler):
                          '%(uuid)s', '%(check_api_key)s' ); 
                     """ % data)
                 # send the message back
-                json_message = json_dumps(message, default=str)
+                json_message = json.dumps(message, default=str)
                 # json_message = '{"id": 0}'
                 self.send_json_header(json_message)
                 self.write(json_message)
@@ -247,7 +247,7 @@ class MyServer(BaseHTTPRequestHandler):
                         WHERE uuid = '%(uuid)s' 
                     """ % data)
                 # send the message back
-                json_message = json_dumps(message, default=str)
+                json_message = json.dumps(message, default=str)
                 self.send_json_header(json_message)
                 self.write(json_message)
 
