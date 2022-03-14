@@ -129,6 +129,14 @@ except (FileNotFoundError, PermissionError):
     pass
 
 
+def json_dumps(message, default=str):
+    for m in message:
+        for k, v in m.items():
+            if v == "" or v == "None":
+                m.pop(k, None)
+    return json.dumps(message, default=default)
+
+
 class MyServer(BaseHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -163,7 +171,7 @@ class MyServer(BaseHTTPRequestHandler):
                     where api_key = '%s'
                 """ % self.api_key)
                 # send the message back
-                json_message = json.dumps(message, default=str)
+                json_message = json_dumps(message, default=str)
                 self.send_json_header(json_message)
                 self.write(json_message)
         elif self.path == "/services":
@@ -174,7 +182,7 @@ class MyServer(BaseHTTPRequestHandler):
                         from _api_key_services;
                     """)
                 # send the message back
-                json_message = json.dumps(message, default=str)
+                json_message = json_dumps(message, default=str)
                 self.send_json_header(json_message)
                 self.write(json_message)
         elif self.path == "/planned":
@@ -186,7 +194,7 @@ class MyServer(BaseHTTPRequestHandler):
                         where api_key = '%s'
                     """ % self.api_key)
                 # send the message back
-                json_message = json.dumps(message, default=str)
+                json_message = json_dumps(message, default=str)
                 self.send_json_header(json_message)
                 self.write(json_message)
         else:
@@ -211,7 +219,7 @@ class MyServer(BaseHTTPRequestHandler):
                          '%(uuid)s', '%(check_api_key)s' ); 
                     """ % data)
                 # send the message back
-                json_message = json.dumps(message, default=str)
+                json_message = json_dumps(message, default=str)
                 # json_message = '{"id": 0}'
                 self.send_json_header(json_message)
                 self.write(json_message)
@@ -233,14 +241,14 @@ class MyServer(BaseHTTPRequestHandler):
                         WHERE uuid = '%(uuid)s' 
                     """ % data)
                 # send the message back
-                json_message = json.dumps(message, default=str)
+                json_message = json_dumps(message, default=str)
                 self.send_json_header(json_message)
                 self.write(json_message)
 
     def send_json_header(self, content=""):
         self.send_response(200, "ok")
         self.send_header("Content-type", "application/json")
-        self.send_header("Content-Length", len(content))
+        self.send_header("Content-Length", str(len(content)))
         self.end_headers()
 
     def end_headers(self):
@@ -339,7 +347,6 @@ if __name__ == "__main__":
         print("Server started https://%s:%s" % (hostName, serverPort))
     else:
         print("Server started http://%s:%s" % (hostName, serverPort))
-
 
     try:
         webServer.serve_forever()
