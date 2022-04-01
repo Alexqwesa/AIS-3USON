@@ -2586,7 +2586,10 @@ DELIMITER ;;
 		order by dhw.role_id desc 
 		limit 1);
 	
-	if  crole is null then
+		
+    if  cuser = 'root' then
+        set crole = crole;
+    elseif  crole is null then
 		set new.role_id = 1;
 		-- throw error?
 	elseif ( crole = 7 or crole = 8 ) then
@@ -2629,7 +2632,9 @@ DELIMITER ;;
 			order by dhw.role_id desc 
 			limit 1);
 		
-		if  crole is null then
+		if  cuser = 'root' then
+			set crole = crole;
+		elseif  crole is null then
 			set new.role_id = 1;
 			-- throw error?
 		elseif ( crole = 7 or crole = 8 ) then
