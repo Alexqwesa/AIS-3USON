@@ -252,7 +252,10 @@ class myQComboBox(_myQComboBox):
                     self.currentIndexChanged3.emit(ind, id0, self.currentText())  # TODO: not used
                     self.currentIndexChanged_id.emit(id0)
                     self.currentIndexChanged_model.emit(id0, self.model().super_model().objectName())
-                    self.currentIndexChanged_col_id.emit(self.model().super_model().tsFieldNames[1] + "_id", id0)
+                    try:
+                        self.currentIndexChanged_col_id.emit(self.model().super_model().tsFieldNames[1] + "_id", id0)
+                    except:
+                        error("self.currentIndexChanged_col_id.emit(self.model().super_model().tsFieldNames[1]  error")
                 else:
                     #############################
                     # always delay emit - to avoid double run

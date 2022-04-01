@@ -137,7 +137,7 @@ class MyAppConnect(QtWidgets.QMainWindow):
         self.data.setObjectName("main_data")
         self.login_done = False
         #############################
-        # load QSettins
+        # load QSettings
         # ---------------------------
         self.font_size = self.font().pointSize()
         self.readQSetting()
