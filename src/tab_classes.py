@@ -16,6 +16,7 @@
 #############################
 # import this project files
 # ---------------------------
+from qtpy.QtWidgets import QFileDialog
 from qtpy.QtCore import QSize
 from qtpy.QtGui import QPixmap
 from qtpy.QtWidgets import QDialog
@@ -24,11 +25,13 @@ from qtpy.QtGui import QImage
 from qtpy.QtWidgets import QLabel, QInputDialog
 from qtpy.QtGui import QRegularExpressionValidator
 
+from import_from_file import ImportJsonModel
 from logic.data_worker import *
 
 from models.ts_models_serv_year import tsTableServYearModel
 from models.universal_delegate import tsItemDelegate
 from worker.login_key_auth import api_key
+import json
 
 
 class QOBase(QObject):
@@ -386,11 +389,54 @@ class clstab_client_contr(QOBase):
 
 
 #############################
+# Main Clients Tab
+# ---------------------------
+class clstab_clients(QOBase):
+
+    @Slot()
+    def on_btn_goto_client__3_clicked(self):
+        ui = self.ui
+        tabs: myQTabWidget = ui.tabMain
+        if SD.last_table in [ui.table_client__by_client, ui.table__client_has_valid_contracts__by_client,
+                             ui.table__dep_has_client_by_ripso__by_client,
+                             ui.table__client_has_invalid_contracts__by_client]:
+            table: myQTableView = SD.last_table
+            client_id = table.currentIndex().siblingAtColumn(1).data(Qt.EditRole)
+            if client_id:
+                tabs.set_active_tab_by_name("tab_client")
+                cbox: myQComboBox = ui.cbx_1__dep_has_client
+                cbox.set_current_index_id(client_id)
+
+    @Slot()
+    def on_btn_new_contract_clicked(self):
+        ui = self.ui
+        tabs: myQTabWidget = ui.tabMain
+        if SD.last_table in [ui.table_client__by_client, ui.table__client_has_valid_contracts__by_client,
+                             ui.table__dep_has_client_by_ripso__by_client,
+                             ui.table__client_has_invalid_contracts__by_client]:
+            table: myQTableView = SD.last_table
+            client_id = table.currentIndex().siblingAtColumn(1).data(Qt.EditRole)
+            if client_id:
+                tabs.set_active_tab_by_name("tab_client")
+                cbox: myQComboBox = ui.cbx_1__dep_has_client
+                cbox.set_current_index_id(client_id)
+                tabs2 = ui.tab_client
+                tabs2.set_active_tab_by_name("tab_client_contr")
+
+
+#############################
 # Main Client Tab
 # ---------------------------
 class clstab_client(QOBase):
+
     def __init__(self, parent):
         super().__init__(parent)
+        ui = self.ui
+        self.me: myQWidget = ui.tab_client
+        #############################
+        # custom init
+        # ---------------------------
+        self.__init = False
 
     @Slot(str)
     def on_qle_table_client_filter_textChanged(self, text: str):
@@ -400,20 +446,6 @@ class clstab_client(QOBase):
             ui.label_client.setText(tr("Используется фильтр:"))
         else:
             ui.label_client.setText(tr("Быстрый фильтр:"))
-
-
-#############################
-# Main Client Tab
-# ---------------------------
-class clstab_clients(QOBase):
-    def __init__(self, parent):
-        super().__init__(parent)
-        ui = self.ui
-        self.me: myQWidget = ui.tab_client
-        #############################
-        # custom init
-        # ---------------------------
-        self.__init = False
 
     def _init(self):
         if not self.__init:
@@ -821,6 +853,42 @@ class clstab_tot_group(QOBase):
     #     model.setQuery(qry)
     #     # model.setFilter("start_vdate between '%s' and '%s' " % period)
     #     model.select()
+
+
+class clstab_services_import(QOBase):
+    """
+    Import services from file ( which is exported in mobile client)
+    """
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.import_model = ImportJsonModel()
+        self.import_table: myQTableView = self.ui.import_table
+        __init = False
+
+    @Slot()
+    def on_btn_import_services_clicked(self):
+        ui = self.ui
+        if not self.import_table.model():
+            self.import_table.setModel(self.import_model)
+        self.import_model.import_services_from_files()
+        self.import_table.model().update_view()
+        # update_view
+
+    @Slot(bool)
+    def on_tab_services_import_widgetVisibilityChanged(self, state):
+        self._init()
+        self.import_table.setModel(self.import_model)
+        # self.import_model = ImportJsonModel()
+
+    @Slot(bool)
+    def on_btn_import_to_dbms_clicked(self):
+        self._init()
+
+    def _init(self):
+        if (not self.__init) and SD._dbconnected:
+            ui = self.ui
+            self.__init = True
 
 
 class clstab_serv_you(QOBase):

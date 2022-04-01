@@ -202,6 +202,7 @@ class MyAppConnect(QtWidgets.QMainWindow):
         # ---------------------------
         self.tab_debug = clstab_debug(self)
         self.tab_services = clstab_services(self)
+        self.tab_services_import = clstab_services_import(self)
         self.tab_clients = clstab_clients(self)
         self.tab_fio_dep = clstab_fio_dep(self)
         self.tab_client_contr = clstab_client_contr(self)

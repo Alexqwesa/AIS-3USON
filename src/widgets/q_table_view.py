@@ -357,7 +357,8 @@ class tsQTableViewYear(tsQTableView):
             self.last_sel_model.selectionChanged.connect(self.on_sel_activated)
             return ret
         super().focusInEvent(ev)
-        self.last_sel_model.selectionChanged.connect(self.on_sel_activated)
+        if self.last_sel_model:
+            self.last_sel_model.selectionChanged.connect(self.on_sel_activated)
 
     @Slot(QItemSelection, QItemSelection)
     def on_sel_activated(self, inds: QItemSelection, inds_old: QItemSelection):

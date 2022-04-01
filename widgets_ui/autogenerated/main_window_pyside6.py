@@ -198,8 +198,8 @@ class Ui_MainWindow(object):
         sizePolicy1.setVerticalStretch(4)
         sizePolicy1.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
         self.centralwidget.setSizePolicy(sizePolicy1)
-        self.horizontalLayout_26 = QHBoxLayout(self.centralwidget)
-        self.horizontalLayout_26.setObjectName(u"horizontalLayout_26")
+        self.gridLayout_112 = QGridLayout(self.centralwidget)
+        self.gridLayout_112.setObjectName(u"gridLayout_112")
         self.vl_centralwidget = QVBoxLayout()
         self.vl_centralwidget.setObjectName(u"vl_centralwidget")
         self.vl_centralwidget.setSizeConstraint(QLayout.SetNoConstraint)
@@ -1079,6 +1079,26 @@ class Ui_MainWindow(object):
         self.verticalLayout_27.addWidget(self.pushButton_12)
 
         self.tabs_add_serv.addTab(self.tab_add_group_services, "")
+        self.tab_import_services_from_file = myQWidget()
+        self.tab_import_services_from_file.setObjectName(u"tab_import_services_from_file")
+        self.gridLayout_113 = QGridLayout(self.tab_import_services_from_file)
+        self.gridLayout_113.setObjectName(u"gridLayout_113")
+        self.label_90 = QLabel(self.tab_import_services_from_file)
+        self.label_90.setObjectName(u"label_90")
+
+        self.gridLayout_113.addWidget(self.label_90, 0, 0, 1, 1)
+
+        self.btn_import_services = QPushButton(self.tab_import_services_from_file)
+        self.btn_import_services.setObjectName(u"btn_import_services")
+
+        self.gridLayout_113.addWidget(self.btn_import_services, 1, 0, 1, 1)
+
+        self.import_table = tsQTableViewYear(self.tab_import_services_from_file)
+        self.import_table.setObjectName(u"import_table")
+
+        self.gridLayout_113.addWidget(self.import_table, 2, 0, 1, 1)
+
+        self.tabs_add_serv.addTab(self.tab_import_services_from_file, "")
         self.tab_show_group_services = myQWidget()
         self.tab_show_group_services.setObjectName(u"tab_show_group_services")
         self.pushButton_3 = QPushButton(self.tab_show_group_services)
@@ -1344,15 +1364,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11 = QHBoxLayout()
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.pushButton_7 = QPushButton(self.tab_clients)
-        self.pushButton_7.setObjectName(u"pushButton_7")
+        self.btn_goto_client__3 = QPushButton(self.tab_clients)
+        self.btn_goto_client__3.setObjectName(u"btn_goto_client__3")
 
-        self.horizontalLayout_11.addWidget(self.pushButton_7)
+        self.horizontalLayout_11.addWidget(self.btn_goto_client__3)
 
-        self.pushButton_15 = QPushButton(self.tab_clients)
-        self.pushButton_15.setObjectName(u"pushButton_15")
+        self.btn_new_contract = QPushButton(self.tab_clients)
+        self.btn_new_contract.setObjectName(u"btn_new_contract")
 
-        self.horizontalLayout_11.addWidget(self.pushButton_15)
+        self.horizontalLayout_11.addWidget(self.btn_new_contract)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_11)
@@ -5102,12 +5122,12 @@ class Ui_MainWindow(object):
         self.vl_centralwidget.addWidget(self.tabMain)
 
 
-        self.horizontalLayout_26.addLayout(self.vl_centralwidget)
+        self.gridLayout_112.addLayout(self.vl_centralwidget, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1672, 21))
+        self.menubar.setGeometry(QRect(0, 0, 1672, 36))
         self.menu = QMenu(self.menubar)
         self.menu.setObjectName(u"menu")
         self.menu_2 = QMenu(self.menubar)
@@ -5376,8 +5396,8 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.table__dep_has_new_client__by_client_2, self.qle_fio_filter)
         QWidget.setTabOrder(self.qle_fio_filter, self.qle_table_client_filter)
         QWidget.setTabOrder(self.qle_table_client_filter, self.table_client__by_client)
-        QWidget.setTabOrder(self.table_client__by_client, self.pushButton_15)
-        QWidget.setTabOrder(self.pushButton_15, self.table__client_has_invalid_contracts__by_client)
+        QWidget.setTabOrder(self.table_client__by_client, self.btn_new_contract)
+        QWidget.setTabOrder(self.btn_new_contract, self.table__client_has_invalid_contracts__by_client)
         QWidget.setTabOrder(self.table__client_has_invalid_contracts__by_client, self.btn_goto_serv_add)
         QWidget.setTabOrder(self.btn_goto_serv_add, self.btn_prev)
         QWidget.setTabOrder(self.btn_prev, self.cbx_1__dep_has_client)
@@ -5581,8 +5601,8 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.cbx_1_ui_select_fiolist__4, self.cbx_1__dep_has_client__4)
         QWidget.setTabOrder(self.cbx_1__dep_has_client__4, self.pushButton_4)
         QWidget.setTabOrder(self.pushButton_4, self.tableViewYear)
-        QWidget.setTabOrder(self.tableViewYear, self.pushButton_7)
-        QWidget.setTabOrder(self.pushButton_7, self.qle_contracts)
+        QWidget.setTabOrder(self.tableViewYear, self.btn_goto_client__3)
+        QWidget.setTabOrder(self.btn_goto_client__3, self.qle_contracts)
         QWidget.setTabOrder(self.qle_contracts, self.table_main__where_client_id)
         QWidget.setTabOrder(self.table_main__where_client_id, self.table__dep_has_main_10)
         QWidget.setTabOrder(self.table__dep_has_main_10, self.pushButton_36)
@@ -5820,13 +5840,13 @@ class Ui_MainWindow(object):
         self.table_dep.selectionChanged1.connect(self.table_dep_has_worker__by_dep_id.filter_by_selection_of)
         self.cbx_4_serv__uniq_year.currentTextChanged.connect(self.table_serv__by_year.set_first_filter_exact)
 
-        self.tabMain.setCurrentIndex(5)
-        self.tabs_add_serv.setCurrentIndex(0)
+        self.tabMain.setCurrentIndex(0)
+        self.tabs_add_serv.setCurrentIndex(3)
         self.tab__main_for_dep_by.setCurrentIndex(1)
         self.pb_start_serv_add.setDefault(False)
         self.tab_user_has_main.setCurrentIndex(5)
         self.tabs_fio_dep.setCurrentIndex(1)
-        self.tabs_client2.setCurrentIndex(0)
+        self.tabs_client2.setCurrentIndex(3)
         self.tabs_client.setCurrentIndex(2)
         self.tab_sub_client.setCurrentIndex(0)
         self.tabs_total.setCurrentIndex(0)
@@ -5852,7 +5872,7 @@ class Ui_MainWindow(object):
         self.DO_NOT_USE_157.setCurrentIndex(0)
         self.DO_NOT_USE_144.setCurrentIndex(0)
         self.tabWidget_10.setCurrentIndex(0)
-        self.tabs_admin.setCurrentIndex(0)
+        self.tabs_admin.setCurrentIndex(7)
         self.DO_NOT_USE_170.setCurrentIndex(0)
 
 
@@ -6028,33 +6048,34 @@ class Ui_MainWindow(object):
         self.textEdit_2.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                          </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-"
-                        "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                "
-                        "           </p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Noto Sans'; font-size:11pt; font-weight:600;\">\u0412\u043a\u043b\u0430\u0434\u043a\u0430: \u0412\u0432\u043e\u0434                          \u0443\u0441\u043b\u0443\u0433 \u041d\u0430 \u0432\u0435\u0441\u044c \u043c\u0435\u0441\u044f\u0446</span>                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\u0414\u0430\u043d\u043d\u0430\u044f \u0432\u043a\u043b\u0430\u0434\u043a\u0430 <span style=\" font-family:'Noto Sans'; font-size:11pt;\">\u043f\u043e\u0437\u0432\u043e\u043b\u044f\u0435\u0442 \u0431\u044b\u0441\u0442\u0440\u043e \u0432\u0432\u043e\u0434\u0438\u0442\u044c \u0443\u0441\u043b\u0443\u0433\u0438 \u043d\u0430 \u043c\u0435\u0441\u044f\u0446 \u0441                          \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043c"
-                        "\u044b\u0448\u0438.</span>                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u044b \u0442\u0440\u0438 \u0441\u043f\u043e\u0441\u043e\u0431\u0430 \u0432\u0432\u043e\u0434\u0430 \u0443\u0441\u043b\u0443\u0433:<span style=\" font-family:'Noto Sans'; font-size:11pt;\"> \u0449\u0435\u043b\u0447\u043a\u043e\u043c \u041b\u041a\u041c (\u043b\u0435\u0432\u043e\u0439 \u043a\u043d\u043e\u043f\u043a\u0438 \u043c\u044b\u0448\u0438) \u043f\u043e \u0434\u0430\u0442\u0435,                          \u043f\u0440\u043e\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u0435\u043c \u043d\u0430\u0436\u0430\u0442\u043e\u0439 \u043c\u044b\u0448\u0438 \u043f\u043e \u043d\u0443\u0436\u043d\u044b\u043c \u0434\u0430\u0442\u0430\u043c, \u0438"
-                        " \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043a\u043e\u043b\u0435\u0441\u0438\u043a\u0430 \u043c\u044b\u0448\u0438. </span>                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0424\u0418\u041e \u043f\u043e\u043b\u0443\u0447\u0430\u0442\u0435\u043b\u044f \u0421\u0423, \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u0430, \u0443\u0441\u043b\u0443\u0433\u0443 \u0438                          \u043a\u043e\u043b\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0443\u0441\u043b\u0443\u0433 \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0431\u0443\u0434\u0443\u0442 \u0432\u0432\u0435\u0434\u0435\u043d\u044b \u0437\u0430 \u043e\u0434\u043d\u043e \u043d\u0430\u0436\u0430\u0442\u0438\u0435/\u043f\u0440\u043e"
-                        "\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u0435. \u041a\u043e\u043b\u0435\u0441\u0438\u043a\u043e \u043c\u044b\u0448\u0438 \u0432\u0441\u0435\u0433\u0434\u0430                          \u043f\u0440\u0438\u0431\u0430\u0432\u043b\u044f\u0435\u0442/\u043e\u0442\u043d\u0438\u043c\u0430\u0435\u0442 \u043f\u043e 1 \u0443\u0441\u043b\u0443\u0433\u0435.                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\u041d\u0415 \u0417\u0410\u0411\u0423\u0414\u042c\u0422\u0415 \u0421\u041e\u0425\u0420\u0410\u041d\u0418\u0422\u042c \u0423\u0421\u041b\u0423\u0413\u0418!                           </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Noto Sans'; font-s"
-                        "ize:11pt;\"> </span>                          </p></body></html>", None))
+"</style></head><body style=\" font-family:'Noto Sans'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                          </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p"
+                        " style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-inde"
+                        "nt:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">\u0412\u043a\u043b\u0430\u0434\u043a\u0430: \u0412"
+                        "\u0432\u043e\u0434                          \u0443\u0441\u043b\u0443\u0433 \u041d\u0430 \u0432\u0435\u0441\u044c \u043c\u0435\u0441\u044f\u0446</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">\u0414\u0430\u043d\u043d\u0430\u044f \u0432\u043a\u043b\u0430\u0434\u043a\u0430 </span>\u043f\u043e\u0437\u0432\u043e\u043b\u044f\u0435\u0442 \u0431\u044b\u0441\u0442\u0440\u043e \u0432\u0432\u043e\u0434\u0438\u0442\u044c \u0443\u0441\u043b\u0443\u0433\u0438 \u043d\u0430 \u043c\u0435\u0441\u044f\u0446 \u0441                          \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043c\u044b\u0448\u0438.<span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin"
+                        "-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u044b \u0442\u0440\u0438 \u0441\u043f\u043e\u0441\u043e\u0431\u0430 \u0432\u0432\u043e\u0434\u0430 \u0443\u0441\u043b\u0443\u0433:</span> \u0449\u0435\u043b\u0447\u043a\u043e\u043c \u041b\u041a\u041c (\u043b\u0435\u0432\u043e\u0439 \u043a\u043d\u043e\u043f\u043a\u0438 \u043c\u044b\u0448\u0438) \u043f\u043e \u0434\u0430\u0442\u0435,                          \u043f\u0440\u043e\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u0435\u043c \u043d\u0430\u0436\u0430\u0442\u043e\u0439 \u043c\u044b\u0448\u0438 \u043f\u043e \u043d\u0443\u0436\u043d\u044b\u043c \u0434\u0430\u0442\u0430\u043c, \u0438 \u0441 \u043f\u043e\u043c\u043e\u0449\u044c"
+                        "\u044e \u043a\u043e\u043b\u0435\u0441\u0438\u043a\u0430 \u043c\u044b\u0448\u0438. <span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0424\u0418\u041e \u043f\u043e\u043b\u0443\u0447\u0430\u0442\u0435\u043b\u044f \u0421\u0423, \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u0430, \u0443\u0441\u043b\u0443\u0433\u0443 \u0438                          \u043a\u043e\u043b\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0443\u0441\u043b\u0443\u0433 \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0431\u0443"
+                        "\u0434\u0443\u0442 \u0432\u0432\u0435\u0434\u0435\u043d\u044b \u0437\u0430 \u043e\u0434\u043d\u043e \u043d\u0430\u0436\u0430\u0442\u0438\u0435/\u043f\u0440\u043e\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u0435. \u041a\u043e\u043b\u0435\u0441\u0438\u043a\u043e \u043c\u044b\u0448\u0438 \u0432\u0441\u0435\u0433\u0434\u0430                          \u043f\u0440\u0438\u0431\u0430\u0432\u043b\u044f\u0435\u0442/\u043e\u0442\u043d\u0438\u043c\u0430\u0435\u0442 \u043f\u043e 1 \u0443\u0441\u043b\u0443\u0433\u0435.                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">\u041d\u0415 \u0417\u0410\u0411\u0423\u0414\u042c\u0422"
+                        "\u0415 \u0421\u041e\u0425\u0420\u0410\u041d\u0418\u0422\u042c \u0423\u0421\u041b\u0423\u0413\u0418!                           </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> <span style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt;\">                          </span></p></body></html>", None))
         self.tab_user_has_main.setTabText(self.tab_user_has_main.indexOf(self.tab_8), QCoreApplication.translate("MainWindow", u"\u0421\u043f\u0440\u0430\u0432\u043a\u0430", None))
         self.tabs_add_serv.setTabText(self.tabs_add_serv.indexOf(self.tab_add_serv_by_month), QCoreApplication.translate("MainWindow", u"\u041d\u0430 \u0432\u0435\u0441\u044c \u043c\u0435\u0441\u044f\u0446", None))
         self.groupBox_5.setTitle(QCoreApplication.translate("MainWindow", u"1) \u0412\u044b\u0431\u0438\u0440\u0438\u0442\u0435 \u0438\u043b\u0438 \u0441\u043e\u0437\u0434\u0430\u0439\u0442\u0435 \u0433\u0440\u0443\u043f\u043f\u0443 \u043b\u044e\u0434\u0435\u0439", None))
@@ -6078,6 +6099,9 @@ class Ui_MainWindow(object):
         self.label_48.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0441\u043b\u0435\u0434\u043d\u0438\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f:", None))
         self.pushButton_12.setText(QCoreApplication.translate("MainWindow", u"4) \u0412\u0432\u0435\u0441\u0442\u0438 N \u0443\u0441\u043b\u0443\u0433 \u043d\u0430 M \u043b\u044e\u0434\u0435\u0439", None))
         self.tabs_add_serv.setTabText(self.tabs_add_serv.indexOf(self.tab_add_group_services), QCoreApplication.translate("MainWindow", u"\u0412\u0432\u043e\u0434 \u0433\u0440\u0443\u043f\u043f\u043e\u0432\u044b\u0445 \u0443\u0441\u043b\u0443\u0433", None))
+        self.label_90.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0436\u043c\u0438\u0442\u0435 \"\u0418\u043c\u043f\u043e\u0440\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c...\" \u0447\u0442\u043e\u0431\u044b \u0434\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0443\u0441\u043b\u0443\u0433\u0438 \u0438\u0437 \u0444\u0430\u0439\u043b\u0430 \".aisjson\" \u0432 \u0431\u0430\u0437\u0443 \u0434\u0430\u043d\u043d\u044b\u0445. \u041f\u0440\u0438\u043c\u0435\u0447\u0430\u043d\u0438\u0435: \u0437\u0430\u0434\u0432\u043e\u0435\u043d\u043d\u044b\u0435 \u0443\u0441\u043b\u0443\u0433\u0438 \u0431\u0443\u0434\u0443\u0442 \u043f\u0440\u043e\u043f\u0443\u0449\u0435\u043d\u044b.", None))
+        self.btn_import_services.setText(QCoreApplication.translate("MainWindow", u"\u0418\u043c\u043f\u043e\u0440\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0443\u0441\u043b\u0443\u0433\u0438 \u0438\u0437 \u0444\u0430\u0439\u043b\u0430", None))
+        self.tabs_add_serv.setTabText(self.tabs_add_serv.indexOf(self.tab_import_services_from_file), QCoreApplication.translate("MainWindow", u"\u0418\u043c\u043f\u043e\u0440\u0442 \u0443\u0441\u043b\u0443\u0433 \u0438\u0437 \u0444\u0430\u0439\u043b\u0430", None))
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.tabs_add_serv.setTabText(self.tabs_add_serv.indexOf(self.tab_show_group_services), QCoreApplication.translate("MainWindow", u"\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0432\u0432\u0435\u0434\u0435\u043d\u043d\u044b\u0445 \u0433\u0440\u0443\u043f\u043e\u0432\u044b\u0445 \u0443\u0441\u043b\u0443\u0433", None))
         self.pushButton_37.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
@@ -6112,8 +6136,8 @@ class Ui_MainWindow(object):
         self.label_fio_filter.setText(QCoreApplication.translate("MainWindow", u"\u0411\u044b\u0441\u0442\u0440\u044b\u0439 \u0444\u0438\u043b\u044c\u0442\u0440", None))
         self.tabMain.setTabText(self.tabMain.indexOf(self.tab_fio_dep), QCoreApplication.translate("MainWindow", u"\u0421\u043f\u0438\u0441\u043e\u043a \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u0435\u043c\u044b\u0445 \u043d\u0430 \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u0438", None))
         self.label_client.setText(QCoreApplication.translate("MainWindow", u"\u0411\u044b\u0441\u0442\u0440\u044b\u0439 &\u0444\u0438\u043b\u044c\u0442\u0440:", None))
-        self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0435\u0440\u0435\u0439\u0442\u0438 \u043a \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0435", None))
-        self.pushButton_15.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043d\u043e\u0432\u044b\u0439 \u0434\u043e\u0433\u043e\u0432\u043e\u0440 \u0434\u043b\u044f \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0433\u043e \u0447\u0435\u043b\u043e\u0432\u0435\u043a\u0430", None))
+        self.btn_goto_client__3.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0435\u0440\u0435\u0439\u0442\u0438 \u043a \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0435", None))
+        self.btn_new_contract.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043d\u043e\u0432\u044b\u0439 \u0434\u043e\u0433\u043e\u0432\u043e\u0440 \u0434\u043b\u044f \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0433\u043e \u0447\u0435\u043b\u043e\u0432\u0435\u043a\u0430", None))
         self.tabs_client2.setTabText(self.tabs_client2.indexOf(self.tab_35), QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0435 \u043e\u0431\u0440\u0430\u0449\u0430\u0432\u0448\u0438\u0435\u0441\u044f", None))
         self.tabs_client2.setTabText(self.tabs_client2.indexOf(self.tab_15), QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0435 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u0435\u043c\u044b\u0435", None))
         self.tabs_client2.setTabText(self.tabs_client2.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0434\u0445\u043e\u0434\u044f\u0442 \u043f\u043e \u0420\u0418\u041f\u0421\u041e", None))
