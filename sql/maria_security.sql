@@ -316,6 +316,8 @@ BEGIN
     grant trusted_specialist to manager;
     grant select,insert on kcson.category TO manager;
     grant select,insert,delete on kcson._dhw_has_client TO manager;
+   	GRANT select ON kcson.`api_key_insert_main` TO  manager;
+   	GRANT insert ON kcson.`api_key_insert_main` TO  manager;
    
 
     #############################

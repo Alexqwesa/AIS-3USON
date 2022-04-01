@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
 --
--- Host: localhost    Database: kcson
+-- Host: 127.0.0.1    Database: kcson
 -- ------------------------------------------------------
 -- Server version	8.0.20
 
@@ -122,7 +122,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -148,7 +148,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -174,7 +174,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -216,7 +216,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -248,7 +248,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `perc`,
  1 AS `not_standart_contract`,
  1 AS `not_standart_act`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
  1 AS `cr_by`,
@@ -272,7 +272,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `category_id`,
  1 AS `get_date`,
  1 AS `archive`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
  1 AS `cr_by`,
@@ -413,7 +413,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `perc`,
  1 AS `not_standart_contract`,
  1 AS `not_standart_act`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
  1 AS `cr_by`,
@@ -520,7 +520,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `contracts_id`,
  1 AS `planned`,
  1 AS `filled`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `archive`,
  1 AS `create`,
  1 AS `ts`,
@@ -552,7 +552,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `perc`,
  1 AS `not_standart_contract`,
  1 AS `not_standart_act`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
  1 AS `cr_by`,
@@ -578,7 +578,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -604,7 +604,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -630,7 +630,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -655,7 +655,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -682,7 +682,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -709,7 +709,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -736,7 +736,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -838,7 +838,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `perc`,
  1 AS `not_standart_contract`,
  1 AS `not_standart_act`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
  1 AS `cr_by`,
@@ -864,7 +864,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -890,7 +890,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -916,7 +916,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -1001,7 +1001,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -1039,7 +1039,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `worker_id`,
  1 AS `dep_id`,
  1 AS `job_id`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `archive`,
  1 AS `from`,
  1 AS `till`,
@@ -1059,7 +1059,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `id`,
  1 AS `worker`,
  1 AS `user`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `role_id`,
  1 AS `dep_id`,
  1 AS `archive`*/;
@@ -1076,7 +1076,7 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50001 CREATE VIEW `_dhw_has_client` AS SELECT 
  1 AS `dhw_id`,
  1 AS `client_id`,
- 1 AS `prim`*/;
+ 1 AS `note`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1670,7 +1670,7 @@ CREATE TABLE `add_info` (
   `perc` double DEFAULT NULL,
   `not_standart_contract` tinyint DEFAULT NULL,
   `not_standart_act` tinyint DEFAULT NULL,
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   `create` datetime DEFAULT CURRENT_TIMESTAMP,
   `ts` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `cr_by` int DEFAULT NULL,
@@ -1766,7 +1766,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `perc`,
  1 AS `not_standart_contract`,
  1 AS `not_standart_act`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
  1 AS `cr_by`,
@@ -1928,7 +1928,7 @@ CREATE TABLE `category` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `category` varchar(45) NOT NULL,
   `archive` tinyint DEFAULT '0',
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   `total` tinyint DEFAULT '0',
   `subof` int DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -1950,7 +1950,7 @@ CREATE TABLE `client` (
   `clientDeath` date DEFAULT NULL,
   `clientbirth` date DEFAULT NULL,
   `ESRN` bigint DEFAULT NULL,
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   `phone` varchar(45) DEFAULT NULL,
   `snils` varchar(14) DEFAULT NULL,
   `curator` varchar(45) DEFAULT NULL,
@@ -2037,7 +2037,7 @@ CREATE TABLE `client_has_category` (
   `category_id` int unsigned NOT NULL,
   `get_date` date DEFAULT '2018-01-01',
   `archive` tinyint DEFAULT '0',
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   `create` datetime DEFAULT CURRENT_TIMESTAMP,
   `ts` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `cr_by` int DEFAULT NULL,
@@ -2253,7 +2253,7 @@ CREATE TABLE `contracts_has_serv` (
   `contracts_id` int unsigned NOT NULL,
   `planned` int DEFAULT '0',
   `filled` int DEFAULT '0',
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   `archive` tinyint DEFAULT '0',
   `create` datetime DEFAULT CURRENT_TIMESTAMP,
   `ts` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -2315,7 +2315,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `id`,
  1 AS `cr_by`,
  1 AS `user`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `role_id`,
  1 AS `dep_id`,
  1 AS `archive`*/;
@@ -2363,7 +2363,7 @@ CREATE TABLE `data_log` (
   `id` int NOT NULL,
   `message` varchar(255) DEFAULT NULL,
   `date` datetime NOT NULL,
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2421,7 +2421,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -2447,7 +2447,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -2541,7 +2541,7 @@ CREATE TABLE `dep_has_worker` (
   `worker_id` int unsigned NOT NULL,
   `dep_id` int unsigned NOT NULL,
   `job_id` int unsigned NOT NULL,
-  `prim` varchar(145) DEFAULT NULL,
+  `note` varchar(145) DEFAULT NULL,
   `archive` tinyint DEFAULT '0',
   `from` date DEFAULT '2000-01-01',
   `till` date DEFAULT '2050-01-01',
@@ -2693,7 +2693,7 @@ DROP TABLE IF EXISTS `dhw_has_client`;
 CREATE TABLE `dhw_has_client` (
   `dhw_id` int unsigned NOT NULL COMMENT '// TODO: check worker otd of  manager otd',
   `client_id` int unsigned NOT NULL,
-  `prim` varchar(256) DEFAULT NULL COMMENT 'Note',
+  `note` varchar(256) DEFAULT NULL COMMENT 'Note',
   KEY `dhw_has_client_dhw_id_IDX` (`dhw_id`) USING BTREE,
   KEY `dhw_has_client_FK_1` (`client_id`),
   CONSTRAINT `dhw_has_client_FK` FOREIGN KEY (`dhw_id`) REFERENCES `dep_has_worker` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -2742,7 +2742,7 @@ DROP TABLE IF EXISTS `holiday`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `holiday` (
   `holiday` date NOT NULL,
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`holiday`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2760,7 +2760,7 @@ CREATE TABLE `invoice` (
   `give_date` date DEFAULT NULL,
   `money` decimal(10,2) DEFAULT NULL,
   `filled` decimal(10,2) DEFAULT NULL,
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   `dep_id` int unsigned NOT NULL,
   `create` datetime DEFAULT CURRENT_TIMESTAMP,
   `ts` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -2857,7 +2857,7 @@ DROP TABLE IF EXISTS `job`;
 CREATE TABLE `job` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `job` varchar(255) DEFAULT NULL,
-  `prim` varchar(45) DEFAULT NULL,
+  `note` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2904,7 +2904,7 @@ DROP TABLE IF EXISTS `jobgroup`;
 CREATE TABLE `jobgroup` (
   `id` int NOT NULL,
   `jobGroup` varchar(255) DEFAULT NULL,
-  `prim` varchar(1024) DEFAULT NULL,
+  `note` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3363,7 +3363,7 @@ CREATE TABLE `payment` (
   `client_id` int unsigned NOT NULL,
   `paydate` date DEFAULT NULL,
   `sum` decimal(10,2) DEFAULT NULL,
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   `ts` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_payment_client1_idx` (`client_id`)
@@ -3380,7 +3380,7 @@ DROP TABLE IF EXISTS `pcat`;
 CREATE TABLE `pcat` (
   `id` int unsigned NOT NULL,
   `pcat` varchar(255) NOT NULL,
-  `prim` varchar(45) DEFAULT NULL,
+  `note` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3436,7 +3436,7 @@ DROP TABLE IF EXISTS `rname`;
 CREATE TABLE `rname` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `Rname` varchar(45) DEFAULT NULL,
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   `ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `cr_ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `scheduled` tinyint DEFAULT NULL,
@@ -3454,7 +3454,7 @@ DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `role` varchar(45) DEFAULT NULL,
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   `role_sqlname` varchar(100) DEFAULT 'info',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -3559,7 +3559,7 @@ DROP TABLE IF EXISTS `servform`;
 CREATE TABLE `servform` (
   `id` int NOT NULL AUTO_INCREMENT,
   `servform` varchar(255) DEFAULT NULL,
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3632,7 +3632,7 @@ CREATE TABLE `setting` (
   `archive` tinyint DEFAULT '0',
   `setting` varchar(45) DEFAULT NULL,
   `value` varchar(1024) DEFAULT NULL,
-  `prim` varchar(1024) DEFAULT NULL,
+  `note` varchar(1024) DEFAULT NULL,
   `sdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -3668,7 +3668,7 @@ DROP TABLE IF EXISTS `street_home`;
 CREATE TABLE `street_home` (
   `id` int NOT NULL,
   `street_home` varchar(255) DEFAULT NULL,
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   `create` datetime DEFAULT CURRENT_TIMESTAMP,
   `ts` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `cr_by` int DEFAULT NULL,
@@ -3752,7 +3752,7 @@ CREATE TABLE `ugroup` (
   `ugroup` varchar(45) NOT NULL,
   `dep_id` int unsigned DEFAULT '0',
   `worker_id` int unsigned DEFAULT '0',
-  `prim` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
   `ugroupcol` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_ugroup_dep1_idx` (`dep_id`),
@@ -3790,7 +3790,7 @@ CREATE TABLE `ui_select_fiolist` (
   `sql_table` varchar(100) DEFAULT NULL,
   `col` int DEFAULT NULL,
   `orderby` int DEFAULT NULL,
-  `prim` varchar(100) DEFAULT NULL,
+  `note` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3807,7 +3807,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `id`,
  1 AS `upd_by`,
  1 AS `user`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `role_id`,
  1 AS `dep_id`,
  1 AS `archive`*/;
@@ -3828,7 +3828,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -3859,7 +3859,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `perc`,
  1 AS `not_standart_contract`,
  1 AS `not_standart_act`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
  1 AS `cr_by`,
@@ -3890,7 +3890,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `perc`,
  1 AS `not_standart_contract`,
  1 AS `not_standart_act`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
  1 AS `cr_by`,
@@ -3916,7 +3916,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -4034,7 +4034,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `perc`,
  1 AS `not_standart_contract`,
  1 AS `not_standart_act`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `create`,
  1 AS `ts`,
  1 AS `cr_by`,
@@ -4060,7 +4060,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `clientDeath`,
  1 AS `clientbirth`,
  1 AS `ESRN`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `phone`,
  1 AS `snils`,
  1 AS `curator`,
@@ -4113,7 +4113,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `contracts_id`,
  1 AS `planned`,
  1 AS `filled`,
- 1 AS `prim`,
+ 1 AS `note`,
  1 AS `archive`,
  1 AS `create`,
  1 AS `ts`,
@@ -4252,7 +4252,7 @@ CREATE TABLE `worker` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `worker` varchar(255) NOT NULL,
   `user` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'user login',
-  `prim` varchar(145) DEFAULT NULL,
+  `note` varchar(145) DEFAULT NULL,
   `role_id` int unsigned NOT NULL DEFAULT '1' COMMENT 'default role',
   `dep_id` int unsigned NOT NULL DEFAULT '1',
   `archive` tinyint DEFAULT '0',
@@ -6325,7 +6325,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_bm_dep_has_client` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `client` `u` where `u`.`id` in (select `m`.`client_id` from `main` `m` where `m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
+/*!50001 VIEW `_bm_dep_has_client` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`note` AS `note`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `client` `u` where `u`.`id` in (select `m`.`client_id` from `main` `m` where `m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6343,7 +6343,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_bm_dep_has_client_other_year` AS select `_bm_dep_has_client`.`id` AS `id`,`_bm_dep_has_client`.`client` AS `client`,`_bm_dep_has_client`.`client_short` AS `client_short`,`_bm_dep_has_client`.`clientDeath` AS `clientDeath`,`_bm_dep_has_client`.`clientbirth` AS `clientbirth`,`_bm_dep_has_client`.`ESRN` AS `ESRN`,`_bm_dep_has_client`.`prim` AS `prim`,`_bm_dep_has_client`.`phone` AS `phone`,`_bm_dep_has_client`.`snils` AS `snils`,`_bm_dep_has_client`.`curator` AS `curator`,`_bm_dep_has_client`.`create` AS `create`,`_bm_dep_has_client`.`ts` AS `ts`,`_bm_dep_has_client`.`cr_by` AS `cr_by`,`_bm_dep_has_client`.`upd_by` AS `upd_by`,`_bm_dep_has_client`.`cr_dep_id` AS `cr_dep_id` from `_bm_dep_has_client` where `_bm_dep_has_client`.`id` in (select `_bm_dep_has_client_year`.`id` from `_bm_dep_has_client_year`) is false */;
+/*!50001 VIEW `_bm_dep_has_client_other_year` AS select `_bm_dep_has_client`.`id` AS `id`,`_bm_dep_has_client`.`client` AS `client`,`_bm_dep_has_client`.`client_short` AS `client_short`,`_bm_dep_has_client`.`clientDeath` AS `clientDeath`,`_bm_dep_has_client`.`clientbirth` AS `clientbirth`,`_bm_dep_has_client`.`ESRN` AS `ESRN`,`_bm_dep_has_client`.`note` AS `note`,`_bm_dep_has_client`.`phone` AS `phone`,`_bm_dep_has_client`.`snils` AS `snils`,`_bm_dep_has_client`.`curator` AS `curator`,`_bm_dep_has_client`.`create` AS `create`,`_bm_dep_has_client`.`ts` AS `ts`,`_bm_dep_has_client`.`cr_by` AS `cr_by`,`_bm_dep_has_client`.`upd_by` AS `upd_by`,`_bm_dep_has_client`.`cr_dep_id` AS `cr_dep_id` from `_bm_dep_has_client` where `_bm_dep_has_client`.`id` in (select `_bm_dep_has_client_year`.`id` from `_bm_dep_has_client_year`) is false */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6361,7 +6361,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_bm_dep_has_client_year` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `client` `u` where `u`.`id` in (select `m`.`client_id` from `main` `m` where (`m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) and (year(`m`.`vdate`) = `GET_YEAR`(`GET_WID`())))) */;
+/*!50001 VIEW `_bm_dep_has_client_year` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`note` AS `note`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `client` `u` where `u`.`id` in (select `m`.`client_id` from `main` `m` where (`m`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) and (year(`m`.`vdate`) = `GET_YEAR`(`GET_WID`())))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6397,7 +6397,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_client` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` */;
+/*!50001 VIEW `_client` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`note` AS `note`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6415,7 +6415,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_client_has_add_info` AS select `u`.`id` AS `client_id`,`a`.`pddate` AS `pddate`,`a`.`contracts_id` AS `contracts_id`,`a`.`predv_money` AS `predv_money`,`a`.`curFIO` AS `curFIO`,`a`.`psp` AS `psp`,`a`.`address` AS `address`,`a`.`sdd` AS `sdd`,`a`.`sdd_date` AS `sdd_date`,`a`.`perc` AS `perc`,`a`.`not_standart_contract` AS `not_standart_contract`,`a`.`not_standart_act` AS `not_standart_act`,`a`.`prim` AS `prim`,`a`.`create` AS `create`,`a`.`ts` AS `ts`,`a`.`cr_by` AS `cr_by`,`a`.`upd_by` AS `upd_by`,`a`.`repr_FIO` AS `repr_FIO`,`a`.`repr_addr` AS `repr_addr`,`a`.`repr_psp` AS `repr_psp`,`a`.`work_livemin` AS `work_livemin` from ((`add_info` `a` join `contracts` `c` on((`c`.`id` = `a`.`contracts_id`))) join `client` `u` on((`c`.`client_id` = `u`.`id`))) order by `a`.`pddate` desc */;
+/*!50001 VIEW `_client_has_add_info` AS select `u`.`id` AS `client_id`,`a`.`pddate` AS `pddate`,`a`.`contracts_id` AS `contracts_id`,`a`.`predv_money` AS `predv_money`,`a`.`curFIO` AS `curFIO`,`a`.`psp` AS `psp`,`a`.`address` AS `address`,`a`.`sdd` AS `sdd`,`a`.`sdd_date` AS `sdd_date`,`a`.`perc` AS `perc`,`a`.`not_standart_contract` AS `not_standart_contract`,`a`.`not_standart_act` AS `not_standart_act`,`a`.`note` AS `note`,`a`.`create` AS `create`,`a`.`ts` AS `ts`,`a`.`cr_by` AS `cr_by`,`a`.`upd_by` AS `upd_by`,`a`.`repr_FIO` AS `repr_FIO`,`a`.`repr_addr` AS `repr_addr`,`a`.`repr_psp` AS `repr_psp`,`a`.`work_livemin` AS `work_livemin` from ((`add_info` `a` join `contracts` `c` on((`c`.`id` = `a`.`contracts_id`))) join `client` `u` on((`c`.`client_id` = `u`.`id`))) order by `a`.`pddate` desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6433,7 +6433,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_client_has_category_for_last_client` AS select `uhc`.`client_id` AS `client_id`,`uhc`.`category_id` AS `category_id`,`uhc`.`get_date` AS `get_date`,`uhc`.`archive` AS `archive`,`uhc`.`prim` AS `prim`,`uhc`.`create` AS `create`,`uhc`.`ts` AS `ts`,`uhc`.`cr_by` AS `cr_by`,`uhc`.`upd_by` AS `upd_by` from `client_has_category` `uhc` where (`uhc`.`client_id` = `get_last_client`()) */;
+/*!50001 VIEW `_client_has_category_for_last_client` AS select `uhc`.`client_id` AS `client_id`,`uhc`.`category_id` AS `category_id`,`uhc`.`get_date` AS `get_date`,`uhc`.`archive` AS `archive`,`uhc`.`note` AS `note`,`uhc`.`create` AS `create`,`uhc`.`ts` AS `ts`,`uhc`.`cr_by` AS `cr_by`,`uhc`.`upd_by` AS `upd_by` from `client_has_category` `uhc` where (`uhc`.`client_id` = `get_last_client`()) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6523,7 +6523,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_contr_has_add_info` AS select `add_info`.`pddate` AS `pddate`,`add_info`.`contracts_id` AS `contracts_id`,`add_info`.`predv_money` AS `predv_money`,`add_info`.`curFIO` AS `curFIO`,`add_info`.`psp` AS `psp`,`add_info`.`address` AS `address`,`add_info`.`sdd` AS `sdd`,`add_info`.`sdd_date` AS `sdd_date`,`add_info`.`perc` AS `perc`,`add_info`.`not_standart_contract` AS `not_standart_contract`,`add_info`.`not_standart_act` AS `not_standart_act`,`add_info`.`prim` AS `prim`,`add_info`.`create` AS `create`,`add_info`.`ts` AS `ts`,`add_info`.`cr_by` AS `cr_by`,`add_info`.`upd_by` AS `upd_by`,`add_info`.`repr_FIO` AS `repr_FIO`,`add_info`.`repr_addr` AS `repr_addr`,`add_info`.`repr_psp` AS `repr_psp`,`add_info`.`work_livemin` AS `work_livemin` from `add_info` where (`add_info`.`contracts_id` = `get_last_contr`()) */;
+/*!50001 VIEW `_contr_has_add_info` AS select `add_info`.`pddate` AS `pddate`,`add_info`.`contracts_id` AS `contracts_id`,`add_info`.`predv_money` AS `predv_money`,`add_info`.`curFIO` AS `curFIO`,`add_info`.`psp` AS `psp`,`add_info`.`address` AS `address`,`add_info`.`sdd` AS `sdd`,`add_info`.`sdd_date` AS `sdd_date`,`add_info`.`perc` AS `perc`,`add_info`.`not_standart_contract` AS `not_standart_contract`,`add_info`.`not_standart_act` AS `not_standart_act`,`add_info`.`note` AS `note`,`add_info`.`create` AS `create`,`add_info`.`ts` AS `ts`,`add_info`.`cr_by` AS `cr_by`,`add_info`.`upd_by` AS `upd_by`,`add_info`.`repr_FIO` AS `repr_FIO`,`add_info`.`repr_addr` AS `repr_addr`,`add_info`.`repr_psp` AS `repr_psp`,`add_info`.`work_livemin` AS `work_livemin` from `add_info` where (`add_info`.`contracts_id` = `get_last_contr`()) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6595,7 +6595,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_contracts_has_serv` AS select `chs`.`serv_id` AS `serv_id`,`chs`.`contracts_id` AS `contracts_id`,`chs`.`planned` AS `planned`,`chs`.`filled` AS `filled`,`chs`.`prim` AS `prim`,`chs`.`archive` AS `archive`,`chs`.`create` AS `create`,`chs`.`ts` AS `ts`,`chs`.`cr_by` AS `cr_by`,`chs`.`upd_by` AS `upd_by`,`chs`.`to_recheck` AS `to_recheck`,`chs`.`check_date` AS `check_date`,`chs`.`filled_old` AS `filled_old`,`s`.`tnum` AS `tnum` from (`contracts_has_serv` `chs` join `serv` `s` on((`s`.`id` = `chs`.`serv_id`))) */;
+/*!50001 VIEW `_contracts_has_serv` AS select `chs`.`serv_id` AS `serv_id`,`chs`.`contracts_id` AS `contracts_id`,`chs`.`planned` AS `planned`,`chs`.`filled` AS `filled`,`chs`.`note` AS `note`,`chs`.`archive` AS `archive`,`chs`.`create` AS `create`,`chs`.`ts` AS `ts`,`chs`.`cr_by` AS `cr_by`,`chs`.`upd_by` AS `upd_by`,`chs`.`to_recheck` AS `to_recheck`,`chs`.`check_date` AS `check_date`,`chs`.`filled_old` AS `filled_old`,`s`.`tnum` AS `tnum` from (`contracts_has_serv` `chs` join `serv` `s` on((`s`.`id` = `chs`.`serv_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6613,7 +6613,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_add_info` AS select `ai`.`pddate` AS `pddate`,`ai`.`contracts_id` AS `contracts_id`,`ai`.`predv_money` AS `predv_money`,`ai`.`curFIO` AS `curFIO`,`ai`.`psp` AS `psp`,`ai`.`address` AS `address`,`ai`.`sdd` AS `sdd`,`ai`.`sdd_date` AS `sdd_date`,`ai`.`perc` AS `perc`,`ai`.`not_standart_contract` AS `not_standart_contract`,`ai`.`not_standart_act` AS `not_standart_act`,`ai`.`prim` AS `prim`,`ai`.`create` AS `create`,`ai`.`ts` AS `ts`,`ai`.`cr_by` AS `cr_by`,`ai`.`upd_by` AS `upd_by`,`ai`.`repr_FIO` AS `repr_FIO`,`ai`.`repr_addr` AS `repr_addr`,`ai`.`repr_psp` AS `repr_psp`,`ai`.`work_livemin` AS `work_livemin` from (`add_info` `ai` join `contracts` `c` on((`c`.`id` = `ai`.`contracts_id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 VIEW `_dep_has_add_info` AS select `ai`.`pddate` AS `pddate`,`ai`.`contracts_id` AS `contracts_id`,`ai`.`predv_money` AS `predv_money`,`ai`.`curFIO` AS `curFIO`,`ai`.`psp` AS `psp`,`ai`.`address` AS `address`,`ai`.`sdd` AS `sdd`,`ai`.`sdd_date` AS `sdd_date`,`ai`.`perc` AS `perc`,`ai`.`not_standart_contract` AS `not_standart_contract`,`ai`.`not_standart_act` AS `not_standart_act`,`ai`.`note` AS `note`,`ai`.`create` AS `create`,`ai`.`ts` AS `ts`,`ai`.`cr_by` AS `cr_by`,`ai`.`upd_by` AS `upd_by`,`ai`.`repr_FIO` AS `repr_FIO`,`ai`.`repr_addr` AS `repr_addr`,`ai`.`repr_psp` AS `repr_psp`,`ai`.`work_livemin` AS `work_livemin` from (`add_info` `ai` join `contracts` `c` on((`c`.`id` = `ai`.`contracts_id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6631,7 +6631,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=MERGE */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client` AS select `u1`.`id` AS `id`,`u1`.`client` AS `client`,`u1`.`client_short` AS `client_short`,`u1`.`clientDeath` AS `clientDeath`,`u1`.`clientbirth` AS `clientbirth`,`u1`.`ESRN` AS `ESRN`,`u1`.`prim` AS `prim`,`u1`.`phone` AS `phone`,`u1`.`snils` AS `snils`,`u1`.`curator` AS `curator`,`u1`.`create` AS `create`,`u1`.`ts` AS `ts`,`u1`.`cr_by` AS `cr_by`,`u1`.`upd_by` AS `upd_by`,`u1`.`cr_dep_id` AS `cr_dep_id` from (select distinct `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where ((`c`.`blocked` = false) and (`u`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`) or `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)))) `u1` */;
+/*!50001 VIEW `_dep_has_client` AS select `u1`.`id` AS `id`,`u1`.`client` AS `client`,`u1`.`client_short` AS `client_short`,`u1`.`clientDeath` AS `clientDeath`,`u1`.`clientbirth` AS `clientbirth`,`u1`.`ESRN` AS `ESRN`,`u1`.`note` AS `note`,`u1`.`phone` AS `phone`,`u1`.`snils` AS `snils`,`u1`.`curator` AS `curator`,`u1`.`create` AS `create`,`u1`.`ts` AS `ts`,`u1`.`cr_by` AS `cr_by`,`u1`.`upd_by` AS `upd_by`,`u1`.`cr_dep_id` AS `cr_dep_id` from (select distinct `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`note` AS `note`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where ((`c`.`blocked` = false) and (`u`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`) or `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)))) `u1` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6649,7 +6649,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client_blocked_in_year` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where ((`c`.`blocked` = true) and (year(`c`.`enddate`) = `get_year`(`get_WID`())) and (`u`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`) or `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`))) */;
+/*!50001 VIEW `_dep_has_client_blocked_in_year` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`note` AS `note`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where ((`c`.`blocked` = true) and (year(`c`.`enddate`) = `get_year`(`get_WID`())) and (`u`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`) or `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6667,7 +6667,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client_by_ripso` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by` from `client` where `client`.`id` in (select `c`.`client_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where `rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
+/*!50001 VIEW `_dep_has_client_by_ripso` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`note` AS `note`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by` from `client` where `client`.`id` in (select `c`.`client_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where `rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6685,7 +6685,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client_contracts` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 VIEW `_dep_has_client_contracts` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`note` AS `note`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6703,7 +6703,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client_count_2month` AS select sum(`m`.`quantity`) AS `quantity`,`u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `dep_has_main` `m` on((`m`.`client_id` = `u`.`id`))) where (year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) and (month(`m`.`vdate`) in (month(curdate()),(month(curdate()) - 1)))) group by `u`.`id` */;
+/*!50001 VIEW `_dep_has_client_count_2month` AS select sum(`m`.`quantity`) AS `quantity`,`u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`note` AS `note`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `dep_has_main` `m` on((`m`.`client_id` = `u`.`id`))) where (year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) and (month(`m`.`vdate`) in (month(curdate()),(month(curdate()) - 1)))) group by `u`.`id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6721,7 +6721,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client_count_main_year` AS select sum(`m`.`quantity`) AS `quantity`,`u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `dep_has_main` `m` on((`m`.`client_id` = `u`.`id`))) where year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) group by `u`.`id` */;
+/*!50001 VIEW `_dep_has_client_count_main_year` AS select sum(`m`.`quantity`) AS `quantity`,`u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`note` AS `note`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `dep_has_main` `m` on((`m`.`client_id` = `u`.`id`))) where year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) group by `u`.`id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6739,7 +6739,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client_count_month` AS select sum(`m`.`quantity`) AS `quantity`,`u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `dep_has_main` `m` on((`m`.`client_id` = `u`.`id`))) where (year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) and (month(`m`.`vdate`) = month(curdate()))) group by `u`.`id` */;
+/*!50001 VIEW `_dep_has_client_count_month` AS select sum(`m`.`quantity`) AS `quantity`,`u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`note` AS `note`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `dep_has_main` `m` on((`m`.`client_id` = `u`.`id`))) where (year(`m`.`vdate`) in (select `GET_YEAR`(`GET_WID`())) and (month(`m`.`vdate`) = month(curdate()))) group by `u`.`id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6793,7 +6793,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client_more` AS select `du`.`id` AS `id`,`du`.`client` AS `client`,`du`.`client_short` AS `client_short`,`du`.`clientDeath` AS `clientDeath`,`du`.`clientbirth` AS `clientbirth`,`du`.`ESRN` AS `ESRN`,`du`.`prim` AS `prim_fio`,`du`.`phone` AS `phone`,`du`.`snils` AS `snils`,`du`.`curator` AS `curator_fio`,`du`.`create` AS `create_fio`,`du`.`ts` AS `ts_fio`,`du`.`cr_by` AS `cr_by_fio`,`du`.`upd_by` AS `upd_by_fio`,`au`.`client_id` AS `client_id`,`au`.`pddate` AS `pddate`,`au`.`contracts_id` AS `contracts_id`,`au`.`predv_money` AS `predv_money`,`au`.`curFIO` AS `curFIO`,`au`.`psp` AS `psp`,`au`.`address` AS `address`,`au`.`sdd` AS `sdd`,`au`.`sdd_date` AS `sdd_date`,`au`.`perc` AS `perc`,`au`.`not_standart_contract` AS `not_standart_contract`,`au`.`not_standart_act` AS `not_standart_act`,`au`.`prim` AS `prim`,`au`.`create` AS `create`,`au`.`ts` AS `ts`,`au`.`cr_by` AS `cr_by`,`au`.`upd_by` AS `upd_by`,`au`.`repr_FIO` AS `repr_FIO`,`au`.`repr_addr` AS `repr_addr`,`au`.`repr_psp` AS `repr_psp`,`au`.`work_livemin` AS `work_livemin` from ((select `t2`.`client_id` AS `client_id`,`t2`.`pddate` AS `pddate`,`t2`.`contracts_id` AS `contracts_id`,`t2`.`predv_money` AS `predv_money`,`t2`.`curFIO` AS `curFIO`,`t2`.`psp` AS `psp`,`t2`.`address` AS `address`,`t2`.`sdd` AS `sdd`,`t2`.`sdd_date` AS `sdd_date`,`t2`.`perc` AS `perc`,`t2`.`not_standart_contract` AS `not_standart_contract`,`t2`.`not_standart_act` AS `not_standart_act`,`t2`.`prim` AS `prim`,`t2`.`create` AS `create`,`t2`.`ts` AS `ts`,`t2`.`cr_by` AS `cr_by`,`t2`.`upd_by` AS `upd_by`,`t2`.`repr_FIO` AS `repr_FIO`,`t2`.`repr_addr` AS `repr_addr`,`t2`.`repr_psp` AS `repr_psp`,`t2`.`work_livemin` AS `work_livemin` from (select `au1`.`client_id` AS `client_id`,`au1`.`pddate` AS `pddate`,`au1`.`contracts_id` AS `contracts_id`,`au1`.`predv_money` AS `predv_money`,`au1`.`curFIO` AS `curFIO`,`au1`.`psp` AS `psp`,`au1`.`address` AS `address`,`au1`.`sdd` AS `sdd`,`au1`.`sdd_date` AS `sdd_date`,`au1`.`perc` AS `perc`,`au1`.`not_standart_contract` AS `not_standart_contract`,`au1`.`not_standart_act` AS `not_standart_act`,`au1`.`prim` AS `prim`,`au1`.`create` AS `create`,`au1`.`ts` AS `ts`,`au1`.`cr_by` AS `cr_by`,`au1`.`upd_by` AS `upd_by`,`au1`.`repr_FIO` AS `repr_FIO`,`au1`.`repr_addr` AS `repr_addr`,`au1`.`repr_psp` AS `repr_psp`,`au1`.`work_livemin` AS `work_livemin` from `add_info_for_client` `au1` order by `au1`.`pddate` desc) `t2` group by `t2`.`client_id`) `au` join `_dep_has_client` `du` on((`du`.`id` = `au`.`client_id`))) order by `au`.`pddate` desc */;
+/*!50001 VIEW `_dep_has_client_more` AS select `du`.`id` AS `id`,`du`.`client` AS `client`,`du`.`client_short` AS `client_short`,`du`.`clientDeath` AS `clientDeath`,`du`.`clientbirth` AS `clientbirth`,`du`.`ESRN` AS `ESRN`,`du`.`note` AS `prim_fio`,`du`.`phone` AS `phone`,`du`.`snils` AS `snils`,`du`.`curator` AS `curator_fio`,`du`.`create` AS `create_fio`,`du`.`ts` AS `ts_fio`,`du`.`cr_by` AS `cr_by_fio`,`du`.`upd_by` AS `upd_by_fio`,`au`.`client_id` AS `client_id`,`au`.`pddate` AS `pddate`,`au`.`contracts_id` AS `contracts_id`,`au`.`predv_money` AS `predv_money`,`au`.`curFIO` AS `curFIO`,`au`.`psp` AS `psp`,`au`.`address` AS `address`,`au`.`sdd` AS `sdd`,`au`.`sdd_date` AS `sdd_date`,`au`.`perc` AS `perc`,`au`.`not_standart_contract` AS `not_standart_contract`,`au`.`not_standart_act` AS `not_standart_act`,`au`.`note` AS `note`,`au`.`create` AS `create`,`au`.`ts` AS `ts`,`au`.`cr_by` AS `cr_by`,`au`.`upd_by` AS `upd_by`,`au`.`repr_FIO` AS `repr_FIO`,`au`.`repr_addr` AS `repr_addr`,`au`.`repr_psp` AS `repr_psp`,`au`.`work_livemin` AS `work_livemin` from ((select `t2`.`client_id` AS `client_id`,`t2`.`pddate` AS `pddate`,`t2`.`contracts_id` AS `contracts_id`,`t2`.`predv_money` AS `predv_money`,`t2`.`curFIO` AS `curFIO`,`t2`.`psp` AS `psp`,`t2`.`address` AS `address`,`t2`.`sdd` AS `sdd`,`t2`.`sdd_date` AS `sdd_date`,`t2`.`perc` AS `perc`,`t2`.`not_standart_contract` AS `not_standart_contract`,`t2`.`not_standart_act` AS `not_standart_act`,`t2`.`note` AS `note`,`t2`.`create` AS `create`,`t2`.`ts` AS `ts`,`t2`.`cr_by` AS `cr_by`,`t2`.`upd_by` AS `upd_by`,`t2`.`repr_FIO` AS `repr_FIO`,`t2`.`repr_addr` AS `repr_addr`,`t2`.`repr_psp` AS `repr_psp`,`t2`.`work_livemin` AS `work_livemin` from (select `au1`.`client_id` AS `client_id`,`au1`.`pddate` AS `pddate`,`au1`.`contracts_id` AS `contracts_id`,`au1`.`predv_money` AS `predv_money`,`au1`.`curFIO` AS `curFIO`,`au1`.`psp` AS `psp`,`au1`.`address` AS `address`,`au1`.`sdd` AS `sdd`,`au1`.`sdd_date` AS `sdd_date`,`au1`.`perc` AS `perc`,`au1`.`not_standart_contract` AS `not_standart_contract`,`au1`.`not_standart_act` AS `not_standart_act`,`au1`.`note` AS `note`,`au1`.`create` AS `create`,`au1`.`ts` AS `ts`,`au1`.`cr_by` AS `cr_by`,`au1`.`upd_by` AS `upd_by`,`au1`.`repr_FIO` AS `repr_FIO`,`au1`.`repr_addr` AS `repr_addr`,`au1`.`repr_psp` AS `repr_psp`,`au1`.`work_livemin` AS `work_livemin` from `add_info_for_client` `au1` order by `au1`.`pddate` desc) `t2` group by `t2`.`client_id`) `au` join `_dep_has_client` `du` on((`du`.`id` = `au`.`client_id`))) order by `au`.`pddate` desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6811,7 +6811,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client_ripso` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` where `client`.`id` in (select `c`.`client_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where `rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
+/*!50001 VIEW `_dep_has_client_ripso` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`note` AS `note`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` where `client`.`id` in (select `c`.`client_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where `rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6829,7 +6829,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client_ripso_or_contracts` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` where `client`.`id` in (select `c`.`client_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where (`rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) or `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`))) */;
+/*!50001 VIEW `_dep_has_client_ripso_or_contracts` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`note` AS `note`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` where `client`.`id` in (select `c`.`client_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where (`rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) or `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6847,7 +6847,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_client_year` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` where `client`.`id` in (select `c`.`client_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where ((`rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) or `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) and ((year(`c`.`startdate`) = `GET_YEAR`(`GET_wID`())) or (year(`c`.`startdate`) = `GET_YEAR`(`GET_wID`()))))) */;
+/*!50001 VIEW `_dep_has_client_year` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`note` AS `note`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` where `client`.`id` in (select `c`.`client_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where ((`rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) or `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) and ((year(`c`.`startdate`) = `GET_YEAR`(`GET_wID`())) or (year(`c`.`startdate`) = `GET_YEAR`(`GET_wID`()))))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6901,7 +6901,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_new_client` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `client` `u` where `u`.`id` in (select `u1`.`id` from (`client` `u1` left join `contracts` `c` on((`c`.`client_id` = `u1`.`id`))) where `u1`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
+/*!50001 VIEW `_dep_has_new_client` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`note` AS `note`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `client` `u` where `u`.`id` in (select `u1`.`id` from (`client` `u1` left join `contracts` `c` on((`c`.`client_id` = `u1`.`id`))) where `u1`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6937,7 +6937,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_worker` AS select `dhr`.`id` AS `id`,`dhr`.`dep_has_worker` AS `dep_has_worker`,`dhr`.`worker_id` AS `worker_id`,`dhr`.`dep_id` AS `dep_id`,`dhr`.`job_id` AS `job_id`,`dhr`.`prim` AS `prim`,`dhr`.`archive` AS `archive`,`dhr`.`from` AS `from`,`dhr`.`till` AS `till`,`dhr`.`role_id` AS `role_id`,`dhr`.`api_key` AS `api_key` from `dep_has_worker` `dhr` where `dhr`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 VIEW `_dep_has_worker` AS select `dhr`.`id` AS `id`,`dhr`.`dep_has_worker` AS `dep_has_worker`,`dhr`.`worker_id` AS `worker_id`,`dhr`.`dep_id` AS `dep_id`,`dhr`.`job_id` AS `job_id`,`dhr`.`note` AS `note`,`dhr`.`archive` AS `archive`,`dhr`.`from` AS `from`,`dhr`.`till` AS `till`,`dhr`.`role_id` AS `role_id`,`dhr`.`api_key` AS `api_key` from `dep_has_worker` `dhr` where `dhr`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6955,7 +6955,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dep_has_workers` AS select `dhr`.`id` AS `id`,`dhr`.`worker` AS `worker`,`dhr`.`user` AS `user`,`dhr`.`prim` AS `prim`,`dhr`.`role_id` AS `role_id`,`dhr`.`dep_id` AS `dep_id`,`dhr`.`archive` AS `archive` from `worker` `dhr` where `dhr`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 VIEW `_dep_has_workers` AS select `dhr`.`id` AS `id`,`dhr`.`worker` AS `worker`,`dhr`.`user` AS `user`,`dhr`.`note` AS `note`,`dhr`.`role_id` AS `role_id`,`dhr`.`dep_id` AS `dep_id`,`dhr`.`archive` AS `archive` from `worker` `dhr` where `dhr`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6973,7 +6973,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_dhw_has_client` AS select `dhwu`.`dhw_id` AS `dhw_id`,`dhwu`.`client_id` AS `client_id`,`dhwu`.`prim` AS `prim` from `dhw_has_client` `dhwu` where `dhwu`.`dhw_id` in (select `_dep_has_worker`.`id` from `_dep_has_worker`) */;
+/*!50001 VIEW `_dhw_has_client` AS select `dhwu`.`dhw_id` AS `dhw_id`,`dhwu`.`client_id` AS `client_id`,`dhwu`.`note` AS `note` from `dhw_has_client` `dhwu` where `dhwu`.`dhw_id` in (select `_dep_has_worker`.`id` from `_dep_has_worker`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7387,7 +7387,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `add_info_for_client` AS select `u`.`id` AS `client_id`,`a`.`pddate` AS `pddate`,`a`.`contracts_id` AS `contracts_id`,`a`.`predv_money` AS `predv_money`,`a`.`curFIO` AS `curFIO`,`a`.`psp` AS `psp`,`a`.`address` AS `address`,`a`.`sdd` AS `sdd`,`a`.`sdd_date` AS `sdd_date`,`a`.`perc` AS `perc`,`a`.`not_standart_contract` AS `not_standart_contract`,`a`.`not_standart_act` AS `not_standart_act`,`a`.`prim` AS `prim`,`a`.`create` AS `create`,`a`.`ts` AS `ts`,`a`.`cr_by` AS `cr_by`,`a`.`upd_by` AS `upd_by`,`a`.`repr_FIO` AS `repr_FIO`,`a`.`repr_addr` AS `repr_addr`,`a`.`repr_psp` AS `repr_psp`,`a`.`work_livemin` AS `work_livemin` from ((`add_info` `a` join `contracts` `c` on((`c`.`id` = `a`.`contracts_id`))) join `client` `u` on((`c`.`client_id` = `u`.`id`))) order by `a`.`pddate` desc */;
+/*!50001 VIEW `add_info_for_client` AS select `u`.`id` AS `client_id`,`a`.`pddate` AS `pddate`,`a`.`contracts_id` AS `contracts_id`,`a`.`predv_money` AS `predv_money`,`a`.`curFIO` AS `curFIO`,`a`.`psp` AS `psp`,`a`.`address` AS `address`,`a`.`sdd` AS `sdd`,`a`.`sdd_date` AS `sdd_date`,`a`.`perc` AS `perc`,`a`.`not_standart_contract` AS `not_standart_contract`,`a`.`not_standart_act` AS `not_standart_act`,`a`.`note` AS `note`,`a`.`create` AS `create`,`a`.`ts` AS `ts`,`a`.`cr_by` AS `cr_by`,`a`.`upd_by` AS `upd_by`,`a`.`repr_FIO` AS `repr_FIO`,`a`.`repr_addr` AS `repr_addr`,`a`.`repr_psp` AS `repr_psp`,`a`.`work_livemin` AS `work_livemin` from ((`add_info` `a` join `contracts` `c` on((`c`.`id` = `a`.`contracts_id`))) join `client` `u` on((`c`.`client_id` = `u`.`id`))) order by `a`.`pddate` desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7405,7 +7405,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `cr_by` AS select `worker`.`id` AS `id`,`worker`.`worker` AS `cr_by`,`worker`.`user` AS `user`,`worker`.`prim` AS `prim`,`worker`.`role_id` AS `role_id`,`worker`.`dep_id` AS `dep_id`,`worker`.`archive` AS `archive` from `worker` */;
+/*!50001 VIEW `cr_by` AS select `worker`.`id` AS `id`,`worker`.`worker` AS `cr_by`,`worker`.`user` AS `user`,`worker`.`note` AS `note`,`worker`.`role_id` AS `role_id`,`worker`.`dep_id` AS `dep_id`,`worker`.`archive` AS `archive` from `worker` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7459,7 +7459,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `dep_has_client_by_contr` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` where `client`.`id` in (select `c`.`client_id` from `contracts` `c` where (`c`.`dep_id` = `GET_DEP`(`GET_wID`()))) */;
+/*!50001 VIEW `dep_has_client_by_contr` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`note` AS `note`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` where `client`.`id` in (select `c`.`client_id` from `contracts` `c` where (`c`.`dep_id` = `GET_DEP`(`GET_wID`()))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7477,7 +7477,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `dep_has_client_by_ripso` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` where `client`.`id` in (select `c`.`client_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where `rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
+/*!50001 VIEW `dep_has_client_by_ripso` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`note` AS `note`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` where `client`.`id` in (select `c`.`client_id` from (`contracts` `c` join `dep_has_ripso` `rod` on((`rod`.`ripso_id` = `c`.`ripso_id`))) where `rod`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7783,7 +7783,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `upd_by` AS select `worker`.`id` AS `id`,`worker`.`worker` AS `upd_by`,`worker`.`user` AS `user`,`worker`.`prim` AS `prim`,`worker`.`role_id` AS `role_id`,`worker`.`dep_id` AS `dep_id`,`worker`.`archive` AS `archive` from `worker` */;
+/*!50001 VIEW `upd_by` AS select `worker`.`id` AS `id`,`worker`.`worker` AS `upd_by`,`worker`.`user` AS `user`,`worker`.`note` AS `note`,`worker`.`role_id` AS `role_id`,`worker`.`dep_id` AS `dep_id`,`worker`.`archive` AS `archive` from `worker` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7801,7 +7801,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `updatable_2__dep_has_client` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `client` `u` where `u`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 VIEW `updatable_2__dep_has_client` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`note` AS `note`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from `client` `u` where `u`.`cr_dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7819,7 +7819,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `updatable__contr_has_add_info` AS select `_contr_has_add_info`.`pddate` AS `pddate`,`_contr_has_add_info`.`contracts_id` AS `contracts_id`,`_contr_has_add_info`.`predv_money` AS `predv_money`,`_contr_has_add_info`.`curFIO` AS `curFIO`,`_contr_has_add_info`.`psp` AS `psp`,`_contr_has_add_info`.`address` AS `address`,`_contr_has_add_info`.`sdd` AS `sdd`,`_contr_has_add_info`.`sdd_date` AS `sdd_date`,`_contr_has_add_info`.`perc` AS `perc`,`_contr_has_add_info`.`not_standart_contract` AS `not_standart_contract`,`_contr_has_add_info`.`not_standart_act` AS `not_standart_act`,`_contr_has_add_info`.`prim` AS `prim`,`_contr_has_add_info`.`create` AS `create`,`_contr_has_add_info`.`ts` AS `ts`,`_contr_has_add_info`.`cr_by` AS `cr_by`,`_contr_has_add_info`.`upd_by` AS `upd_by`,`_contr_has_add_info`.`repr_FIO` AS `repr_FIO`,`_contr_has_add_info`.`repr_addr` AS `repr_addr`,`_contr_has_add_info`.`repr_psp` AS `repr_psp`,`_contr_has_add_info`.`work_livemin` AS `work_livemin` from `_contr_has_add_info` */;
+/*!50001 VIEW `updatable__contr_has_add_info` AS select `_contr_has_add_info`.`pddate` AS `pddate`,`_contr_has_add_info`.`contracts_id` AS `contracts_id`,`_contr_has_add_info`.`predv_money` AS `predv_money`,`_contr_has_add_info`.`curFIO` AS `curFIO`,`_contr_has_add_info`.`psp` AS `psp`,`_contr_has_add_info`.`address` AS `address`,`_contr_has_add_info`.`sdd` AS `sdd`,`_contr_has_add_info`.`sdd_date` AS `sdd_date`,`_contr_has_add_info`.`perc` AS `perc`,`_contr_has_add_info`.`not_standart_contract` AS `not_standart_contract`,`_contr_has_add_info`.`not_standart_act` AS `not_standart_act`,`_contr_has_add_info`.`note` AS `note`,`_contr_has_add_info`.`create` AS `create`,`_contr_has_add_info`.`ts` AS `ts`,`_contr_has_add_info`.`cr_by` AS `cr_by`,`_contr_has_add_info`.`upd_by` AS `upd_by`,`_contr_has_add_info`.`repr_FIO` AS `repr_FIO`,`_contr_has_add_info`.`repr_addr` AS `repr_addr`,`_contr_has_add_info`.`repr_psp` AS `repr_psp`,`_contr_has_add_info`.`work_livemin` AS `work_livemin` from `_contr_has_add_info` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7837,7 +7837,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `updatable__dep_has_add_info` AS select `ai`.`pddate` AS `pddate`,`ai`.`contracts_id` AS `contracts_id`,`ai`.`predv_money` AS `predv_money`,`ai`.`curFIO` AS `curFIO`,`ai`.`psp` AS `psp`,`ai`.`address` AS `address`,`ai`.`sdd` AS `sdd`,`ai`.`sdd_date` AS `sdd_date`,`ai`.`perc` AS `perc`,`ai`.`not_standart_contract` AS `not_standart_contract`,`ai`.`not_standart_act` AS `not_standart_act`,`ai`.`prim` AS `prim`,`ai`.`create` AS `create`,`ai`.`ts` AS `ts`,`ai`.`cr_by` AS `cr_by`,`ai`.`upd_by` AS `upd_by`,`ai`.`repr_FIO` AS `repr_FIO`,`ai`.`repr_addr` AS `repr_addr`,`ai`.`repr_psp` AS `repr_psp`,`ai`.`work_livemin` AS `work_livemin` from (`add_info` `ai` join `contracts` `c` on((`c`.`id` = `ai`.`contracts_id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 VIEW `updatable__dep_has_add_info` AS select `ai`.`pddate` AS `pddate`,`ai`.`contracts_id` AS `contracts_id`,`ai`.`predv_money` AS `predv_money`,`ai`.`curFIO` AS `curFIO`,`ai`.`psp` AS `psp`,`ai`.`address` AS `address`,`ai`.`sdd` AS `sdd`,`ai`.`sdd_date` AS `sdd_date`,`ai`.`perc` AS `perc`,`ai`.`not_standart_contract` AS `not_standart_contract`,`ai`.`not_standart_act` AS `not_standart_act`,`ai`.`note` AS `note`,`ai`.`create` AS `create`,`ai`.`ts` AS `ts`,`ai`.`cr_by` AS `cr_by`,`ai`.`upd_by` AS `upd_by`,`ai`.`repr_FIO` AS `repr_FIO`,`ai`.`repr_addr` AS `repr_addr`,`ai`.`repr_psp` AS `repr_psp`,`ai`.`work_livemin` AS `work_livemin` from (`add_info` `ai` join `contracts` `c` on((`c`.`id` = `ai`.`contracts_id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7855,7 +7855,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `updatable__dep_has_client` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`prim` AS `prim`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
+/*!50001 VIEW `updatable__dep_has_client` AS select `u`.`id` AS `id`,`u`.`client` AS `client`,`u`.`client_short` AS `client_short`,`u`.`clientDeath` AS `clientDeath`,`u`.`clientbirth` AS `clientbirth`,`u`.`ESRN` AS `ESRN`,`u`.`note` AS `note`,`u`.`phone` AS `phone`,`u`.`snils` AS `snils`,`u`.`curator` AS `curator`,`u`.`create` AS `create`,`u`.`ts` AS `ts`,`u`.`cr_by` AS `cr_by`,`u`.`upd_by` AS `upd_by`,`u`.`cr_dep_id` AS `cr_dep_id` from (`client` `u` join `contracts` `c` on((`c`.`client_id` = `u`.`id`))) where `c`.`dep_id` in (select `_active_dep`.`id` from `_active_dep`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7927,7 +7927,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `updatable_add_info` AS select `add_info`.`pddate` AS `pddate`,`add_info`.`contracts_id` AS `contracts_id`,`add_info`.`predv_money` AS `predv_money`,`add_info`.`curFIO` AS `curFIO`,`add_info`.`psp` AS `psp`,`add_info`.`address` AS `address`,`add_info`.`sdd` AS `sdd`,`add_info`.`sdd_date` AS `sdd_date`,`add_info`.`perc` AS `perc`,`add_info`.`not_standart_contract` AS `not_standart_contract`,`add_info`.`not_standart_act` AS `not_standart_act`,`add_info`.`prim` AS `prim`,`add_info`.`create` AS `create`,`add_info`.`ts` AS `ts`,`add_info`.`cr_by` AS `cr_by`,`add_info`.`upd_by` AS `upd_by`,`add_info`.`repr_FIO` AS `repr_FIO`,`add_info`.`repr_addr` AS `repr_addr`,`add_info`.`repr_psp` AS `repr_psp`,`add_info`.`work_livemin` AS `work_livemin` from `add_info` */;
+/*!50001 VIEW `updatable_add_info` AS select `add_info`.`pddate` AS `pddate`,`add_info`.`contracts_id` AS `contracts_id`,`add_info`.`predv_money` AS `predv_money`,`add_info`.`curFIO` AS `curFIO`,`add_info`.`psp` AS `psp`,`add_info`.`address` AS `address`,`add_info`.`sdd` AS `sdd`,`add_info`.`sdd_date` AS `sdd_date`,`add_info`.`perc` AS `perc`,`add_info`.`not_standart_contract` AS `not_standart_contract`,`add_info`.`not_standart_act` AS `not_standart_act`,`add_info`.`note` AS `note`,`add_info`.`create` AS `create`,`add_info`.`ts` AS `ts`,`add_info`.`cr_by` AS `cr_by`,`add_info`.`upd_by` AS `upd_by`,`add_info`.`repr_FIO` AS `repr_FIO`,`add_info`.`repr_addr` AS `repr_addr`,`add_info`.`repr_psp` AS `repr_psp`,`add_info`.`work_livemin` AS `work_livemin` from `add_info` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7945,7 +7945,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `updatable_client` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`prim` AS `prim`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` */;
+/*!50001 VIEW `updatable_client` AS select `client`.`id` AS `id`,`client`.`client` AS `client`,`client`.`client_short` AS `client_short`,`client`.`clientDeath` AS `clientDeath`,`client`.`clientbirth` AS `clientbirth`,`client`.`ESRN` AS `ESRN`,`client`.`note` AS `note`,`client`.`phone` AS `phone`,`client`.`snils` AS `snils`,`client`.`curator` AS `curator`,`client`.`create` AS `create`,`client`.`ts` AS `ts`,`client`.`cr_by` AS `cr_by`,`client`.`upd_by` AS `upd_by`,`client`.`cr_dep_id` AS `cr_dep_id` from `client` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -7981,7 +7981,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `updatable_contracts_has_serv` AS select `contracts_has_serv`.`serv_id` AS `serv_id`,`contracts_has_serv`.`contracts_id` AS `contracts_id`,`contracts_has_serv`.`planned` AS `planned`,`contracts_has_serv`.`filled` AS `filled`,`contracts_has_serv`.`prim` AS `prim`,`contracts_has_serv`.`archive` AS `archive`,`contracts_has_serv`.`create` AS `create`,`contracts_has_serv`.`ts` AS `ts`,`contracts_has_serv`.`cr_by` AS `cr_by`,`contracts_has_serv`.`upd_by` AS `upd_by`,`contracts_has_serv`.`to_recheck` AS `to_recheck`,`contracts_has_serv`.`check_date` AS `check_date`,`contracts_has_serv`.`filled_old` AS `filled_old` from `contracts_has_serv` */;
+/*!50001 VIEW `updatable_contracts_has_serv` AS select `contracts_has_serv`.`serv_id` AS `serv_id`,`contracts_has_serv`.`contracts_id` AS `contracts_id`,`contracts_has_serv`.`planned` AS `planned`,`contracts_has_serv`.`filled` AS `filled`,`contracts_has_serv`.`note` AS `note`,`contracts_has_serv`.`archive` AS `archive`,`contracts_has_serv`.`create` AS `create`,`contracts_has_serv`.`ts` AS `ts`,`contracts_has_serv`.`cr_by` AS `cr_by`,`contracts_has_serv`.`upd_by` AS `upd_by`,`contracts_has_serv`.`to_recheck` AS `to_recheck`,`contracts_has_serv`.`check_date` AS `check_date`,`contracts_has_serv`.`filled_old` AS `filled_old` from `contracts_has_serv` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
