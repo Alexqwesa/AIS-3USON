@@ -30,6 +30,7 @@ from qtpy.QtSql import QSqlRelationalTableModel, QSqlRelation
 # ---------------------------
 from logic.ts_get_contract_data import perc_for
 from safe_shared_data import *
+from logging import debug, error, info
 
 TABLE_FOR_DEBUG = "table__dep_has_main__where_vdate__by_vdate"
 

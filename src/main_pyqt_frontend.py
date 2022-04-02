@@ -35,6 +35,7 @@ import qtpy.QtWidgets
 # ---------------------------
 from tab_classes import *
 from logic.fill_templates import PrepareDocument
+from dev.logger_setup import debug, info, warning, error, critical
 
 #############################
 # CONSTANTS

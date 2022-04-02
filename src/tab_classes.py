@@ -872,7 +872,7 @@ class clstab_services_import(QOBase):
         if not self.import_table.model():
             self.import_table.setModel(self.import_model)
         self.import_model.import_services_from_files()
-        self.import_table.model().update_view()
+        self.import_model.update_view()
         # update_view
 
     @Slot(bool)
@@ -881,9 +881,35 @@ class clstab_services_import(QOBase):
         self.import_table.setModel(self.import_model)
         # self.import_model = ImportJsonModel()
 
-    @Slot(bool)
+    @Slot()
+    def on_btn_import_clear_clicked(self):
+        self.import_model.json_import = []
+        self.import_model.update_view()
+
+    @Slot()
     def on_btn_import_to_dbms_clicked(self):
-        self._init()
+        imain = WD.models("api_key_insert_main")
+        # dhw = WD.models("dep_has_worker")
+        # contracts_model = WD.models("contracts")
+        for service in self.import_model.json_import:
+            if service["IN"] == "New":
+                rec = {
+                    "contracts_id": service["contractId"],
+                    # "dep_id": dhw.data_by_id(service["workerId"], dhw.index_of_col("dep_id")),
+                    "serv_id": service["servId"],
+                    "vdate": service["provDate"],
+                    "dep_has_worker_id": service["workerId"],
+                    # "note": service["uid"],
+                    "uuid": service["uid"],
+                    "check_api_key": service["api_key"],
+                    "quantity": 1,
+                    # "client_id":
+                    #     contracts_model.data_by_id(service["contractId"], contracts_model.index_of_col("client_id"))
+                }
+                SD.start_edit(None, imain, imain.row_id(imain.special_row), "client_id")
+                ce = imain.insert_row(rec)
+                if ce.save():
+                    service["IN"] = "Exist"
 
     def _init(self):
         if (not self.__init) and SD._dbconnected:

@@ -14,10 +14,8 @@
 # -------------------------------------------------------------------------------
 import configparser
 import threading
-import time
 from contextlib import contextmanager
 
-import sqlalchemy
 from qtpy.QtCore import QRecursiveMutex
 from sqlalchemy import create_engine
 from sqlalchemy.exc import OperationalError, ProgrammingError

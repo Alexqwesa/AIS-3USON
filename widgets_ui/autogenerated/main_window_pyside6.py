@@ -1093,10 +1093,20 @@ class Ui_MainWindow(object):
 
         self.gridLayout_113.addWidget(self.btn_import_services, 1, 0, 1, 1)
 
-        self.import_table = tsQTableViewYear(self.tab_import_services_from_file)
+        self.btn_import_to_dbms = QPushButton(self.tab_import_services_from_file)
+        self.btn_import_to_dbms.setObjectName(u"btn_import_to_dbms")
+
+        self.gridLayout_113.addWidget(self.btn_import_to_dbms, 1, 1, 1, 1)
+
+        self.btn_import_clear = QPushButton(self.tab_import_services_from_file)
+        self.btn_import_clear.setObjectName(u"btn_import_clear")
+
+        self.gridLayout_113.addWidget(self.btn_import_clear, 1, 2, 1, 1)
+
+        self.import_table = QTableView(self.tab_import_services_from_file)
         self.import_table.setObjectName(u"import_table")
 
-        self.gridLayout_113.addWidget(self.import_table, 2, 0, 1, 1)
+        self.gridLayout_113.addWidget(self.import_table, 2, 0, 1, 3)
 
         self.tabs_add_serv.addTab(self.tab_import_services_from_file, "")
         self.tab_show_group_services = myQWidget()
@@ -6100,7 +6110,9 @@ class Ui_MainWindow(object):
         self.pushButton_12.setText(QCoreApplication.translate("MainWindow", u"4) \u0412\u0432\u0435\u0441\u0442\u0438 N \u0443\u0441\u043b\u0443\u0433 \u043d\u0430 M \u043b\u044e\u0434\u0435\u0439", None))
         self.tabs_add_serv.setTabText(self.tabs_add_serv.indexOf(self.tab_add_group_services), QCoreApplication.translate("MainWindow", u"\u0412\u0432\u043e\u0434 \u0433\u0440\u0443\u043f\u043f\u043e\u0432\u044b\u0445 \u0443\u0441\u043b\u0443\u0433", None))
         self.label_90.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0436\u043c\u0438\u0442\u0435 \"\u0418\u043c\u043f\u043e\u0440\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c...\" \u0447\u0442\u043e\u0431\u044b \u0434\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0443\u0441\u043b\u0443\u0433\u0438 \u0438\u0437 \u0444\u0430\u0439\u043b\u0430 \".aisjson\" \u0432 \u0431\u0430\u0437\u0443 \u0434\u0430\u043d\u043d\u044b\u0445. \u041f\u0440\u0438\u043c\u0435\u0447\u0430\u043d\u0438\u0435: \u0437\u0430\u0434\u0432\u043e\u0435\u043d\u043d\u044b\u0435 \u0443\u0441\u043b\u0443\u0433\u0438 \u0431\u0443\u0434\u0443\u0442 \u043f\u0440\u043e\u043f\u0443\u0449\u0435\u043d\u044b.", None))
-        self.btn_import_services.setText(QCoreApplication.translate("MainWindow", u"\u0418\u043c\u043f\u043e\u0440\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0443\u0441\u043b\u0443\u0433\u0438 \u0438\u0437 \u0444\u0430\u0439\u043b\u0430", None))
+        self.btn_import_services.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u0443\u0441\u043b\u0443\u0433\u0438 \u0438\u0437 \u0444\u0430\u0439\u043b\u0430 \u0432 \u0442\u0430\u0431\u043b\u0438\u0446\u0443", None))
+        self.btn_import_to_dbms.setText(QCoreApplication.translate("MainWindow", u"\u0418\u043c\u043f\u043e\u0440\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u043d\u043e\u0432\u044b\u0435 \u0443\u0441\u043b\u0443\u0433\u0438 \u0438\u0437 \u0442\u0430\u0431\u043b\u0438\u0446\u044b", None))
+        self.btn_import_clear.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u044c \u0441\u043f\u0438\u0441\u043e\u043a", None))
         self.tabs_add_serv.setTabText(self.tabs_add_serv.indexOf(self.tab_import_services_from_file), QCoreApplication.translate("MainWindow", u"\u0418\u043c\u043f\u043e\u0440\u0442 \u0443\u0441\u043b\u0443\u0433 \u0438\u0437 \u0444\u0430\u0439\u043b\u0430", None))
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.tabs_add_serv.setTabText(self.tabs_add_serv.indexOf(self.tab_show_group_services), QCoreApplication.translate("MainWindow", u"\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0432\u0432\u0435\u0434\u0435\u043d\u043d\u044b\u0445 \u0433\u0440\u0443\u043f\u043e\u0432\u044b\u0445 \u0443\u0441\u043b\u0443\u0433", None))

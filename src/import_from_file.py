@@ -1,6 +1,6 @@
 import json
 from itertools import count
-from logging import debug, error
+from dev.logger_setup import debug, info, warning, error, critical
 from os import path
 
 from qtpy.QtCore import QUrl
@@ -8,6 +8,7 @@ from qtpy.QtWidgets import QFileDialog
 from qtpy.QtCore import Qt
 from qtpy.QtCore import QAbstractTableModel
 
+from global_constants import NEW_COLOR, NEW_SAVED_COLOR, NEW_FAIL_NEWEST_COLOR
 from helper_func import Qtimer_runner
 from logic.data_worker import WD
 from models.ts_models import tsSqlTableModel
@@ -77,7 +78,15 @@ class ImportJsonModel(QAbstractTableModel):
     def data(self, index, role=Qt.DisplayRole):
         contracts_model = WD.models("contracts")
         col = index.column()
-        row = self.json_import[index.row()]
+        row: dict = self.json_import[index.row()]
+        if role == Qt.BackgroundRole:
+            if col == self.IN:
+                if row["IN"] == "New":
+                    return NEW_SAVED_COLOR
+                elif row["IN"] == "Exist":
+                    return NEW_COLOR
+                else:
+                    return NEW_FAIL_NEWEST_COLOR
         if role in [Qt.DisplayRole, Qt.ToolTipRole]:
             if col == self.IN:
                 return row["IN"]
@@ -86,7 +95,7 @@ class ImportJsonModel(QAbstractTableModel):
             elif col == self.UID:
                 return row["uid"]
             elif col == self.serv_id:
-                return WD.models("client").data_by_id(row["servId"], 1)
+                return WD.models("serv").data_by_id(row["servId"], 1)
             elif col == self.worker_id:
                 return WD.models("dep_has_worker").data_by_id(row["workerId"], 1)
             elif col == self.contract_id:
@@ -112,6 +121,7 @@ class ImportJsonModel(QAbstractTableModel):
                 json_list = json_list[1:]
                 api_key_from_db = dhw.get_index_by_id(api_key, dhw.index_of_col("api_key")).data(Qt.EditRole)
                 for el in json_list:
+                    el["api_key"] = api_key
                     el["workerId"] = dhw.get_index_by_id(api_key, dhw.index_of_col("api_key")).siblingAtColumn(
                         dhw.index_of_col("dep_has_worker_id")).data(Qt.EditRole)
                     el["file_name"] = path.basename(file.toLocalFile())
@@ -130,8 +140,9 @@ class ImportJsonModel(QAbstractTableModel):
             error("Import Error")
 
     def import_services_from_files(self):
-        files = QFileDialog.getOpenFileUrls(caption=UI.tr("Выберите файлы полученные от работников"),
-                                            selectedFilter="*.aisjson",
-                                            )
+        files, _ = QFileDialog.getOpenFileUrls(caption=UI.tr("Выберите файлы полученные от работников"),
+                                               selectedFilter="*.ais_json",
+                                               filter="*.ais_json",
+                                               )
         for file in files:
-            self.import_services_from_file(file[0])
+            self.import_services_from_file(file)

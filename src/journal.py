@@ -23,7 +23,7 @@ from qtpy.QtSql import QSqlQuery
 
 from helper_func import *
 from qtpy.QtWidgets import QMessageBox
-
+from dev.logger_setup import debug, info, warning, error, critical
 
 class cellEdit():
     """
