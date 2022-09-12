@@ -1,4 +1,5 @@
 USE `kcson`;
+-- GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
 
 select * from kcson.role;
 # show tables;
@@ -91,7 +92,7 @@ BEGIN
     #############################
     # create roles
     # ---------------------------
-    create role if not exists reporter,  none1, info, worker, specialist, trusted_specialist, manager, part_admin, admin, booker;
+    create role if not exists web_info, reporter,  none1, info, worker, specialist, trusted_specialist, manager, part_admin, admin, booker;
     #############################
     # grang temporary tables
     # ---------------------------
