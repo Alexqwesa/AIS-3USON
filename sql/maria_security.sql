@@ -91,7 +91,7 @@ BEGIN
     #############################
     # create roles
     # ---------------------------
-    create role if not exists reporter,  none1, info, worker, specialist, trusted_specialist, manager, part_admin, admin, booker;
+    create role if not exists web_info, reporter, none1, info, worker, specialist, trusted_specialist, manager, part_admin, admin, booker;
     #############################
     # grang temporary tables
     # ---------------------------
@@ -237,11 +237,11 @@ BEGIN
     #############################
     # grant perm. to web_info
     # ---------------------------
-   	GRANT Select ON kcson.`_apikey_has_contracts` TO 'web_info'@'%';
-   	GRANT insert,update ON kcson.`api_key_insert_main` TO 'web_info'@'%';
-   	GRANT select ON kcson.`api_key_insert_main` TO 'web_info'@'%'; -- maybe use procedure instead of this?
-   	GRANT Select ON kcson.`_api_key_planned` TO 'web_info'@'%';
-   	GRANT Select ON kcson.`_api_key_services` TO 'web_info'@'%';
+   	GRANT Select ON kcson.`_apikey_has_contracts` TO web_info;
+   	GRANT insert,update ON kcson.`api_key_insert_main` TO web_info;
+   	GRANT select ON kcson.`api_key_insert_main` TO web_info; -- maybe use procedure instead of this?
+   	GRANT Select ON kcson.`_api_key_planned` TO web_info;
+   	GRANT Select ON kcson.`_api_key_services` TO web_info;
 
 
 
