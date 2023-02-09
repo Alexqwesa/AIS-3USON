@@ -81,7 +81,7 @@ User=ais3uson
 Group=ais3uson
 Restart=on-failure
 Environment=PYTHONUNBUFFERED=1
-ExecStart=/usr/bin/python  /usr/local/bin/ais3uson_www.py 
+ExecStart=/usr/bin/python3  /usr/local/bin/ais3uson_www.py 
 StartLimitInterval = 60
 StartLimitBurst = 10
 
