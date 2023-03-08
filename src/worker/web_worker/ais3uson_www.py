@@ -14,10 +14,10 @@
 # which should be included with this package. The terms are also available at
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
+import argparse
+import json
 import os
 import ssl
-import sys
-import json
 import threading
 from http.server import BaseHTTPRequestHandler
 from os import R_OK
@@ -126,8 +126,7 @@ try:
     with open(r"/etc/ais3uson/mysql.key", mode="r") as f:
         PASSWORD = f.readline().replace("\n", "")
 except (FileNotFoundError, PermissionError):
-    print("Can't load password!!!")
-    pass
+    print("Can't load password from file!!!")
 
 
 def json_dumps(message, default=str):
@@ -294,9 +293,9 @@ class MyServer(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-type", "text/html; charset=utf-8")
         self.end_headers()
-        self.write("<html><head><title>Статистика WEB-сервера АИС ТриУСОН</title></head>")
+        self.write("<html><head><title>Statistic for WEB-sevrer AIS-3USON</title></head>")
         self.write("<body>")
-        self.write("<p>Статистика WEB-сервера АИС ТриУСОН</p>")
+        self.write("<p>Statistic for WEB-sevrer AIS-3USON</p>")
         self.write("<p>Request: %s</p>" % self.path)
         self.write("<p>Thread: %s</p>" % threading.currentThread().getName())
         self.write("<p>Thread Count: %s</p>" % threading.active_count())
@@ -341,16 +340,30 @@ class MyServer(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        if sys.argv[1] in ["-h", "--help", "/h", "/help"]:
-            this_help()
+    parser = argparse.ArgumentParser(
+        prog='AIS-3USON web-server for supporting mobile clients',
+        description='A middleware between SQL DBMS and clients')
+    parser.add_argument('--usage', action='count', help="how to use this script")
+    parser.add_argument('--secret', "--password", action='store', help="password for SQL authentication")
+    args = parser.parse_args()
+
+    if args.usage:
+        this_help()
+        exit(0)
+
+    if args.secret:
+        PASSWORD = args.secret
+        print("Using password from commandline" )
 
     webServer = ThreadingHTTPServer((hostName, serverPort), MyServer)
-    if os.path.isfile("/etc/ais3uson/privkey.pem") and os.access("/etc/ais3uson/privkey.pem", R_OK):
-        webServer.socket = ssl.wrap_socket(webServer.socket, keyfile='/etc/ais3uson/privkey.pem',
-                                           certfile='/etc/ais3uson/certificate.pem',
-                                           server_side=True)
-        print("Server started https://%s:%s" % (hostName, serverPort))
+    if os.path.isfile("/etc/ais3uson/privkey.pem"):
+        if os.access("/etc/ais3uson/privkey.pem", R_OK):
+            webServer.socket = ssl.wrap_socket(webServer.socket, keyfile='/etc/ais3uson/privkey.pem',
+                                               certfile='/etc/ais3uson/cert.pem',
+                                               server_side=True)
+            print("Server started https://%s:%s" % (hostName, serverPort))
+        else:
+            print("Can't read SSL certificate")
     else:
         print("Server started http://%s:%s" % (hostName, serverPort))
 
