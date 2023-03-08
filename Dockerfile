@@ -19,9 +19,11 @@ CMD ["/usr/bin/python", "./ais3uson_www.py"]
 # kubectl expose deployment ais3uson --type=NodePort --port=48080
 # minikube service ais3uson
 
-# CREATE secret key example
+# CREATE DEPLOYMENT WITH SECRET KEY
 # kubectl create secret generic ais3uson-https-cert --from-file=cert.pem=/pathto/ais3uson/cert.pem  --from-file=privkey.pem=/pathto/ais3uson/privkey.pem  --from-file=mysql.key=/pathto/ais3uson/mysql.key
-# kubectl apply -f docker/deployAis3usonCertied.yaml
+# kubectl apply -f docker/deployAis3usonCertified.yaml
+# kubectl expose deployment ais3uson-certified --type=NodePort --port=48080
+
 
 # FOR QUICK TEST
 # docker run -d -p 48080:48080 --name ais3uson ais3uson --mount type=bind,source="/etc/ais3uson,target=/etc/ais3uson,readonly
