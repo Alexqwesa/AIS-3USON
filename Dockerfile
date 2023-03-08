@@ -8,6 +8,7 @@ ADD ./src/worker/web_worker/ais3uson_www.py .
 RUN apk add --update --no-cache py3-pip python3
 RUN pip install mysql-connector-python
 RUN apk del py3-pip
+EXPOSE 48080
 CMD ["/usr/bin/python", "./ais3uson_www.py"]
 
 # DEPLOY
