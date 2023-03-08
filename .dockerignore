@@ -1,0 +1,6 @@
+venv/
+tools/
+thirdparty/
+templates/
+sql/
+widgets_ui/
