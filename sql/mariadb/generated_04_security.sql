@@ -1,4 +1,5 @@
 USE `kcson`;
+-- GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
 
 select * from kcson.role;
 # show tables;
@@ -91,7 +92,7 @@ BEGIN
     #############################
     # create roles
     # ---------------------------
-    create role if not exists web_info, reporter, none1, info, worker, specialist, trusted_specialist, manager, part_admin, admin, booker;
+    create role if not exists web_info, reporter,  none1, info, worker, specialist, trusted_specialist, manager, part_admin, admin, booker;
     #############################
     # grang temporary tables
     # ---------------------------
@@ -242,6 +243,7 @@ BEGIN
    	GRANT select ON kcson.`api_key_insert_main` TO web_info; -- maybe use procedure instead of this?
    	GRANT Select ON kcson.`_api_key_planned` TO web_info;
    	GRANT Select ON kcson.`_api_key_services` TO web_info;
+
 
 
 

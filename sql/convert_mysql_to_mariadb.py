@@ -12,9 +12,10 @@
 # which should be included with this package. The terms are also available at
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
+import datetime
+import os
 import re
 import sys
-import datetime
 
 list_of_wrong = [
     """
@@ -89,9 +90,7 @@ def replacer(line: str) -> str:
 
 if __name__ == "__main__":
     if len(sys.argv) > 2:
-        main(sys.arg[1], sys.arg[2])
+        main(sys.argv[1], sys.argv[2])
     else:
-        main("schema.sql", "maria_schema.sql")
-        main("security.sql", "maria_security.sql")
-        main("data.sql", "maria_data.sql")
-        main("test_data.sql", "maria_test_data.sql")
+        for file in list(os.walk("mysql"))[0][2]:
+            main(os.path.join("mysql", file), os.path.join("mariadb", "generated_"+file))
