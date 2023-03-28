@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.ais3uson.service: ais3uson
+  name: ais3uson
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.ais3uson.service: ais3uson
+  strategy: { }
+  template:
+    metadata:
+      labels:
+        io.ais3uson.network/backend: "true"
+        io.ais3uson.network/frontend: "true"
+        io.ais3uson.service: ais3uson
+    spec:
+      containers:
+        - args:
+            - --mysql_host
+            - aismysql
+            - --debug-port
+          image: ais3uson
+          name: ais3uson
+          imagePullPolicy: Never # for local images only
+          ports:
+            - containerPort: 48080
+            - containerPort: 48081 # optional port for testing
+          resources: { }
+          volumeMounts:
+            - name: certificate
+              mountPath: /etc/ais3uson
+              readOnly: true
+      volumes:
+        - name: certificate
+          secret:
+            secretName: ais3uson-https-cert # kubectl create secret generic ais3uson-https-cert --from-file=cert.pem=ais3uson/cert.pem --from-file=privkey.pem=ais3uson/privkey.pem --from-file=mysql-web-worker-password=ais3uson/mysql-web-worker-password
+      restartPolicy: Always
+
+status: { }

@@ -1691,12 +1691,12 @@ CREATE TABLE `add_info` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `add_info_BEFORE_INSERT` BEFORE INSERT ON `add_info` FOR EACH ROW BEGIN
 
 	SET  NEW.cr_by = get_wID();
 	SET  NEW.upd_by = get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -1710,7 +1710,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `add_info_AFTER_INSERT` AFTER INSERT ON `add_info` FOR EACH ROW BEGIN
 	declare ripso int default 0;
     DECLARE CONTINUE HANDLER FOR SQLEXCEPTION set ripso =0 ;
@@ -1720,7 +1720,7 @@ DELIMITER ;;
 			select serv_id, new.contracts_id, planned,0 from ripso_has_serv where ripso_id=ripso;
 		# By default ippsu had all services of ripso - worker can change it later
     end if;
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -1734,11 +1734,11 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `add_info_BEFORE_UPDATE` BEFORE UPDATE ON `add_info` FOR EACH ROW BEGIN
 
 SET  NEW.upd_by = get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -1811,7 +1811,7 @@ CREATE TABLE `api_key_insert_main` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `api_key_insert_main_on_insert` BEFORE INSERT ON `api_key_insert_main` FOR EACH ROW BEGIN
 
 	SET  NEW.dep_id = (SELECT dep_id from dep_has_worker dhw where dhw.id = new.dep_has_worker_id);
@@ -1825,7 +1825,7 @@ DELIMITER ;;
 		set new.quantity = 0;
 	end if;
 
-	END */;;
+	END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -1839,14 +1839,14 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `api_key_insert_main_after_insert` AFTER INSERT ON `api_key_insert_main` FOR EACH ROW begin
 	
 	insert into main (contracts_id, dep_id, client_id, serv_id, dep_has_worker_id, vdate, quantity, note)
 	values( new.contracts_id ,new.dep_id, new.client_id, new.serv_id, new.dep_has_worker_id, new.vdate, new.quantity, new.uuid);
 
 
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -1860,7 +1860,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `api_key_before_update_main_` BEFORE UPDATE ON `api_key_insert_main` FOR EACH ROW begin 
 	
 	if ( new.check_api_key =  (SELECT api_key from dep_has_worker dhw where dhw.id = old.dep_has_worker_id)) then 
@@ -1871,7 +1871,7 @@ DELIMITER ;;
 		SET MESSAGE_TEXT = "error: wrong api_key";
 	end if;
 	
-end */;;
+end */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -1885,7 +1885,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `api_key_insert_main_after_update` AFTER UPDATE ON `api_key_insert_main` FOR EACH ROW begin
 	
 	update main
@@ -1893,7 +1893,7 @@ DELIMITER ;;
 		where note = new.uuid;
 
 
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -1971,14 +1971,14 @@ CREATE TABLE `client` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_BEFORE_INSERT` BEFORE INSERT ON `client` FOR EACH ROW BEGIN
 
     set new.client=trim(new.client);
 	SET  NEW.cr_by = get_wID();
 	SET  NEW.upd_by = get_wID();
     SET  NEW.cr_dep_id = GET_DEP(GET_wID());
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -1992,7 +1992,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_AFTER_INSERT` AFTER INSERT ON `client` FOR EACH ROW BEGIN
 
 	
@@ -2000,7 +2000,7 @@ DELIMITER ;;
 	
 	
     
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2014,11 +2014,11 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_BEFORE_UPDATE` BEFORE UPDATE ON `client` FOR EACH ROW BEGIN
     set new.client=trim(new.client);
 	SET  NEW.upd_by = get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2057,11 +2057,11 @@ CREATE TABLE `client_has_category` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_has_category_BEFORE_INSERT` BEFORE INSERT ON `client_has_category` FOR EACH ROW BEGIN
 	SET  NEW.upd_by = get_wID();
 	SET  NEW.cr_by = get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2075,11 +2075,11 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `client_has_category_BEFORE_UPDATE` BEFORE UPDATE ON `client_has_category` FOR EACH ROW BEGIN
 
 	SET  NEW.upd_by = get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2158,7 +2158,7 @@ CREATE TABLE `contracts` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `contracts_BEFORE_INSERT` BEFORE INSERT ON `contracts` FOR EACH ROW BEGIN
 
 	SET  NEW.cr_by = get_wID();
@@ -2175,7 +2175,7 @@ DELIMITER ;;
 	IF not (NEW.contracts REGEXP "/[[:alnum:]][[:alnum:]][[:alnum:]][[:alnum:]]$") THEN 
         SET NEW.contracts = concat( NEW.contracts ,"/",year(NEW.startdate));
     END IF;
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2189,7 +2189,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `contracts_AFTER_INSERT` AFTER INSERT ON `contracts` FOR EACH ROW BEGIN
 
 
@@ -2202,7 +2202,7 @@ DELIMITER ;;
 		where client.id = NEW.client_id
     ;
     
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2216,7 +2216,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `contracts_BEFORE_UPDATE` BEFORE UPDATE ON `contracts` FOR EACH ROW BEGIN
 
 SET  NEW.upd_by = get_wID();
@@ -2234,7 +2234,7 @@ SET  NEW.upd_by = get_wID();
 	else
         SET NEW.contracts = concat( NEW.contracts ,"/",year(NEW.startdate));
     END IF;
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2275,11 +2275,11 @@ CREATE TABLE `contracts_has_serv` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `contracts_has_serv_BEFORE_INSERT` BEFORE INSERT ON `contracts_has_serv` FOR EACH ROW BEGIN
 	SET  NEW.cr_by = get_wID();
 	SET  NEW.upd_by = get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2293,10 +2293,10 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `contracts_has_serv_BEFORE_UPDATE` BEFORE UPDATE ON `contracts_has_serv` FOR EACH ROW BEGIN
 	SET  NEW.upd_by = get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2395,11 +2395,11 @@ CREATE TABLE `dep` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `dep_AFTER_INSERT` AFTER INSERT ON `dep` FOR EACH ROW BEGIN
 	 insert into complex_dep_has_dep (complex_dep_id, dep_id)
      values(1 , NEW.id);
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2565,7 +2565,7 @@ CREATE TABLE `dep_has_worker` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `dep_has_worker_BEFORE_INSERT` BEFORE INSERT ON `dep_has_worker` FOR EACH ROW begin
 	
     DECLARE cuser CHAR(32);
@@ -2598,7 +2598,7 @@ DELIMITER ;;
 	elseif (new.role_id > crole) then
 		set new.role_id = crole - 1;
 	end if;
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2612,7 +2612,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `dep_has_worker_BEFORE_UPDATE` BEFORE UPDATE ON `dep_has_worker` FOR EACH ROW BEGIN	
     DECLARE cuser CHAR(32);
     DECLARE crole int;
@@ -2645,7 +2645,7 @@ DELIMITER ;;
 		end if;
 	 end if;
  
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2787,12 +2787,12 @@ CREATE TABLE `invoice` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `invoice_BEFORE_INSERT` BEFORE INSERT ON `invoice` FOR EACH ROW BEGIN
 
 SET  NEW.cr_by = get_wID();
 SET  NEW.upd_by = get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2806,11 +2806,11 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `invoice_BEFORE_UPDATE` BEFORE UPDATE ON `invoice` FOR EACH ROW BEGIN
 
 SET  NEW.upd_by = get_wID(CURRENT_USER);
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2840,12 +2840,12 @@ CREATE TABLE `invoice_has_payment` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `invoice_has_payment_BEFORE_INSERT` BEFORE INSERT ON `invoice_has_payment` FOR EACH ROW BEGIN
 declare inv int;
 declare pay int;
 # check duplicates
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2958,11 +2958,11 @@ CREATE TABLE `live_min` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `live_min_BEFORE_INSERT` BEFORE INSERT ON `live_min` FOR EACH ROW BEGIN
 	SET  NEW.cr_by = get_wID();
 	SET  NEW.upd_by = get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -2976,10 +2976,10 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `live_min_BEFORE_UPDATE` BEFORE UPDATE ON `live_min` FOR EACH ROW BEGIN
 	SET  NEW.upd_by = get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -3059,7 +3059,7 @@ CREATE TABLE `main` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `main_BEFORE_INSERT` BEFORE INSERT ON `main` FOR EACH ROW BEGIN
   declare ovdid int default 0;
   declare planned int default 0;
@@ -3084,7 +3084,7 @@ select s.planned - s.filled - new.quantity, s.planned , s.filled  into  ovdid, p
 	SET NEW.prev_quantity=0;
 	SET  NEW.cr_by = get_wID();
 	SET  NEW.upd_by = get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -3098,14 +3098,14 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `main_AFTER_INSERT` AFTER INSERT ON `main` FOR EACH ROW BEGIN
 
 	INSERT INTO  contracts_has_serv (filled, contracts_id, serv_id)
 	values
 	(new.quantity, new.contracts_id, new.serv_id)
 	ON DUPLICATE KEY UPDATE  filled = filled  + new.quantity;
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -3119,7 +3119,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `main_BEFORE_UPDATE` BEFORE UPDATE ON `main` FOR EACH ROW BEGIN
 
   declare ovdid int default 0;
@@ -3154,7 +3154,7 @@ select s.planned - s.filled - new.quantity + old.quantity, s.planned , s.filled 
     end if;
     
 	SET NEW.upd_by=get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -3168,12 +3168,12 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `main_AFTER_UPDATE` AFTER UPDATE ON `main` FOR EACH ROW BEGIN
 
 	UPDATE contracts_has_serv set filled=filled+new.quantity-old.quantity
 		where contracts_id=new.contracts_id and serv_id=new.serv_id;
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -3187,11 +3187,11 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `main_AFTER_DELETE` AFTER DELETE ON `main` FOR EACH ROW BEGIN
 	UPDATE contracts_has_serv set filled=filled-old.quantity
 		where contracts_id=old.contracts_id and serv_id=old.serv_id;
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -3508,12 +3508,12 @@ CREATE TABLE `serv` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `serv_BEFORE_INSERT` BEFORE INSERT ON `serv` FOR EACH ROW BEGIN
 
 	SET  NEW.cr_by = get_wID();
 	SET  NEW.upd_by = get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -3527,12 +3527,12 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `serv_BEFORE_UPDATE` BEFORE UPDATE ON `serv` FOR EACH ROW BEGIN
 
 	SET  NEW.cr_by = get_wID();
 	SET  NEW.upd_by = get_wID();
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4188,11 +4188,11 @@ CREATE TABLE `user_change` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `user_change_before_insert` BEFORE INSERT ON `user_change` FOR EACH ROW begin
 	SET  NEW.cr_by = get_wID();
 	SET  NEW.upd_by = get_wID();
-end */;;
+end */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4206,11 +4206,11 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `user_change_before_update` BEFORE UPDATE ON `user_change` FOR EACH ROW begin
 	SET  NEW.cr_by = old.cr_by;
 	SET  NEW.upd_by = get_wID();
-end */;;
+end */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4276,10 +4276,10 @@ CREATE TABLE `worker` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `worker_AFTER_INSERT` AFTER INSERT ON `worker` FOR EACH ROW BEGIN
 	INSERT INTO worker_settings (id) values (new.id);
-END */;;
+END */@@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4330,22 +4330,19 @@ CREATE TABLE `worker_settings` (
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `CHECK_OVERDID`( CONTR  int, SERV int) RETURNS int
     READS SQL DATA
     DETERMINISTIC
     COMMENT 'check overdid return serv left \n    no existence check!!!'
 BEGIN
-	DECLARE pln int;
-	DECLARE fll int;
+
     
-select  planned, filled into pln, fll 
+return COALESCE((select  planned - filled 
 from  contracts_has_serv where
-  contracts_id = CONTR and
-  serv_id = SERV;
+  contracts_id = CONTR and  serv_id = SERV), 0);
   
-return (pln - fll);
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4360,7 +4357,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `GET_CONTR`(
  `idfio` INT, `vdate` date, `idep` int
 ) RETURNS int
@@ -4386,7 +4383,7 @@ BEGIN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT  = rr;
 		return -1;
 	end if;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4401,7 +4398,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `GET_DEP`(
  `wrkID` INT
 ) RETURNS int
@@ -4437,7 +4434,7 @@ BEGIN
 		end if;
             
 	end if;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4452,7 +4449,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `get_last_client`() RETURNS int
     READS SQL DATA
     DETERMINISTIC
@@ -4464,7 +4461,7 @@ BEGIN
 		
 	return (select last_client from worker_settings where id = GET_WID());
     
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4479,7 +4476,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `get_last_contr`() RETURNS int
     READS SQL DATA
     DETERMINISTIC
@@ -4491,7 +4488,7 @@ BEGIN
 		
 	return (select last_contr from worker_settings where id = GET_WID());
     
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4506,7 +4503,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `GET_wID`(
 ) RETURNS int
     READS SQL DATA
@@ -4514,7 +4511,7 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `GET_wID`(
     COMMENT 'get default department '
 BEGIN
 	return (select id from worker w where w.user=SUBSTRING_INDEX(user(), '@', 1));
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4529,7 +4526,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `GET_YEAR`(
  `wrkID` INT
 ) RETURNS int
@@ -4552,7 +4549,7 @@ BEGIN
 			# 1 - undefined dep
         end if;
 	end if;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4567,7 +4564,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `IS_ADMIN`() RETURNS int
     DETERMINISTIC
 begin
@@ -4591,7 +4588,7 @@ end if;
 		return 0;
 	end if;
 		
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4606,7 +4603,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `IS_CUR_DEP`(
  `depID_par` INT
 ) RETURNS int
@@ -4628,7 +4625,7 @@ BEGIN
 	else
 		return (select depID_par in (select dep_id from complex_dep_has_dep where complexDep = complex_dep_id));
     end if;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4643,7 +4640,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `IS_CUR_DEP_STATIC`(
  `depID_par` INT
 ) RETURNS int
@@ -4670,7 +4667,7 @@ BEGIN
 		return (select depID_par in (select dep_id from complex_dep_has_dep where complexDep = complex_dep_id
         ));
     end if;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4685,7 +4682,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `IS_SPECIALIST`() RETURNS int
     DETERMINISTIC
 begin
@@ -4709,7 +4706,7 @@ end if;
 	else
 		return 0;
 	end if;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4724,7 +4721,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `SET_DEP`(
 	`depId` INT
 ) RETURNS int
@@ -4758,7 +4755,7 @@ BEGIN
 	else
 		return 0;
 	end if;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4773,7 +4770,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `set_last_client`(client int) RETURNS int
     DETERMINISTIC
     COMMENT 'check overdid return serv left \n    no existence check!!!'
@@ -4782,7 +4779,7 @@ BEGIN
 	update worker_settings set last_client=client where id = GET_WID();
     return 1;
     
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4797,7 +4794,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `set_last_contr`(contr int) RETURNS int
     DETERMINISTIC
     COMMENT 'check overdid return serv left \n    no existence check!!!'
@@ -4805,7 +4802,7 @@ BEGIN
 
 	update worker_settings set last_contr=contr where id = GET_WID();
     return 1;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4820,7 +4817,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `set_last_dep`(dep int) RETURNS int
     DETERMINISTIC
 BEGIN
@@ -4832,7 +4829,7 @@ BEGIN
     end if;
 	
     return ret;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4847,7 +4844,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `SET_YEAR`(
  `yr` INT
 ) RETURNS int
@@ -4856,7 +4853,7 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `SET_YEAR`(
 BEGIN
 	update worker_settings set last_year=yr where id = GET_WID();
     return yr;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4871,7 +4868,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `SPLIT_STR`(
   x VARCHAR(4096),
   delim VARCHAR(100),
@@ -4881,7 +4878,7 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `SPLIT_STR`(
     SQL SECURITY INVOKER
 RETURN REPLACE(SUBSTRING(SUBSTRING_INDEX(x, delim, pos),
        LENGTH(SUBSTRING_INDEX(x, delim, pos -1)) + 1),
-       delim, '') ;;
+       delim, '') @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4896,7 +4893,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` FUNCTION `SPLIT_STR_ARR_LEN`(
   x VARCHAR(4096),
   delim VARCHAR(100)
@@ -4907,7 +4904,7 @@ RETURN ROUND (
         (
              CHAR_LENGTH(x)
             -  CHAR_LENGTH( REPLACE ( x, delim, "") ) 
-        ) /  CHAR_LENGTH(delim)  ) ;;
+        ) /  CHAR_LENGTH(delim)  ) @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -4922,7 +4919,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `contract_pay_inmonth`( IN UID INT, IN STARTDATE DATE, IN ENDDATE DATE)
 BEGIN
 	IF EXISTS (SELECT 1 FROM `main` where client_id = UID and vdate BETWEEN STARTDATE AND ENDDATE)
@@ -5024,7 +5021,7 @@ BEGIN
 			c.enddate >= STARTDATE;
 	end if;
 	
-end ;;
+end @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5039,7 +5036,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`reporter`@`localhost` PROCEDURE `CREATE_PIVOT`(
     IN tbl_qry VARCHAR(10000),       -- table name (or db.tbl)
     IN base_cols VARCHAR(200),       -- column(s) on the left, separated by commas
@@ -5053,7 +5050,7 @@ CREATE DEFINER=`reporter`@`localhost` PROCEDURE `CREATE_PIVOT`(
     DETERMINISTIC
 BEGIN 
     call CREATE_PIVOT_(tbl_qry, base_cols, pivot_col, tally_col, where_clause, order_by, w_rollup, temp_table_name, true, False );
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5068,7 +5065,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`reporter`@`localhost` PROCEDURE `CREATE_PIVOT_`(
     IN tbl_qry VARCHAR(10000),       -- table name (or db.tbl)
     IN base_cols VARCHAR(200),       -- column(s) on the left, separated by commas
@@ -5209,7 +5206,7 @@ SET @stmt3 = CONCAT( ' SELECT * from ', temp_table_name);
     DEALLOCATE PREPARE _sql;
 
     -- For debugging / tweaking, SELECT the various @variables after CALLing.
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5224,13 +5221,13 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `debug_msg`(msg VARCHAR(255))
 BEGIN
 
     select concat('** ', msg) AS '** DEBUG:';
 
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5245,7 +5242,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `dep_serv_total`()
     DETERMINISTIC
 BEGIN
@@ -5257,7 +5254,7 @@ BEGIN
 
 	 "client_id", "tnum", "quantity" , "" , "");
 
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5272,7 +5269,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_DEPS`(
  `wrkID` INT )
     READS SQL DATA
@@ -5285,7 +5282,7 @@ begin
 	else
 		select distinct dep_id from dep_has_worker  where worker_id=wrkID and (archive=0 or archive is null);
 	end if;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5300,7 +5297,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_DEPS_TABLE`(
  `wrkID` INT )
     READS SQL DATA
@@ -5309,7 +5306,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_DEPS_TABLE`(
 BEGIN
 	
 	select distinct dep_id from dep_has_worker  where worker_id=wrkID and (archive=0 or archive is null);
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5324,7 +5321,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_PRIVILEGES`()
 BEGIN
 
@@ -5381,7 +5378,7 @@ DECLARE CONTINUE handler FOR NOT FOUND SET done = TRUE;
   # set role all;
   # select CURRENT_ROLE() ;
   CLOSE cursor_i;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5396,7 +5393,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_VER`()
     DETERMINISTIC
     COMMENT 'return sql version, change if tables changed'
@@ -5404,7 +5401,7 @@ begin
 
 select 90;
 
-end ;;
+end @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5419,7 +5416,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `INIT_SECURITY`()
 BEGIN
 
@@ -5701,7 +5698,7 @@ BEGIN
     # ---------------------------
     grant part_admin to admin;
 
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5716,7 +5713,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `KILL_USER_SESSION`()
 BEGIN
   
@@ -5744,7 +5741,7 @@ BEGIN
   CLOSE kill_i;
   
   
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5759,7 +5756,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Pivot`(
     IN tbl_name VARCHAR(99),       -- table name (or db.tbl)
     IN base_cols VARCHAR(99),      -- column(s) on the left, separated by commas
@@ -5809,7 +5806,7 @@ BEGIN
     EXECUTE _sql;                     -- The resulting pivot table ouput
     DEALLOCATE PREPARE _sql;
     -- For debugging / tweaking, SELECT the various @variables after CALLing.
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5824,7 +5821,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `replace_user`(IN `p_Name` VARCHAR(16), IN `p_Passw` VARCHAR(32), IN wID int)
 this_proc:BEGIN
     DECLARE `_HOST` CHAR(64);
@@ -5900,7 +5897,7 @@ this_proc:BEGIN
 
     FLUSH PRIVILEGES;
     select "finished" ;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5915,7 +5912,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `RESET_PRIVILEGES`()
     SQL SECURITY INVOKER
 BEGIN
@@ -5952,7 +5949,7 @@ BEGIN
 		DEALLOCATE PREPARE stmt; 
   END LOOP;
   CLOSE cursor_i;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5967,7 +5964,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `serv_dep_total`()
     DETERMINISTIC
 BEGIN
@@ -5979,7 +5976,7 @@ BEGIN
 
 	 "client_id", "serv_tnum", "quantity" , "" , "");
      
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -5994,7 +5991,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SET_DEP_`(`depId` INT)
     MODIFIES SQL DATA
     COMMENT 'set default department (with checking is it possible)'
@@ -6060,7 +6057,7 @@ begin
 	else
 		select 0;
 	end if;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -6075,7 +6072,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SHOW_COL`(IN sqlToShow TEXT)
     READS SQL DATA
     DETERMINISTIC
@@ -6088,7 +6085,7 @@ BEGIN
     EXECUTE stmt;
     SHOW COLUMNS FROM tempTable; 
     DEALLOCATE PREPARE stmt;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -6103,7 +6100,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SHOW_COL1`(IN sqlToShow TEXT)
     READS SQL DATA
     DETERMINISTIC
@@ -6116,7 +6113,7 @@ BEGIN
     EXECUTE stmt;
     SHOW COLUMNS FROM tempTable;   
     DEALLOCATE PREPARE stmt;
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -6131,7 +6128,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `show_cols_root`(IN tname TEXT)
     READS SQL DATA
     DETERMINISTIC
@@ -6140,7 +6137,7 @@ begin
     PREPARE stmt FROM @show_cols_root;
     execute stmt;
     DEALLOCATE PREPARE stmt;
-end ;;
+end @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -6155,7 +6152,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_ALL_IPPSU`()
 BEGIN
 
@@ -6181,7 +6178,7 @@ BEGIN
 
 	where replacedby > 0 and  `c`.`blocked` = false  ;
 
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -6196,7 +6193,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_RIPSO`()
 BEGIN
 
@@ -6220,7 +6217,7 @@ BEGIN
 
 	where replacedby > 0;
 
-END ;;
+END @@
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -7041,19 +7038,28 @@ DELIMITER ;
 -- Final view structure for view `_information_schema_columns`
 --
 
-/*!50001 DROP VIEW IF EXISTS `_information_schema_columns`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `_information_schema_columns` AS select `columns`.`TABLE_NAME` AS `TABLE_NAME`,`columns`.`ORDINAL_POSITION` AS `ORDINAL_POSITION`,`columns`.`COLUMN_NAME` AS `COLUMN_NAME`,`columns`.`IS_NULLABLE` AS `IS_NULLABLE`,`columns`.`COLUMN_DEFAULT` AS `COLUMN_DEFAULT`,`columns`.`DATA_TYPE` AS `DATA_TYPE`,`columns`.`NUMERIC_PRECISION` AS `NUMERIC_PRECISION`,`columns`.`COLUMN_TYPE` AS `COLUMN_TYPE`,`columns`.`CHARACTER_MAXIMUM_LENGTH` AS `CHARACTER_MAXIMUM_LENGTH` from `information_schema`.`COLUMNS` where (`columns`.`TABLE_SCHEMA` = 'kcson') order by `columns`.`TABLE_NAME`,`columns`.`ORDINAL_POSITION` */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
+-- kcson.`_information_schema_columns` source
+
+CREATE OR REPLACE
+ALGORITHM = UNDEFINED VIEW `_information_schema_columns` AS
+select
+    `information_schema`.`COLUMNS`.`TABLE_NAME` AS `TABLE_NAME`,
+    `information_schema`.`COLUMNS`.`ORDINAL_POSITION` AS `ORDINAL_POSITION`,
+    `information_schema`.`COLUMNS`.`COLUMN_NAME` AS `COLUMN_NAME`,
+    `information_schema`.`COLUMNS`.`IS_NULLABLE` AS `IS_NULLABLE`,
+    `information_schema`.`COLUMNS`.`COLUMN_DEFAULT` AS `COLUMN_DEFAULT`,
+    `information_schema`.`COLUMNS`.`DATA_TYPE` AS `DATA_TYPE`,
+    `information_schema`.`COLUMNS`.`NUMERIC_PRECISION` AS `NUMERIC_PRECISION`,
+    `information_schema`.`COLUMNS`.`COLUMN_TYPE` AS `COLUMN_TYPE`,
+    `information_schema`.`COLUMNS`.`CHARACTER_MAXIMUM_LENGTH` AS `CHARACTER_MAXIMUM_LENGTH`
+from
+    `information_schema`.`COLUMNS`
+where
+    `information_schema`.`COLUMNS`.`TABLE_SCHEMA` = 'kcson'
+order by
+    `information_schema`.`COLUMNS`.`TABLE_NAME`,
+    `information_schema`.`COLUMNS`.`ORDINAL_POSITION`; 
+
 
 --
 -- Final view structure for view `_main__months`

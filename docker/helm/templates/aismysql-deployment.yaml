@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.ais3uson.service: aismysql
+  name: aismysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.ais3uson.service: aismysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.ais3uson.network/backend: "true"
+        io.ais3uson.service: aismysql
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: ais-mysql-role
+                    operator: In
+                    values:
+                      - data
+      containers:
+        - args:
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_unicode_ci
+          env:
+            - name: MYSQL_DATABASE
+              value: kcson
+            - name: MYSQL_ROOT_PASSWORD_FILE
+              value: /secrets/mysql-root-password
+          image: mysql:8.0.16
+          name: aismysql
+          ports:
+            - containerPort: 3306
+          resources: { }
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: ais-mysql-data
+            - mountPath: /docker-entrypoint-initdb.d
+              readOnly: true
+              name: aismysql-init-data
+            - mountPath: /secrets
+              readOnly: true
+              name: mysql-root-password
+      restartPolicy: Always
+      volumes:
+        - name: mysql-root-password
+          secret:
+            secretName: mysql-root-password
+        - name: ais-mysql-data
+          persistentVolumeClaim:
+            claimName: pvc-aismysql-volume
+        - name: aismysql-init-data
+          configMap:
+            name: aismysql-init-data
+status: { }
