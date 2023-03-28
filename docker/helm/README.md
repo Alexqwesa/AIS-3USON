@@ -7,7 +7,7 @@ Create initial configuration for mysql:
 ```bash
 # git clone https://github.com/Alexqwesa/AIS-3USON
 # cd AIS-3USON/sql
-# ./zip_sql_files  # will create mysql_gz folder
+# bash ./gzip_sql_files.sh  # will create mysql_gz folder
 kubectl create configmap aismysql-init-data --from-file=mysql_gz
 ```
 

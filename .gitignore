@@ -11,3 +11,5 @@ AIS-3USON.spec
 *копия*
 *.private.sql
 /docker/secrets/*
+/sql/mysql_gz/*
+/sql/mariadb_gz/*
