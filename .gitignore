@@ -10,3 +10,4 @@ AIS-3USON.spec
 *.pstat*
 *копия*
 *.private.sql
+/docker/secrets/*

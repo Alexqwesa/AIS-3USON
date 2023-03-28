@@ -1,0 +1,50 @@
+# CREATE DEPLOYMENT WITH SECRET KEY
+# Note: image should be already built
+# kubectl create secret generic ais3uson-https-cert --from-file=cert.pem=/pathto/ais3uson/cert.pem  --from-file=privkey.pem=/pathto/ais3uson/privkey.pem  --from-file=mysql-web-worker-password=/pathto/ais3uson/mysql-web-worker-password
+# kubectl apply -f docker/deploy-ais3uson-certified.yaml
+# kubectl expose deployment ais3uson-certified --type=NodePort --port=48080
+# cd sql/mysql/
+# docker exec -i aismysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < 01_schema.sql
+# docker exec -i aismysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < 02_data.sql
+# docker exec -i aismysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < 03_test_data.sql
+# docker exec -i aismysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < 04_security.sql
+# OPTIONAL:
+# docker exec -i aismysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < 05_extended_test_data.sql
+# docker exec -i aismysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < 06_extended_test_data_2.sql
+#
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ais3uson-certified
+  labels:
+    app: ais3uson-certified
+spec:
+  selector:
+    matchLabels:
+      app: ais3uson-certified
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: ais3uson-certified
+    spec:
+      containers:
+        - name: ais3uson
+          image: ais3uson:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 48080
+          volumeMounts:
+            - name: certificate
+              mountPath: /etc/ais3uson
+              readOnly: true
+        - name: aismysql
+          image: mysql:latest
+      volumes:
+        - name: certificate
+          secret:
+            secretName: ais3uson-https-cert # kubectl create secret generic ais3uson-https-cert --from-file=cert.pem=ais3uson/cert.pem --from-file=privkey.pem=ais3uson/privkey.pem --from-file=mysql-web-worker-password=ais3uson/mysql-web-worker-password
+

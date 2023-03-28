@@ -3,13 +3,13 @@
 # docker build . --tag=ais3uson:latest
 
 FROM alpine:latest
-#WORKDIR ./src/worker # didn't work?
-ADD ./src/worker/web_worker/ais3uson_www.py .
 RUN apk add --update --no-cache py3-pip python3
 RUN pip install mysql-connector-python
 RUN apk del py3-pip
+ADD ./web_worker/ais3uson_www.py .
 EXPOSE 48080
-CMD ["/usr/bin/python", "./ais3uson_www.py"]
+EXPOSE 48081
+ENTRYPOINT ["/usr/bin/python", "./ais3uson_www.py"]
 
 # DEPLOY
 # eval $(minikube docker-env)  # for minikube only
@@ -21,8 +21,8 @@ CMD ["/usr/bin/python", "./ais3uson_www.py"]
 # minikube service ais3uson
 
 # CREATE DEPLOYMENT WITH SECRET KEY
-# kubectl create secret generic ais3uson-https-cert --from-file=cert.pem=/pathto/ais3uson/cert.pem  --from-file=privkey.pem=/pathto/ais3uson/privkey.pem  --from-file=mysql.key=/pathto/ais3uson/mysql.key
-# kubectl apply -f docker/deployAis3usonCertified.yaml
+# kubectl create secret generic ais3uson-https-cert --from-file=cert.pem=/pathto/ais3uson/cert.pem  --from-file=privkey.pem=/pathto/ais3uson/privkey.pem  --from-file=mysql-web-worker-password=/pathto/ais3uson/mysql-web-worker-password
+# kubectl apply -f docker/deploy-ais3uson-certified.yaml
 # kubectl expose deployment ais3uson-certified --type=NodePort --port=48080
 
 
@@ -32,5 +32,5 @@ CMD ["/usr/bin/python", "./ais3uson_www.py"]
 # /etc/ais3uson/ should contain:
 # certificate.pem
 # privkey.pem
-# mysql.key
+# mysql-web-worker-password
 

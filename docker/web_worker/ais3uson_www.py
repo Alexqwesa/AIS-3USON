@@ -18,6 +18,7 @@ import argparse
 import json
 import os
 import ssl
+import sys
 import threading
 from http.server import BaseHTTPRequestHandler
 from os import R_OK
@@ -63,7 +64,7 @@ cp -a %s /usr/local/bin/
 
 # create file for storing password and secure it
 mkdir /etc/ais3uson/
-touch /etc/ais3uson/mysql.key
+touch /etc/ais3uson/mysql-web-worker-password
 chown ais3uson:ais3uson /etc/ais3uson/ -R
 chmod 0700 /etc/ais3uson/
 chmod 0600 /etc/ais3uson/*
@@ -105,7 +106,7 @@ systemctl status ais3uson_www
 
 def this_help():
     print(README_linux)
-    exit()
+    sys.exit(0)
 
 
 try:
@@ -119,11 +120,13 @@ except:
     this_help()
 
 hostName = "0.0.0.0"  # "localhost"  if this script used with ssh -NR
-serverPort = 48080
+SERVERPORT = 48080
 PASSWORD = "nopassword"
 MYSQLPORT = 3306
+MYSQLHOST = "127.0.0.1"
+CONFDIR = "/etc/ais3uson"
 try:
-    with open(r"/etc/ais3uson/mysql.key", mode="r") as f:
+    with open(CONFDIR + r"/mysql-web-worker-password", mode="r") as f:
         PASSWORD = f.readline().replace("\n", "")
 except (FileNotFoundError, PermissionError):
     print("Can't load password from file!!!")
@@ -133,7 +136,7 @@ def json_dumps(message, default=str):
     for m in message:
         s = set()
         for k, v in m.items():
-            if v == "" or v == "None":
+            if v in ("", "None"):
                 s.add(k)
         for k in s:
             m.pop(k, None)
@@ -165,7 +168,7 @@ class MyServer(BaseHTTPRequestHandler):
             self.send_response(400)
             self.end_headers()
             return
-        elif self.path.startswith("/clients"):
+        if self.path.startswith("/clients"):
             _, api_key = self.get_auth()
             if api_key:
                 message = self.get_sql_data(sql_query="""
@@ -214,7 +217,7 @@ class MyServer(BaseHTTPRequestHandler):
             self.send_response(400)
             self.end_headers()
             return
-        elif self.path == "/add":
+        if self.path == "/add":
             data, api_key = self.get_auth()
             if api_key:
                 message = self.put_sql_data(sql_query="""
@@ -297,11 +300,11 @@ class MyServer(BaseHTTPRequestHandler):
         self.write("<body>")
         self.write("<p>Statistic for WEB-sevrer AIS-3USON</p>")
         self.write("<p>Request: %s</p>" % self.path)
-        self.write("<p>Thread: %s</p>" % threading.currentThread().getName())
+        self.write("<p>Thread: %s</p>" % threading.current_thread().name)
         self.write("<p>Thread Count: %s</p>" % threading.active_count())
         self.write("</body></html>")
 
-    def put_sql_data(self, host='localhost', port=MYSQLPORT, user='web_info', password=PASSWORD,
+    def put_sql_data(self, host=MYSQLHOST, port=MYSQLPORT, user='web_info', password=PASSWORD,
                      database='kcson', sql_query="select * from holiday"):
         if self.api_key:
             cursor = None
@@ -324,7 +327,7 @@ class MyServer(BaseHTTPRequestHandler):
             return ret_structure
         return "Wrong authorization key"
 
-    def get_sql_data(self, host='localhost', port=MYSQLPORT, user='web_info', password=PASSWORD,
+    def get_sql_data(self, host=MYSQLHOST, port=MYSQLPORT, user='web_info', password=PASSWORD,
                      database='kcson', sql_query="select * from holiday"):
         if self.api_key:
             database = connect(host=host, port=port, user=user, password=password, database=database)
@@ -332,40 +335,68 @@ class MyServer(BaseHTTPRequestHandler):
             cursor.execute(sql_query)
             ret = cursor.fetchall()
             cursor.close()
-            ret_structure = [{key: val for key, val in zip(cursor.column_names, lst)} for lst in ret]
+            ret_structure = dict(zip(cursor.column_names, ret))
             # database.commit()
             database.close()
             return ret_structure
         return "Wrong authorization key"
 
 
+def ssl_wrap_socket(sock, keyfile=None, certfile=None,
+                    server_hostname=None,
+                    server_side=None):
+    context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+    context.load_cert_chain(certfile, keyfile)
+    if ssl.HAS_SNI:  # Platform-specific: OpenSSL with enabled SNI
+        return context.wrap_socket(sock, server_hostname=server_hostname, server_side=server_side)
+    return context.wrap_socket(sock, server_side=server_side)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        prog='AIS-3USON web-server for supporting mobile clients',
-        description='A middleware between SQL DBMS and clients')
-    parser.add_argument('--usage', action='count', help="how to use this script")
-    parser.add_argument('--secret', "--password", action='store', help="password for SQL authentication")
+        prog="AIS-3USON web-server for supporting mobile clients",
+        description="A middleware between SQL DBMS and clients")
+    parser.add_argument("--usage", action="count", help="how to use this script")
+    parser.add_argument("--secret", "--password", action="store", help="password for SQL authentication")
+    parser.add_argument("--mysql_host", action="store", help="Name of host with MySQL database, default: 'localhost'")
+    parser.add_argument("--port", action="store", default=48080, help="Use port, default: 48080")
+    parser.add_argument("--debug-port", action="count",
+                        help="Only for https: start http server(second server) on port 48081")
+    parser.add_argument("--conf-dir", action="store", default="/etc/ais3uson",
+                        help="Directory with configuration files, default: '/etc/ais3uson'")
     args = parser.parse_args()
 
     if args.usage:
         this_help()
-        exit(0)
+        sys.exit(0)
 
     if args.secret:
         PASSWORD = args.secret
-        print("Using password from commandline" )
+        print("Using password from commandline")
 
-    webServer = ThreadingHTTPServer((hostName, serverPort), MyServer)
-    if os.path.isfile("/etc/ais3uson/privkey.pem"):
-        if os.access("/etc/ais3uson/privkey.pem", R_OK):
-            webServer.socket = ssl.wrap_socket(webServer.socket, keyfile='/etc/ais3uson/privkey.pem',
-                                               certfile='/etc/ais3uson/cert.pem',
+    if args.mysql_host:
+        MYSQLHOST = args.mysql_host
+        print("Using MySQL host: %s" % MYSQLHOST)
+
+    if args.conf_dir:
+        CONFDIR = args.conf_dir
+        print("Using config directory: %s" % CONFDIR)
+
+    webServer = ThreadingHTTPServer((hostName, SERVERPORT), MyServer)
+    if os.path.isfile(CONFDIR + "/privkey.pem"):
+        if os.access(CONFDIR + "/privkey.pem", R_OK):
+            webServer.socket = ssl_wrap_socket(webServer.socket, keyfile=CONFDIR + "/privkey.pem",
+                                               certfile=CONFDIR + "/cert.pem",
                                                server_side=True)
-            print("Server started https://%s:%s" % (hostName, serverPort))
+            print("Server started https://%s:%s" % (hostName, SERVERPORT))
+            if args.debug_port:
+                webServer2 = ThreadingHTTPServer((hostName, 48081), MyServer)
+                thread = threading.Thread(target=webServer2.serve_forever)
+                thread.start()
         else:
             print("Can't read SSL certificate")
     else:
-        print("Server started http://%s:%s" % (hostName, serverPort))
+        print("Server started http://%s:%s" % (hostName, SERVERPORT))
 
     try:
         webServer.serve_forever()
