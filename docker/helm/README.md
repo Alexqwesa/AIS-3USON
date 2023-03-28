@@ -44,10 +44,17 @@ kubectl create secret generic mysql-root-password --from-file=mysql-root-passwor
 After the first start of aismysql container update web_info password:
 
 ```bash
+# cd docker/secrets/
 kubectl get pods | grep aismysql  # to see exact pod name
 kubectl exec -it aismysql -- mysql  -uroot  -p$(cat mysql-root-password) \
         "SET PASSWORD FOR 'web_info'@'%' = '$(cat mysql-web-worker-password)';"
 ```
 
-Create user with part_admin role:
+Create user admin2 with admin role:
+```bash
+# cd AIS-3USON/sql
+# edit password in 05_admin_and_test_user.sql
+kubectl get pods | grep aismysql  # to see exact pod name
+kubectl exec -it aismysql -- mysql  -uroot  -p$(cat ../docker/secrets/mysql-root-password)) < 05_admin_and_test_user.sql
+```
 

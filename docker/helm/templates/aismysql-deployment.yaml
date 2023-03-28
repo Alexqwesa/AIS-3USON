@@ -27,16 +27,16 @@ spec:
                     values:
                       - data
       containers:
-        - args:
+        - image: mysql:latest
+          name: aismysql
+          args:
             - --character-set-server=utf8mb4
-            - --collation-server=utf8mb4_unicode_ci
+            - --collation-server=utf8mb4_0900_ai_ci
           env:
             - name: MYSQL_DATABASE
               value: kcson
             - name: MYSQL_ROOT_PASSWORD_FILE
               value: /secrets/mysql-root-password
-          image: mysql:8.0.16
-          name: aismysql
           ports:
             - containerPort: 3306
           resources: { }
