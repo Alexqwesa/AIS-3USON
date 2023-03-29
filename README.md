@@ -42,16 +42,23 @@ Kubernetes) [инструкция по установке](docker/helm/README.md
 
 ## Сборка клиентского приложения
 
-Windows версия **pySide2** на момент разработки поддерживала только 32 битную архитектуру, поэтому сборки для Windows
-должны использовать 32 битные утилиты(Python 32bit, MSVC Redistributable 32bit, SQL Connector)
-
 Windows версия **pySide6** на момент разработки поддерживала только 64 битную архитектуру, поэтому сборки для
 Windows должны использовать 64 битные утилиты(Python 64bit, MSVC Redistributable 64bit, SQL Connector)
 
-- проверьте, что все необходимые пакеты установлены;
-- отредактируйте в файле make.bat(.sh) путь к вашему профилю Python;
+Windows версия **pySide2** на момент разработки поддерживала только 32 битную архитектуру, поэтому сборки для Windows
+должны использовать 32 битные утилиты(Python 32bit, MSVC Redistributable 32bit, SQL Connector)
+
+Подготовьте среду python c необходимыми пакетами:
+```bash
+git clone https://github.com/Alexqwesa/AIS-3USON
+cd AIS-3USON
+virtualenv -p python3 venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+```
 - отредактируйте в файле 3uson.conf ip-адрес вашего сервера (и др. настройки по умолчанию);
-- запустите make.bat (для Windows) или make.sh (для Linux);
+- отредактируйте в файле `make.bat`(`make.sh`) путь к вашему профилю Python (и используемую библиотеку qt, по умолчанию используется pyside6)); 
+- запустите `make.bat` (для Windows) или `make.sh` (для Linux);
 - полученные дистрибутивы удобно распространять через общую директорию по локальной сети (см. tools)
 
 Запуск приложения возможен без установки, однако:
