@@ -16,6 +16,7 @@ import decimal
 from datetime import date
 from threading import Thread
 
+import sqlalchemy
 from qtpy.QtGui import QFontMetrics
 from sqlalchemy.exc import ProgrammingError, OperationalError
 
@@ -1133,8 +1134,8 @@ class _tsYearTableAddTotalRows(YearRowLayoutModel):
             except (OperationalError, ProgrammingError):
                 debug("rollback set_contract_id %s ", contract_id)
                 SD.session.rollback()
-                SD.session.execute("CALL GET_PRIVILEGES")
-                SD.session.execute("SET ROLE ALL")
+                SD.session.execute(sqlalchemy.sql.text("CALL GET_PRIVILEGES"))
+                SD.session.execute(sqlalchemy.sql.text("SET ROLE ALL"))
                 self.contract = SD.session.query(Contracts).filter_by(id=contract_id)[0]
             debug("end set_contract_id %s ", contract_id)
             #############################
