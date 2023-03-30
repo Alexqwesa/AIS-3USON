@@ -27,7 +27,7 @@ spec:
                     values:
                       - data
       containers:
-        - image: mysql:latest
+        - image: mysql:8.0.32
           name: aismysql
           args:
             - --character-set-server=utf8mb4

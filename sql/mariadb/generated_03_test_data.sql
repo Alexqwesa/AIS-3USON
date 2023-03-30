@@ -1,3 +1,7 @@
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+
+
 USE `kcson`;
 
 
