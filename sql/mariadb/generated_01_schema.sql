@@ -2378,8 +2378,8 @@ DROP TABLE IF EXISTS `dep`;
 CREATE TABLE `dep` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `dep` varchar(145) NOT NULL,
-  `dep_full_name` varchar(255) DEFAULT NULL,
-  `dep_puname` varchar(255) DEFAULT NULL,
+  `dep_full_name` varchar(1024) DEFAULT NULL,
+  `dep_puname` varchar(1024) DEFAULT NULL,
   `note` varchar(255) DEFAULT NULL,
   `archive` tinyint DEFAULT '0',
   `complex_dep_id` int unsigned DEFAULT '0',
@@ -8059,5 +8059,33 @@ order by
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+################################################################
+# change for version 91
+################################################################
+CREATE FUNCTION kcson.get_version()
+    RETURNS INT
+    deterministic
+    return 91;
+
+DROP PROCEDURE IF EXISTS kcson.GET_VER;
+DELIMITER $$
+$$
+CREATE
+    DEFINER = `root`@`localhost` PROCEDURE `kcson`.`GET_VER`()
+    DETERMINISTIC
+    COMMENT 'return sql version, change if tables changed'
+begin
+    select get_version();
+end $$
+DELIMITER ;
+
+CREATE OR REPLACE ALGORITHM = UNDEFINED VIEW `_version` AS
+select `get_version`() AS `version`;
+
+CREATE OR REPLACE ALGORITHM = UNDEFINED VIEW `_apikey_exist` AS
+select `dhw`.`api_key` AS `api_key`
+from `dep_has_worker` `dhw`;
 
 -- Dump completed on 2022-03-10 17:15:36

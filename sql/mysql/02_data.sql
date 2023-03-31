@@ -7,7 +7,7 @@ USE `kcson`;
 
 INSERT INTO kcson.setting (id, archive, setting, value, note, sdate) VALUES(1, 0, 'org', 'СПБ ГБУСОН "КЦСОН Адмиралтейского района Санкт-Петербурга"', NULL, '2020-01-16 15:28:57');
 INSERT INTO kcson.setting (id, archive, setting, value, note, sdate) VALUES(2, 0, 'full_org', 'Санкт-Петербургское государственное бюджетное учреждение социального обслуживания населения «Комплексный центр социального обслуживания населения Адмиралтейского района Санкт-Петербурга»', NULL, '2020-01-16 15:28:57');
-INSERT INTO kcson.setting (id, archive, setting, value, note, sdate) VALUES(3, 0, 'mobile_server', '80.87.196.11', 'Адрес сервера для мобильного приложения', '2021-12-24 18:07:17');
+INSERT INTO kcson.setting (id, archive, setting, value, note, sdate) VALUES(3, 0, 'mobile_server', 'https://alexqwesa.fvds.ru:48080/', 'Адрес сервера для мобильного приложения', '2021-12-24 18:07:17');
 
 
 INSERT INTO kcson.live_min (id, lmdate, live_min_p, live_min_w, live_min_c, live_min_all, post, post_date, `create`, ts, cr_by, upd_by) VALUES(1, '2015-11-26', 7992.10, 10998.20, 9617.90, 10019.40, 'Постановление Правительства Санкт-Петербурга № 1088 от 26.11.2015', '2015-11-26', '2020-01-16 15:34:03', '2020-01-16 15:34:03', NULL, 2);

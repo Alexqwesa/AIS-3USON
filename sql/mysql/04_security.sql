@@ -251,6 +251,8 @@ BEGIN
     GRANT select ON kcson.`api_key_insert_main` TO web_info; -- maybe use procedure instead of this?
     GRANT Select ON kcson.`_api_key_planned` TO web_info;
     GRANT Select ON kcson.`_api_key_services` TO web_info;
+    GRANT select ON kcson._apikey_exist TO 'web_info';
+    GRANT select ON kcson._version TO 'web_info';
 
 
     #############################

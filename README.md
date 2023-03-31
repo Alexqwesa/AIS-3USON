@@ -35,8 +35,8 @@ Kubernetes) [инструкция по установке](docker/helm/README.md
     - 02_data.sql
     - 03_test_data.sql (для тестов: 05_extended_test_data.sql и 06_extended_test_data_2.sql )
     - 04_security.sql
-    - 05_admin_and_test_user.sql
-- В файле `05_admin_and_test_user.sql` перед импортом необходимо сменить пароль пользователя-администратора admin2 (SQL роль admin),
+    - 05_activate_admin_and_test_user.sql
+- В файле `05_activate_admin_and_test_user.sql` перед импортом необходимо сменить пароль пользователя-администратора admin2 (SQL роль admin),
   который будет администрировать базу данных из настольного
   приложения(подробнее см. раздел [Использование](#использование))
 

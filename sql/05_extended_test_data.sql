@@ -91,7 +91,7 @@ INSERT INTO kcson.dep_has_ripso (dep_id, ripso_id) VALUES(28, 7);
 INSERT INTO kcson.dep_has_ripso (dep_id, ripso_id) VALUES(29, 7);
 
 
-INSERT INTO kcson.worker (id, worker, `user`, note, role_id, dep_id, archive) VALUES(3, ' Бознвакорямрнм Риаабаа', '', '', 3, 40, 0);
+# INSERT INTO kcson.worker (id, worker, `user`, note, role_id, dep_id, archive) VALUES(3, ' Бознвакорямрнм Риаабаа', '', '', 3, 40, 0);
 INSERT INTO kcson.worker (id, worker, `user`, note, role_id, dep_id, archive) VALUES(4, 'Оеед Аваьеаьг Лрввнаю', '', '', 3, 41, 0);
 INSERT INTO kcson.worker (id, worker, `user`, note, role_id, dep_id, archive) VALUES(5, 'Еианавянфаьонсвьеианв Аар Ра', '', '', 3, 40, 0);
 INSERT INTO kcson.worker (id, worker, `user`, note, role_id, dep_id, archive) VALUES(6, 'Гаеел Аос Аандрнрвесвнеаакн', '', '', 3, 35, 0);
@@ -242,7 +242,7 @@ INSERT INTO kcson.worker (id, worker, `user`, note, role_id, dep_id, archive) VA
 INSERT INTO kcson.worker (id, worker, `user`, note, role_id, dep_id, archive) VALUES(151, 'Нинаегдн В Вяемоалаьалмксне', '', '', 6, 42, 0);
 
 
-INSERT INTO kcson.dep_has_worker (id, dep_has_worker, worker_id, dep_id, job_id, note, archive, role_id, `from`, till, api_key) VALUES(3, 'Бознвакорямрнм Риаабаа Социальный работник СОСМОД-12', 3, 34, 3, '', 0, 3, '2000-01-01', '2050-01-01', '7.755124517488408e1790d6f3fd-749a-11ec-a707-04d9f5c97b0c');
+# INSERT INTO kcson.dep_has_worker (id, dep_has_worker, worker_id, dep_id, job_id, note, archive, role_id, `from`, till, api_key) VALUES(3, 'Бознвакорямрнм Риаабаа Социальный работник СОСМОД-12', 3, 34, 3, '', 0, 3, '2000-01-01', '2050-01-01', '7.755124517488408e1790d6f3fd-749a-11ec-a707-04d9f5c97b0c');
 INSERT INTO kcson.dep_has_worker (id, dep_has_worker, worker_id, dep_id, job_id, note, archive, role_id, `from`, till, api_key) VALUES(4, 'Бознвакорямрнм Риаабаа Социальный работник СОСМОД-7', 3, 40, 3, '', 0, 3, '2000-01-01', '2050-01-01', '3.5428980063115226e1790d7a04d-749a-11ec-a707-04d9f5c97b0c');
 INSERT INTO kcson.dep_has_worker (id, dep_has_worker, worker_id, dep_id, job_id, note, archive, role_id, `from`, till, api_key) VALUES(5, 'Бознвакорямрнм Риаабаа Социальный работник СОСМОД-10', 3, 32, 3, '', 0, 3, '2000-01-01', '2050-01-01', '2.449116755695191e1790d802b3-749a-11ec-a707-04d9f5c97b0c');
 INSERT INTO kcson.dep_has_worker (id, dep_has_worker, worker_id, dep_id, job_id, note, archive, role_id, `from`, till, api_key) VALUES(6, 'Оеед Аваьеаьг Лрввнаю Социальный работник СОСМОД-8', 4, 41, 3, '', 0, 3, '2000-01-01', '2050-01-01', '9.616890036144192e1790d84a3b-749a-11ec-a707-04d9f5c97b0c');
@@ -439,8 +439,8 @@ INSERT INTO kcson.dep_has_worker (id, dep_has_worker, worker_id, dep_id, job_id,
 INSERT INTO kcson.dep_has_worker (id, dep_has_worker, worker_id, dep_id, job_id, note, archive, role_id, `from`, till, api_key) VALUES(197, 'Нинаегдн В Вяемоалаьалмксне Заведующий отделением СОСМОД-9', 151, 42, 11, '', 0, 6, '2000-01-01', '2050-01-01', '7.365160629493334e17911984b4-749a-11ec-a707-04d9f5c97b0c');
 
 
--- INSERT INTO kcson.client (id, client, client_short, clientDeath, clientbirth, ESRN, note, phone, snils, curator, `create`, ts, cr_by, upd_by, cr_dep_id) VALUES(1, 'Тестовый человек', 'Тx ', '1900-01-01', '1976-01-01', 123461111, '1323', NULL, NULL, NULL, NULL, '2022-01-11 14:42:48', 2, 2, 0);
--- INSERT INTO kcson.client (id, client, client_short, clientDeath, clientbirth, ESRN, note, phone, snils, curator, `create`, ts, cr_by, upd_by, cr_dep_id) VALUES(2, 'Тестовый чел2', NULL, NULL, '1987-01-01', 543, NULL, NULL, NULL, NULL, NULL, '2022-01-11 14:42:48', 2, 2, 0);
+# INSERT INTO kcson.client (id, client, client_short, clientDeath, clientbirth, ESRN, note, phone, snils, curator, `create`, ts, cr_by, upd_by, cr_dep_id) VALUES(1, 'Тестовый человек', 'Тx ', '1900-01-01', '1976-01-01', 123461111, '1323', NULL, NULL, NULL, NULL, '2022-01-11 14:42:48', 2, 2, 0);
+# INSERT INTO kcson.client (id, client, client_short, clientDeath, clientbirth, ESRN, note, phone, snils, curator, `create`, ts, cr_by, upd_by, cr_dep_id) VALUES(2, 'Тестовый чел2', NULL, NULL, '1987-01-01', 543, NULL, NULL, NULL, NULL, NULL, '2022-01-11 14:42:48', 2, 2, 0);
 INSERT INTO kcson.client (id, client, client_short, clientDeath, clientbirth, ESRN, note, phone, snils, curator, `create`, ts, cr_by, upd_by, cr_dep_id) VALUES(3, 'Нпнчараид Кавоане Нлрокесе', 'Лас Енарокевичннподан Аекр', NULL, '1956-02-19', 1498143, '', '', '', NULL, '2022-01-14 09:05:05', '2022-01-14 09:32:18', 2, 2, 1);
 INSERT INTO kcson.client (id, client, client_short, clientDeath, clientbirth, ESRN, note, phone, snils, curator, `create`, ts, cr_by, upd_by, cr_dep_id) VALUES(4, 'Ррннмн Ааивфталтсвдиеиуе', 'А Аинлвае Ттфнивмиднрусер', NULL, '1951-11-09', 649270, '', '', '', NULL, '2022-01-14 09:05:05', '2022-01-14 09:32:18', 2, 2, 1);
 INSERT INTO kcson.client (id, client, client_short, clientDeath, clientbirth, ESRN, note, phone, snils, curator, `create`, ts, cr_by, upd_by, cr_dep_id) VALUES(5, 'Авеевьнкиасснлвна Аин Я', 'Нннлваев Акаисьяаес Нив', NULL, '1929-05-26', 360855, '', '', '', NULL, '2022-01-14 09:05:05', '2022-01-14 09:32:18', 2, 2, 1);

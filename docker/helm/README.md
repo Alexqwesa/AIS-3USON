@@ -48,13 +48,15 @@ After the first start of aismysql container update web_info password:
 kubectl get pods | grep aismysql  # to see exact pod name
 kubectl exec -it aismysql -- mysql  -uroot  -p$(cat mysql-root-password) \
         "SET PASSWORD FOR 'web_info'@'%' = '$(cat mysql-web-worker-password)';"
+kubectl exec -it aismysql -- mysql  -uroot  -p$(cat mysql-root-password) \
+        "ALTER USER 'web_info'@'%' account unlock;"
 ```
 
 Create user admin2 with admin role:
 ```bash
 # cd AIS-3USON/sql
-# edit password in 05_admin_and_test_user.sql
+# edit password in 05_activate_admin_and_test_user.sql
 kubectl get pods | grep aismysql  # to see exact pod name
-kubectl exec -it aismysql -- mysql  -uroot  -p$(cat ../docker/secrets/mysql-root-password)) < 05_admin_and_test_user.sql
+kubectl exec -it aismysql -- mysql  -uroot  -p$(cat ../docker/secrets/mysql-root-password)) < 05_activate_admin_and_test_user.sql
 ```
 
