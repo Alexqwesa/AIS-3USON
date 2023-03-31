@@ -30,7 +30,7 @@ from logic.data_worker import *
 
 from models.ts_models_serv_year import tsTableServYearModel
 from models.universal_delegate import tsItemDelegate
-from worker.login_key_auth import api_key
+from worker.login_key_auth import generate_api_key
 import json
 
 
@@ -162,7 +162,7 @@ class clstab_workers(QOBase):
         try:
             index: QModelIndex = self.dep_has_worker.selectedIndexes()[0]
             name = index.siblingAtColumn(index.model().index_of_col("dep_has_worker")).data(Qt.EditRole)
-            password, key, qr_image = api_key(
+            password, key, qr_image = generate_api_key(
                 name=index.siblingAtColumn(index.model().index_of_col("dep_has_worker")).data(Qt.EditRole),
                 dep=index.siblingAtColumn(index.model().index_of_col("dep_id")).data(Qt.DisplayRole),
                 worker_dep_id=index.siblingAtColumn(index.model().index_of_col("id")).data(Qt.EditRole),

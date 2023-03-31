@@ -21,7 +21,7 @@ from logic.data_worker import WD
 from safe_shared_data import SD
 
 
-def api_key(worker_dep_id: int, dep: str, name: str = "test", password=None, db="kcson", host=None, port="48080"):
+def generate_api_key(worker_dep_id: int, dep: str, name: str = "test", password=None, db="kcson", host=None, port="48080"):
     """ Create api key for login via qr-code
 
     Args:
@@ -29,7 +29,7 @@ def api_key(worker_dep_id: int, dep: str, name: str = "test", password=None, db=
     Return:
            (password, qr_code)
     Tests:
-        >>> password, key, qim = api_key(1, "otd test", password="123" )
+        >>> password, key, qim = generate_api_key(1, "otd test", password="123" )
         >>> print(key)  # doctest:+ELLIPSIS
         # {'app': 'AIS3USON web', 'name': 'test', 'api_key': '123', 'dep_id': 1, 'dep': 'otd test', 'db': 'kcson', 'host': 'None', 'port': '48080'}
         >>> print(qim)  # doctest:+ELLIPSIS
@@ -39,7 +39,7 @@ def api_key(worker_dep_id: int, dep: str, name: str = "test", password=None, db=
         if "setting" in WD.inited_models:
             host = WD.get_rows_from_model_name(model_name="setting", id_field="setting",
                                                id0="mobile_server")[0].siblingAtColumn(
-                WD.inited_models["setting"].index_of_col("setting")).data(Qt.EditRole)
+                WD.inited_models["setting"].index_of_col("value")).data(Qt.EditRole)
         else:
             host = SD.line_query("select value from setting where setting='mobile_server'")
 
