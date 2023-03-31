@@ -4,10 +4,13 @@
 
 FROM alpine:latest
 RUN apk add --update --no-cache py3-pip python3
-RUN pip install mysql-connector-python
-RUN pip install uvicorn
-RUN pip install fastapi httpx
+RUN pip install  --no-cache-dir  mysql-connector-python
+RUN pip install  --no-cache-dir uvicorn
+RUN pip install  --no-cache-dir fastapi httpx
+#RUN pip install --no-cache-dir --upgrade pydantic
+#RUN pip install --no-cache-dir --upgrade starlette
 RUN apk del py3-pip py3-setuptools py3-packaging
+RUN rm -rf /root/.cache
 ADD ./web_worker/ais3uson_www.py .
 EXPOSE 48080
 EXPOSE 48081
