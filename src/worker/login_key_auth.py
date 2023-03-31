@@ -13,6 +13,7 @@
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------------------------------------------------------------------------
 import json
+
 import qrcode
 from PIL.ImageQt import ImageQt
 from qtpy.QtCore import Qt
@@ -21,7 +22,8 @@ from logic.data_worker import WD
 from safe_shared_data import SD
 
 
-def generate_api_key(worker_dep_id: int, dep: str, name: str = "test", password=None, db="kcson", host=None, port="48080"):
+def generate_api_key(worker_dep_id: int, dep: str, name: str = "test", password=None, db="kcson", host=None,
+                     port="48080"):
     """ Create api key for login via qr-code
 
     Args:
@@ -52,14 +54,14 @@ def generate_api_key(worker_dep_id: int, dep: str, name: str = "test", password=
         "name": name,
         "api_key": password,
         "worker_dep_id": worker_dep_id, "dep": dep, "db": db,
-        "host": host, "port": port
+        "servers": f"{host}"
     }
     #############################
     # make Qr image
     # ---------------------------
     qim = ImageQt(
         qrcode.make(
-            json.dumps(key,  ensure_ascii=True)  # standard
+            json.dumps(key, ensure_ascii=True)  # standard
         )
     )
     # QtGui.QPixmap.fromImage(qim)
