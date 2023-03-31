@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-# -------------------------------------------------------------------------------
 # -*- coding: utf-8 -*-
+""" Web worker for AIS-3USON """
+# -------------------------------------------------------------------------------
 # Name:        AIS 3USON web worker
 # Purpose:     Middleware to connect SQL DBMS to mobile clients,
 #                   this file should have minimal amount of dependency,
 #                   and should be able to run on any system
 #
 # Author:      Savin Alexander Viktorovich aka alexqwesa
-# Created:     2021-2022
+# Created:     2021-2023
 # Copyright:   Savin Alexander Viktorovich aka alexqwesa
 # Licence:     LGPL 3
 # This software is licensed under the "LGPLv3" License as described in the "LICENSE" file,
@@ -17,353 +18,276 @@
 import argparse
 import json
 import os
-import ssl
+import socket
 import sys
-import threading
-from http.server import BaseHTTPRequestHandler
-from os import R_OK
+from subprocess import Popen
+from typing import Annotated, Tuple
 
-DEBUG_MODE = True
-#############################
-# add support python pre 3.6
-# ---------------------------
-try:
-    _ = ModuleNotFoundError
-except Exception:  # for Python 3.6 and before.
-    class ModuleNotFoundError(Exception):
-        pass
+import mysql
+import uvicorn
+from fastapi import FastAPI, Header, Body
+from mysql.connector import connect
+from pydantic import BaseModel
+from starlette.middleware.cors import CORSMiddleware
+from starlette.responses import HTMLResponse
+from starlette.testclient import TestClient
 
-try:
-    from http.server import ThreadingHTTPServer
-except (ModuleNotFoundError, ImportError):
-    # python 3.6 and before.
-    import socketserver
-    from http.server import HTTPServer
+app = FastAPI()
 
+VERSION = 8
 
-    class ThreadingHTTPServer(socketserver.ThreadingMixIn, HTTPServer):
-        pass
+BIND_HOST = os.getenv("HOST_NAME", "0.0.0.0")
+BIND_PORT = int(os.getenv("SERVER_PORT", 48080))
+MYSQL_PORT = int(os.getenv("MYSQL_PORT", 3306))
+MYSQL_HOST = os.getenv("MYSQL_HOST", "127.0.0.1")
+PASSWORD = os.getenv("PASSWORD", "nopassword")
+CONFDIR = os.getenv("CONFDIR", "/etc/ais3uson")
+CORS_LIST = json.loads(os.getenv('CORS_LIST', """
+{
+    "1":"https://127.0.0.1",
+    "2":"https://localhost", 
+    "3":"http://127.0.0.1",
+    "4":"http://localhost"
+}
+""".replace("\n", "")))
 
-# import ssl
-#############################
-# import mysql connector with check
-# ---------------------------
-
-README_linux = """
-# To setup this service:
-
-useradd -r -s /bin/false ais3uson
-groupadd ais3uson
-# or prohibit login to exist user with:  passwd -l 
-# I strongly recommend:
-# to use only key authentication: PasswordAuthentication no  (in file /etc/ssh/sshd_conf) 
-
-# save script on server to /usr/local/bin
-mkdir -p /usr/local/bin
-cp -a %s /usr/local/bin/
-
-# create file for storing password and secure it
-mkdir /etc/ais3uson/
-touch /etc/ais3uson/mysql-web-worker-password
-chown ais3uson:ais3uson /etc/ais3uson/ -R
-chmod 0700 /etc/ais3uson/
-chmod 0600 /etc/ais3uson/*
-# WRITE PASSWORD FOR USER web_info INTO THIS FILE
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=CORS_LIST.values(),
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
-# create systemd service
-cat < EOF >> /etc/systemd/system/ais3uson_www.service
-[Unit]
-Description=Web worker for AIS3USON
-
-[Service]
-Type=simple
-User=ais3uson
-Group=ais3uson
-Restart=on-failure
-Environment=PYTHONUNBUFFERED=1
-ExecStart=/usr/bin/python3  /usr/local/bin/ais3uson_www.py 
-StartLimitInterval = 60
-StartLimitBurst = 10
-
-[Install]
-WantedBy=multi-user.target
-
-EOF
-
-# check it works
-chmod a+x /usr/local/bin/ais3uson_www.py
-/usr/local/bin/ais3uson_www.py     # check it works , and then kill it
-
-# enable service 
-systemctl enable ais3uson_www
-systemctl start  ais3uson_www
-systemctl status ais3uson_www
+def ping_server(server: str = MYSQL_HOST, port: str = MYSQL_PORT, timeout=3):
+    """ping server"""
+    try:
+        socket.setdefaulttimeout(timeout)
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect((server, port))
+    except OSError as error:
+        return f"error: {error}"
+    finally:
+        s.close()
+    return "ok"
 
 
-""" % __file__
+# @lru_cache(maxsize=1000)
+def api_key_check(api_key: str):
+    if api_key:
+        head, res = get_sql_data(f"select api_key from _apikey_exist where api_key = '{api_key}';")
+        if res and api_key in res[0]:
+            return True
+    return False
+
+
+@app.get("/")
+async def root():
+    return {"ais_3uson": VERSION}
+
+
+@app.get("/stat", response_class=HTMLResponse)
+async def stat(api_key: Annotated[str, Header()] = ""):
+    """Statistics of web worker"""
+    print("stat requested")
+    responses = await stat_json(api_key)
+    return f"""
+    <html><head><title>Statistic for WEB-sevrer AIS-3USON</title></head>
+    <body>
+    <p>Statistic for WEB-sevrer AIS-3USON</p> 
+    <p>Web worker version: {VERSION}</p> 
+    <p>DB version: {responses["DB version"]}</p> 
+    <p>MySQL ping status: {responses["MySQL ping status"]}</p> 
+    <p>MySQL api_key correct:  {responses["MySQL api_key correct"]}</p> 
+    </body></html>
+    """
+
+
+@app.get("/stat_json")
+async def stat_json(api_key: Annotated[str, Header()] = ""):
+    """Statistics of web worker"""
+    print("stat requested")
+    return {"Web worker version": VERSION,
+            "DB version": get_sql_data("select * from _version;"),
+            "MySQL ping status": ping_server(),
+            "MySQL api_key correct": api_key_check(api_key)
+            }
+
+
+@app.get("/clients")
+async def read_clients(api_key: Annotated[str, Header()] = ""):
+    """Get list of clients"""
+    if api_key:
+        header, message = get_sql_data(sql_query=f"""
+            select  contract_id, dep_id, client_id, contract, client, dhw_id
+            from    _apikey_has_contracts 
+            where api_key = '{api_key}';
+        """)  # TODO: add ,contract_duration, comment, percent, max_pay
+        return to_list_of_dict(header, message, default=str)
+    return {}
+
+
+@app.get("/services")
+async def read_services(api_key: Annotated[str, Header()] = ""):
+    """Get list of clients"""
+    if api_key_check(api_key):
+        header, message = get_sql_data(sql_query="""
+                select id, tnum, serv_text, total, image, serv_id_list, sub_serv, short_text, price 
+                from _api_key_services;
+        """)
+        return to_list_of_dict(header, message, default=str)
+    return {}
+
+
+@app.get("/planned")
+async def read_planned(api_key: Annotated[str | None, Header()] = None):
+    """Get list of clients"""
+    if api_key:
+        header, message = get_sql_data(sql_query="""
+                    select contract_id,serv_id,planned,filled 
+                    from _api_key_planned 
+                    where api_key = '{api_key}';
+        """)
+        return to_list_of_dict(header, message, default=str)
+    return {}
+
+
+class ClientService(BaseModel):
+    contracts_id: int
+    serv_id: int
+    dep_has_worker_id: int
+    vdate: str
+    uuid: str
+
+    def one_service_entry(self):
+        return (f"{self.contracts_id}, {self.serv_id}, {self.dep_has_worker_id}, "
+                f"'{self.vdate}', 1, '{self.uuid}'")
+
+
+class ClientServiceDelete(BaseModel):
+    dep_has_worker_id: int
+    contracts_id: int
+    serv_id: int
+    uuid: str
+
+
+@app.get("/add")
+async def add_service(api_key: Annotated[str, Header()] = "",
+                      body: Annotated[ClientService, Body(embed=True)] = None):
+    """Add new service to client"""
+    if api_key:
+        return put_sql_data(sql_query=f"""
+                    INSERT INTO kcson.api_key_insert_main
+                    (contracts_id, serv_id, dep_has_worker_id, vdate, quantity, uuid, check_api_key )
+                    VALUES({body.one_service_entry()}, '{api_key})'; 
+                """)
+    return {'id': 0, 'error': "Wrong api_key"}
+
+
+@app.get("/delete")
+async def delete_service(api_key: Annotated[str, Header()] = "",
+                         body: Annotated[ClientServiceDelete, Body(embed=True)] = None):
+    """Delete service of client"""
+    if api_key:
+        return put_sql_data(sql_query=f"""
+                UPDATE kcson.api_key_insert_main
+                    SET quantity = 0, 
+                        check_api_key = '{api_key}', 
+                        dep_has_worker_id =  {body.dep_has_worker_id}
+                    WHERE uuid = '{body.uuid}'
+                """)
+    return {'id': 0, 'error': "Wrong api_key"}
+
+
+@app.get("/healthcheck")
+def healthcheck():
+    return 'Health - OK'
+
+
+def put_sql_data(sql_query: str, host: str = MYSQL_HOST, port: int = MYSQL_PORT, user: str = 'web_info',
+                 password: str = PASSWORD,
+                 database: str = 'kcson'):
+    cursor = None
+    try:
+        database = connect(host=host, port=port, user=user, password=password, database=database)
+        cursor = database.cursor()
+        cursor.execute(sql_query)
+        database.commit()
+        ret = cursor.lastrowid
+        ret_structure = {"id": ret}
+        cursor.close()
+        database.close()
+    except mysql.connector.errors.IntegrityError:
+        ret_structure = {"id": 0, "error": "duplicate"}
+        print(ret_structure)
+    finally:
+        if cursor:
+            cursor.close()
+        database.close()
+    return ret_structure
+
+
+def get_sql_data(sql_query: str,
+                 host: str = MYSQL_HOST,
+                 port: int = MYSQL_PORT,
+                 user: str = 'web_info',
+                 password: str = PASSWORD,
+                 database: str = 'kcson') -> Tuple[Tuple[str], Tuple[str]]:
+    database = connect(host=host, port=port, user=user, password=password, database=database)
+    cursor = database.cursor()
+    cursor.execute(sql_query)
+    ret = cursor.fetchall()
+    cursor.close()
+    database.close()
+    return cursor.column_names, ret
 
 
 def this_help():
-    print(README_linux)
+    print("Read README.md near this file")
     sys.exit(0)
 
 
-try:
-    import mysql
-    from mysql.connector import connect
-except:
-    print("=============================")
-    print("Install mysql connector")
-    print("pip install mysql-connector-python")
-    print("=============================")
-    this_help()
-
-hostName = "0.0.0.0"  # "localhost"  if this script used with ssh -NR
-SERVERPORT = 48080
-PASSWORD = "nopassword"
-MYSQLPORT = 3306
-MYSQLHOST = "127.0.0.1"
-CONFDIR = "/etc/ais3uson"
-try:
-    with open(CONFDIR + r"/mysql-web-worker-password", mode="r") as f:
-        PASSWORD = f.readline().replace("\n", "")
-except (FileNotFoundError, PermissionError):
-    print("Can't load password from file!!!")
+def to_list_of_dict(header, message, default=str):
+    """
+    Skip None and empty string in message,
+    return: json.dumps(message)
+    """
+    message = [dict(zip(header, data)) for data in message if len(data) > 0]
+    return message
 
 
-def json_dumps(message, default=str):
-    for m in message:
-        s = set()
-        for k, v in m.items():
-            if v in ("", "None"):
-                s.add(k)
-        for k in s:
-            m.pop(k, None)
-    return json.dumps(message, default=default)
+client = TestClient(app)
 
 
-class MyServer(BaseHTTPRequestHandler):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.api_key = None
-
-    def do_OPTIONS(self):
-        self.send_response(200, "ok")
-        # self.send_header('Access-Control-Allow-Origin', '*') # already done if DEBUG=True, don't send twice!
-        self.send_header("Access-Control-Allow-Credentials", 'true')
-        self.send_header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS')
-        self.send_header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, api_key")
-        self.end_headers()
-        # self.process_request()
-
-    def do_GET(self):
-        if self.path == "/stat":
-            self.stat()
-            print("stat requested")
-        #############################
-        # refuse to receive non-json content
-        # ---------------------------
-        if self.headers.get_content_type() != 'application/json':
-            self.send_response(400)
-            self.end_headers()
-            return
-        if self.path.startswith("/clients"):
-            _, api_key = self.get_auth()
-            if api_key:
-                message = self.get_sql_data(sql_query="""
-                    select  contract_id, dep_id, client_id, contract, client, dhw_id, 
-                        comment, percent, max_pay 
-                    from    _apikey_has_contracts 
-                    where api_key = '%s'
-                """ % self.api_key)
-                # send the message back
-                json_message = json_dumps(message, default=str)
-                self.send_json_header(json_message)
-                self.write(json_message)
-        elif self.path == "/services":
-            _, api_key = self.get_auth()
-            if api_key:
-                message = self.get_sql_data(sql_query="""
-                        select id, tnum, serv_text, total, image, serv_id_list, sub_serv, short_text
-                        , price 
-                        from _api_key_services;
-                    """)
-                # send the message back
-                json_message = json_dumps(message, default=str)
-                self.send_json_header(json_message)
-                self.write(json_message)
-        elif self.path == "/planned":
-            _, api_key = self.get_auth()
-            if api_key:
-                message = self.get_sql_data(sql_query="""
-                        select contract_id,serv_id,planned,filled 
-                        from _api_key_planned 
-                        where api_key = '%s'
-                    """ % self.api_key)
-                # send the message back
-                json_message = json_dumps(message, default=str)
-                self.send_json_header(json_message)
-                self.write(json_message)
-        else:
-            pass
-            # TODO: about + link to app here
-        # elif self.path.startswith("/post"):
-        #     self.post()
-
-    def do_POST(self):
-        # refuse to receive non-json content
-        if self.headers.get_content_type() != 'application/json':
-            self.send_response(400)
-            self.end_headers()
-            return
-        if self.path == "/add":
-            data, api_key = self.get_auth()
-            if api_key:
-                message = self.put_sql_data(sql_query="""
-                        INSERT INTO kcson.api_key_insert_main
-                        (contracts_id, serv_id, dep_has_worker_id, vdate, quantity, uuid, check_api_key )
-                        VALUES(%(contracts_id)s , %(serv_id)s, %(dep_has_worker_id)s, '%(vdate)s', 1,
-                         '%(uuid)s', '%(check_api_key)s' ); 
-                    """ % data)
-                # send the message back
-                json_message = json.dumps(message, default=str)
-                # json_message = '{"id": 0}'
-                self.send_json_header(json_message)
-                self.write(json_message)
-
-    def do_DELETE(self):
-        # refuse to receive non-json content
-        if self.headers.get_content_type() != 'application/json':
-            self.send_response(400)
-            self.end_headers()
-            return
-        if self.path == "/delete":
-            data, api_key = self.get_auth()
-            if api_key:
-                message = self.put_sql_data(sql_query="""
-                    UPDATE kcson.api_key_insert_main
-                        SET quantity = 0, 
-                            check_api_key = '%(check_api_key)s', 
-                            dep_has_worker_id =  %(dep_has_worker_id)s
-                        WHERE uuid = '%(uuid)s' 
-                    """ % data)
-                # send the message back
-                json_message = json.dumps(message, default=str)
-                self.send_json_header(json_message)
-                self.write(json_message)
-
-    def send_json_header(self, content=""):
-        self.send_response(200, "ok")
-        self.send_header("Content-type", "application/json")
-        self.send_header("Content-Length", str(len(content)))
-        self.end_headers()
-
-    def end_headers(self):
-        if DEBUG_MODE:
-            self.send_header('Access-Control-Allow-Origin', '*')
-        super().end_headers()
-
-    def write(self, msg):
-        self.wfile.write(bytes(msg, "utf-8"))
-
-    def get_auth(self):
-        self.api_key = None
-        message = None
-        try:
-            content_len = int(self.headers.get('Content-Length'))
-            message = json.loads(self.rfile.read(content_len))
-        except TypeError:
-            pass
-        try:
-            self.api_key = self.headers.get("api_key")
-        except KeyError:
-            self.api_key = message["api_key"]
-        #############################
-        # api_key will be passed to mysql - TODO: make more checks
-        # ---------------------------
-        if not self.api_key:
-            self.api_key = None
-        if isinstance(self.api_key, str):
-            for c in ["'", '"']:
-                if c in self.api_key:
-                    self.api_key = None
-        if message:
-            message['check_api_key'] = self.api_key
-        return message, self.api_key
-
-    def stat(self):
-        self.send_response(200)
-        self.send_header("Content-type", "text/html; charset=utf-8")
-        self.end_headers()
-        self.write("<html><head><title>Statistic for WEB-sevrer AIS-3USON</title></head>")
-        self.write("<body>")
-        self.write("<p>Statistic for WEB-sevrer AIS-3USON</p>")
-        self.write("<p>Request: %s</p>" % self.path)
-        self.write("<p>Thread: %s</p>" % threading.current_thread().name)
-        self.write("<p>Thread Count: %s</p>" % threading.active_count())
-        self.write("</body></html>")
-
-    def put_sql_data(self, host=MYSQLHOST, port=MYSQLPORT, user='web_info', password=PASSWORD,
-                     database='kcson', sql_query="select * from holiday"):
-        if self.api_key:
-            cursor = None
-            try:
-                database = connect(host=host, port=port, user=user, password=password, database=database)
-                cursor = database.cursor()
-                cursor.execute(sql_query)
-                database.commit()
-                ret = cursor.lastrowid
-                ret_structure = {"id": ret}
-                cursor.close()
-                database.close()
-            except mysql.connector.errors.IntegrityError:
-                ret_structure = {"id": 0, "error": "duplicate"}
-                print(ret_structure)
-            finally:
-                if cursor:
-                    cursor.close()
-                database.close()
-            return ret_structure
-        return "Wrong authorization key"
-
-    def get_sql_data(self, host=MYSQLHOST, port=MYSQLPORT, user='web_info', password=PASSWORD,
-                     database='kcson', sql_query="select * from holiday"):
-        if self.api_key:
-            database = connect(host=host, port=port, user=user, password=password, database=database)
-            cursor = database.cursor()
-            cursor.execute(sql_query)
-            ret = cursor.fetchall()
-            cursor.close()
-            ret_structure = dict(zip(cursor.column_names, ret))
-            # database.commit()
-            database.close()
-            return ret_structure
-        return "Wrong authorization key"
-
-
-def ssl_wrap_socket(sock, keyfile=None, certfile=None,
-                    server_hostname=None,
-                    server_side=None):
-    context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
-    context.load_cert_chain(certfile, keyfile)
-    if ssl.HAS_SNI:  # Platform-specific: OpenSSL with enabled SNI
-        return context.wrap_socket(sock, server_hostname=server_hostname, server_side=server_side)
-    return context.wrap_socket(sock, server_side=server_side)
+def test_read_main():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"message": "Hello World"}
 
 
 if __name__ == "__main__":
+    try:
+        with open(CONFDIR + r"/mysql-web-worker-password", mode="r", encoding="utf-8") as f:
+            PASSWORD = f.readline().replace("\n", "")
+    except (FileNotFoundError, PermissionError):
+        print("Can't load password from file!!!")
+
     parser = argparse.ArgumentParser(
         prog="AIS-3USON web-server for supporting mobile clients",
         description="A middleware between SQL DBMS and clients")
     parser.add_argument("--usage", action="count", help="how to use this script")
     parser.add_argument("--secret", "--password", action="store", help="password for SQL authentication")
-    parser.add_argument("--mysql_host", action="store", help="Name of host with MySQL database, default: 'localhost'")
-    parser.add_argument("--port", action="store", default=48080, help="Use port, default: 48080")
+    parser.add_argument("--mysql-host", action="store", help="Name of host with MySQL database, default: 'localhost'")
+    parser.add_argument("--mysql-port", action="store", help="MySQL database port, default: 3306")
+    parser.add_argument("--port", action="store", default=48080, help="Which port to use, default: 48080")
+    parser.add_argument("--no-ssl", action="count", help="Disable SSL, default port will be PORT+1")
+    parser.add_argument("--allow-cors-for", action="append", help="Allow CORS requests from website ")
     parser.add_argument("--debug-port", action="count",
-                        help="Only for https: start http server(second server) on port 48081")
+                        help="Only for https: start http server(second server) on port PORT+1")
     parser.add_argument("--conf-dir", action="store", default="/etc/ais3uson",
                         help="Directory with configuration files, default: '/etc/ais3uson'")
+
     args = parser.parse_args()
 
     if args.usage:
@@ -375,33 +299,56 @@ if __name__ == "__main__":
         print("Using password from commandline")
 
     if args.mysql_host:
-        MYSQLHOST = args.mysql_host
-        print("Using MySQL host: %s" % MYSQLHOST)
+        MYSQL_HOST = args.mysql_host
+        print(f"Using MySQL host: {MYSQL_HOST}")
+
+    if args.mysql_port:
+        MYSQL_PORT = args.mysql_port
+        print(f"Using MySQL port: {MYSQL_PORT}")
 
     if args.conf_dir:
         CONFDIR = args.conf_dir
-        print("Using config directory: %s" % CONFDIR)
+        print(f"Using config directory: {CONFDIR}")
 
-    webServer = ThreadingHTTPServer((hostName, SERVERPORT), MyServer)
-    if os.path.isfile(CONFDIR + "/privkey.pem"):
-        if os.access(CONFDIR + "/privkey.pem", R_OK):
-            webServer.socket = ssl_wrap_socket(webServer.socket, keyfile=CONFDIR + "/privkey.pem",
-                                               certfile=CONFDIR + "/cert.pem",
-                                               server_side=True)
-            print("Server started https://%s:%s" % (hostName, SERVERPORT))
-            if args.debug_port:
-                webServer2 = ThreadingHTTPServer((hostName, 48081), MyServer)
-                thread = threading.Thread(target=webServer2.serve_forever)
-                thread.start()
+    if args.port:
+        BIND_PORT = int(args.port)
+
+    if args.no_ssl:
+        BIND_PORT = int(BIND_PORT) + 1
+
+    if args.allow_cors_for:
+        for a in args.allow_cors_for:
+            CORS_LIST[a] = a
+        print(f"Allowed CORS: {CORS_LIST.values()}")
+
+    os.environ["BIND_HOST"] = str(BIND_HOST)
+    os.environ["BIND_PORT"] = str(BIND_PORT)
+    os.environ["MYSQL_PORT"] = str(MYSQL_PORT)
+    os.environ["MYSQL_HOST"] = str(MYSQL_HOST)
+    os.environ["PASSWORD"] = str(PASSWORD)
+    os.environ["CONFDIR"] = str(CONFDIR)
+    os.environ["CORS_LIST"] = json.dumps(CORS_LIST)
+
+    if not args.no_ssl and os.path.isfile(CONFDIR + "/privkey.pem"):
+        #############################
+        # start with ssl certificate
+        # ---------------------------
+        if args.debug_port:
+            Popen(['python3', '-m', 'ais3uson_www', *sys.argv[1:], "--no-ssl"])
+        if os.access(CONFDIR + "/privkey.pem", os.R_OK):
+            print(f"Server started https://{BIND_HOST}:{BIND_PORT}")
+            uvicorn.run(
+                'ais3uson_www:app', port=BIND_PORT, host=BIND_HOST,
+                ssl_keyfile=f"{CONFDIR}/privkey.pem",
+                ssl_certfile=f"{CONFDIR}/cert.pem")
         else:
             print("Can't read SSL certificate")
     else:
-        print("Server started http://%s:%s" % (hostName, SERVERPORT))
+        #############################
+        # start without ssl
+        # ---------------------------
+        print(f"Server started http://{BIND_HOST}:{BIND_PORT}")
+        uvicorn.run(
+            'ais3uson_www:app', port=BIND_PORT, host=BIND_HOST)
 
-    try:
-        webServer.serve_forever()
-    except KeyboardInterrupt:
-        pass
-
-    webServer.server_close()
     print("Server stopped.")

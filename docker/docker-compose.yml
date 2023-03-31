@@ -12,7 +12,7 @@ services:
       - "48080:48080"
       - "48081:48081" # useful for testing, required --debug-portoption
     restart: always
-    command: --mysql_host aismysql --conf-dir "/run/secrets" --debug-port
+    command: --mysql-host aismysql --conf-dir "/run/secrets" --debug-port
     links:
       - aismysql
     networks:

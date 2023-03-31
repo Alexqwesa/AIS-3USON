@@ -5,7 +5,9 @@
 FROM alpine:latest
 RUN apk add --update --no-cache py3-pip python3
 RUN pip install mysql-connector-python
-RUN apk del py3-pip
+RUN pip install uvicorn
+RUN pip install fastapi httpx
+RUN apk del py3-pip py3-setuptools py3-packaging
 ADD ./web_worker/ais3uson_www.py .
 EXPOSE 48080
 EXPOSE 48081

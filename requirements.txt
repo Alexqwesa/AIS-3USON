@@ -24,7 +24,14 @@ dataclasses
 # for hot reload (autoreload - it is useful but not stable)
 #watchdog
 
+# for web worker
+uvicorn
+fastapi
+httpx
+# ujson
+starlette
+
 # for Install and Development
 PyInstaller
 pytest
-
+pydantic
