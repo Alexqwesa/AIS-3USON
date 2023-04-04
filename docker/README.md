@@ -1,6 +1,6 @@
 # Setup docker-compose.yml
 
-For real deployment better use, helm chart in helm folder. 
+For real deployment better use, helm chart in helm folder.
 
 ### In file docker-compose.yml edit the following line:
 
@@ -43,4 +43,4 @@ docker exec -i aismysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < 04_
 OPTIONAL:
 docker exec -i aismysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < 05_extended_test_data.sql
 docker exec -i aismysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < extended_test_data_2.sql
-``
+```

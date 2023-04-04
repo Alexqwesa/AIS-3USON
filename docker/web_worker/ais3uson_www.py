@@ -34,7 +34,7 @@ from starlette.testclient import TestClient
 
 app = FastAPI()
 
-VERSION = 8
+VERSION = 13
 
 BIND_HOST = os.getenv("HOST_NAME", "0.0.0.0")
 BIND_PORT = int(os.getenv("SERVER_PORT", 48080))

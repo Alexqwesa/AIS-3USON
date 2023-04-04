@@ -2,19 +2,18 @@
 # eval $(minikube docker-env)  # for minikube only
 # docker build . --tag=ais3uson:latest
 
-FROM alpine:latest
-RUN apk add --update --no-cache py3-pip python3
-RUN pip install  --no-cache-dir  mysql-connector-python
+FROM python:3.11-slim
+RUN #apk add --update --no-cache py3-pip python3 # protobuf
+RUN pip install  --no-cache-dir  mysql-connector-python protobuf # python3-dnspython
 RUN pip install  --no-cache-dir uvicorn
 RUN pip install  --no-cache-dir fastapi httpx
-#RUN pip install --no-cache-dir --upgrade pydantic
-#RUN pip install --no-cache-dir --upgrade starlette
-RUN apk del py3-pip py3-setuptools py3-packaging
+RUN pip install --no-cache-dir --upgrade pydantic
 RUN rm -rf /root/.cache
+RUN  rm -f /var/cache/apk/*
 ADD ./web_worker/ais3uson_www.py .
 EXPOSE 48080
 EXPOSE 48081
-ENTRYPOINT ["/usr/bin/python", "./ais3uson_www.py"]
+ENTRYPOINT ["python", "./ais3uson_www.py"]
 
 # DEPLOY
 # eval $(minikube docker-env)  # for minikube only
