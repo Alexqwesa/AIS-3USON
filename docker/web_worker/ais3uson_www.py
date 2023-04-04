@@ -50,6 +50,8 @@ CORS_LIST = json.loads(os.getenv('CORS_LIST', """
     "4":"http://localhost"
 }
 """.replace("\n", "")))
+# "5":"https://alexqwesa.github.io", # will be put at deployment time
+# "6":"*"  # useful for testing
 
 app.add_middleware(
     CORSMiddleware,

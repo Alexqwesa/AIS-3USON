@@ -25,9 +25,7 @@ spec:
             - aismysql
             - --debug-port
             - --allow-cors-for
-            - "https://minikube/" # put your website name here if needed
-            - --allow-cors-for
-            - "https://alexqwesa.github.io/" # put your website name here if needed
+            - "https://alexqwesa.github.io" # put your website name here if needed
           name: ais3uson
           image: ais3uson
           imagePullPolicy: Never # for local images only
