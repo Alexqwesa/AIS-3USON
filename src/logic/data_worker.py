@@ -22,6 +22,7 @@
 # ---------------------------
 import random
 import string
+from datetime import time
 
 from qtpy.QtCore import QRegularExpression as QRegExp
 
@@ -272,7 +273,7 @@ class _data_worker(QObject):
             # get services by contract
             # ---------------------------
             qry = QSqlQuery(SD.get_db)
-            qry.prepare("""select planned, filled, prim
+            qry.prepare("""select planned, filled, note
                 from contracts_has_serv 
                 where  contracts_id = ? and serv_id = ? """)
             qry.addBindValue(contr)
@@ -287,6 +288,8 @@ class _data_worker(QObject):
                     return 0, tr("в ИППСУ нет этой услуги!")
             else:
                 return 0, tr(" ошибка - не удалось проверить услугу !")
+        elif contr == -1:
+            return 0, tr("Ошибка выбора договора - Несколько договоров на данную дату")
         else:
             return 0, tr("Нет договора (на данную дату)")
 
