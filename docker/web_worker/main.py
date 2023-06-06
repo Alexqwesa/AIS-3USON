@@ -1,6 +1,5 @@
 # stub for Deta
-import sys
-from subprocess import Popen
+import ais3uson_www
 
 if __name__ == "__main__":
-    Popen(['python3', '-m', 'ais3uson_www', *sys.argv[1]])
+    ais3uson_www.main()

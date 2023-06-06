@@ -21,7 +21,7 @@ import os
 import socket
 import sys
 from subprocess import Popen
-from typing import Annotated, Tuple
+from typing import Annotated, Tuple, Union
 
 import mysql
 import uvicorn
@@ -31,8 +31,6 @@ from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse
 from starlette.testclient import TestClient
-
-app = FastAPI()
 
 VERSION = 13
 
@@ -53,6 +51,8 @@ CORS_LIST = json.loads(os.getenv('CORS_LIST', """
 # "5":"https://alexqwesa.github.io", # will be put at deployment time
 # "6":"*"  # useful for testing
 
+
+app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=CORS_LIST.values(),
@@ -143,7 +143,7 @@ async def read_services(api_key: Annotated[str, Header()] = ""):
 
 
 @app.get("/planned")
-async def read_planned(api_key: Annotated[str | None, Header()] = None):
+async def read_planned(api_key: Annotated[Union[str, None], Header()] = None):
     """Get list of clients"""
     if api_key:
         header, message = get_sql_data(sql_query="""
@@ -265,10 +265,19 @@ client = TestClient(app)
 def test_read_main():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "Hello World"}
+    assert response.json() == {"ais_3uson": VERSION}
 
 
-if __name__ == "__main__":
+def main():
+    # globals()[""]
+    global CONFDIR
+    global PASSWORD
+    global BIND_HOST
+    global BIND_PORT
+    global MYSQL_PORT
+    global MYSQL_HOST
+    global CORS_LIST
+    global CONFDIR
     try:
         with open(CONFDIR + r"/mysql-web-worker-password", mode="r", encoding="utf-8") as f:
             PASSWORD = f.readline().replace("\n", "")
@@ -354,3 +363,7 @@ if __name__ == "__main__":
             'ais3uson_www:app', port=BIND_PORT, host=BIND_HOST)
 
     print("Server stopped.")
+
+
+if __name__ == "__main__":
+    main()
