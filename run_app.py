@@ -12,7 +12,7 @@
 # which should be included with this package. The terms are also available at
 # http://www.gnu.org/licenses/lgpl-3.0.html
 # -------------
-from main_pyqt_frontend import *
+from src.main_pyqt_frontend import *
 
 if __name__ == "__main__":
     print(PROJECT_DIR)

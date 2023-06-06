@@ -506,7 +506,7 @@ class QCalendarParalled(QCalendarView):
             self.cache_lock = self.parent().cache_lock  # TODO: pass as parameter
             self.runners_id = []
             self.dispatch_called = 0
-            self.qtimer_dispatch = False
+            self.qtimer_dispatch = None
             self.dispatch_lock: QMutex = QRecursiveMutex()
             #############################
             # connect

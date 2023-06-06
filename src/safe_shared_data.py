@@ -1008,5 +1008,5 @@ class _ui_data(QObject):
 #############################
 # make only one instance
 # ---------------------------
-SD = _safe_share_data()
-UI = _ui_data()
+SD: _safe_share_data = _safe_share_data()
+UI: _ui_data = _ui_data()

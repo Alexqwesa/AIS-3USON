@@ -1,6 +1,6 @@
 # AIS 3USON ( "АИС ТриУСОН" )
 
-<img align="right" src="src/images/ais-3uson-logo-128.png">
+<img align="right" src="src/images/ais-3uson-logo-128.png" alt="logo">
 
 An AIS-3USON project contain both Backend(SQL) and desktop Frontend(python+Qt), it supports Linux and Windows OS.
 
