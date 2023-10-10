@@ -62,3 +62,9 @@ kubectl get pods | grep aismysql  # to see exact pod name
  kubectl exec -it $POD -- mysql  -uroot  -p$(cat ../docker/secrets/mysql-root-password) < 05_activate_admin_and_test_user.sql
 ```
 
+Create `ais3uson` image: 
+
+```bash
+# cd AIS-3USON/docker
+docker image build . --tag ais3uson
+```
