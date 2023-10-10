@@ -5,7 +5,7 @@ metadata:
     io.ais3uson.service: aismysql
   name: aismysql
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - nodePort: 30306
       port: 3307

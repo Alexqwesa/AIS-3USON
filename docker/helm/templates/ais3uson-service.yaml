@@ -5,7 +5,7 @@ metadata:
     io.ais3uson.service: ais3uson
   name: ais3uson
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - nodePort: 30480
       name: ais3uson-port
