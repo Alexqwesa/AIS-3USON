@@ -1,3 +1,7 @@
+/*!50001 SET character_set_client = utf8mb4 */;
+/*!50001 SET character_set_results = utf8mb4 */;
+/*!50001 SET collation_connection = utf8mb4_0900_ai_ci */;
+
 
 -- Use simple api_key for testing purposes (used in mobile application)
 UPDATE kcson.dep_has_worker

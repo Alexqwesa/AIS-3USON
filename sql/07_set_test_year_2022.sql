@@ -1,3 +1,7 @@
+/*!50001 SET character_set_client = utf8mb4 */;
+/*!50001 SET character_set_results = utf8mb4 */;
+/*!50001 SET collation_connection = utf8mb4_0900_ai_ci */;
+
 # since filling test data for every new year is tiresome, test database will always use 2022 year internally
 DELIMITER @@
 CREATE

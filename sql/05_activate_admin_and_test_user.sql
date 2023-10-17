@@ -1,3 +1,7 @@
+/*!50001 SET character_set_client = utf8mb4 */;
+/*!50001 SET character_set_results = utf8mb4 */;
+/*!50001 SET collation_connection = utf8mb4_0900_ai_ci */;
+
 -- administrator
 CREATE USER 'admin2'@'%' IDENTIFIED BY 'admin2';
 GRANT Usage ON *.* TO 'admin2'@'%';
